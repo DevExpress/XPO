@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>DevExpress.Xpo.Demo</AssemblyName>
+    <RootNamespace>DevExpress.Xpo.Demo</RootNamespace>
+    <PackageId>DevExpress.Xpo.AspNetCoreDemo</PackageId>
+    <Authors>DevExpress.Xpo.AspNetCoreDemo</Authors>
+    <Company>DevExpress.Xpo.AspNetCoreDemo</Company>
+    <Product>DevExpress.Xpo.AspNetCoreDemo</Product>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Properties\PublishProfiles\CustomProfile.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DevExpress.Xpo" Version="17.2.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="2.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+</Project>

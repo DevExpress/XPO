@@ -1,0 +1,48 @@
+﻿@page
+@model DataModel
+@{
+
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Oid</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>E-mail</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    <form method="post" asp-page-handler="create">
+        <tr>
+            <td>-</td>
+            <td><input type="text" name="FirstName" /></td>
+            <td><input type="text" name="LastName" /></td>
+            <td><input type="text" name="Email" /></td>
+            <td><button type="submit" class="btn btn-success" />Create</td>
+        </tr>
+    </form>
+    @foreach(var user in @Model.Users){
+        <tr>
+            <td>@user.Oid</td>
+            <td>@user.FirstName</td>
+            <td>@user.LastName</td>
+            <td>@user.Email</td>
+            <td>
+                <form method="post">
+                    <button type="submit" class="btn btn-danger" asp-page-handler="delete" asp-route-id="@user.Oid">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Count: @Model.TotalCount</td>
+        </tr>
+    </tbody>
+</table>
