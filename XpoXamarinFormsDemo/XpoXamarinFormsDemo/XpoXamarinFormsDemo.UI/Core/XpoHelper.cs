@@ -17,12 +17,14 @@ namespace DevExpress.Xpo.XamarinFormsDemo {
         };
         public static void InitXpo(string connectionString) {
             var dictionary = PrepareDictionary();
-            using(var updateDataLayer = XpoDefault.GetDataLayer(connectionString, dictionary, AutoCreateOption.DatabaseAndSchema)) {
-                updateDataLayer.UpdateSchema(false, dictionary.CollectClassInfos(entityTypes));
+
+            if(XpoDefault.DataLayer == null) {
+                using(var updateDataLayer = XpoDefault.GetDataLayer(connectionString, dictionary, AutoCreateOption.DatabaseAndSchema)) {
+                    updateDataLayer.UpdateSchema(false, dictionary.CollectClassInfos(entityTypes));
+                }
             }
 
-            string pooledConnectionString = XpoDefault.GetConnectionPoolString(connectionString);
-            var dataStore = XpoDefault.GetConnectionProvider(pooledConnectionString, AutoCreateOption.SchemaAlreadyExists);
+            var dataStore = XpoDefault.GetConnectionProvider(connectionString, AutoCreateOption.SchemaAlreadyExists);
             XpoDefault.DataLayer = new ThreadSafeDataLayer(dictionary, dataStore);
             XpoDefault.Session = null;
 
