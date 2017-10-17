@@ -26,11 +26,11 @@ namespace DevExpress.Xpo.ConsoleCoreDemo
                 Console.WriteLine("     and Microsoft.Data.Sqlite 2.0 - ADO.NET provider for SQLite database");
                 while(true) {
                     Console.WriteLine();
-                    Console.WriteLine("- Enter something to create a new record");
-                    Console.WriteLine("- Say \"show\" to display stored records");
-                    Console.WriteLine("- Say \"clear\" to delete all records");
-                    Console.WriteLine("- Say \"xpo\" to learn more");
-                    Console.WriteLine("- Say \"quit\" for exit");
+                    Console.WriteLine("- Enter some text to create a new record.");
+                    Console.WriteLine("- Say \"show\" to display stored records.");
+                    Console.WriteLine("- Say \"clear\" to delete all records.");
+                    Console.WriteLine("- Say \"xpo\" to learn more.");
+                    Console.WriteLine("- Say \"quit\" for exit.");
                     Console.WriteLine();
                     Console.Write("XPO > ");
                     string result = Console.ReadLine();
