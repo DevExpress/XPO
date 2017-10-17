@@ -36,7 +36,7 @@
 					<Label.FormattedText>
 						<FormattedString>
 							<FormattedString.Spans>
-								<Span Text="This app is written in C# and native APIs using the" />
+								<Span Text="This app is written in C# and uses the" />
 								<Span Text=" " />
 								<Span Text="Xamarin Platform" FontAttributes="Bold" />
 								<Span Text=" and " />
@@ -50,7 +50,7 @@
 					<Label.FormattedText>
 						<FormattedString>
 							<FormattedString.Spans>
-								<Span Text="It shares code with its" />
+								<Span Text="The code is shared between " />
 								<Span Text=" " />
 								<Span Text="iOS, Android, and Windows" FontAttributes="Bold" />
 								<Span Text=" " />

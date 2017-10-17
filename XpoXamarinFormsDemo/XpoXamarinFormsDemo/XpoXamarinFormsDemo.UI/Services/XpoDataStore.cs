@@ -45,7 +45,7 @@ namespace DevExpress.Xpo.XamarinFormsDemo {
 
         public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false) {
             using(var uow = XpoHelper.CreateUnitOfWork()) {
-                return await Task.FromResult(uow.Query<Item>().OrderBy(i => i.Text).ToList());
+                return await Task.FromResult(uow.Query<Item>().OrderBy(i => i.Description).ToList());
             }
         }
 

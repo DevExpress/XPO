@@ -33,7 +33,7 @@ namespace DevExpress.Xpo.XamarinFormsDemo {
             Button button = (Button)sender;
             Item item = button.BindingContext as Item;
             if(item != null) {
-                var result = await DisplayAlert("Delete", $"Are you sure you want to delete \"{item.Text}\" item?", "Yes", "No");
+                var result = await DisplayAlert("Delete", $"Are you sure you want to delete the \"{item.Text}\" item?", "Yes", "No");
                 if(result) {
                     MessagingCenter.Send(this, "DeleteItem", item);
                 }
