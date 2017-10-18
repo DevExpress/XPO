@@ -1,24 +1,25 @@
 ﻿using System;
+using System.Data;
 using System.IO;
 using System.Linq;
 using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
 using System.Diagnostics;
+using System.Drawing;
 using System.Runtime.InteropServices;
 
-namespace DevExpress.Xpo.ConsoleCoreDemo
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
+namespace DevExpress.Xpo.ConsoleCoreDemo {
+    class Program {
+        static void Main(string[] args) {
             string appDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DevExpress.Xpo.ConsoleCoreDemo");
             if(!Directory.Exists(appDataPath)) {
                 Directory.CreateDirectory(appDataPath);
             }
+            // XPO data layer setup against a local SQLite database. Learn more at https://documentation.devexpress.com/CoreLibraries/2020/DevExpress-ORM-Tool/Feature-Center/Connecting-to-a-Data-Store.
             string connectionString = SQLiteConnectionProvider.GetConnectionString(Path.Combine(appDataPath, "xpoConsole.db"));
             XpoDefault.DataLayer = XpoDefault.GetDataLayer(connectionString, AutoCreateOption.DatabaseAndSchema);
             XpoDefault.Session = null;
+
             try {
                 Console.WriteLine();
                 Console.WriteLine("XPO console demo application 1.0");
@@ -50,6 +51,7 @@ namespace DevExpress.Xpo.ConsoleCoreDemo
                             Console.WriteLine();
                             break;
                         case "clear":
+                            // Querying and deleting XPO objects. Learn more at https://documentation.devexpress.com/CoreLibraries/2026/DevExpress-ORM-Tool/Feature-Center/Data-Exchange-and-Manipulation/Deleting-Persistent-Objects.
                             using(UnitOfWork uow = new UnitOfWork()) {
                                 var itemsToDelete = uow.Query<StatisticInfo>().ToList();
                                 if(itemsToDelete.Count > 0) {
@@ -60,7 +62,8 @@ namespace DevExpress.Xpo.ConsoleCoreDemo
                                         uow.CommitChanges();
                                         Console.WriteLine($"Done.");
                                     }
-                                } else {
+                                }
+                                else {
                                     Console.WriteLine("There are no records to delete.");
                                 }
                             }
@@ -73,7 +76,8 @@ namespace DevExpress.Xpo.ConsoleCoreDemo
                                 string runWwwPrefix = "";
                                 if(RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
                                     runWwwPrefix = "x-www-browser ";
-                                } else if(RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) {
+                                }
+                                else if(RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) {
                                     runWwwPrefix = "open ";
                                 }
                                 var psi = new ProcessStartInfo(runWwwPrefix + "https://www.devexpress.com/Products/NET/ORM/");
@@ -83,6 +87,7 @@ namespace DevExpress.Xpo.ConsoleCoreDemo
                             }
                             break;
                         default:
+                            // Creating and saving a new XPO object. Learn more at https://documentation.devexpress.com/CoreLibraries/2023/DevExpress-ORM-Tool/Feature-Center/Data-Exchange-and-Manipulation.
                             using(UnitOfWork uow = new UnitOfWork()) {
                                 StatisticInfo newInfo = new StatisticInfo(uow);
                                 newInfo.Info = result;
@@ -93,7 +98,8 @@ namespace DevExpress.Xpo.ConsoleCoreDemo
                             break;
                     }
                 }
-            } catch(Exception ex) {
+            }
+            catch(Exception ex) {
                 Console.WriteLine(ex.ToString());
                 Console.ReadKey();
             }
