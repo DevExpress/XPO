@@ -12,18 +12,18 @@ namespace DevExpress.Xpo.ConsoleCoreDemo {
         [Key(true)]
         public Guid Key {
             get { return key; }
-            set { SetPropertyValue("Key", ref key, value); }
+            set { SetPropertyValue(nameof(Key), ref key, value); }
         }
         string info;
         [Size(255)]
         public string Info {
             get { return info; }
-            set { SetPropertyValue("Info", ref info, value); }
+            set { SetPropertyValue(nameof(Info), ref info, value); }
         }
         DateTime date;
         public DateTime Date {
             get { return date; }
-            set { SetPropertyValue("Date", ref date, value); }
+            set { SetPropertyValue(nameof(Date), ref date, value); }
         }
     }
 }
