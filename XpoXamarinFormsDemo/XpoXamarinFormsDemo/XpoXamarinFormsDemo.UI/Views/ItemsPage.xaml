@@ -32,7 +32,9 @@
                            Style="{DynamicResource ListItemDetailTextStyle}"
                            FontSize="13" />
 							    </StackLayout>
-                                <Button Text="Delete" Clicked="Delete_Clicked" BindingContext="{Binding .}" VerticalOptions="Center" />
+                                <StackLayout Padding="10,10,10,10" VerticalOptions="Center">
+                                    <Button Text="Delete" Clicked="Delete_Clicked" BindingContext="{Binding .}" />
+                                </StackLayout>
                             </StackLayout>
                         </ViewCell>
 					</DataTemplate>
