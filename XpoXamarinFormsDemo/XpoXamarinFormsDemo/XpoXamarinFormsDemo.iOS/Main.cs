@@ -12,7 +12,7 @@ namespace DevExpress.Xpo.XamarinFormsDemo.iOS
 		static void Main(string[] args)
 		{
             //Initialize SQLite with sqlite3 provider
-            SQLitePCL.raw.SetProvider(new SQLitePCL.SQLite3Provider_sqlite3());
+            SQLitePCL.Batteries_V2.Init();
 
             // if you want to use a different Application Delegate class from "AppDelegate"
             // you can specify it here.

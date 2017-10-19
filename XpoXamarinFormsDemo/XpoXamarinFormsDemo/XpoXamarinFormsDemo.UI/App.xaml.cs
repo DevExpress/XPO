@@ -13,19 +13,19 @@ namespace DevExpress.Xpo.XamarinFormsDemo {
 
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
+            var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+
             //MSSqlServer
 
             //string connectionString = MSSqlConnectionProvider.GetConnectionString("YOUR_SERVER_NAME", "sa", "", "XamarinDemo");
 
             //SQLite
 
-            //var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             //var filePath = Path.Combine(documentsPath, "xpoXamarinDemo.db");
-            //string connectionString = SQLiteConnectionProvider.GetConnectionString(filePath);
+            //string connectionString = SQLiteConnectionProvider.GetConnectionString(filePath) + ";Cache=Shared;";
 
             //In-memory data store with saving/loading from the xml file
 
-            var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var filePath = Path.Combine(documentsPath, "xpoXamarinDemo.xml");
             string connectionString = InMemoryDataStore.GetConnectionString(filePath);
 
