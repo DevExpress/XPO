@@ -41,7 +41,7 @@ The solution located in the `XpoXamarinFormsDemo` subfolder demonstrates the use
 
 To try this demo, open the solution in [Visual Studio 2017 for Windows 15.4.0](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes#15.4) or [Visual Studio 2017 for Mac 7.2.0](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-mac-relnotes) or a newer version.
 
-The demo is configured to use the in-memory data provider with XML storage. Modify the *App.xaml.cs* file in the *DevExpress.Xpo.XamarinFormsDemo.UI* project to configure applications to configure another database connection (e.g., **SQLite**, **MS SQL Server** or any other supported database).
+The demo is configured to use the in-memory data provider with XML storage. Modify the *App.xaml.cs* file in the *DevExpress.Xpo.XamarinFormsDemo.UI* project to configure another database connection (e.g., **SQLite**, **MS SQL Server** or any other supported database).
 
 ## Get Support 
 If you have any questions regarding these demo projects, contact us via the [DevExpress Support Center](https://www.devexpress.com/Support/Center/Question/Create).
