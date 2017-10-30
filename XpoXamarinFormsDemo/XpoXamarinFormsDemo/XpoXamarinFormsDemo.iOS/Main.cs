@@ -11,7 +11,7 @@ namespace DevExpress.Xpo.XamarinFormsDemo.iOS
 		// This is the main entry point of the application.
 		static void Main(string[] args)
 		{
-            //Initialize SQLite with sqlite3 provider
+            //Initialize SQLite with the sqlite3 provider
             SQLitePCL.Batteries_V2.Init();
 
             // if you want to use a different Application Delegate class from "AppDelegate"
