@@ -35,7 +35,7 @@ The project is configured for a local **SQLite** database. Modify the *Startup.c
 ## Xamarin Demo
 The solution located in the `XpoXamarinFormsDemo` subfolder demonstrates the use of XPO in [Xamarin\.Forms](https://www.xamarin.com/forms). It contains the following projects:
  - *DevExpress.Xpo.XamarinFormsDemo.UI* - the common .NET Standard 2.0 project with business logic (data layer initialization, data manipulation) and page layouts;
- - *DevExpress.Xpo.XamarinFormsDemo.Android* - Andoid app project;
+ - *DevExpress.Xpo.XamarinFormsDemo.Android* - Android app project;
  - *DevExpress.Xpo.XamarinFormsDemo.iOS* - iOS app project;
  - *DevExpress.Xpo.XamarinFormsDemo.UWP* - UWP app project.
 
