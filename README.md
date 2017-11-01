@@ -46,7 +46,8 @@ The demo is configured to use the in-memory data provider with XML storage. Modi
 ## Get Support 
 If you have any questions regarding these demo projects, contact us via the [DevExpress Support Center](https://www.devexpress.com/Support/Center/Question/Create).
 
-
+## Your feedback is needed!
+We would greatly appreciate it if you [participate in this short survey (6 questions, ~3 min)](https://www.devexpress.com/go/XPO_Try_NET_Core_Beta_Survey.aspx).
 
 
 
