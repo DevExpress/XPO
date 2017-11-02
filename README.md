@@ -13,7 +13,7 @@ git clone https://github.com/DevExpress/XpoNetCoreDemos.git
 If you do not have [Git](https://git-scm.com/) installed, download and extract the ZIP archive using the GitHub web interface.
 
 ## Console Demo
-The solution located in the `XpoConsoleCoreDemo` subfolder is a **.NET Standart 2.0** console application, demonstrating how to initialize the data layer and perform basic data operations. To run the application, execute the following commands in the repository root folder:
+The solution located in the `XpoConsoleCoreDemo` subfolder is a **.NET Standart 2.0** console application, demonstrating how to initialize the data layer and perform basic data operations. To run the application, execute the following commands in the **repository root folder** (XpoNetCoreDemos by default):
 ```
 cd XpoConsoleCoreDemo\XpoConsoleCoreDemo
 dotnet restore
