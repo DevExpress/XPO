@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.Xpo" Version="17.2.1" />
+    <PackageReference Include="DevExpress.Xpo" Version="17.2.2-beta" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="2.0.0" />
   </ItemGroup>
 
