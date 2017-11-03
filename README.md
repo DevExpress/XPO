@@ -1,4 +1,4 @@
-# DevExpress XPO for .NET Standart 2.0 Demos
+# DevExpress XPO for .NET Standard 2.0 Demos
 
 This repository contains demo projects demonstrating how to use [eXpressPersistent Objects™ (XPO)](https://www.devexpress.com/Products/NET/ORM/)  in [\.NET Standard 2.0](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) applications. You can use these projects to learn how to use XPO in console, ASP.NET Core or Xamarin applications. All required DevExpress references are included.
 
@@ -13,7 +13,7 @@ git clone https://github.com/DevExpress/XpoNetCoreDemos.git
 If you do not have [Git](https://git-scm.com/) installed, download and extract the ZIP archive using the GitHub web interface.
 
 ## Console Demo
-The solution located in the `XpoConsoleCoreDemo` subfolder is a **.NET Standart 2.0** console application, demonstrating how to initialize the data layer and perform basic data operations. To run the application, execute the following commands in the **repository root folder** (XpoNetCoreDemos by default):
+The solution located in the `XpoConsoleCoreDemo` subfolder is a **.NET Standard 2.0** console application, demonstrating how to initialize the data layer and perform basic data operations. To run the application, execute the following commands in the **repository root folder** (XpoNetCoreDemos by default):
 ```
 cd XpoConsoleCoreDemo\XpoConsoleCoreDemo
 dotnet restore
@@ -47,7 +47,7 @@ The demo is configured to use the in-memory data provider with XML storage. Modi
 If you have any questions regarding these demo projects, contact us via the [DevExpress Support Center](https://www.devexpress.com/Support/Center/Question/Create).
 
 ## Learn More
-This tutorial demonstrates how to create an XPO-based .NET Standart 2.0 console application that initializes the data layer and performs basic data operations: [Getting Started with \.NET Core](https://documentation.devexpress.com/CoreLibraries/119377/DevExpress-ORM-Tool/Getting-Started/Getting-Started-with-NET-Core).
+This tutorial demonstrates how to create an XPO-based .NET Standard 2.0 console application that initializes the data layer and performs basic data operations: [Getting Started with \.NET Core](https://documentation.devexpress.com/CoreLibraries/119377/DevExpress-ORM-Tool/Getting-Started/Getting-Started-with-NET-Core).
 
 ## Your feedback is needed!
 We would greatly appreciate it if you [participate in this short survey (6 questions, ~3 min)](https://www.devexpress.com/go/XPO_Try_NET_Core_Beta_Survey.aspx).
