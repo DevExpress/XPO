@@ -1,4 +1,6 @@
-![XPO for .NET Core Logo](https://user-images.githubusercontent.com/5479762/32771815-03632fa0-c935-11e7-9f19-2297bd4cc3f5.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/5479762/32771815-03632fa0-c935-11e7-9f19-2297bd4cc3f5.png" alt="XPO for .NET Core / Standard 2.0 Logo"/>
+</p>
 
 # DevExpress XPO for .NET Core / .NET Standard 2.0 Demos
 
