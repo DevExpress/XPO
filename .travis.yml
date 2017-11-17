@@ -1,8 +1,10 @@
 language: csharp
-solution: XpoConsoleCoreDemo/DevExpress.Xpo.ConsoleCoreDemo.sln
+sudo: required
+solution: DevExpress.Xpo.ConsoleCoreDemo.sln
 mono: none
 dotnet: 2.0.0
 dist: trusty
 script:
- - dotnet restore XpoConsoleCoreDemo/DevExpress.Xpo.ConsoleCoreDemo.sln
- - dotnet build XpoConsoleCoreDemo/DevExpress.Xpo.ConsoleCoreDemo.sln
+ - cd XpoConsoleCoreDemo
+ - dotnet restore
+ - dotnet build -c Debug
