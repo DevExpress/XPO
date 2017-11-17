@@ -1,0 +1,7 @@
+language: csharp
+solution: XpoConsoleCoreDemo/DevExpress.Xpo.ConsoleCoreDemo.sln
+mono: none
+dotnet: 2.0
+dist: trusty
+script:
+ - dotnet restore
