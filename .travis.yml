@@ -8,3 +8,6 @@ script:
  - cd XpoConsoleCoreDemo
  - dotnet restore
  - dotnet build -c Debug
+ - cd ../XpoASPNETCoreDemo
+ - dotnet restore
+ - dotnet build -c Debug
