@@ -22,12 +22,18 @@ namespace DevExpress.Xpo.Demo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddXpoPooledDataLayer(Configuration.GetConnectionString("SQLite"));
+            //services.AddXpoPooledDataLayer(Configuration.GetConnectionString("MSSqlServer"));
+            services.AddXpoUnitOfWork();
+
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseXpoDemoData();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -46,9 +52,6 @@ namespace DevExpress.Xpo.Demo
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
             });
-
-            XpoHelper.InitXpo(Configuration.GetConnectionString("SQLite"));
-            //XpoHelper.InitXpo(Configuration.GetConnectionString("MSSqlServer"));
         }
     }
 }
