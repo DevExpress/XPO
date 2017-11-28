@@ -14,6 +14,11 @@ namespace DevExpress.Xpo.Demo.Core
             typeof(User)
         };
         public static void InitXpo(string connectionString) {
+            XpoDefault.DataLayer = CreatePooledDataLayer(connectionString);
+            XpoDefault.Session = null;
+            CreateDemoData(() => new UnitOfWork());
+        }
+        public static ThreadSafeDataLayer CreatePooledDataLayer(string connectionString) {
             var dictionary = PrepareDictionary();
 
             using(var updateDataLayer = XpoDefault.GetDataLayer(connectionString, dictionary, AutoCreateOption.DatabaseAndSchema)) {
@@ -22,20 +27,14 @@ namespace DevExpress.Xpo.Demo.Core
 
             string pooledConnectionString = XpoDefault.GetConnectionPoolString(connectionString);
             var dataStore = XpoDefault.GetConnectionProvider(pooledConnectionString, AutoCreateOption.SchemaAlreadyExists);
-            XpoDefault.DataLayer = new ThreadSafeDataLayer(dictionary, dataStore);
-            XpoDefault.Session = null;
-
-            CreateDemoData();
-        }
-        public static UnitOfWork CreateUnitOfWork() {
-            return new UnitOfWork();
+            var dataLayer = new ThreadSafeDataLayer(dictionary, dataStore); ;
+            return dataLayer;
         }
         static XPDictionary PrepareDictionary() {
             var dict = new ReflectionDictionary();
             dict.GetDataStoreSchema(entityTypes);
             return dict;
         }
-
         static readonly string[][] demoData = new string[][]{
             new string[] { "Amelia", "Harper", "ameliah@dx-email.com" },
             new string[] { "Lincoln", "Bartlett", "lincolnb@dx-email.com" },
@@ -47,8 +46,8 @@ namespace DevExpress.Xpo.Demo.Core
             new string[] { "Stu", "Pizaro", "stu@dx-email.com" },
             new string[] { "Bartolomeo", "Pizaro", "bartop@dx-email.com" },
         };
-        static void CreateDemoData() {
-            using(var uow = CreateUnitOfWork()) {
+        public static void CreateDemoData(Func<UnitOfWork> createUnitOfWork) {
+            using(var uow = createUnitOfWork()) {
                 if(!uow.Query<User>().Any()) {
                     foreach(var row in demoData) {
                         var newUser = new User(uow) {
