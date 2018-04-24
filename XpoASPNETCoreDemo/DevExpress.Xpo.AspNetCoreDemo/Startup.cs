@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using DevExpress.Xpo.Demo.Core;
+using DevExpress.Xpo.Demo.Entities;
 
 namespace DevExpress.Xpo.Demo
 {
@@ -20,11 +21,14 @@ namespace DevExpress.Xpo.Demo
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services) 
         {
-            services.AddXpoPooledDataLayer(Configuration.GetConnectionString("SQLite"));
-            //services.AddXpoPooledDataLayer(Configuration.GetConnectionString("MSSqlServer"));
-            services.AddXpoUnitOfWork();
+            services.AddXpoDefaultUnitOfWork(true, options =>
+                options.UseConnectionString(Configuration.GetConnectionString("SQLite"))
+                    .UseThreadSafeDataLayerSchemaInitialization(true)
+                    .UseAutoCreationOption(DB.AutoCreateOption.DatabaseAndSchema)
+                    .UseEntityTypes(new Type[] { typeof(User) })
+            );
 
             services.AddMvc();
         }
