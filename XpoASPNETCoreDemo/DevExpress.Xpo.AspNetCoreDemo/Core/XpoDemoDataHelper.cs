@@ -6,35 +6,12 @@ using Microsoft.Extensions.Configuration;
 using DevExpress.Xpo.DB;
 using DevExpress.Xpo.Metadata;
 using DevExpress.Xpo.Demo.Entities;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DevExpress.Xpo.Demo.Core
 {
-    public static class XpoHelper {
-        static readonly Type[] entityTypes = new Type[] {
-            typeof(User)
-        };
-        public static void InitXpo(string connectionString) {
-            XpoDefault.DataLayer = CreatePooledDataLayer(connectionString);
-            XpoDefault.Session = null;
-            CreateDemoData(() => new UnitOfWork());
-        }
-        public static ThreadSafeDataLayer CreatePooledDataLayer(string connectionString) {
-            var dictionary = PrepareDictionary();
-
-            using(var updateDataLayer = XpoDefault.GetDataLayer(connectionString, dictionary, AutoCreateOption.DatabaseAndSchema)) {
-                updateDataLayer.UpdateSchema(false, dictionary.CollectClassInfos(entityTypes));
-            }
-
-            string pooledConnectionString = XpoDefault.GetConnectionPoolString(connectionString);
-            var dataStore = XpoDefault.GetConnectionProvider(pooledConnectionString, AutoCreateOption.SchemaAlreadyExists);
-            var dataLayer = new ThreadSafeDataLayer(dictionary, dataStore); ;
-            return dataLayer;
-        }
-        static XPDictionary PrepareDictionary() {
-            var dict = new ReflectionDictionary();
-            dict.GetDataStoreSchema(entityTypes);
-            return dict;
-        }
+    public static class XpoDemoDataHelper {
         static readonly string[][] demoData = new string[][]{
             new string[] { "Amelia", "Harper", "ameliah@dx-email.com" },
             new string[] { "Lincoln", "Bartlett", "lincolnb@dx-email.com" },
@@ -46,8 +23,9 @@ namespace DevExpress.Xpo.Demo.Core
             new string[] { "Stu", "Pizaro", "stu@dx-email.com" },
             new string[] { "Bartolomeo", "Pizaro", "bartop@dx-email.com" },
         };
-        public static void CreateDemoData(Func<UnitOfWork> createUnitOfWork) {
-            using(var uow = createUnitOfWork()) {
+        public static IApplicationBuilder UseXpoDemoData(this IApplicationBuilder app) {
+            using(var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope()) {
+                UnitOfWork uow = scope.ServiceProvider.GetService<UnitOfWork>();
                 if(!uow.Query<User>().Any()) {
                     foreach(var row in demoData) {
                         var newUser = new User(uow) {
@@ -59,6 +37,7 @@ namespace DevExpress.Xpo.Demo.Core
                     uow.CommitChanges();
                 }
             }
+            return app;
         }
     }
 }
