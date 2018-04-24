@@ -25,6 +25,7 @@ namespace DevExpress.Xpo.Demo
         {
             services.AddXpoDefaultUnitOfWork(true, options =>
                 options.UseConnectionString(Configuration.GetConnectionString("SQLite"))
+                    .UseConnectionPool(false)
                     .UseThreadSafeDataLayerSchemaInitialization(true)
                     .UseAutoCreationOption(DB.AutoCreateOption.DatabaseAndSchema)
                     .UseEntityTypes(new Type[] { typeof(User) })
