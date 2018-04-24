@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevExpress.Xpo.AspNetCoreMvcDemo", "DevExpress.Xpo.AspNetMvcCoreDemo\DevExpress.Xpo.AspNetCoreMvcDemo.csproj", "{18D354CA-75B3-406B-B06D-A672DB7D56D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevExpress.Xpo.AspNetCoreMvcDemo", "DevExpress.Xpo.AspNetCoreMvcDemo\DevExpress.Xpo.AspNetCoreMvcDemo.csproj", "{18D354CA-75B3-406B-B06D-A672DB7D56D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
