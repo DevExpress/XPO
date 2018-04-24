@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using DevExpress.Xpo.AspNetMvcCoreDemo.Models;
+using DevExpress.Xpo.AspNetCoreMvcDemo.Models;
 
-namespace DevExpress.Xpo.AspNetMvcCoreDemo.Controllers
+namespace DevExpress.Xpo.AspNetCoreMvcDemo.Controllers
 {
     public class HomeController : Controller
     {

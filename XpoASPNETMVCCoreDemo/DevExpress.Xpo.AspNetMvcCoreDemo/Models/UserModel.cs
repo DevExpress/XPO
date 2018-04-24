@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DevExpress.Xpo.AspNetMvcCoreDemo.Models 
+namespace DevExpress.Xpo.AspNetCoreMvcDemo.Models 
 {
     public class UserModel {
         public Guid Oid { get; set; }

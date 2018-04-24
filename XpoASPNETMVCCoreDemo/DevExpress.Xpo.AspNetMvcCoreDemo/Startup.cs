@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using DevExpress.Xpo.Demo.Core;
 using DevExpress.Xpo.Demo.Entities;
 
-namespace DevExpress.Xpo.AspNetMvcCoreDemo
+namespace DevExpress.Xpo.AspNetCoreMvcDemo
 {
     public class Startup
     {

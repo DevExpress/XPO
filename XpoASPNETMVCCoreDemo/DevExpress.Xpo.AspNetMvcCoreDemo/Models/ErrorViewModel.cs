@@ -1,6 +1,6 @@
 using System;
 
-namespace DevExpress.Xpo.AspNetMvcCoreDemo.Models
+namespace DevExpress.Xpo.AspNetCoreMvcDemo.Models
 {
     public class ErrorViewModel
     {
