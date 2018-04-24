@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace DevExpress.Xpo.AspNetMvcCoreDemo
+namespace DevExpress.Xpo.AspNetCoreMvcDemo
 {
     public class Program
     {
