@@ -18,9 +18,24 @@ namespace DevExpress.Xpo.AspNetMvcCoreDemo.Controllers
             this.uow = uow;
         }
 
-        public IActionResult Index()
+        public IActionResult Index() 
         {
-            DataViewModel viewModel = new DataViewModel(uow);
+            var users = uow.Query<User>()
+                .OrderBy(u => u.LastName)
+                .ThenBy(u => u.FirstName)
+                .Select(u => new UserModel {
+                    Oid = u.Oid,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    Email = u.Email
+                }).ToList();
+            int totalCount = uow.Query<User>().Count();
+
+            DataViewModel viewModel = new DataViewModel() {
+                Users = users,
+                TotalCount = totalCount
+            };
+
             return View(viewModel);
         }
 
