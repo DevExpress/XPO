@@ -10,18 +10,5 @@ namespace DevExpress.Xpo.AspNetMvcCoreDemo.Models
     {
         public List<UserModel> Users;
         public int TotalCount;
-
-        public DataViewModel(UnitOfWork uow) {
-            Users = uow.Query<User>()
-                .OrderBy(u => u.LastName)
-                .ThenBy(u => u.FirstName)
-                .Select(u => new UserModel {
-                    Oid = u.Oid,
-                    FirstName = u.FirstName,
-                    LastName = u.LastName,
-                    Email = u.Email
-                }).ToList();
-            TotalCount = uow.Query<User>().Count();
-        }
     }
 }
