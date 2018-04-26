@@ -15,7 +15,7 @@ git clone https://github.com/DevExpress/XpoNetCoreDemos.git
 ```
 If you do not have [Git](https://git-scm.com/) installed, download and extract the ZIP archive using the GitHub web interface.
 
-## Console Demo [![Build Status](https://travis-ci.org/DevExpress/XpoNetCoreDemos.svg?branch=master)](https://travis-ci.org/DevExpress/XpoNetCoreDemos)
+## Console Demo [![Build Status](https://travis-ci.org/DevExpress/XpoNetCoreDemos.svg?branch=17.2)](https://travis-ci.org/DevExpress/XpoNetCoreDemos)
 The solution located in the `XpoConsoleCoreDemo` subfolder is a **.NET Standard 2.0** console application, demonstrating how to initialize the data layer and perform basic data operations. To run the application, execute the following commands in the **repository root folder** (XpoNetCoreDemos by default):
 ```
 cd XpoConsoleCoreDemo\XpoConsoleCoreDemo
@@ -24,7 +24,7 @@ dotnet run
 ```
 The project is configured to use a local **SQLite** database. You can modify the code in the *Program.cs* file to configure another database connection (e.g., **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)).
 
-## ASP.NET Core Demo [![Build Status](https://travis-ci.org/DevExpress/XpoNetCoreDemos.svg?branch=master)](https://travis-ci.org/DevExpress/XpoNetCoreDemos)
+## ASP.NET Core Demo [![Build Status](https://travis-ci.org/DevExpress/XpoNetCoreDemos.svg?branch=17.2)](https://travis-ci.org/DevExpress/XpoNetCoreDemos)
 The solution located in the `XpoASPNETCoreDemo` subfolder is a **.NET Standard 2.0** console application that displays a simple view with basic operations (*create*, *delete*, *list*). To run the application, execute the following commands in the repository root folder:
 ```
 cd XpoASPNETCoreDemo\DevExpress.Xpo.AspNetCoreDemo
@@ -38,8 +38,8 @@ The project is configured for a local **SQLite** database. Modify the *Startup.c
 ## Xamarin Demo
 The solution located in the `XpoXamarinFormsDemo` subfolder demonstrates the use of XPO in [Xamarin\.Forms](https://www.xamarin.com/forms). It contains the following projects:
  - *DevExpress.Xpo.XamarinFormsDemo.UI* - the common .NET Standard 2.0 project with business logic (data layer initialization, data manipulation) and page layouts;
- - *DevExpress.Xpo.XamarinFormsDemo.Android* [![Build status](https://build.appcenter.ms/v0.1/apps/6437f2e5-5b4f-44f5-925c-e8a8df334afa/branches/master/badge)](https://appcenter.ms) - Android app project;
- - *DevExpress.Xpo.XamarinFormsDemo.iOS* [![Build status](https://build.appcenter.ms/v0.1/apps/235d5dbc-83bf-42d5-9e48-52dd8770d5bf/branches/master/badge)](https://appcenter.ms) - iOS app project;
+ - *DevExpress.Xpo.XamarinFormsDemo.Android* - Android app project;
+ - *DevExpress.Xpo.XamarinFormsDemo.iOS* - iOS app project;
  - *DevExpress.Xpo.XamarinFormsDemo.UWP* - UWP app project.
 
 To try this demo, open the solution in [Visual Studio 2017 for Windows 15.4.0](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes#15.4) or [Visual Studio 2017 for Mac 7.2.0](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-mac-relnotes) or a newer version. In order to use [.NET Standard 2.0 in UWP](https://blogs.msdn.microsoft.com/dotnet/2017/10/10/announcing-uwp-support-for-net-standard-2-0/), you need to target "Windows 10 Fall Creators Update" as the minimum version of your UWP project.
