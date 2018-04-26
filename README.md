@@ -45,7 +45,7 @@ Then, open http://localhost:5000 in your web browser.
 
 The project is configured for a local **SQLite** database. Modify the *Startup.cs* and *appsettings.json* files to configure another database connection (e.g., **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)).
 
-## ASP.NET Core MVC Demo
+## ASP.NET Core MVC Demo [![Build Status](https://travis-ci.org/DevExpress/XpoNetCoreDemos.svg?branch=master)](https://travis-ci.org/DevExpress/XpoNetCoreDemos)
 
 The solution located in the `XpoASPNETCoreMVCDemo` subfolder is a **.NET Standard 2.0** console application that displays a simple view with basic operations (*create*, *delete*, *list*). To run the application, execute the following commands in the repository root folder:
 
