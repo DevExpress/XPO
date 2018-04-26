@@ -6,36 +6,62 @@ This repository contains demo projects demonstrating how to use [eXpressPersiste
 </p>
 
 ## Prerequisites
+
 Download and install [.NET Core 2.0 SDK](https://www.microsoft.com/net/download/core).
 
 ## Get the Sources
+
 Clone this repository:
+
 ```
 git clone https://github.com/DevExpress/XpoNetCoreDemos.git
 ```
+
 If you do not have [Git](https://git-scm.com/) installed, download and extract the ZIP archive using the GitHub web interface.
 
 ## Console Demo [![Build Status](https://travis-ci.org/DevExpress/XpoNetCoreDemos.svg?branch=master)](https://travis-ci.org/DevExpress/XpoNetCoreDemos)
+
 The solution located in the `XpoConsoleCoreDemo` subfolder is a **.NET Standard 2.0** console application, demonstrating how to initialize the data layer and perform basic data operations. To run the application, execute the following commands in the **repository root folder** (XpoNetCoreDemos by default):
+
 ```
 cd XpoConsoleCoreDemo\XpoConsoleCoreDemo
 dotnet restore
 dotnet run
 ```
+
 The project is configured to use a local **SQLite** database. You can modify the code in the *Program.cs* file to configure another database connection (e.g., **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)).
 
-## ASP.NET Core Demo [![Build Status](https://travis-ci.org/DevExpress/XpoNetCoreDemos.svg?branch=master)](https://travis-ci.org/DevExpress/XpoNetCoreDemos)
+## ASP.NET Core Razor Pages Demo [![Build Status](https://travis-ci.org/DevExpress/XpoNetCoreDemos.svg?branch=master)](https://travis-ci.org/DevExpress/XpoNetCoreDemos)
+
 The solution located in the `XpoASPNETCoreDemo` subfolder is a **.NET Standard 2.0** console application that displays a simple view with basic operations (*create*, *delete*, *list*). To run the application, execute the following commands in the repository root folder:
+
 ```
 cd XpoASPNETCoreDemo\DevExpress.Xpo.AspNetCoreDemo
 dotnet restore
 dotnet run
 ```
+
 Then, open http://localhost:5000 in your web browser.
 
 The project is configured for a local **SQLite** database. Modify the *Startup.cs* and *appsettings.json* files to configure another database connection (e.g., **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)).
 
+## ASP.NET Core MVC Demo
+
+The solution located in the `XpoASPNETCoreMVCDemo` subfolder is a **.NET Standard 2.0** console application that displays a simple view with basic operations (*create*, *delete*, *list*). To run the application, execute the following commands in the repository root folder:
+
+```
+cd XpoASPNETCoreDemo\DevExpress.Xpo.AspNetCoreDemo
+dotnet restore
+dotnet run
+```
+
+Then, open http://localhost:5000 in your web browser.
+
+The project is configured for a local **SQLite** database. Modify the *Startup.cs* and *appsettings.json* files to configure another database connection (e.g., **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)).
+
+
 ## Xamarin Demo
+
 The solution located in the `XpoXamarinFormsDemo` subfolder demonstrates the use of XPO in [Xamarin\.Forms](https://www.xamarin.com/forms). It contains the following projects:
  - *DevExpress.Xpo.XamarinFormsDemo.UI* - the common .NET Standard 2.0 project with business logic (data layer initialization, data manipulation) and page layouts;
  - *DevExpress.Xpo.XamarinFormsDemo.Android* [![Build status](https://build.appcenter.ms/v0.1/apps/6437f2e5-5b4f-44f5-925c-e8a8df334afa/branches/master/badge)](https://appcenter.ms) - Android app project;
@@ -47,13 +73,13 @@ To try this demo, open the solution in [Visual Studio 2017 for Windows 15.4.0](h
 The demo is configured to use the in-memory data provider with XML storage. Modify the *App.xaml.cs* file in the *DevExpress.Xpo.XamarinFormsDemo.UI* project to configure another database connection (e.g., **SQLite**, **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)).
 
 ## Get Support 
+
 If you have any questions regarding these demo projects, contact us via the [DevExpress Support Center](https://www.devexpress.com/Support/Center/Question/Create).
 
 ## Learn More
+
 This tutorial demonstrates how to create an XPO-based .NET Standard 2.0 console application that initializes the data layer and performs basic data operations: [Getting Started with \.NET Core](https://documentation.devexpress.com/CoreLibraries/119377/DevExpress-ORM-Tool/Getting-Started/Getting-Started-with-NET-Core).
 
 ## Your feedback is needed!
+
 We would greatly appreciate it if you [participate in this short survey (6 questions, ~3 min)](https://www.devexpress.com/go/XPO_Try_NET_Core_Beta_Survey.aspx).
-
-
-
