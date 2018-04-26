@@ -11,3 +11,6 @@ script:
  - cd ../XpoASPNETCoreDemo
  - dotnet restore
  - dotnet build -c Debug
+ - cd ../XpoASPNETCoreMVCDemo
+ - dotnet restore
+ - dotnet build -c Debug 
