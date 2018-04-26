@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
-using DevExpress.Xpo.DB;
-using DevExpress.Xpo.Metadata;
 using DevExpress.Xpo.Demo.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DevExpress.Xpo.Demo.Core
-{
+namespace DevExpress.Xpo.Demo.Core {
     public static class XpoDemoDataHelper {
         static readonly string[][] demoData = new string[][]{
             new string[] { "Amelia", "Harper", "ameliah@dx-email.com" },

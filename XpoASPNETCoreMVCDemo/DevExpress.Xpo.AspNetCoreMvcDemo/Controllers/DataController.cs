@@ -7,19 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 using DevExpress.Xpo.AspNetCoreMvcDemo.Models;
 using DevExpress.Xpo.Demo.Entities;
 
-namespace DevExpress.Xpo.AspNetCoreMvcDemo.Controllers
-{
-    public class DataController : Controller
-    {
+namespace DevExpress.Xpo.AspNetCoreMvcDemo.Controllers {
+    public class DataController : Controller {
         readonly UnitOfWork uow;
 
-        public DataController(UnitOfWork uow)
-        {
+        public DataController(UnitOfWork uow) {
             this.uow = uow;
         }
 
-        public IActionResult Index() 
-        {
+        public IActionResult Index() {
             var users = uow.Query<User>()
                 .OrderBy(u => u.LastName)
                 .ThenBy(u => u.FirstName)
@@ -29,9 +25,10 @@ namespace DevExpress.Xpo.AspNetCoreMvcDemo.Controllers
                     LastName = u.LastName,
                     Email = u.Email
                 }).ToList();
+
             int totalCount = uow.Query<User>().Count();
 
-            DataViewModel viewModel = new DataViewModel() {
+            var viewModel = new DataViewModel() {
                 Users = users,
                 TotalCount = totalCount
             };
@@ -40,8 +37,7 @@ namespace DevExpress.Xpo.AspNetCoreMvcDemo.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(Guid id) 
-        {
+        public IActionResult Delete(Guid id) {
             var user = uow.GetObjectByKey<User>(id);
             if(user != null) {
                 uow.Delete(user);
@@ -51,8 +47,7 @@ namespace DevExpress.Xpo.AspNetCoreMvcDemo.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(UserModel model)
-        {
+        public IActionResult Create(UserModel model) {
             if(model != null) {
                 var newUser = new User(uow) {
                     FirstName = model.FirstName,

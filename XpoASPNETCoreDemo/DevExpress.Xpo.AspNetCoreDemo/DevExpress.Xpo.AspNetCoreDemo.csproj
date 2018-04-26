@@ -9,7 +9,10 @@
     <Product>DevExpress.Xpo.AspNetCoreDemo</Product>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <Compile Remove="Properties\PublishProfiles\**" />
+    <Content Remove="Properties\PublishProfiles\**" />
+    <EmbeddedResource Remove="Properties\PublishProfiles\**" />
+    <None Remove="Properties\PublishProfiles\**" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DevExpress.Xpo" Version="18.1.2-beta" />
@@ -21,7 +24,6 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 </Project>
