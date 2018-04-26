@@ -50,7 +50,7 @@ The project is configured for a local **SQLite** database. Modify the *Startup.c
 The solution located in the `XpoASPNETCoreMVCDemo` subfolder is a **.NET Standard 2.0** console application that displays a simple view with basic operations (*create*, *delete*, *list*). To run the application, execute the following commands in the repository root folder:
 
 ```
-cd XpoASPNETCoreDemo\DevExpress.Xpo.AspNetCoreDemo
+cd XpoASPNETCoreMVCDemo\DevExpress.Xpo.AspNetCoreMVCDemo
 dotnet restore
 dotnet run
 ```
@@ -64,11 +64,11 @@ The project is configured for a local **SQLite** database. Modify the *Startup.c
 
 The solution located in the `XpoXamarinFormsDemo` subfolder demonstrates the use of XPO in [Xamarin\.Forms](https://www.xamarin.com/forms). It contains the following projects:
  - *DevExpress.Xpo.XamarinFormsDemo.UI* - the common .NET Standard 2.0 project with business logic (data layer initialization, data manipulation) and page layouts;
- - *DevExpress.Xpo.XamarinFormsDemo.Android* [![Build status](https://build.appcenter.ms/v0.1/apps/6437f2e5-5b4f-44f5-925c-e8a8df334afa/branches/master/badge)](https://appcenter.ms) - Android app project;
- - *DevExpress.Xpo.XamarinFormsDemo.iOS* [![Build status](https://build.appcenter.ms/v0.1/apps/235d5dbc-83bf-42d5-9e48-52dd8770d5bf/branches/master/badge)](https://appcenter.ms) - iOS app project;
+ - *DevExpress.Xpo.XamarinFormsDemo.Android* - Android app project;
+ - *DevExpress.Xpo.XamarinFormsDemo.iOS* - iOS app project;
  - *DevExpress.Xpo.XamarinFormsDemo.UWP* - UWP app project.
 
-To try this demo, open the solution in [Visual Studio 2017 for Windows 15.4.0](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes#15.4) or [Visual Studio 2017 for Mac 7.2.0](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-mac-relnotes) or a newer version. In order to use [.NET Standard 2.0 in UWP](https://blogs.msdn.microsoft.com/dotnet/2017/10/10/announcing-uwp-support-for-net-standard-2-0/), you need to target "Windows 10 Fall Creators Update" as the minimum version of your UWP project.
+To try this demo, open the solution in [Visual Studio 2017 for Windows 15.6.0](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes#15.4) or [Visual Studio 2017 for Mac 7.4.0](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-mac-relnotes) or a newer version. In order to use [.NET Standard 2.0 in UWP](https://blogs.msdn.microsoft.com/dotnet/2017/10/10/announcing-uwp-support-for-net-standard-2-0/), you need to target "Windows 10 Fall Creators Update" as the minimum version of your UWP project.
 
 The demo is configured to use the in-memory data provider with XML storage. Modify the *App.xaml.cs* file in the *DevExpress.Xpo.XamarinFormsDemo.UI* project to configure another database connection (e.g., **SQLite**, **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)).
 
