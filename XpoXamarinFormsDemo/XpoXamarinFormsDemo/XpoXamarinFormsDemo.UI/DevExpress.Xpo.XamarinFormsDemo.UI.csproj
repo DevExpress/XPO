@@ -4,10 +4,14 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningsAsErrors />
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="DevExpress.Xpo" Version="18.1.2-beta" />
-    <PackageReference Include="Microsoft.Data.Sqlite" Version="2.0.0" />
-    <PackageReference Include="Xamarin.Forms" Version="2.4.0.74863" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="2.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.1.444934" />
   </ItemGroup>
 
   <ItemGroup>
