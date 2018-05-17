@@ -86,3 +86,6 @@ This tutorial demonstrates how to create an XPO-based .NET Standard 2.0 console 
 ## Your feedback is needed!
 
 We would greatly appreciate it if you [participate in this short survey (6 questions, ~3 min)](https://www.devexpress.com/go/XPO_Try_NET_Core_Beta_Survey.aspx).
+
+## See Also
+[Microsoft Identity and XPO Continues: Support for .NET Core available](https://community.devexpress.com/blogs/donw/archive/2018/03/07/microsoft-identity-and-xpo-continues-support-for-net-core-available.aspx)
