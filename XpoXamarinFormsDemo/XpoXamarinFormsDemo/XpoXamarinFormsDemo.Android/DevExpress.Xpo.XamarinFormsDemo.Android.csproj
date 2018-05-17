@@ -47,11 +47,12 @@
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v18.1, Version=18.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DevExpress.Data.18.1.2-beta\lib\netstandard2.0\DevExpress.Data.v18.1.dll</HintPath>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DevExpress.Data.18.1.3\lib\netstandard2.0\DevExpress.Data.v18.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DevExpress.Xpo.18.1.2-beta\lib\netstandard2.0\DevExpress.Xpo.v18.1.dll</HintPath>
+    <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DevExpress.Xpo.18.1.3\lib\netstandard2.0\DevExpress.Xpo.v18.1.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="FormsViewGroup, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.5.1.444934\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
