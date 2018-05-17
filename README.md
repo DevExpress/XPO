@@ -1,6 +1,7 @@
 # DevExpress XPO for .NET Core / .NET Standard 2.0 Demos
 
 This repository contains demo projects demonstrating how to use [eXpressPersistent Objects™ (XPO)](https://www.devexpress.com/Products/NET/ORM/)  in [\.NET Standard 2.0](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) applications. You can use these projects to learn how to use XPO in console, ASP.NET Core or Xamarin applications. All required DevExpress references are included.
+
 <p align="center">
   <img src="https://user-images.githubusercontent.com/5479762/32771815-03632fa0-c935-11e7-9f19-2297bd4cc3f5.png" alt="XPO for .NET Core / Standard 2.0 Logo"/>
 </p>
@@ -8,6 +9,11 @@ This repository contains demo projects demonstrating how to use [eXpressPersiste
 ## Prerequisites
 
 Download and install [.NET Core 2.0 SDK](https://www.microsoft.com/net/download/core).
+
+## Available Free of Charge without Technical Support
+If you do not require technical assistance from [our Support Team](https://www.devexpress.com/Support/Center/), you can use fully-functional XPO - ORM Library in your applications **free of charge**. Support is included with several paid subscriptions, including a dedicated [XPO - ORM Library Subscription](https://www.devexpress.com/Products/NET/ORM/#Pricing) license.
+
+To install the required binaries, use **https://nuget.devexpress.com/free/api** NuGet feed or [Unified Installer for .NET and HTML5 Developers](https://www.devexpress.com/Products/Try/). 
 
 ## Get the Sources
 
@@ -72,9 +78,6 @@ To try this demo, open the solution in [Visual Studio 2017 for Windows 15.6.0](h
 
 The demo is configured to use the in-memory data provider with XML storage. Modify the *App.xaml.cs* file in the *DevExpress.Xpo.XamarinFormsDemo.UI* project to configure another database connection (e.g., **SQLite**, **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)).
 
-## Get Support 
-
-If you have any questions regarding these demo projects, contact us via the [DevExpress Support Center](https://www.devexpress.com/Support/Center/Question/Create).
 
 ## Learn More
 
