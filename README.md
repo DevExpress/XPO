@@ -49,7 +49,7 @@ dotnet run
 
 Then, open http://localhost:5000 in your web browser.
 
-The project is configured for a local **SQLite** database. Modify the *Startup.cs* and *appsettings.json* files to configure another database connection (e.g., **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)).
+The project is configured for a local **SQLite** database. Modify the *Startup.cs* and *appsettings.json* files to configure another database connection (e.g., **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)). Check out the [ASP.NET Core Dependency Injection in XPO](https://www.devexpress.com/Support/Center/Question/Details/T637597/asp-net-core-dependency-injection-in-xpo) help topic for more information. 
 
 ## ASP.NET Core MVC Demo [![Build Status](https://travis-ci.org/DevExpress/XpoNetCoreDemos.svg?branch=master)](https://travis-ci.org/DevExpress/XpoNetCoreDemos)
 
@@ -63,7 +63,7 @@ dotnet run
 
 Then, open http://localhost:5000 in your web browser.
 
-The project is configured for a local **SQLite** database. Modify the *Startup.cs* and *appsettings.json* files to configure another database connection (e.g., **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)).
+The project is configured for a local **SQLite** database. Modify the *Startup.cs* and *appsettings.json* files to configure another database connection (e.g., **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)). Check out the [ASP.NET Core Dependency Injection in XPO](https://www.devexpress.com/Support/Center/Question/Details/T637597/asp-net-core-dependency-injection-in-xpo) help topic for more information.
 
 
 ## Xamarin Demo
@@ -88,4 +88,6 @@ This tutorial demonstrates how to create an XPO-based .NET Standard 2.0 console 
 We would greatly appreciate it if you [participate in this short survey (6 questions, ~3 min)](https://www.devexpress.com/go/XPO_Try_NET_Core_Beta_Survey.aspx).
 
 ## See Also
+[How to: Connect to a Data Store](https://documentation.devexpress.com/CoreLibraries/2123/DevExpress-ORM-Tool/Concepts/How-to-Connect-to-a-Data-Store)<br>
 [Microsoft Identity and XPO Continues: Support for .NET Core available](https://community.devexpress.com/blogs/donw/archive/2018/03/07/microsoft-identity-and-xpo-continues-support-for-net-core-available.aspx)
+
