@@ -13,7 +13,7 @@ Download and install [.NET Core 2.0 SDK](https://www.microsoft.com/net/download/
 ## Available Free of Charge without Technical Support
 If you do not require technical assistance from [our Support Team](https://www.devexpress.com/Support/Center/), you can use fully-functional XPO - ORM Library in your applications **free of charge**. Support is included with several paid subscriptions, including a dedicated [XPO - ORM Library Subscription](https://www.devexpress.com/Products/NET/ORM/#Pricing) license.
 
-To install the required binaries, use **https://nuget.devexpress.com/free/api** NuGet feed or [Unified Installer for .NET and HTML5 Developers](https://www.devexpress.com/Products/Try/). 
+To install the required binaries, use the [DevExpress\.Xpo](https://www.nuget.org/packages/DevExpress.Xpo/) NuGet package or [Unified Installer for .NET and HTML5 Developers](https://www.devexpress.com/Products/Try/). 
 
 ## Get the Sources
 
