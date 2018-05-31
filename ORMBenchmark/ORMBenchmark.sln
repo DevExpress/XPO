@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2018
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORMBenchmark", "ORMBenchmark\ORMBenchmark.csproj", "{E06C6C7E-1AAD-4712-9FAC-09D8237B23DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E06C6C7E-1AAD-4712-9FAC-09D8237B23DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E06C6C7E-1AAD-4712-9FAC-09D8237B23DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E06C6C7E-1AAD-4712-9FAC-09D8237B23DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E06C6C7E-1AAD-4712-9FAC-09D8237B23DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79F0C930-FD85-4D8D-8BC3-B3EB13249947}
+	EndGlobalSection
+EndGlobal
