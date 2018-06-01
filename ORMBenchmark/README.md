@@ -1,6 +1,6 @@
 # ORM Benchmark
 
-This project is a benchmark that you can you use to test [eXpressPersistent Objects™ (XPO)](https://www.devexpress.com/Products/NET/ORM/) ORM against Entity Framework 6 and [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) and [Entity Framework 6](https://docs.microsoft.com/en-us/ef/ef6/).
+This project is a benchmark that you can you use to test [eXpressPersistent Objects™ (XPO)](https://www.devexpress.com/Products/NET/ORM/) ORM against [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) and [Entity Framework 6](https://docs.microsoft.com/en-us/ef/ef6/).
 
 You can run this benchmark (edit the connection string in the [App.config](/ORMBenchmark/ORMBenchmark/App.config) file if required), or review our results below (obtained with MS SQL Server 2016 Developer Edition). In all charts, the less execution time is better.
 
