@@ -22,7 +22,7 @@ namespace ORMBenchmark.PerformanceTests {
         }
 
         private IDataLayer GetDataLayer(DevExpress.Xpo.DB.AutoCreateOption autoCreateOption) {
-            string connstr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            string connstr = "XpoProvider=MSSqlServer;" + ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             IDataLayer dl = XpoDefault.GetDataLayer(connstr, autoCreateOption);
             dl.Dictionary.GetDataStoreSchema(typeof(XPOEntity));
             return dl;
@@ -42,7 +42,7 @@ namespace ORMBenchmark.PerformanceTests {
 
         public override void CreateTestDataSet(int recordsCount) {
             CleanupTestDataSet();
-            using(IDataLayer dl = GetDataLayer(DevExpress.Xpo.DB.AutoCreateOption.SchemaOnly)) {
+            using(IDataLayer dl = GetDataLayer(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)) {
                 using(UnitOfWork uow = new UnitOfWork(dl)) {
                     for(int i = 0; i < recordsCount; i++) {
                         var XPOEntity = new XPOEntity(uow) { Id = i, Value = i };
@@ -54,7 +54,7 @@ namespace ORMBenchmark.PerformanceTests {
         }
 
         public override void CleanupTestDataSet() {
-            using(IDataLayer dl = GetDataLayer(DevExpress.Xpo.DB.AutoCreateOption.SchemaOnly)) {
+            using(IDataLayer dl = GetDataLayer(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)) {
                 using(UnitOfWork uow = new UnitOfWork(dl)) {
                     uow.UpdateSchema();
                     foreach(var item in uow.Query<XPOEntity>()) {
