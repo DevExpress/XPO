@@ -4,43 +4,43 @@ This project is a benchmark that you can you use to test [eXpressPersistent Obje
 
 You can run this benchmark (edit the connection string in the [App.config](/ORMBenchmark/ORMBenchmark/App.config) file if required), or review our results below (obtained with MS SQL Server 2016 Developer Edition). In all charts, the less execution time is better.
 
-## ObjectInstantiationNative Method
+## InsertOne Method
 
-|                       Small Data Set                        |                       Large Data Set                        |
-| ----------------------------------------------------------- | ----------------------------------------------------------- |
-| ![](/images/object-instantiation-native-small-data-set.png) | ![](/images/object-instantiation-native-large-data-set.png) |
+|               Small Data Set               |               Large Data Set               |
+| ------------------------------------------ | ------------------------------------------ |
+| ![](/images/insert-one-small-data-set.png) | ![](/images/insert-one-large-data-set.png) |
 
-| Row Count |  EF 6   | EF Core |  XPO   |
-| --------- | ------- | ------- | ------ |
-| 10        | 0,486   | 0,5719  | 0,3663 |
-| 50        | 0,5896  | 0,6425  | 0,439  |
-| 100       | 0,7313  | 0,7578  | 0,5382 |
-| 250       | 1,1555  | 0,9473  | 0,7949 |
-| 500       | 1,8038  | 1,5018  | 1,2471 |
-| 1000      | 2,9142  | 2,291   | 1,9856 |
-| 2500      | 6,2002  | 4,5225  | 4,1095 |
-| 5000      | 11,6849 | 7,9922  | 7,8626 |
+| Row Count |    EF 6    |  EF Core   |   XPO    |
+| --------- | ---------- | ---------- | -------- |
+| 10        | 3,9382     | 3,3298     | 2,4337   |
+| 50        | 14,6122    | 9,9241     | 7,961    |
+| 100       | 30,0346    | 23,5893    | 13,6619  |
+| 250       | 86,9598    | 80,8544    | 29,8041  |
+| 500       | 207,0142   | 233,2644   | 60,8275  |
+| 1000      | 657,1523   | 757,5676   | 114,1055 |
+| 2500      | 2946,7336  | 3767,6394  | 276,5439 |
+| 5000      | 10489,3505 | 13635,1981 | 559,1924 |
 
-**Source:** [ORMBenchmark.PerformanceTests.ObjectInstantiationNative](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L120-L122)
+**Source:** [ORMBenchmark.PerformanceTests.InsertOne](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L80-L82)
 
-## ObjectInstantiationLinq Method
+## InsertMultipleTest Method
 
-|                      Small Data Set                       |                      Large Data Set                       |
-| --------------------------------------------------------- | --------------------------------------------------------- |
-| ![](/images/object-instantiation-linq-small-data-set.png) | ![](/images/object-instantiation-linq-large-data-set.png) |
+|                 Small Data Set                  |                 Large Data Set                  |
+| ----------------------------------------------- | ----------------------------------------------- |
+| ![](/images/insert-multiple-small-data-set.png) | ![](/images/insert-multiple-large-data-set.png) |
 
-| Row Count |  EF 6   | EF Core |  XPO   |
-| --------- | ------- | ------- | ------ |
-| 10        | 1,7591  | 1,752   | 1,439  |
-| 50        | 0,8033  | 0,7674  | 0,445  |
-| 100       | 0,9229  | 0,8761  | 0,5366 |
-| 250       | 1,372   | 1,1581  | 0,7505 |
-| 500       | 2,0324  | 1,6075  | 1,1984 |
-| 1000      | 3,347   | 2,4348  | 1,7224 |
-| 2500      | 6,4652  | 4,643   | 3,817  |
-| 5000      | 11,8997 | 7,9856  | 7,2002 |
+| Row Count |   EF 6    | EF Core  |   XPO    |
+| --------- | --------- | -------- | -------- |
+| 10        | 2,9822    | 1,2062   | 4,3964   |
+| 50        | 9,1273    | 2,0758   | 4,7409   |
+| 100       | 15,6442   | 3,107    | 5,5234   |
+| 250       | 39,9253   | 7,663    | 12,534   |
+| 500       | 100,9607  | 22,4626  | 27,1542  |
+| 1000      | 262,3986  | 67,6117  | 55,2255  |
+| 2500      | 1079,3681 | 120,0971 | 131,7559 |
+| 5000      | 3608,7683 | 324,4928 | 257,4605 |
 
-**Source:** [ORMBenchmark.PerformanceTests.ObjectInstantiationLinq](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L125-L127)
+**Source:** [ORMBenchmark.PerformanceTests.InsertMultipleTest](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L85-L87)
 
 ## UpdateOne Method
 
@@ -97,7 +97,7 @@ You can run this benchmark (edit the connection string in the [App.config](/ORMB
 | 2500      | 433,5055 | 337,3731 | 250,5759 |
 | 5000      | 867,4947 | 690,0046 | 541,7737 |
 
-**Source:** [ORMBenchmark.PerformanceTests.DeleteOne](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L105-L107)
+**Source:** [ORMBenchmark.PerformanceTests.DeleteOne](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L100-L102)
 
 ## DeleteMany Method
 |               Small Data Set                |               Large Data Set                |
@@ -115,7 +115,7 @@ You can run this benchmark (edit the connection string in the [App.config](/ORMB
 | 2500      | 1093,5522 | 2907,4599  | 43,451  |
 | 5000      | 3855,8465 | 11422,7909 | 77,3494 |
 
-**Source:** [ORMBenchmark.PerformanceTests.DeleteMany](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L100-L102)
+**Source:** [ORMBenchmark.PerformanceTests.DeleteMany](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L105-L107)
 
 ## Fetch Method
 
@@ -136,43 +136,43 @@ You can run this benchmark (edit the connection string in the [App.config](/ORMB
 
 **Source:** [ORMBenchmark.PerformanceTests.Fetch](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L110-L112)
 
-## InsertOne Method
+## ObjectInstantiationNative Method
 
-|               Small Data Set               |               Large Data Set               |
-| ------------------------------------------ | ------------------------------------------ |
-| ![](/images/insert-one-small-data-set.png) | ![](/images/insert-one-large-data-set.png) |
+|                       Small Data Set                        |                       Large Data Set                        |
+| ----------------------------------------------------------- | ----------------------------------------------------------- |
+| ![](/images/object-instantiation-native-small-data-set.png) | ![](/images/object-instantiation-native-large-data-set.png) |
 
-| Row Count |    EF 6    |  EF Core   |   XPO    |
-| --------- | ---------- | ---------- | -------- |
-| 10        | 3,9382     | 3,3298     | 2,4337   |
-| 50        | 14,6122    | 9,9241     | 7,961    |
-| 100       | 30,0346    | 23,5893    | 13,6619  |
-| 250       | 86,9598    | 80,8544    | 29,8041  |
-| 500       | 207,0142   | 233,2644   | 60,8275  |
-| 1000      | 657,1523   | 757,5676   | 114,1055 |
-| 2500      | 2946,7336  | 3767,6394  | 276,5439 |
-| 5000      | 10489,3505 | 13635,1981 | 559,1924 |
+| Row Count |  EF 6   | EF Core |  XPO   |
+| --------- | ------- | ------- | ------ |
+| 10        | 0,486   | 0,5719  | 0,3663 |
+| 50        | 0,5896  | 0,6425  | 0,439  |
+| 100       | 0,7313  | 0,7578  | 0,5382 |
+| 250       | 1,1555  | 0,9473  | 0,7949 |
+| 500       | 1,8038  | 1,5018  | 1,2471 |
+| 1000      | 2,9142  | 2,291   | 1,9856 |
+| 2500      | 6,2002  | 4,5225  | 4,1095 |
+| 5000      | 11,6849 | 7,9922  | 7,8626 |
 
-**Source:** [ORMBenchmark.PerformanceTests.InsertOne](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L80-L82)
+**Source:** [ORMBenchmark.PerformanceTests.ObjectInstantiationNative](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L120-L122)
 
-## InsertMultipleTest Method
+## ObjectInstantiationLinq Method
 
-|                 Small Data Set                  |                 Large Data Set                  |
-| ----------------------------------------------- | ----------------------------------------------- |
-| ![](/images/insert-multiple-small-data-set.png) | ![](/images/insert-multiple-large-data-set.png) |
+|                      Small Data Set                       |                      Large Data Set                       |
+| --------------------------------------------------------- | --------------------------------------------------------- |
+| ![](/images/object-instantiation-linq-small-data-set.png) | ![](/images/object-instantiation-linq-large-data-set.png) |
 
-| Row Count |   EF 6    | EF Core  |   XPO    |
-| --------- | --------- | -------- | -------- |
-| 10        | 2,9822    | 1,2062   | 4,3964   |
-| 50        | 9,1273    | 2,0758   | 4,7409   |
-| 100       | 15,6442   | 3,107    | 5,5234   |
-| 250       | 39,9253   | 7,663    | 12,534   |
-| 500       | 100,9607  | 22,4626  | 27,1542  |
-| 1000      | 262,3986  | 67,6117  | 55,2255  |
-| 2500      | 1079,3681 | 120,0971 | 131,7559 |
-| 5000      | 3608,7683 | 324,4928 | 257,4605 |
+| Row Count |  EF 6   | EF Core |  XPO   |
+| --------- | ------- | ------- | ------ |
+| 10        | 1,7591  | 1,752   | 1,439  |
+| 50        | 0,8033  | 0,7674  | 0,445  |
+| 100       | 0,9229  | 0,8761  | 0,5366 |
+| 250       | 1,372   | 1,1581  | 0,7505 |
+| 500       | 2,0324  | 1,6075  | 1,1984 |
+| 1000      | 3,347   | 2,4348  | 1,7224 |
+| 2500      | 6,4652  | 4,643   | 3,817  |
+| 5000      | 11,8997 | 7,9856  | 7,2002 |
 
-**Source:** [ORMBenchmark.PerformanceTests.InsertMultipleTest](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L85-L87)
+**Source:** [ORMBenchmark.PerformanceTests.ObjectInstantiationLinq](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L125-L127)
 
 ## LinqQuery Method
 
