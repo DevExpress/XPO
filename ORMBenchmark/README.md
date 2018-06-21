@@ -1,8 +1,12 @@
-# ORM Benchmark
+# .NET ORM Benchmark
 
-This project is a [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet)-based benchmark that you can use to test [eXpressPersistent Objects™ (XPO)](https://www.devexpress.com/Products/NET/ORM/) ORM against [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) and [Entity Framework 6](https://docs.microsoft.com/en-us/ef/ef6/).
-
-You can run this benchmark (edit the connection string in the [App.config](/ORMBenchmark/ORMBenchmark/App.config) file if required), or review our results below (obtained with MS SQL Server 2016 Developer Edition). In all charts, the less execution time is better.
+This project is a [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet)-based benchmark to test performance of the following Object-Relational Mapping (ORM) libraries under .NET  Framework 4.6.1 or newer:<br/>
+ - [Entity Framework 6.0.2](https://docs.microsoft.com/en-us/ef/ef6/) (EF 6).<br/>
+ - [Entity Framework Core 2.0.3](https://docs.microsoft.com/en-us/ef/core/) (EF Core);<br/>
+ - [eXpressPersistent Objects™ 18.1.3](https://www.devexpress.com/Products/NET/ORM/) (XPO);<br/>
+ 
+You can run this benchmark or review our results below (obtained with Microsoft SQL Server 2016 Developer Edition). In all charts, the less execution time is better.<br/>
+[DevExpress.Xpo](https://www.nuget.org/packages/DevExpress.Xpo/) and other libraries will automatically be restored from Nuget. Edit the connection string in the [App.config](/ORMBenchmark/ORMBenchmark/App.config) file, update the ORM library and target framework versions, if required. Make data model and test case modifications to compare the speed in more scenarios.
 
 ## InsertOne Method
 
