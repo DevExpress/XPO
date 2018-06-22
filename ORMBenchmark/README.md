@@ -1,12 +1,22 @@
 # .NET ORM Benchmark
 
-This project is a [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet)-based benchmark to test performance of the following Object-Relational Mapping (ORM) libraries under .NET  Framework 4.6.1 or newer:<br/>
- - [Entity Framework 6.0.2](https://docs.microsoft.com/en-us/ef/ef6/) (EF 6).<br/>
+This project is a [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet)-based benchmark. We used it to test the performance of the following Object-Relational Mapping (ORM) libraries for .NET Framework 4.6.1 and higher:<br/>
+ - [Entity Framework 6.0.2](https://docs.microsoft.com/en-us/ef/ef6/) (EF 6);<br/>
  - [Entity Framework Core 2.0.3](https://docs.microsoft.com/en-us/ef/core/) (EF Core);<br/>
- - [eXpress Persistent Objects™ 18.1.3](https://www.devexpress.com/Products/NET/ORM/) (XPO);<br/>
+ - [eXpress Persistent Objects™ 18.1.3](https://www.devexpress.com/Products/NET/ORM/) (XPO).<br/>
  
-You can run this benchmark or review our results below (obtained with Microsoft SQL Server 2016 Developer Edition). In all charts, the less execution time is better.<br/>
-[DevExpress.Xpo](https://www.nuget.org/packages/DevExpress.Xpo/) and other libraries will automatically be restored from Nuget. Edit the connection string in the [App.config](/ORMBenchmark/ORMBenchmark/App.config) file, update the ORM library and target framework versions, if required. Make data model and test case modifications to compare the speed in more scenarios.
+You can run the benchmark tests or review our results below. Needless to say, the lower the execution time the better. 
+
+All benchmarks were executed using .NET 4.6.1, AnyCPU release builds (include warm-up), Windows 10 Enterprise x64, local Microsoft SQL Server 2016 Developer Edition, i7-7700 CPU @3.6GHz / 16GB RAM / SSD. Please note that [DevExpress.Xpo](https://www.nuget.org/packages/DevExpress.Xpo/) and other referenced libraries will automatically be restored from Nuget. Edit the connection string in the [App.config](/ORMBenchmark/ORMBenchmark/App.config) file, update the ORM library and target framework versions, if necessary. 
+
+We kept the first version of this test as simple as possible.  Feel free to make data model and test case modifications to cover additional usage scenarios. For instance,  measure memory consumption, include scenarios with BLOBs, reference and collection properties, etc.
+
+**See Also:**<br/>
+[XPO ORM Library – Available Free-of-Charge in v18.1!](https://community.devexpress.com/blogs/xpo/archive/2018/05/21/xpo-free-of-charge-in-v18-1.aspx) (blog)<br/>
+[How to: Connect to a Data Store](https://documentation.devexpress.com/CoreLibraries/2123/DevExpress-ORM-Tool/Concepts/How-to-Connect-to-a-Data-Store) (online documentation)<br/>
+[Getting Started with \.NET Core](https://documentation.devexpress.com/CoreLibraries/119377/DevExpress-ORM-Tool/Getting-Started/Getting-Started-with-NET-Core) (online documentation)
+
+
 
 ## InsertOne Method
 
