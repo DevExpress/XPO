@@ -9,7 +9,7 @@ You can run the benchmark tests or review our results below. Needless to say, th
 
 All benchmarks were executed using .NET 4.6.1, AnyCPU release builds (include warm-up), Windows 10 Enterprise x64, local Microsoft SQL Server 2016 Developer Edition, i7-7700 CPU @3.6GHz / 16GB RAM / SSD. Please note that [DevExpress.Xpo](https://www.nuget.org/packages/DevExpress.Xpo/) and other referenced libraries will automatically be restored from Nuget. Edit the connection string in the [App.config](/ORMBenchmark/ORMBenchmark/App.config) file, update the ORM library and target framework versions, if necessary. 
 
-We kept the first version of this test as simple as possible.  Feel free to make data model and test case modifications to cover additional usage scenarios. For instance,  measure memory consumption, include scenarios with BLOBs, reference and collection properties, etc.
+We kept the first version of this test as simple as possible.  Feel free to make data model and test case modifications to cover additional usage scenarios. For instance,  measure memory consumption, include scenarios with BLOBs, reference and collection properties, etc. We'd love to hear your feedback about this project. Drop us a line in this [blog post](https://community.devexpress.com/blogs/xpo/archive/2018/06/22/xpo-a-simple-benchmark-against-ef-6-and-ef-core.aspx), thanks.
 
 **See Also:**<br/>
 [XPO ORM Library – Available Free-of-Charge in v18.1!](https://community.devexpress.com/blogs/xpo/archive/2018/05/21/xpo-free-of-charge-in-v18-1.aspx) (blog)<br/>
