@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using ORMBenchmark.Models.EFCore;
 
 namespace ORMBenchmark.PerformanceTests {
@@ -109,30 +110,37 @@ namespace ORMBenchmark.PerformanceTests {
 
         public override void Fetch() {
             for(int i = 0; i < RecordsCount; i++) {
-                var item = dataContext.Entities.First(o => o.Id == i);
+                var item = dataContext.Entities.AsNoTracking().First(o => o.Id == i);
             }
         }
 
         public override void LinqQuery() {
             for(int i = 0; i < RecordsCount; i++) {
-                var result = dataContext.Entities.Where(o => o.Id == i);
+                var result = dataContext.Entities.AsNoTracking().Where(o => o.Id == i);
                 foreach(var o in result) { }
             }
         }
 
         public override void ObjectInstantiationNative() {
-            foreach(var o in dataContext.Entities) { }
+            foreach(var o in dataContext.Entities.AsNoTracking()) { }
         }
 
         public override void ObjectInstantiationLinq() {
-            foreach(var o in dataContext.Entities.Where(s => s.Id != -1)) { }
+            foreach(var o in dataContext.Entities.AsNoTracking().Where(s => s.Id != -1)) { }
         }
 
         protected override void LinqTakeRecords(int takeRecords) {
             for(int i = 0; i < RecordsCount; i += takeRecords) {
-                var query = dataContext.Entities.Where(o => o.Id >= i).Take(takeRecords);
+                var query = dataContext.Entities.AsNoTracking().Where(o => o.Id >= i).Take(takeRecords);
                 foreach(var o in query) { }
             }
+        }
+
+        public override void Projection() {
+            foreach(var o in dataContext.Entities.AsNoTracking().Select(o => new {
+                o.Id,
+                o.Value
+            })) { }
         }
     }
 }
