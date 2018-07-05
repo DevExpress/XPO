@@ -29,7 +29,7 @@ namespace ORMBenchmark.PerformanceTests {
             yield return new EFCoreTestProvider();
         }
 
-        [IterationSetup(Target = nameof(InsertMultipleTest) + "," + nameof(InsertOne))]
+        [IterationSetup(Target = nameof(InsertMany) + "," + nameof(InsertOne))]
         public void IterationSetupForInsert() {
             TestProvider.CleanupTestDataSet();
             TestProvider.InitSession();
@@ -87,7 +87,7 @@ namespace ORMBenchmark.PerformanceTests {
         }
 
         [Benchmark]
-        public void InsertMultipleTest() {
+        public void InsertMany() {
             TestProvider.InsertMany(RowCount);
         }
 
