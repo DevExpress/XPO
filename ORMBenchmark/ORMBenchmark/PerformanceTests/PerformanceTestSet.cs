@@ -124,14 +124,14 @@ namespace ORMBenchmark.PerformanceTests {
         [Benchmark(OperationsPerInvoke = 1000)]
         public void ObjectInstantiationNative() {
             for(int i = 0; i < 1000; i++) {
-                TestProvider.ObjectInstantiationNative();
+                TestProvider.InstantiationNative();
             }
         }
 
         [Benchmark(OperationsPerInvoke = 1000)]
         public void ObjectInstantiationLinq() {
             for(int i = 0; i < 1000; i++) {
-                TestProvider.ObjectInstantiationLinq();
+                TestProvider.InstantiationLinq();
             }
         }
 
@@ -166,7 +166,7 @@ namespace ORMBenchmark.PerformanceTests {
         [Benchmark(OperationsPerInvoke = 1000)]
         public void Projection() {
             for(int i = 0; i < 1000; i++) {
-                TestProvider.Projection();
+                TestProvider.ProjectionLinq();
             }
         }
     }

@@ -14,9 +14,9 @@ namespace ORMBenchmark.PerformanceTests {
         public abstract void DeleteMany();
         public abstract void Fetch();
         public abstract void LinqQuery();
-        public abstract void ObjectInstantiationLinq();
-        public abstract void ObjectInstantiationNative();
-        public abstract void Projection();
+        public abstract void InstantiationLinq();
+        public abstract void InstantiationNative();
+        public abstract void ProjectionLinq();
         
         public void LinqTakeRecords10() {
             LinqTakeRecords(10);
