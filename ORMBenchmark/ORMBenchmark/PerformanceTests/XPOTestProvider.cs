@@ -17,7 +17,7 @@ namespace ORMBenchmark.PerformanceTests {
 
         public override void InitSession() {
             dataLayer = GetDataLayer(DevExpress.Xpo.DB.AutoCreateOption.SchemaAlreadyExists);
-            session = new UnitOfWork(dataLayer);
+            session = GetUnitOfWork(dataLayer);
             session.TypesManager.EnsureIsTypedObjectValid();
         }
 
@@ -26,6 +26,12 @@ namespace ORMBenchmark.PerformanceTests {
             IDataLayer dl = XpoDefault.GetDataLayer(connstr, autoCreateOption);
             dl.Dictionary.GetDataStoreSchema(typeof(XPOEntity));
             return dl;
+        }
+
+        private UnitOfWork GetUnitOfWork(IDataLayer dataLayer) {
+            return new UnitOfWork(dataLayer) {
+                IdentityMapBehavior = IdentityMapBehavior.Strong
+            };
         }
 
         public override void TearDownSession() {
@@ -43,7 +49,7 @@ namespace ORMBenchmark.PerformanceTests {
         public override void CreateTestDataSet(int recordsCount) {
             CleanupTestDataSet();
             using(IDataLayer dl = GetDataLayer(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)) {
-                using(UnitOfWork uow = new UnitOfWork(dl)) {
+                using(UnitOfWork uow = GetUnitOfWork(dl)) {
                     for(int i = 0; i < recordsCount; i++) {
                         var XPOEntity = new XPOEntity(uow) { Id = i, Value = i };
                     }
@@ -55,7 +61,7 @@ namespace ORMBenchmark.PerformanceTests {
 
         public override void CleanupTestDataSet() {
             using(IDataLayer dl = GetDataLayer(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema)) {
-                using(UnitOfWork uow = new UnitOfWork(dl)) {
+                using(UnitOfWork uow = GetUnitOfWork(dl)) {
                     uow.UpdateSchema();
                     foreach(var item in uow.Query<XPOEntity>()) {
                         uow.Delete(item);
@@ -149,7 +155,7 @@ namespace ORMBenchmark.PerformanceTests {
                 foreach(var XPOEntity in query) { }
             }
         }
-        
+
         public override void ObjectInstantiationNative() {
             foreach(var o in new XPCollection<XPOEntity>(session)) { }
         }
@@ -163,6 +169,13 @@ namespace ORMBenchmark.PerformanceTests {
                 var query = session.Query<XPOEntity>().Where(o => o.Id >= i).Take(takeRecords);
                 foreach(var o in query) { }
             }
+        }
+
+        public override void Projection() {
+            foreach(var o in session.Query<XPOEntity>().Select(o => new {
+                o.Id,
+                o.Value
+            })) { };
         }
     }
 }

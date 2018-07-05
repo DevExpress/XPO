@@ -20,7 +20,7 @@ namespace ORMBenchmark.PerformanceTests {
                     .WithWarmupCount(1)
                     .WithMinInvokeCount(1)
                     .WithInvocationCount(1)
-                    .WithMaxRelativeError(1)
+                    .WithMaxRelativeError(0.1)
                     .WithUnrollFactor(1);
             job.Run.RunStrategy = BenchmarkDotNet.Engines.RunStrategy.Throughput;
             Add(job);

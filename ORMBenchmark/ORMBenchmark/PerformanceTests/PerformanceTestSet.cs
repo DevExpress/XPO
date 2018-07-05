@@ -5,7 +5,7 @@ using BenchmarkDotNet.Attributes.Jobs;
 using BenchmarkDotNet.Running;
 using BenchmarkDotNet.Exporters;
 using BenchmarkDotNet.Engines;
-
+using System.Runtime;
 
 namespace ORMBenchmark.PerformanceTests {
 
@@ -39,6 +39,7 @@ namespace ORMBenchmark.PerformanceTests {
         public void IterationSetupForDelete() {
             TestProvider.CreateTestDataSet(RowCount);
             TestProvider.InitSession();
+            System.GC.Collect();
         }
 
         [IterationSetup(Target = nameof(UpdateMany)
@@ -51,9 +52,11 @@ namespace ORMBenchmark.PerformanceTests {
             + "," + nameof(LinqTakeRecords20)
             + "," + nameof(LinqTakeRecords50)
             + "," + nameof(LinqTakeRecords100)
+            + "," + nameof(Projection)
             )]
         public void IterationSetupForUpdateAndSelect() {
             TestProvider.InitSession();
+            System.GC.Collect();
         }
 
         [GlobalSetup(Target = nameof(UpdateMany)
@@ -66,9 +69,11 @@ namespace ORMBenchmark.PerformanceTests {
             + "," + nameof(LinqTakeRecords20)
             + "," + nameof(LinqTakeRecords50)
             + "," + nameof(LinqTakeRecords100)
+            + "," + nameof(Projection)
             )]
         public void GlobalSetupForUpdateAndSelect() {
             TestProvider.CreateTestDataSet(RowCount);
+            System.GC.Collect();
         }
 
         [IterationCleanup]
@@ -116,34 +121,53 @@ namespace ORMBenchmark.PerformanceTests {
             TestProvider.LinqQuery();
         }
 
-        [Benchmark]
+        [Benchmark(OperationsPerInvoke = 1000)]
         public void ObjectInstantiationNative() {
-            TestProvider.ObjectInstantiationNative();
+            for(int i = 0; i < 1000; i++) {
+                TestProvider.ObjectInstantiationNative();
+            }
         }
 
-        [Benchmark]
+        [Benchmark(OperationsPerInvoke = 1000)]
         public void ObjectInstantiationLinq() {
-            TestProvider.ObjectInstantiationLinq();
+            for(int i = 0; i < 1000; i++) {
+                TestProvider.ObjectInstantiationLinq();
+            }
         }
 
-        [Benchmark]
+        [Benchmark(OperationsPerInvoke = 10)]
         public void LinqTakeRecords10() {
-            TestProvider.LinqTakeRecords10();
+            for(int i = 0; i < 10; i++) {
+                TestProvider.LinqTakeRecords10();
+            }
         }
 
-        [Benchmark]
+        [Benchmark(OperationsPerInvoke = 50)]
         public void LinqTakeRecords20() {
-            TestProvider.LinqTakeRecords20();
+            for(int i = 0; i < 50; i++) {
+                TestProvider.LinqTakeRecords20();
+            }
         }
 
-        [Benchmark]
+        [Benchmark(OperationsPerInvoke = 100)]
         public void LinqTakeRecords50() {
-            TestProvider.LinqTakeRecords50();
+            for(int i = 0; i < 100; i++) {
+                TestProvider.LinqTakeRecords50();
+            }
         }
 
-        [Benchmark]
+        [Benchmark(OperationsPerInvoke = 100)]
         public void LinqTakeRecords100() {
-            TestProvider.LinqTakeRecords100();
+            for(int i = 0; i < 100; i++) {
+                TestProvider.LinqTakeRecords100();
+            }
+        }
+
+        [Benchmark(OperationsPerInvoke = 1000)]
+        public void Projection() {
+            for(int i = 0; i < 1000; i++) {
+                TestProvider.Projection();
+            }
         }
     }
 }
