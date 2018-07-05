@@ -156,11 +156,11 @@ namespace ORMBenchmark.PerformanceTests {
             }
         }
 
-        public override void ObjectInstantiationNative() {
+        public override void InstantiationNative() {
             foreach(var o in new XPCollection<XPOEntity>(session)) { }
         }
 
-        public override void ObjectInstantiationLinq() {
+        public override void InstantiationLinq() {
             foreach(var o in session.Query<XPOEntity>()) { }
         }
         
@@ -171,7 +171,7 @@ namespace ORMBenchmark.PerformanceTests {
             }
         }
 
-        public override void Projection() {
+        public override void ProjectionLinq() {
             foreach(var o in session.Query<XPOEntity>().Select(o => new {
                 o.Id,
                 o.Value
