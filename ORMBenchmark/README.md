@@ -20,265 +20,285 @@ We kept the first version of this test as simple as possible.  Feel free to make
 
 ## InsertOne Method
 
-|               Small Data Set               |               Large Data Set               |
-| ------------------------------------------ | ------------------------------------------ |
-| ![](/images/insert-one-small-data-set.png) | ![](/images/insert-one-large-data-set.png) |
+|                    Small Data Set                    |                    Large Data Set                    |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| ![](/images/InsertOne-small-data-set.png) | ![](/images/InsertOne-large-data-set.png) |
 
-| Row Count | EF 6 Time (milliseconds) | EF Core Time (milliseconds) | XPO Time (milliseconds) |
-| --------- | ------------------------ | --------------------------- | ----------------------- |
-| 10        | 3.9382                   | 3.3298                      | 2.4337                  |
-| 50        | 14.6122                  | 9.9241                      | 7.961                   |
-| 100       | 30.0346                  | 23.5893                     | 13.6619                 |
-| 250       | 86.9598                  | 80.8544                     | 29.8041                 |
-| 500       | 207.0142                 | 233.2644                    | 60.8275                 |
-| 1000      | 657.1523                 | 757.5676                    | 114.1055                |
-| 2500      | 2946.7336                | 3767.6394                   | 276.5439                |
-| 5000      | 10489.3505               | 13635.1981                  | 559.1924                |
+|Row Count                     |EF 6 Time (milliseconds)      |EF Core Time (milliseconds)   |XPO Time (milliseconds)       |
+|------------------------------|------------------------------|------------------------------|------------------------------|
+|10                            |3.6468                        |3.2059                        |2.0109                        |
+|50                            |16.6132                       |11.6943                       |8.2731                        |
+|100                           |31.8198                       |24.1677                       |13.7745                       |
+|250                           |87.9603                       |80.6925                       |31.3714                       |
+|500                           |236.7884                      |233.9296                      |68.3546                       |
+|1000                          |669.2225                      |756.8632                      |139.1956                      |
+|2500                          |3066.1437                     |3687.7787                     |324.2071                      |
+|5000                          |10778.3849                    |14139.2871                    |642.9388                      |
 
-**Source:** [ORMBenchmark.PerformanceTests.InsertOne](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L80-L82)
+**Source:** [ORMBenchmark.PerformanceTests.InsertOne](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L85-L87)
 
-## InsertMultipleTest Method
+## InsertMany Method
 
-|                 Small Data Set                  |                 Large Data Set                  |
-| ----------------------------------------------- | ----------------------------------------------- |
-| ![](/images/insert-multiple-small-data-set.png) | ![](/images/insert-multiple-large-data-set.png) |
+|                    Small Data Set                    |                    Large Data Set                    |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| ![](/images/InsertMany-small-data-set.png) | ![](/images/InsertMany-large-data-set.png) |
 
-| Row Count | EF 6 Time (milliseconds) | EF Core Time (milliseconds) | XPO Time (milliseconds) |
-| --------- | ------------------------ | --------------------------- | ----------------------- |
-| 10        | 2.9822                   | 1.2062                      | 4.3964                  |
-| 50        | 9.1273                   | 2.0758                      | 4.7409                  |
-| 100       | 15.6442                  | 3.107                       | 5.5234                  |
-| 250       | 39.9253                  | 7.663                       | 12.534                  |
-| 500       | 100.9607                 | 22.4626                     | 27.1542                 |
-| 1000      | 262.3986                 | 67.6117                     | 55.2255                 |
-| 2500      | 1079.3681                | 120.0971                    | 131.7559                |
-| 5000      | 3608.7683                | 324.4928                    | 257.4605                |
+|Row Count                     |EF 6 Time (milliseconds)      |EF Core Time (milliseconds)   |XPO Time (milliseconds)       |
+|------------------------------|------------------------------|------------------------------|------------------------------|
+|10                            |3.1646                        |1.3857                        |1.5144                        |
+|50                            |9.7881                        |2.0376                        |5.0172                        |
+|100                           |17.1645                       |3.1708                        |6.022                         |
+|250                           |42.0912                       |7.6434                        |12.1765                       |
+|500                           |104.4375                      |23.0093                       |28.7814                       |
+|1000                          |278.0174                      |68.9055                       |59.1068                       |
+|2500                          |1156.0837                     |125.1638                      |138.2078                      |
+|5000                          |3793.305                      |340.5845                      |260.4955                      |
 
-**Source:** [ORMBenchmark.PerformanceTests.InsertMultipleTest](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L85-L87)
+**Source:** [ORMBenchmark.PerformanceTests.InsertMany](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L90-L92)
 
 ## UpdateOne Method
 
-|               Small Data Set               |               Large Data Set               |
-| ------------------------------------------ | ------------------------------------------ |
-| ![](/images/update-one-small-data-set.png) | ![](/images/update-one-large-data-set.png) |
+|                    Small Data Set                    |                    Large Data Set                    |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| ![](/images/UpdateOne-small-data-set.png) | ![](/images/UpdateOne-large-data-set.png) |
 
-| Row Count | EF 6 Time (milliseconds) | EF Core Time (milliseconds) | XPO Time (milliseconds) |
-| --------- | ------------------------ | --------------------------- | ----------------------- |
-| 10        | 5.0205                   | 4.1716                      | 3.6902                  |
-| 50        | 14.3803                  | 13.4512                     | 7.3203                  |
-| 100       | 25.5959                  | 21.5953                     | 13.1188                 |
-| 250       | 76.7652                  | 81.8542                     | 32.9867                 |
-| 500       | 155.5194                 | 230.2918                    | 60.0551                 |
-| 1000      | 489.3557                 | 698.2416                    | 104.9284                |
-| 2500      | 2065.208                 | 3641.5042                   | 276.7798                |
-| 5000      | 6852.2317                | 13509.5648                  | 558.4519                |
+|Row Count                     |EF 6 Time (milliseconds)      |EF Core Time (milliseconds)   |XPO Time (milliseconds)       |
+|------------------------------|------------------------------|------------------------------|------------------------------|
+|10                            |4.4828                        |3.7997                        |3.2936                        |
+|50                            |14.6988                       |13.5383                       |8.9576                        |
+|100                           |26.8667                       |24.5467                       |15.3601                       |
+|250                           |72.8955                       |82.1338                       |33.2184                       |
+|500                           |184.4039                      |226.8572                      |66.4556                       |
+|1000                          |490.917                       |715.7156                      |151.4051                      |
+|2500                          |2026.5181                     |3709.8866                     |316.4259                      |
+|5000                          |6848.0788                     |13813.1268                    |586.063                       |
 
-**Source:** [ORMBenchmark.PerformanceTests.UpdateOne](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L90-L92)
+**Source:** [ORMBenchmark.PerformanceTests.UpdateOne](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L95-L97)
 
 ## UpdateMany Method
 
-|               Small Data Set                |               Large Data Set                |
-| ------------------------------------------- | ------------------------------------------- |
-| ![](/images/update-many-small-data-set.png) | ![](/images/update-many-large-data-set.png) |
+|                    Small Data Set                    |                    Large Data Set                    |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| ![](/images/UpdateMany-small-data-set.png) | ![](/images/UpdateMany-large-data-set.png) |
 
-| Row Count | EF 6 Time (milliseconds) | EF Core Time (milliseconds) | XPO Time (milliseconds) |
-| --------- | ------------------------ | --------------------------- | ----------------------- |
-| 10        | 4.5549                   | 1.7673                      | 2.848                   |
-| 50        | 9.1566                   | 2.7045                      | 4.1651                  |
-| 100       | 14.9063                  | 4.1086                      | 6.2059                  |
-| 250       | 30.7312                  | 9.1547                      | 13.8675                 |
-| 500       | 62.102                   | 20.4484                     | 24.0208                 |
-| 1000      | 126.9863                 | 55.2733                     | 44.8094                 |
-| 2500      | 285.8227                 | 134.0106                    | 100.6008                |
-| 5000      | 595.8876                 | 288.1156                    | 215.934                 |
+|Row Count                     |EF 6 Time (milliseconds)      |EF Core Time (milliseconds)   |XPO Time (milliseconds)       |
+|------------------------------|------------------------------|------------------------------|------------------------------|
+|10                            |4.5434                        |2.9346                        |3.0141                        |
+|50                            |8.751                         |2.7303                        |5.6892                        |
+|100                           |16.3787                       |4.5108                        |7.0334                        |
+|250                           |33.733                        |9.5704                        |13.5268                       |
+|500                           |67.5303                       |21.1547                       |24.7128                       |
+|1000                          |153.1516                      |57.7461                       |47.2574                       |
+|2500                          |368.9839                      |138.038                       |112.6205                      |
+|5000                          |757.0275                      |295.0757                      |223.9792                      |
 
-**Source:** [ORMBenchmark.PerformanceTests.UpdateMany](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L95-L97)
+**Source:** [ORMBenchmark.PerformanceTests.UpdateMany](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L100-L102)
 
 ## DeleteOne Method
 
-|               Small Data Set               |               Large Data Set               |
-| ------------------------------------------ | ------------------------------------------ |
-| ![](/images/delete-one-small-data-set.png) | ![](/images/delete-one-large-data-set.png) |
+|                    Small Data Set                    |                    Large Data Set                    |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| ![](/images/DeleteOne-small-data-set.png) | ![](/images/DeleteOne-large-data-set.png) |
 
-| Row Count | EF 6 Time (milliseconds) | EF Core Time (milliseconds) | XPO Time (milliseconds) |
-| --------- | ------------------------ | --------------------------- | ----------------------- |
-| 10        | 4.0865                   | 3.7222                      | 2.9033                  |
-| 50        | 13.9419                  | 10.5571                     | 6.8001                  |
-| 100       | 23.8072                  | 17.9904                     | 14.2565                 |
-| 250       | 46.3954                  | 37.3269                     | 27.5609                 |
-| 500       | 91.2732                  | 67.6574                     | 57.8433                 |
-| 1000      | 176.993                  | 136.2269                    | 101.0835                |
-| 2500      | 433.5055                 | 337.3731                    | 250.5759                |
-| 5000      | 867.4947                 | 690.0046                    | 541.7737                |
+|Row Count                     |EF 6 Time (milliseconds)      |EF Core Time (milliseconds)   |XPO Time (milliseconds)       |
+|------------------------------|------------------------------|------------------------------|------------------------------|
+|10                            |3.9742                        |3.5429                        |4.3712                        |
+|50                            |13.6068                       |11.0883                       |8.8385                        |
+|100                           |23.0411                       |19.6916                       |14.6973                       |
+|250                           |53.9951                       |46.2317                       |32.9369                       |
+|500                           |96.6874                       |80.3932                       |64.4876                       |
+|1000                          |198.0186                      |147.9286                      |118.5972                      |
+|2500                          |478.2741                      |387.1099                      |313.6993                      |
+|5000                          |934.7661                      |780.087                       |662.5583                      |
 
-**Source:** [ORMBenchmark.PerformanceTests.DeleteOne](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L100-L102)
+**Source:** [ORMBenchmark.PerformanceTests.DeleteOne](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L105-L107)
 
 ## DeleteMany Method
-|               Small Data Set                |               Large Data Set                |
-| ------------------------------------------- | ------------------------------------------- |
-| ![](/images/delete-many-small-data-set.png) | ![](/images/delete-many-large-data-set.png) |
 
-| Row Count | EF 6 Time (milliseconds) | EF Core Time (milliseconds) | XPO Time (milliseconds) |
-| --------- | ------------------------ | --------------------------- | ----------------------- |
-| 10        | 3.2466                   | 1.6439                      | 3.1682                  |
-| 50        | 8.2793                   | 3.76                        | 3.4945                  |
-| 100       | 18.1323                  | 8.3318                      | 3.5705                  |
-| 250       | 42.6913                  | 36.4001                     | 5.8754                  |
-| 500       | 97.2695                  | 125.7598                    | 9.4139                  |
-| 1000      | 242.7894                 | 485.6754                    | 17.3806                 |
-| 2500      | 1093.5522                | 2907.4599                   | 43.451                  |
-| 5000      | 3855.8465                | 11422.7909                  | 77.3494                 |
+|                    Small Data Set                    |                    Large Data Set                    |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| ![](/images/DeleteMany-small-data-set.png) | ![](/images/DeleteMany-large-data-set.png) |
 
-**Source:** [ORMBenchmark.PerformanceTests.DeleteMany](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L105-L107)
+|Row Count                     |EF 6 Time (milliseconds)      |EF Core Time (milliseconds)   |XPO Time (milliseconds)       |
+|------------------------------|------------------------------|------------------------------|------------------------------|
+|10                            |2.9315                        |1.6348                        |1.3408                        |
+|50                            |9.3622                        |3.6627                        |1.5809                        |
+|100                           |15.4807                       |8.2583                        |3.7129                        |
+|250                           |45.4516                       |35.7966                       |15.9567                       |
+|500                           |98.6082                       |126.6155                      |20.5131                       |
+|1000                          |257.487                       |480.7028                      |26.5237                       |
+|2500                          |1149.465                      |2935.5197                     |72.5234                       |
+|5000                          |3995.015                      |11573.3495                    |124.1232                      |
+
+**Source:** [ORMBenchmark.PerformanceTests.DeleteMany](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L110-L112)
 
 ## Fetch Method
 
-|            Small Data Set             |            Large Data Set             |
-| ------------------------------------- | ------------------------------------- |
-| ![](/images/fetch-small-data-set.png) | ![](/images/fetch-large-data-set.png) |
+|                    Small Data Set                    |                    Large Data Set                    |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| ![](/images/Fetch-small-data-set.png) | ![](/images/Fetch-large-data-set.png) |
 
-| Row Count | EF 6 Time (milliseconds) | EF Core Time (milliseconds) | XPO Time (milliseconds) |
-| --------- | ------------------------ | --------------------------- | ----------------------- |
-| 10        | 4.8702                   | 2.9209                      | 2.4647                  |
-| 50        | 20.8901                  | 12.3265                     | 8.0935                  |
-| 100       | 39.8897                  | 18.681                      | 13.8328                 |
-| 250       | 98.8093                  | 47.3867                     | 26.2636                 |
-| 500       | 172.5827                 | 84.1566                     | 48.8763                 |
-| 1000      | 410.2621                 | 159.602                     | 104.7498                |
-| 2500      | 1020.3816                | 399.4074                    | 231.4023                |
-| 5000      | 1906.1384                | 854.3664                    | 473.8172                |
+|Row Count                     |EF 6 Time (milliseconds)      |EF Core Time (milliseconds)   |XPO Time (milliseconds)       |
+|------------------------------|------------------------------|------------------------------|------------------------------|
+|10                            |4.9359                        |3.5214                        |2.1867                        |
+|50                            |21.4742                       |12.6337                       |7.8819                        |
+|100                           |42.4654                       |23.1171                       |14.0514                       |
+|250                           |112.6379                      |56.3635                       |29.5522                       |
+|500                           |215.7814                      |95.8708                       |61.3144                       |
+|1000                          |400.2174                      |181.2916                      |109.2093                      |
+|2500                          |1007.634                      |448.979                       |295.0182                      |
+|5000                          |2162.202                      |900.4441                      |617.9753                      |
 
-**Source:** [ORMBenchmark.PerformanceTests.Fetch](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L110-L112)
+**Source:** [ORMBenchmark.PerformanceTests.Fetch](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L115-L117)
 
-## ObjectInstantiationNative Method
+## InstantiationNative Method
 
-|                       Small Data Set                        |                       Large Data Set                        |
-| ----------------------------------------------------------- | ----------------------------------------------------------- |
-| ![](/images/object-instantiation-native-small-data-set.png) | ![](/images/object-instantiation-native-large-data-set.png) |
+|                    Small Data Set                    |                    Large Data Set                    |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| ![](/images/InstantiationNative-small-data-set.png) | ![](/images/InstantiationNative-large-data-set.png) |
 
-| Row Count | EF 6 Time (milliseconds) | EF Core Time (milliseconds) | XPO Time (milliseconds) |
-| --------- | ------------------------ | --------------------------- | ----------------------- |
-| 10        | 0.486                    | 0.5719                      | 0.3663                  |
-| 50        | 0.5896                   | 0.6425                      | 0.439                   |
-| 100       | 0.7313                   | 0.7578                      | 0.5382                  |
-| 250       | 1.1555                   | 0.9473                      | 0.7949                  |
-| 500       | 1.8038                   | 1.5018                      | 1.2471                  |
-| 1000      | 2.9142                   | 2.291                       | 1.9856                  |
-| 2500      | 6.2002                   | 4.5225                      | 4.1095                  |
-| 5000      | 11.6849                  | 7.9922                      | 7.8626                  |
+|Row Count                     |EF 6 Time (milliseconds)      |EF Core Time (milliseconds)   |XPO Time (milliseconds)       |
+|------------------------------|------------------------------|------------------------------|------------------------------|
+|10                            |0.1027                        |0.1483                        |0.1263                        |
+|50                            |0.1418                        |0.1703                        |0.1447                        |
+|100                           |0.1725                        |0.2224                        |0.1828                        |
+|250                           |0.3325                        |0.3825                        |0.3847                        |
+|500                           |0.4926                        |0.4712                        |0.5782                        |
+|1000                          |0.7988                        |0.7654                        |0.964                         |
+|2500                          |1.7073                        |1.4457                        |2.2611                        |
+|5000                          |3.1418                        |2.6653                        |4.7852                        |
 
-**Source:** [ORMBenchmark.PerformanceTests.ObjectInstantiationNative](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L120-L122)
+**Source:** [ORMBenchmark.PerformanceTests.InstantiationNative](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L125-L129)
 
-## ObjectInstantiationLinq Method
+## InstantiationLinq Method
 
-|                      Small Data Set                       |                      Large Data Set                       |
-| --------------------------------------------------------- | --------------------------------------------------------- |
-| ![](/images/object-instantiation-linq-small-data-set.png) | ![](/images/object-instantiation-linq-large-data-set.png) |
+|                    Small Data Set                    |                    Large Data Set                    |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| ![](/images/InstantiationLinq-small-data-set.png) | ![](/images/InstantiationLinq-large-data-set.png) |
 
-| Row Count | EF 6 Time (milliseconds) | EF Core Time (milliseconds) | XPO Time (milliseconds) |
-| --------- | ------------------------ | --------------------------- | ----------------------- |
-| 10        | 1.7591                   | 1.752                       | 1.439                   |
-| 50        | 0.8033                   | 0.7674                      | 0.445                   |
-| 100       | 0.9229                   | 0.8761                      | 0.5366                  |
-| 250       | 1.372                    | 1.1581                      | 0.7505                  |
-| 500       | 2.0324                   | 1.6075                      | 1.1984                  |
-| 1000      | 3.347                    | 2.4348                      | 1.7224                  |
-| 2500      | 6.4652                   | 4.643                       | 3.817                   |
-| 5000      | 11.8997                  | 7.9856                      | 7.2002                  |
+|Row Count                     |EF 6 Time (milliseconds)      |EF Core Time (milliseconds)   |XPO Time (milliseconds)       |
+|------------------------------|------------------------------|------------------------------|------------------------------|
+|10                            |0.2579                        |0.1916                        |0.1006                        |
+|50                            |0.3047                        |0.2278                        |0.1269                        |
+|100                           |0.373                         |0.2854                        |0.1808                        |
+|250                           |0.5041                        |0.4207                        |0.2955                        |
+|500                           |0.6973                        |0.5395                        |0.4419                        |
+|1000                          |0.93                          |0.7819                        |0.764                         |
+|2500                          |1.8178                        |1.4915                        |1.6101                        |
+|5000                          |3.2746                        |2.7236                        |3.1768                        |
 
-**Source:** [ORMBenchmark.PerformanceTests.ObjectInstantiationLinq](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L125-L127)
+**Source:** [ORMBenchmark.PerformanceTests.InstantiationLinq](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L132-L136)
+
+## ProjectionLinq Method
+
+|                    Small Data Set                    |                    Large Data Set                    |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| ![](/images/ProjectionLinq-small-data-set.png) | ![](/images/ProjectionLinq-large-data-set.png) |
+
+|Row Count                     |EF 6 Time (milliseconds)      |EF Core Time (milliseconds)   |XPO Time (milliseconds)       |
+|------------------------------|------------------------------|------------------------------|------------------------------|
+|10                            |0.2202                        |0.1752                        |0.1431                        |
+|50                            |0.254                         |0.1827                        |0.1785                        |
+|100                           |0.3118                        |0.2302                        |0.1987                        |
+|250                           |0.4556                        |0.3755                        |0.3119                        |
+|500                           |0.5781                        |0.5045                        |0.4639                        |
+|1000                          |0.761                         |0.7447                        |0.6927                        |
+|2500                          |1.4305                        |1.4753                        |1.4039                        |
+|5000                          |2.5174                        |2.6872                        |2.7274                        |
+
+**Source:** [ORMBenchmark.PerformanceTests.ProjectionLinq](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L167-L171)
 
 ## LinqQuery Method
 
-|               Small Data Set               |                 Large Data Set                 |
-| ------------------------------------------ | ---------------------------------------------- |
-| ![](/images/linq-query-small-data-set.png) | ![](/images/linq-query-one-large-data-set.png) |
+|                    Small Data Set                    |                    Large Data Set                    |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| ![](/images/LinqQuery-small-data-set.png) | ![](/images/LinqQuery-large-data-set.png) |
 
-| Row Count | EF 6 Time (milliseconds) | EF Core Time (milliseconds) | XPO Time (milliseconds) |
-| --------- | ------------------------ | --------------------------- | ----------------------- |
-| 10        | 4.7457                   | 3.2509                      | 3.1598                  |
-| 50        | 20.4839                  | 13.6501                     | 10.6826                 |
-| 100       | 36.4223                  | 23.488                      | 17.0221                 |
-| 250       | 85.4996                  | 46.3846                     | 37.7991                 |
-| 500       | 201.4913                 | 81.8806                     | 65.5507                 |
-| 1000      | 391.1011                 | 176.7632                    | 139.1455                |
-| 2500      | 976.2392                 | 400.6309                    | 313.9293                |
-| 5000      | 1723.1451                | 840.3734                    | 614.4659                |
+|Row Count                     |EF 6 Time (milliseconds)      |EF Core Time (milliseconds)   |XPO Time (milliseconds)       |
+|------------------------------|------------------------------|------------------------------|------------------------------|
+|10                            |5.1944                        |3.323                         |2.4617                        |
+|50                            |22.7323                       |13.1107                       |10.6768                       |
+|100                           |44.1835                       |25.5668                       |19.3918                       |
+|250                           |100.8101                      |52.1778                       |40.15                         |
+|500                           |196.1996                      |91.3075                       |80.2875                       |
+|1000                          |406.9472                      |176.056                       |153.9416                      |
+|2500                          |1007.7786                     |503.2828                      |389.4942                      |
+|5000                          |1980.8833                     |927.9413                      |776.0701                      |
 
-**Source:** [ORMBenchmark.PerformanceTests.LinqQuery](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L115-L117)
+**Source:** [ORMBenchmark.PerformanceTests.LinqQuery](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L120-L122)
 
 ## LinqTakeRecords10 Method
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/linq-take-records-10-small-data-set.png) | ![](/images/linq-take-records-10-large-data-set.png) |
+| ![](/images/LinqTakeRecords10-small-data-set.png) | ![](/images/LinqTakeRecords10-large-data-set.png) |
 
-| Row Count | EF 6 Time (milliseconds) | EF Core Time (milliseconds) | XPO Time (milliseconds) |
-| --------- | ------------------------ | --------------------------- | ----------------------- |
-| 10        | 0.9054                   | 0.708                       | 0.4872                  |
-| 50        | 2.819                    | 2.0338                      | 1.501                   |
-| 100       | 5.4689                   | 3.7253                      | 2.7275                  |
-| 250       | 12.1403                  | 8.0404                      | 6.4743                  |
-| 500       | 22.8718                  | 16.2112                     | 12.2565                 |
-| 1000      | 50.1689                  | 29.3617                     | 17.8815                 |
-| 2500      | 120.7593                 | 65.0304                     | 41.3023                 |
-| 5000      | 248.3594                 | 105.6765                    | 85.9597                 |
+|Row Count                     |EF 6 Time (milliseconds)      |EF Core Time (milliseconds)   |XPO Time (milliseconds)       |
+|------------------------------|------------------------------|------------------------------|------------------------------|
+|10                            |0.5387                        |0.372                         |0.2693                        |
+|50                            |2.2945                        |1.473                         |1.1869                        |
+|100                           |4.4478                        |2.7227                        |1.9575                        |
+|250                           |11.4284                       |6.1486                        |4.568                         |
+|500                           |21.9762                       |10.9826                       |9.0061                        |
+|1000                          |44.8547                       |21.492                        |16.7879                       |
+|2500                          |115.9143                      |50.2855                       |39.5269                       |
+|5000                          |215.7867                      |95.8005                       |79.9497                       |
 
-**Source:** [ORMBenchmark.PerformanceTests.LinqTakeRecords10](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L130-L132)
+**Source:** [ORMBenchmark.PerformanceTests.LinqTakeRecords10](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L139-L143)
 
 ## LinqTakeRecords20 Method
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/linq-take-records-20-small-data-set.png) | ![](/images/linq-take-records-20-large-data-set.png) |
+| ![](/images/LinqTakeRecords20-small-data-set.png) | ![](/images/LinqTakeRecords20-large-data-set.png) |
 
-| Row Count | EF 6 Time (milliseconds) | EF Core Time (milliseconds) | XPO Time (milliseconds) |
-| --------- | ------------------------ | --------------------------- | ----------------------- |
-| 10        | 1.963                    | 1.7181                      | 1.5677                  |
-| 50        | 3.1089                   | 1.6458                      | 2.0996                  |
-| 100       | 3.1757                   | 2.1766                      | 1.7335                  |
-| 250       | 7.2603                   | 4.8143                      | 3.7614                  |
-| 500       | 12.862                   | 8.7951                      | 6.903                   |
-| 1000      | 24.1678                  | 17.7842                     | 13.1497                 |
-| 2500      | 62.2069                  | 38.8549                     | 24.8243                 |
-| 5000      | 118.6731                 | 76.5116                     | 53.0361                 |
+|Row Count                     |EF 6 Time (milliseconds)      |EF Core Time (milliseconds)   |XPO Time (milliseconds)       |
+|------------------------------|------------------------------|------------------------------|------------------------------|
+|10                            |0.5976                        |0.2984                        |0.3125                        |
+|50                            |1.3465                        |0.8372                        |0.5699                        |
+|100                           |2.2961                        |1.2031                        |1.0255                        |
+|250                           |5.7992                        |2.9658                        |2.3234                        |
+|500                           |10.9723                       |5.0778                        |4.4677                        |
+|1000                          |23.8131                       |10.3702                       |8.3582                        |
+|2500                          |54.8983                       |24.4662                       |20.6841                       |
+|5000                          |110.093                       |51.3742                       |41.742                        |
 
-**Source:** [ORMBenchmark.PerformanceTests.LinqTakeRecords20](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L135-L137)
+**Source:** [ORMBenchmark.PerformanceTests.LinqTakeRecords20](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L146-L150)
 
 ## LinqTakeRecords50 Method
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/linq-take-records-50-small-data-set.png) | ![](/images/linq-take-records-50-large-data-set.png) |
+| ![](/images/LinqTakeRecords50-small-data-set.png) | ![](/images/LinqTakeRecords50-large-data-set.png) |
 
-| Row Count | EF 6 Time (milliseconds) | EF Core Time (milliseconds) | XPO Time (milliseconds) |
-| --------- | ------------------------ | --------------------------- | ----------------------- |
-| 10        | 1.9604                   | 1.7528                      | 1.5514                  |
-| 50        | 1.0316                   | 0.7783                      | 0.5729                  |
-| 100       | 1.6568                   | 1.2202                      | 0.8686                  |
-| 250       | 3.4619                   | 2.4293                      | 1.9379                  |
-| 500       | 6.3305                   | 4.6616                      | 3.5355                  |
-| 1000      | 11.9937                  | 8.4885                      | 6.6637                  |
-| 2500      | 28.5058                  | 20.0323                     | 15.9553                 |
-| 5000      | 58.4292                  | 33.468                      | 26.9299                 |
+|Row Count                     |EF 6 Time (milliseconds)      |EF Core Time (milliseconds)   |XPO Time (milliseconds)       |
+|------------------------------|------------------------------|------------------------------|------------------------------|
+|10                            |0.4596                        |0.2689                        |0.28                          |
+|50                            |0.5076                        |0.3108                        |0.2541                        |
+|100                           |0.94                          |0.5772                        |0.4632                        |
+|250                           |2.5524                        |1.4366                        |1.0343                        |
+|500                           |4.9647                        |2.5153                        |1.9276                        |
+|1000                          |9.2351                        |4.8291                        |4.2158                        |
+|2500                          |25.0524                       |11.4944                       |9.7966                        |
+|5000                          |50.0844                       |22.9799                       |19.8754                       |
 
-**Source:** [ORMBenchmark.PerformanceTests.LinqTakeRecords50](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L140-L142)
+**Source:** [ORMBenchmark.PerformanceTests.LinqTakeRecords50](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L153-L157)
 
 ## LinqTakeRecords100 Method
 
-|                    Small Data Set                     |                    Large Data Set                     |
-| ----------------------------------------------------- | ----------------------------------------------------- |
-| ![](/images/linq-take-records-100-small-data-set.png) | ![](/images/linq-take-records-100-large-data-set.png) |
+|                    Small Data Set                    |                    Large Data Set                    |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| ![](/images/LinqTakeRecords100-small-data-set.png) | ![](/images/LinqTakeRecords100-large-data-set.png) |
 
-| Row Count | EF 6 Time (milliseconds) | EF Core Time (milliseconds) | XPO Time (milliseconds) |
-| --------- | ------------------------ | --------------------------- | ----------------------- |
-| 10        | 2.039                    | 0.7473                      | 1.5969                  |
-| 50        | 1.2159                   | 0.7814                      | 0.7773                  |
-| 100       | 1.188                    | 0.8686                      | 0.7244                  |
-| 250       | 2.4994                   | 1.794                       | 1.4603                  |
-| 500       | 4.1542                   | 2.944                       | 2.4636                  |
-| 1000      | 7.881                    | 5.4638                      | 4.8496                  |
-| 2500      | 17.8307                  | 12.0658                     | 11.6377                 |
-| 5000      | 38.7205                  | 26.1791                     | 21.7918                 |
+|Row Count                     |EF 6 Time (milliseconds)      |EF Core Time (milliseconds)   |XPO Time (milliseconds)       |
+|------------------------------|------------------------------|------------------------------|------------------------------|
+|10                            |0.6749                        |0.3911                        |0.9448                        |
+|50                            |0.5012                        |0.3061                        |0.3461                        |
+|100                           |0.5536                        |0.3637                        |0.289                         |
+|250                           |1.4859                        |0.9413                        |0.7918                        |
+|500                           |2.5495                        |1.5113                        |1.3781                        |
+|1000                          |5.3379                        |2.9755                        |2.6051                        |
+|2500                          |12.569                        |6.6606                        |5.9008                        |
+|5000                          |25.1495                       |13.8809                       |11.7254                       |
 
-**Source:** [ORMBenchmark.PerformanceTests.LinqTakeRecords100](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L145-L147)
+**Source:** [ORMBenchmark.PerformanceTests.LinqTakeRecords100](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L160-L1164)
