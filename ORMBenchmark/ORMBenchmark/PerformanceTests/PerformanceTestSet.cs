@@ -46,13 +46,13 @@ namespace ORMBenchmark.PerformanceTests {
             + "," + nameof(UpdateOne)
             + "," + nameof(Fetch)
             + "," + nameof(LinqQuery)
-            + "," + nameof(ObjectInstantiationLinq)
-            + "," + nameof(ObjectInstantiationNative)
+            + "," + nameof(InstantiationLinq)
+            + "," + nameof(InstantiationNative)
             + "," + nameof(LinqTakeRecords10)
             + "," + nameof(LinqTakeRecords20)
             + "," + nameof(LinqTakeRecords50)
             + "," + nameof(LinqTakeRecords100)
-            + "," + nameof(Projection)
+            + "," + nameof(ProjectionLinq)
             )]
         public void IterationSetupForUpdateAndSelect() {
             TestProvider.InitSession();
@@ -63,13 +63,13 @@ namespace ORMBenchmark.PerformanceTests {
             +"," + nameof(UpdateOne)
             + "," + nameof(Fetch)
             + "," + nameof(LinqQuery)
-            + "," + nameof(ObjectInstantiationLinq)
-            + "," + nameof(ObjectInstantiationNative)
+            + "," + nameof(InstantiationLinq)
+            + "," + nameof(InstantiationNative)
             + "," + nameof(LinqTakeRecords10)
             + "," + nameof(LinqTakeRecords20)
             + "," + nameof(LinqTakeRecords50)
             + "," + nameof(LinqTakeRecords100)
-            + "," + nameof(Projection)
+            + "," + nameof(ProjectionLinq)
             )]
         public void GlobalSetupForUpdateAndSelect() {
             TestProvider.CreateTestDataSet(RowCount);
