@@ -2,7 +2,7 @@ language: csharp
 sudo: required
 solution: DevExpress.Xpo.ConsoleCoreDemo.sln
 mono: none
-dotnet: 2.1.0
+dotnet: 2.1
 dist: trusty
 script:
  - cd XpoConsoleCoreDemo
