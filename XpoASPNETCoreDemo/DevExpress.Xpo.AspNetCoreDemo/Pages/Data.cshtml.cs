@@ -17,8 +17,8 @@ namespace DevExpress.Xpo.Demo.Pages
 
         public List<UserModel> Users { get; set; }
         public int TotalCount { get; set; }
-        public void OnGet() {
-            Users = uow.Query<User>()
+        public async Task OnGet() {
+            Users = await uow.Query<User>()
                 .OrderBy(u => u.LastName)
                 .ThenBy(u => u.FirstName)
                 .Select(u => new UserModel {
@@ -26,27 +26,27 @@ namespace DevExpress.Xpo.Demo.Pages
                     FirstName = u.FirstName,
                     LastName = u.LastName,
                     Email = u.Email
-                }).ToList();
-            TotalCount = uow.Query<User>().Count();
+                }).ToListAsync();
+            TotalCount = await uow.Query<User>().CountAsync();
         }
         [HttpPost]
-        public IActionResult OnPostDelete(Guid id) {
-            var user = uow.GetObjectByKey<User>(id);
+        public async Task<IActionResult >OnPostDelete(Guid id) {
+            var user = await uow.GetObjectByKeyAsync<User>(id);
             if(user != null) {
                 uow.Delete(user);
-                uow.CommitChanges();
+                await uow.CommitChangesAsync();
             }
             return RedirectToPage();
         }
         [HttpPost]
-        public IActionResult OnPostCreate(UserModel model) {
+        public async Task<IActionResult> OnPostCreate(UserModel model) {
             if(model != null) {
                 var newUser = new User(uow) {
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Email = model.Email
                 };
-                uow.CommitChanges();
+                await uow.CommitChangesAsync();
             }
             return RedirectToPage();
         }
