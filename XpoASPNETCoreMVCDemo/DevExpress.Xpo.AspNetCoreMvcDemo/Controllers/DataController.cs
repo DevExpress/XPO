@@ -15,8 +15,8 @@ namespace DevExpress.Xpo.AspNetCoreMvcDemo.Controllers {
             this.uow = uow;
         }
 
-        public IActionResult Index() {
-            var users = uow.Query<User>()
+        public async Task<IActionResult> Index() {
+            var users = await uow.Query<User>()
                 .OrderBy(u => u.LastName)
                 .ThenBy(u => u.FirstName)
                 .Select(u => new UserModel {
@@ -24,9 +24,9 @@ namespace DevExpress.Xpo.AspNetCoreMvcDemo.Controllers {
                     FirstName = u.FirstName,
                     LastName = u.LastName,
                     Email = u.Email
-                }).ToList();
+                }).ToListAsync();
 
-            int totalCount = uow.Query<User>().Count();
+            int totalCount = await uow.Query<User>().CountAsync();
 
             var viewModel = new DataViewModel() {
                 Users = users,
@@ -37,24 +37,24 @@ namespace DevExpress.Xpo.AspNetCoreMvcDemo.Controllers {
         }
 
         [HttpPost]
-        public IActionResult Delete(Guid id) {
-            var user = uow.GetObjectByKey<User>(id);
+        public async Task<IActionResult> Delete(Guid id) {
+            var user = await uow.GetObjectByKeyAsync<User>(id);
             if(user != null) {
                 uow.Delete(user);
-                uow.CommitChanges();
+                await uow.CommitChangesAsync();
             }
             return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public IActionResult Create(UserModel model) {
+        public async Task<IActionResult> Create(UserModel model) {
             if(model != null) {
                 var newUser = new User(uow) {
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Email = model.Email
                 };
-                uow.CommitChanges();
+                await uow.CommitChangesAsync();
             }
             return RedirectToAction("Index");
         }

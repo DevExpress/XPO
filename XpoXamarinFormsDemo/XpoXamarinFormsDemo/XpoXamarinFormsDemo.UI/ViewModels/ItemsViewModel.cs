@@ -39,7 +39,15 @@ namespace DevExpress.Xpo.XamarinFormsDemo {
                 return;
 
             IsBusy = true;
+            await LoadItemsAsync();
+            IsBusy = false;
+        }
 
+        public void UpdateItems() {
+            OnPropertyChanged("Items");
+        }
+
+        public async Task LoadItemsAsync() {
             try {
                 Items.Clear();
                 var items = await DataStore.GetItemsAsync(true);
@@ -48,14 +56,7 @@ namespace DevExpress.Xpo.XamarinFormsDemo {
                 }
             } catch(Exception ex) {
                 Debug.WriteLine(ex);
-            } finally {
-                IsBusy = false;
             }
         }
-
-        public void UpdateItems() {
-            OnPropertyChanged("Items");
-        }
-
     }
 }
