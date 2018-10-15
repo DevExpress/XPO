@@ -1,6 +1,6 @@
 ﻿{
   "dependencies": {
-    "DevExpress.Xpo": "18.2.2-pre-18283",
+    "DevExpress.Xpo": "18.2.2-pre-18288",
     "Microsoft.Data.Sqlite": "2.1.0",
     "Microsoft.NETCore.UniversalWindowsPlatform": "6.1.9",
     "Xamarin.Forms": "3.2.0.871581"

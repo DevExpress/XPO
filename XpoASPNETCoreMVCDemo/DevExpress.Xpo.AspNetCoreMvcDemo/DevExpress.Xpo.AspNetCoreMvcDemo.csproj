@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.Xpo" Version="18.2.2-pre-18285" />
+    <PackageReference Include="DevExpress.Xpo" Version="18.2.2-pre-18288" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.5" />
   </ItemGroup>
 
