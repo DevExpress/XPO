@@ -22,19 +22,19 @@ namespace DevExpress.Xpo.XamarinFormsDemo {
         [Key]
         public string Id {
             get { return id; }
-            set { SetPropertyValue("Id", ref id, value); }
+            set { SetPropertyValue(nameof(Id), ref id, value); }
         }
         string text;
         [Size(256)]
         public string Text {
             get { return text; }
-            set { SetPropertyValue("Text", ref text, value); }
+            set { SetPropertyValue(nameof(Text), ref text, value); }
         }
         string description;
         [Size(SizeAttribute.Unlimited)]
         public string Description {
             get { return description; }
-            set { SetPropertyValue("Description", ref description, value); }
+            set { SetPropertyValue(nameof(Description), ref description, value); }
         }
     }
 */

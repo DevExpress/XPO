@@ -44,7 +44,7 @@ namespace DevExpress.Xpo.XamarinFormsDemo {
         }
 
         public void UpdateItems() {
-            OnPropertyChanged("Items");
+            OnPropertyChanged(nameof(Items));
         }
 
         public async Task LoadItemsAsync() {
