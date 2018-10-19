@@ -11,12 +11,12 @@ namespace ORMBenchmark.Models.XPO {
         [Key]
         public long Id {
             get { return fId; }
-            set { SetPropertyValue<long>("Id", ref fId, value); }
+            set { SetPropertyValue<long>(nameof(Id), ref fId, value); }
         }
         long fValue;
         public long Value {
             get { return fValue; }
-            set { SetPropertyValue<long>("Value", ref fValue, value); }
+            set { SetPropertyValue<long>(nameof(Value), ref fValue, value); }
         }
         public XPOEntity(Session session) : base(session) { }
         public XPOEntity() : base(Session.DefaultSession) { }
