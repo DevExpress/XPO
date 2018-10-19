@@ -10,25 +10,25 @@ namespace DevExpress.Xpo.Demo.Entities {
         [Key(true)]
         public Guid Oid {
             get { return oid; }
-            set { SetPropertyValue("Oid", ref oid, value); }
+            set { SetPropertyValue(nameof(Oid), ref oid, value); }
         }
         string firstName;
         [Size(100)]
         public string FirstName {
             get { return firstName; }
-            set { SetPropertyValue("FirstName", ref firstName, value); }
+            set { SetPropertyValue(nameof(FirstName), ref firstName, value); }
         }
         string lastName;
         [Size(100)]
         public string LastName {
             get { return lastName; }
-            set { SetPropertyValue("LastName", ref lastName, value); }
+            set { SetPropertyValue(nameof(LastName), ref lastName, value); }
         }
         string email;
         [Size(256)]
         public string Email {
             get { return email; }
-            set { SetPropertyValue("Email", ref email, value); }
+            set { SetPropertyValue(nameof(Email), ref email, value); }
         }
         public User(Session session)
             : base(session) {
