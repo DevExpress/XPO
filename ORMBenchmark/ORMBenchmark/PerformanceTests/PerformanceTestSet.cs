@@ -27,6 +27,7 @@ namespace ORMBenchmark.PerformanceTests {
             yield return new XPOPerfTestProvider();
             yield return new EF6TestProvider();
             yield return new EFCoreTestProvider();
+            yield return new DirectSQLTestProvider();
         }
 
         [IterationSetup(Target = nameof(InsertMany) + "," + nameof(InsertOne))]
