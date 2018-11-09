@@ -58,19 +58,22 @@ namespace ORMBenchmark.PerformanceTests {
             return sqlConnection;
         }
 
+        SqlParameter CreateSqlParameter<T>(SqlCommand cmd, SqlDbType dbType, T paramValue) {
+            SqlParameter param = new SqlParameter("p" + cmd.Parameters.Count.ToString(), dbType);
+            param.Value = paramValue;
+            cmd.Parameters.Add(param);
+            return param;
+        }
+
         public override void InsertOne(int recordsCount) {
             using(SqlTransaction transaction = connection.BeginTransaction()) {
                 using(SqlCommand cmd = connection.CreateCommand()) {
                     cmd.Transaction = transaction;
-                    cmd.CommandText = "insert into Entities (Id, Value) values (@Id, @Value)";
+                    cmd.CommandText = "insert into Entities (Id, Value) values (@p0, @p1)";
                     for(int i = 0; i < recordsCount; i++) {
                         cmd.Parameters.Clear();
-                        SqlParameter param1 = new SqlParameter("Id", SqlDbType.BigInt);
-                        SqlParameter param2 = new SqlParameter("Value", SqlDbType.BigInt);
-                        param1.Value = i;
-                        param2.Value = i;
-                        cmd.Parameters.Add(param1);
-                        cmd.Parameters.Add(param2);
+                        CreateSqlParameter(cmd, SqlDbType.BigInt, i);
+                        CreateSqlParameter(cmd, SqlDbType.BigInt, i);
                         cmd.ExecuteNonQuery();
                     }
                     transaction.Commit();
@@ -87,12 +90,8 @@ namespace ORMBenchmark.PerformanceTests {
                         cmd.Parameters.Clear();
                         StringBuilder sb = new StringBuilder();
                         for(int j = i; j < recordsCount && j < i + batchSize; j++) {
-                            SqlParameter param1 = new SqlParameter(string.Concat("p", (j * 2).ToString()), SqlDbType.BigInt);
-                            SqlParameter param2 = new SqlParameter(string.Concat("p", (j * 2 + 1).ToString()), SqlDbType.BigInt);
-                            param1.Value = j;
-                            param2.Value = j;
-                            cmd.Parameters.Add(param1);
-                            cmd.Parameters.Add(param2);
+                            SqlParameter param1 = CreateSqlParameter(cmd, SqlDbType.BigInt, j);
+                            SqlParameter param2 = CreateSqlParameter(cmd, SqlDbType.BigInt, j);
                             if(j != i) {
                                 sb.Append(",");
                             }
@@ -114,13 +113,11 @@ namespace ORMBenchmark.PerformanceTests {
                     using(SqlDataReader rdr = readCmd.ExecuteReader(CommandBehavior.SequentialAccess)) {
                         using(SqlCommand updateCmd = connection.CreateCommand()) {
                             updateCmd.Transaction = transaction;
-                            updateCmd.CommandText = "update Entities set Value = Value + 1 where Id = @Id";
+                            updateCmd.CommandText = "update Entities set Value = Value + 1 where Id = @p0";
                             while(rdr.Read()) {
                                 long id = (long)rdr["Id"];
                                 updateCmd.Parameters.Clear();
-                                SqlParameter param = new SqlParameter("Id", SqlDbType.BigInt);
-                                param.Value = id;
-                                updateCmd.Parameters.Add(param);
+                                CreateSqlParameter(updateCmd, SqlDbType.BigInt, id);
                                 updateCmd.ExecuteNonQuery();
                             }
                         }
@@ -148,12 +145,8 @@ namespace ORMBenchmark.PerformanceTests {
                         cmd.Parameters.Clear();
                         StringBuilder sb = new StringBuilder();
                         for(int j = i; j < i + batchSize && j < ids.Count; j++) {
-                            SqlParameter param1 = new SqlParameter(string.Concat("p", (j * 2).ToString()), SqlDbType.BigInt);
-                            SqlParameter param2 = new SqlParameter(string.Concat("p", (j * 2 + 1).ToString()), SqlDbType.BigInt);
-                            param1.Value = ids[j];
-                            param2.Value = values[j] + 1;
-                            cmd.Parameters.Add(param1);
-                            cmd.Parameters.Add(param2);
+                            SqlParameter param1 = CreateSqlParameter(cmd, SqlDbType.BigInt, ids[j]);
+                            SqlParameter param2 = CreateSqlParameter(cmd, SqlDbType.BigInt, ids[j] + 1);
                             sb.Append(string.Concat("update Entities set Value = @", param2.ParameterName, " where Id = @", param1.ParameterName, ";"));
                         }
                         cmd.CommandText = sb.ToString();
@@ -172,13 +165,11 @@ namespace ORMBenchmark.PerformanceTests {
                     using(SqlDataReader rdr = readCmd.ExecuteReader(CommandBehavior.SequentialAccess)) {
                         using(SqlCommand deleteCmd = connection.CreateCommand()) {
                             deleteCmd.Transaction = transaction;
-                            deleteCmd.CommandText = "delete from Entities where Id = @Id";
+                            deleteCmd.CommandText = "delete from Entities where Id = @p0";
                             while(rdr.Read()) {
                                 long id = (long)rdr["Id"];
                                 deleteCmd.Parameters.Clear();
-                                SqlParameter param = new SqlParameter("Id", SqlDbType.BigInt);
-                                param.Value = id;
-                                deleteCmd.Parameters.Add(param);
+                                CreateSqlParameter(deleteCmd, SqlDbType.BigInt, id);
                                 deleteCmd.ExecuteNonQuery();
                             }
                         }
@@ -189,7 +180,7 @@ namespace ORMBenchmark.PerformanceTests {
         }
 
         public override void DeleteMany() {
-            const int batchSize = 50;
+            const int batchSize = 100;
             using(SqlCommand cmd = connection.CreateCommand()) {
                 cmd.CommandText = "select Id from Entities";
                 List<long> ids = new List<long>();
@@ -204,13 +195,11 @@ namespace ORMBenchmark.PerformanceTests {
                         cmd.Parameters.Clear();
                         StringBuilder sb = new StringBuilder();
                         for(int j = i; j < i + batchSize && j < ids.Count; j++) {
-                            SqlParameter param1 = new SqlParameter(string.Concat("p", j.ToString()), SqlDbType.BigInt);
-                            param1.Value = ids[j];
-                            if(cmd.Parameters.Count > 0) {
+                            SqlParameter param1 = CreateSqlParameter(cmd, SqlDbType.BigInt, ids[j]);
+                            if(cmd.Parameters.Count > 1) {
                                 sb.Append(",");
                             }
                             sb.Append(string.Concat("@", param1.ParameterName));
-                            cmd.Parameters.Add(param1);
                         }
                         cmd.CommandText = string.Concat("delete from Entities where Id in (", sb.ToString(), ")");
                         cmd.ExecuteNonQuery();
@@ -222,12 +211,10 @@ namespace ORMBenchmark.PerformanceTests {
 
         public override void Fetch() {
             using(SqlCommand cmd = connection.CreateCommand()) {
-                cmd.CommandText = "select Id, Value from Entities where Id = @Id";
+                cmd.CommandText = "select Id, Value from Entities where Id = @p0";
                 for(int i = 0; i < RecordsCount; i++) {
                     cmd.Parameters.Clear();
-                    SqlParameter param = new SqlParameter("Id", SqlDbType.BigInt);
-                    param.Value = i;
-                    cmd.Parameters.Add(param);
+                    CreateSqlParameter(cmd, SqlDbType.BigInt, i);
                     using(SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.SequentialAccess)) {
                         rdr.Read();
                         Entity item = new Entity() {
@@ -263,12 +250,10 @@ namespace ORMBenchmark.PerformanceTests {
 
         protected override void LinqTakeRecords(int takeRecords) {
             using(SqlCommand cmd = connection.CreateCommand()) {
-                cmd.CommandText = string.Format("select top {0} Id, Value from Entities where Id >= @i", takeRecords);
+                cmd.CommandText = string.Format("select top {0} Id, Value from Entities where Id >= @p0", takeRecords);
                 for(int i = 0; i < RecordsCount; i += takeRecords) {
                     cmd.Parameters.Clear();
-                    SqlParameter param = new SqlParameter("i", SqlDbType.BigInt);
-                    param.Value = i;
-                    cmd.Parameters.Add(param);
+                    CreateSqlParameter(cmd, SqlDbType.BigInt, i);
                     using(SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.SequentialAccess)) {
                         while(rdr.Read()) {
                             Entity item = new Entity() {
