@@ -25,8 +25,8 @@ namespace ConsoleApp1 {
                     }
                 }
             }
-            var summary = BenchmarkRunner.Run<PerformanceTestSet>();
-            string resultsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "BenchmarkDotNet.Artifacts", "results", "PerformanceTestSet-report.html");
+            var summary = BenchmarkRunner.Run<PerformanceTestSet>(new TestSetConfig());
+            string resultsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "BenchmarkDotNet.Artifacts", "results", "ORMBenchmark.PerformanceTests.PerformanceTestSet-report.html");
             System.Diagnostics.Process.Start(resultsPath);
         }
     }
