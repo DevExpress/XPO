@@ -12,7 +12,8 @@ namespace ORMBenchmark.PerformanceTests {
         private EFCoreContext dataContext;
 
         public override string ToString() {
-            return "EF Core";
+            Version version = typeof(DbContext).Assembly.GetName().Version;
+            return string.Format("EF Core {0}.{1}.{2}", version.Major, version.Minor, version.Build);
         }
 
         public override void CreateTestDataSet(int recordsCount) {

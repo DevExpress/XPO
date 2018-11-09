@@ -12,7 +12,8 @@ namespace ORMBenchmark.PerformanceTests {
         private IDataLayer dataLayer;
 
         public override string ToString() {
-            return "XPO";
+            Version version = typeof(IXPObject).Assembly.GetName().Version;
+            return string.Format("XPO {0}.{1}.{2}", version.Major, version.Minor, version.Build);
         }
 
         public override void InitSession() {

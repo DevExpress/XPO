@@ -8,7 +8,8 @@ namespace ORMBenchmark.PerformanceTests {
         private EF6Context dataContext;
 
         public override string ToString() {
-            return "EF 6";
+            Version version = typeof(System.Data.Entity.DbContext).Assembly.GetName().Version;
+            return string.Format("EF {0}.{1}.{2}", version.Major, version.Minor, version.Build);
         }
 
         public override void CreateTestDataSet(int recordsCount) {

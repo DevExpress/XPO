@@ -1,16 +1,9 @@
 ﻿using System.Collections.Generic;
 using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Attributes.Exporters;
-using BenchmarkDotNet.Attributes.Jobs;
-using BenchmarkDotNet.Running;
 using BenchmarkDotNet.Exporters;
-using BenchmarkDotNet.Engines;
-using System.Runtime;
 
 namespace ORMBenchmark.PerformanceTests {
 
-    [HtmlExporter]
-    [Config(typeof(TestSetConfig))]
     public class PerformanceTestSet {
 
         [ParamsSource(nameof(RowCounts))]
@@ -27,6 +20,7 @@ namespace ORMBenchmark.PerformanceTests {
             yield return new XPOPerfTestProvider();
             yield return new EF6TestProvider();
             yield return new EFCoreTestProvider();
+            yield return new DirectSQLTestProvider();
         }
 
         [IterationSetup(Target = nameof(InsertMany) + "," + nameof(InsertOne))]

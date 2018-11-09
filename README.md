@@ -8,7 +8,7 @@ This repository contains demo projects demonstrating how to use [eXpressPersiste
 
 ## Prerequisites
 
-Download and install [.NET Core 2.0 SDK](https://www.microsoft.com/net/download/core).
+Download and install [.NET Core 2.1 SDK](https://www.microsoft.com/net/download/core).
 
 ## Available Free of Charge without Technical Support
 If you do not require technical assistance from [our Support Team](https://www.devexpress.com/Support/Center/), you can use fully-functional XPO - ORM Library in your applications **free of charge**. Support is included with several paid subscriptions, including a dedicated [XPO - ORM Library Subscription](https://www.devexpress.com/Products/NET/ORM/#Pricing) license. [Learn more...](https://community.devexpress.com/blogs/xpo/archive/2018/05/21/xpo-free-of-charge-in-v18-1.aspx)

@@ -15,7 +15,7 @@
     <None Remove="Properties\PublishProfiles\**" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Xpo" Version="18.2.2-pre-18288" />
+    <PackageReference Include="DevExpress.Xpo" Version="18.2.3" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.5" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="2.1.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.5.1" />
