@@ -1,16 +1,9 @@
 ﻿using System.Collections.Generic;
 using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Attributes.Exporters;
-using BenchmarkDotNet.Attributes.Jobs;
-using BenchmarkDotNet.Running;
 using BenchmarkDotNet.Exporters;
-using BenchmarkDotNet.Engines;
-using System.Runtime;
 
 namespace ORMBenchmark.PerformanceTests {
 
-    [HtmlExporter]
-    [Config(typeof(TestSetConfig))]
     public class PerformanceTestSet {
 
         [ParamsSource(nameof(RowCounts))]
