@@ -51,6 +51,7 @@
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidLinkMode>Full</AndroidLinkMode>
     <AndroidSupportedAbis>armeabi-v7a;x86</AndroidSupportedAbis>
+    <MandroidI18n>CJK;Mideast;Rare;West;Other</MandroidI18n>
   </PropertyGroup>
   <PropertyGroup>
     <UseShortFileNames>True</UseShortFileNames>
