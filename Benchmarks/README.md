@@ -9,7 +9,7 @@ You can run the benchmark tests or review our results below. Needless to say, th
 
 All benchmarks were executed using .NET 4.7.2, AnyCPU release builds (include warm-up), Windows 10 Enterprise x64, local Microsoft SQL Server 2016 Developer Edition, i7-7700 CPU @3.6GHz / 16GB RAM / SSD. 
 
-If you download the project to run benchmark tests in your environment, edit the connection string in the [App.config](/ORMBenchmark/ORMBenchmark/App.config) file and update the ORM library and target framework versions, if necessary. Please note that we used Nuget to add [DevExpress.Xpo](https://www.nuget.org/packages/DevExpress.Xpo/) and other libraries to project references.  
+If you download the project to run benchmark tests in your environment, edit the connection string in the [App.config](/Benchmarks/ORMBenchmark/App.config) file and update the ORM library and target framework versions, if necessary. Please note that we used Nuget to add [DevExpress.Xpo](https://www.nuget.org/packages/DevExpress.Xpo/) and other libraries to project references.  
 
 We kept the first version of this test as simple as possible.  Feel free to make data model and test case modifications to cover additional usage scenarios. For instance,  measure memory consumption, include scenarios with BLOBs, reference and collection properties, etc. We'd love to hear your feedback about this project. Drop us a line in this [blog post](https://community.devexpress.com/blogs/xpo/archive/2018/06/22/xpo-a-simple-benchmark-against-ef-6-and-ef-core.aspx), thanks.
 
@@ -37,7 +37,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 |2500                          |292.06215                     |3167.36457                    |12088.78309                   |387.6723                      |
 |5000                          |546.74708                     |11342.09605                   |46913.26095                   |777.92085                     |
 
-**Source:** [ORMBenchmark.PerformanceTests.InsertOne](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L79-L81)
+**Source:** [ORMBenchmark.PerformanceTests.InsertOne](/Benchmarks/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L79-L81)
 
 ## InsertMany Method
 
@@ -56,7 +56,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 |2500                          |113.09453                     |1228.29871                    |172.19131                     |153.5152                      |
 |5000                          |229.19865                     |4027.46954                    |315.17467                     |331.50595                     |
 
-**Source:** [ORMBenchmark.PerformanceTests.InsertMany](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L84-L86)
+**Source:** [ORMBenchmark.PerformanceTests.InsertMany](/Benchmarks/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L84-L86)
 
 ## UpdateOne Method
 
@@ -75,7 +75,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 |2500                          |248.40432                     |2147.50299                    |11719.29564                   |351.54008                     |
 |5000                          |515.09404                     |7234.76898                    |46095.03902                   |721.8575                      |
 
-**Source:** [ORMBenchmark.PerformanceTests.UpdateOne](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L89-L91)
+**Source:** [ORMBenchmark.PerformanceTests.UpdateOne](/Benchmarks/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L89-L91)
 
 ## UpdateMany Method
 
@@ -94,7 +94,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 |2500                          |96.17823                      |391.34613                     |150.99402                     |138.47825                     |
 |5000                          |207.47762                     |851.93428                     |319.44294                     |268.07379                     |
 
-**Source:** [ORMBenchmark.PerformanceTests.UpdateMany](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L94-L96)
+**Source:** [ORMBenchmark.PerformanceTests.UpdateMany](/Benchmarks/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L94-L96)
 
 ## DeleteOne Method
 
@@ -113,7 +113,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 |2500                          |247.69084                     |544.98543                     |425.96493                     |343.9544                      |
 |5000                          |524.66883                     |1078.21011                    |877.35448                     |682.81796                     |
 
-**Source:** [ORMBenchmark.PerformanceTests.DeleteOne](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L99-L101)
+**Source:** [ORMBenchmark.PerformanceTests.DeleteOne](/Benchmarks/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L99-L101)
 
 ## DeleteMany Method
 
@@ -132,7 +132,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 |2500                          |19.65093                      |1233.94547                    |11479.91199                   |77.32662                      |
 |5000                          |42.43921                      |4260.60081                    |44742.09767                   |132.49481                     |
 
-**Source:** [ORMBenchmark.PerformanceTests.DeleteMany](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L104-L106)
+**Source:** [ORMBenchmark.PerformanceTests.DeleteMany](/Benchmarks/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L104-L106)
 
 ## Fetch Method
 
@@ -151,7 +151,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 |2500                          |262.50663                     |898.72283                     |578.73005                     |331.22809                     |
 |5000                          |488.77896                     |1841.69544                    |1071.00927                    |660.38679                     |
 
-**Source:** [ORMBenchmark.PerformanceTests.Fetch](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L109-L111)
+**Source:** [ORMBenchmark.PerformanceTests.Fetch](/Benchmarks/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L109-L111)
 
 ## InstantiationNative Method
 
@@ -170,7 +170,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 |2500                          |1.23472                       |1.74691                       |1.13827                       |2.29676                       |
 |5000                          |2.33936                       |3.26244                       |2.08388                       |5.06711                       |
 
-**Source:** [ORMBenchmark.PerformanceTests.InstantiationNative](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L119-L123)
+**Source:** [ORMBenchmark.PerformanceTests.InstantiationNative](/Benchmarks/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L119-L123)
 
 ## InstantiationLinq Method
 
@@ -189,7 +189,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 |2500                          |1.21593                       |1.89211                       |1.27493                       |1.68008                       |
 |5000                          |2.33319                       |3.43492                       |2.16611                       |3.2028                        |
 
-**Source:** [ORMBenchmark.PerformanceTests.InstantiationLinq](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L126-L130)
+**Source:** [ORMBenchmark.PerformanceTests.InstantiationLinq](/Benchmarks/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L126-L130)
 
 ## ProjectionLinq Method
 
@@ -208,7 +208,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 |2500                          |1.26044                       |1.50227                       |1.54141                       |1.47414                       |
 |5000                          |2.3381                        |2.6592                        |2.78247                       |2.77924                       |
 
-**Source:** [ORMBenchmark.PerformanceTests.ProjectionLinq](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L161-L165)
+**Source:** [ORMBenchmark.PerformanceTests.ProjectionLinq](/Benchmarks/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L161-L165)
 
 ## LinqQuery Method
 
@@ -227,7 +227,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 |2500                          |244.69358                     |931.62635                     |550.33537                     |409.95055                     |
 |5000                          |530.93814                     |1825.54635                    |1121.17804                    |837.19205                     |
 
-**Source:** [ORMBenchmark.PerformanceTests.LinqQuery](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L114-L116)
+**Source:** [ORMBenchmark.PerformanceTests.LinqQuery](/Benchmarks/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L114-L116)
 
 ## LinqTakeRecords10 Method
 
@@ -246,7 +246,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 |2500                          |25.91311                      |113.81952                     |56.10668                      |45.58331                      |
 |5000                          |56.18968                      |221.44833                     |112.00941                     |90.99834                      |
 
-**Source:** [ORMBenchmark.PerformanceTests.LinqTakeRecords10](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L133-L137)
+**Source:** [ORMBenchmark.PerformanceTests.LinqTakeRecords10](/Benchmarks/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L133-L137)
 
 ## LinqTakeRecords20 Method
 
@@ -265,7 +265,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 |2500                          |13.80206                      |57.02081                      |28.6854                       |22.73038                      |
 |5000                          |29.85419                      |101.82034                     |63.03109                      |45.78746                      |
 
-**Source:** [ORMBenchmark.PerformanceTests.LinqTakeRecords20](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L140-L144)
+**Source:** [ORMBenchmark.PerformanceTests.LinqTakeRecords20](/Benchmarks/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L140-L144)
 
 ## LinqTakeRecords50 Method
 
@@ -284,7 +284,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 |2500                          |6.40796                       |23.88416                      |12.52956                      |10.26229                      |
 |5000                          |13.45901                      |48.89008                      |25.96608                      |19.87431                      |
 
-**Source:** [ORMBenchmark.PerformanceTests.LinqTakeRecords50](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L147-L151)
+**Source:** [ORMBenchmark.PerformanceTests.LinqTakeRecords50](/Benchmarks/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L147-L151)
 
 ## LinqTakeRecords100 Method
 
@@ -303,4 +303,4 @@ We kept the first version of this test as simple as possible.  Feel free to make
 |2500                          |3.84649                       |13.5022                       |7.24441                       |6.26659                       |
 |5000                          |8.23894                       |26.91234                      |13.92579                      |12.44569                      |
 
-**Source:** [ORMBenchmark.PerformanceTests.LinqTakeRecords100](/ORMBenchmark/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L154-L158)
+**Source:** [ORMBenchmark.PerformanceTests.LinqTakeRecords100](/Benchmarks/ORMBenchmark/PerformanceTests/PerformanceTestSet.cs#L154-L158)
