@@ -1,0 +1,44 @@
+﻿<dx:ThemedWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+        x:Class="WpfApplication.CustomerListWindow"
+        WindowStartupLocation="CenterScreen"
+        Title="Customers" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <dxr:RibbonControl Grid.Row="0" RibbonStyle="Office2010">
+            <dxr:RibbonDefaultPageCategory>
+                <dxr:RibbonPage Caption="Customers">
+                    <dxr:RibbonPageGroup Caption="Actions">
+                        <dxb:BarButtonItem x:Name="buttonAddCustomer" ItemClick="ButtonAddCustomer_ItemClick" Content="Add Customer" Glyph="{dx:DXImage SvgImages/Icon Builder/Actions_AddCircled.svg}" LargeGlyph="{dx:DXImage SvgImages/Icon Builder/Actions_AddCircled.svg}"/>
+                        <dxb:BarButtonItem x:Name="buttonEditCustomer" ItemClick="ButtonEditCustomer_ItemClick" Content="Edit Customer" IsEnabled="{Binding IsCustomerSelected}" Glyph="{dx:DXImage SvgImages/Icon Builder/Actions_Edit.svg}" LargeGlyph="{dx:DXImage SvgImages/Icon Builder/Actions_Edit.svg}"/>
+                        <dxb:BarButtonItem x:Name="buttonDeleteCustomer" ItemClick="ButtonDeleteCustomer_ItemClick" Content="Delete Customer" IsEnabled="{Binding IsCustomerSelected}" Glyph="{dx:DXImage SvgImages/Icon Builder/Actions_Delete.svg}" LargeGlyph="{dx:DXImage SvgImages/Icon Builder/Actions_Delete.svg}"/>
+                        <dxb:BarButtonItem x:Name="buttonReload" ItemClick="ButtonReload_ItemClick" Content="Reload" Glyph="{dx:DXImage SvgImages/Icon Builder/Actions_Refresh.svg}" LargeGlyph="{dx:DXImage SvgImages/Icon Builder/Actions_Refresh.svg}"/>
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+            </dxr:RibbonDefaultPageCategory>
+        </dxr:RibbonControl>
+        <dxg:GridControl Grid.Row="1" ItemsSource="{Binding CustomerList}" SelectedItem="{Binding SelectedCustomer}">
+            <dxg:GridControl.View>
+                <dxg:TableView AutoWidth="True" AllowEditing="False" RowDoubleClick="TableView_RowDoubleClick" />
+            </dxg:GridControl.View>
+            <dxg:GridControl.SortInfo>
+                <dxg:GridSortInfo FieldName="Oid" SortOrder="Descending" />
+            </dxg:GridControl.SortInfo>
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="Oid"/>
+                <dxg:GridColumn FieldName="FirstName" />
+                <dxg:GridColumn FieldName="LastName" />
+            </dxg:GridControl.Columns>
+        </dxg:GridControl>
+        <dxr:RibbonStatusBarControl Grid.Row="2"/>
+    </Grid>
+</dx:ThemedWindow>

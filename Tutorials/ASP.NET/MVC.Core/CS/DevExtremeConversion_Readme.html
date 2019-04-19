@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>DevExtreme ASP.NET Core Project Converter</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" >
+
+    <style>
+        .logo {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+            .logo img {
+                float: left;
+                display: block;
+                margin-right: 20px;
+                width: 73px;
+                height: 73px;
+            }
+
+            .logo div {
+                font-size: 30px;
+                color: #3e5876;
+                font-weight: bold;
+            }
+
+        .completed-tasks ul {
+            padding-left: 18px;
+            list-style: none;
+        }
+
+        .completed-tasks li:before {
+            content: "\e013";
+            font-family: 'Glyphicons Halflings';
+            font-size: 14px;
+            float: left;
+            margin-top: -2px;
+            margin-left: -18px;
+            color: #95a3b4;
+        }
+
+        .logo div:nth-of-type(1) {
+            font-size: 48px;
+            color: #f05b41;
+            margin-bottom: -20px;
+            margin-top: -8px;
+        }
+
+        .completed-tasks {
+            margin: 0 -30px;
+            padding: 30px;
+            background-color: #3e5876;
+            color: #ffffff;
+        }
+
+            .completed-tasks h2 {
+                margin-top: 0px;
+            }
+
+            .completed-tasks ul {
+                margin-bottom: 0px;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="container logo">
+        <img src=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAgVBMVEX////Hx8f5ua1KSkrwW0Gvr69KSkrwW0FKSkoAAAD59PPwW0HwW0FKSkrwW0H////09PRsbGxhYWHxZU32mYnzemVVVVX+9fPS0tL71s/6zMP84Nu7u7ukpKSOjo71jn3ycFn96ufd3d35wbd3d3eZmZn3o5To6Oj3raCDg4P0hHHrsvJUAAAADXRSTlPu/v7x8f2trScA7yclFjN5AQAAAn1JREFUeNrt19tyskAQBOBB4ynJKAngGcFjlPd/wL/MTd+69P50VYp+gf52dlYLm31O3uaivE0+Z/ahqAfhwyZzaSamGQBGYHNxekAP6AE9oAeoAYUaMBADclMCsmq7kACyproPNrvFMx0Diuq+3SyQTgCoPqK3U0CRD3DqjgF1he7OAcUNM+8OgPIVSjoG1PkZ5Z0DmsHv89YAshxz7x5Q37bB5QDw7Rh894AsR7sAkGPyAkCBBycAZLh4BaA4L6IkaQfIIxw+XZePb/cWgPpO3/x69Oz+jXU9+zQpL46EApoNV379ciQckDP1J5y8JSA/tj/6/rB0JAjA1/+MMPfWgKpt/en6XHcW0GyYdhpQt6v/KdHOALJzu63DvXOAVr96ycFfjhG7x4wegMiXv344QgLuwe3pHoenAc0xePbXpTsBIHd/jcWLAKhWofUXR2hAtg2sx6NvAeCPj82LAsgGTD0PKI5hd4/6OIAbs3o8INsEvXvURwIUIduXHjxKrOX4y6VHBmRnZvd4QL0LuPyHe2xAs2KmzwNyyfQBeP3606tHjgX99yTfHh+Q7V4+/sPjx15f/2Tp/yH2rrl9AOy1/hNuXwIoHREA0osjAgC3fTyA2D4WwI+fB5yo8fOAvTPhAQcnwgPSLyfCAfgfPx6wJtaPBfDrxwNK7yhmovUHgPzq4QGi5weAqB8AUT8Aon4ARP0AiPoBEPUDIOoHQNoPAN/PA7h+HnBwScyk/QDsXREAElfFjPz84AH8A+QBD1cEgJELY6ZaAAA0CwDAyKWx96VLox6A28W1MQ9LD+gBPaAH9IA/CBi6NEMbuzRjm0pHMJzabDqWEYbj6ewftJpztFcdEIMAAAAASUVORK5CYII= />
+        <div>DevExtreme</div>
+        <div>ASP.NET Core Project Converter</div>
+    </div>
+
+    <div class="container">
+        <div class="completed-tasks">
+            <h2>The converter completed the following operations:</h2>
+            <ul>
+                <li>Added the DevExtreme.AspNet.Core and DevExtreme.AspNet.Data libraries to the References;</li>
+                <li>Added all the necessary DevExtreme resources (css\devextreme, js\devextreme, lib\devextreme-aspnet-data) to the wwwroot folder;</li>
+                <li>Modified the following project files: Startup.cs, _ViewImports.cshtml, bower.json, NuGet.config;</li>
+                <li>Created the _DevExtremeLayout.cshtml file (a ready-to-use layout).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div>
+            <h2>Please complete the conversion</h2>
+            <p><a href="#employ">Employ the ready-to-use layout</a> OR <a href="#update">update the existing layout</a> to complete the conversion. </p>
+            <h4><a name="employ"></a>Employing the ready-to-use layout</h4>
+            <div class="container">
+                <p>This layout is a copy of the default one with all the DevExtreme resources referenced. It is suitable if you have not customized the default layout.</p>
+                <p>To use this layout, change <code>_Layout</code> to <code>_DevExtremeLayout</code> in the <code>Views\ViewStart.cshtml</code> file.</p>
+                <pre><code>@{
+    Layout = "_DevExtremeLayout";
+}                    </code></pre>
+                <p>This completes the conversion. Visit the <a href="https://js.devexpress.com/Documentation/Guide/ASP.NET_MVC_Controls/Fundamentals/">Fundamentals</a> documentation topic to learn how to configure DevExtreme ASP.NET MVC Controls.</p>
+            </div>
+            <h4><a name="update"></a>Updating the existing layout</h4>
+            <div class="container">
+                <p>Use this approach to retain layout changes. Add the following CSS and script links to the <code>&lt;head&gt;</code> section.</p>
+                <pre><code>&lt;link href=&quot;~/css/devextreme/dx.common.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;link href=&quot;~/css/devextreme/dx.light.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;script src=&quot;~/js/devextreme/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;~/js/devextreme/cldr.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;~/js/devextreme/cldr/event.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;~/js/devextreme/cldr/supplemental.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;~/js/devextreme/cldr/unresolved.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;~/js/devextreme/globalize.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;~/js/devextreme/globalize/message.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;~/js/devextreme/globalize/number.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;~/js/devextreme/globalize/currency.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;~/js/devextreme/globalize/date.js&quot;&gt;&lt;/script&gt;
+&lt;!-- Uncomment to enable the client-side export feature --&gt;
+&lt;!-- script src=&quot;~/js/devextreme/jszip.js&quot;&gt;&lt;/script --&gt;
+&lt;!-- Uncomment to provide geo-data for the VectorMap widget --&gt;
+&lt;!-- script src=&quot;~/js/devextreme/vectormap-data/world.js&quot;&gt;&lt;/script --&gt;
+&lt;script src=&quot;~/js/devextreme/dx.all.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;~/js/devextreme/aspnet/dx.aspnet.mvc.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;~/js/devextreme/aspnet/dx.aspnet.data.js&quot;&gt;&lt;/script&gt;</code></pre>
+                <p>
+                    Remove the links after the closing <code>&lt;head&gt;</code> tag that are duplicated in the
+                    <code>&lt;head&gt;</code> section (usually jQuery links in the <code>&lt;environment&gt;</code> containers).
+                </p>
+                <pre><code>&lt;environment names=&quot;Development&quot;&gt;
+    &lt;script src=&quot;~/lib/jquery/dist/jquery.js&quot;&gt;&lt;/script&gt;
+...
+&lt;environment names=&quot;Staging,Production&quot;&gt;
+    &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js&quot;
+...</code></pre>
+                <p>Your project can now use DevExtreme ASP.NET MVC Controls. Learn how to configure them from the <a href="https://js.devexpress.com/Documentation/Guide/ASP.NET_MVC_Controls/Fundamentals/">Fundamentals</a> documentation topic.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

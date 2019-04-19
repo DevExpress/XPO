@@ -1,0 +1,72 @@
+﻿<dx:ThemedWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+    x:Class="WpfApplication.OrderEditWindow" WindowStartupLocation="CenterOwner"
+    Title="Edit Order" Height="350" Width="500">
+    <DockPanel LastChildFill="True">
+        <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010">
+            <dxr:RibbonDefaultPageCategory>
+                <dxr:RibbonPage Caption="Order">
+                    <dxr:RibbonPageGroup Caption="Actions">
+                        <dxb:BarButtonItem x:Name="buttonSave" ItemClick="ButtonSave_ItemClick" Content="Save" Glyph="{dx:DXImage SvgImages/Save/Save.svg}" LargeGlyph="{dx:DXImage SvgImages/Save/Save.svg}"/>
+                        <dxb:BarButtonItem x:Name="buttonCancel" ItemClick="ButtonCancel_ItemClick" Content="Cancel" IsEnabled="{Binding IsCustomerSelected}" Glyph="{dx:DXImage SvgImages/HybridDemoIcons/BottomPanel/HybridDemo_Cancel.svg}" LargeGlyph="{dx:DXImage SvgImages/HybridDemoIcons/BottomPanel/HybridDemo_Cancel.svg}"/>
+                        <dxb:BarButtonItem x:Name="buttonReload" ItemClick="ButtonReload_ItemClick" Content="Reload" Glyph="{dx:DXImage SvgImages/Icon Builder/Actions_Refresh.svg}" LargeGlyph="{dx:DXImage SvgImages/Icon Builder/Actions_Refresh.svg}"/>
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+            </dxr:RibbonDefaultPageCategory>
+        </dxr:RibbonControl>
+        <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
+        <Grid Margin="5">
+            <Grid.Resources >
+                <Style TargetType="{x:Type dxe:TextEdit}" >
+                    <Setter Property="Margin" Value="2" />
+                </Style>
+                <Style TargetType="{x:Type dxe:DateEdit}" >
+                    <Setter Property="Margin" Value="2" />
+                </Style>
+                <Style TargetType="{x:Type dxe:SpinEdit}" >
+                    <Setter Property="Margin" Value="2" />
+                </Style>
+                <Style TargetType="{x:Type dxe:ComboBoxEdit}" >
+                    <Setter Property="Margin" Value="2" />
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Label Content="Oid:" Grid.Row="0" Grid.Column="0"/>
+            <dxe:TextEdit Grid.Row="0" Grid.Column="1" IsReadOnly="True" EditValue="{Binding Order.Oid}"/>
+
+            <Label Content="Order Date:" Grid.Row="1" Grid.Column="0"/>
+            <dxe:DateEdit Grid.Row="1" Grid.Column="1"  EditValue="{Binding Order.OrderDate, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Label Content="Product Name:" Grid.Row="2" Grid.Column="0"/>
+            <dxe:TextEdit Grid.Row="2" Grid.Column="1"  EditValue="{Binding Order.ProductName, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Label Content="Freight:" Grid.Row="3" Grid.Column="0"/>
+            <dxe:SpinEdit Grid.Row="3" Grid.Column="1" EditValue="{Binding Order.Freight, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Label Content="Customer:" Grid.Row="4" Grid.Column="0"/>
+            <dxe:ComboBoxEdit Grid.Row="4" Grid.Column="1" IsTextEditable="False"
+                              EditValue="{Binding Order.Customer!}"
+                              ItemsSource="{Binding CustomerList}"
+                              DisplayMember="ContactName" />
+
+        </Grid>
+    </DockPanel>
+</dx:ThemedWindow>

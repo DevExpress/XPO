@@ -1,0 +1,118 @@
+@using XpoTutorial
+
+<h2>Customers</h2>
+
+<script type="text/javascript">
+    var selectedCustomerId;
+    function showOrders(customerId) {
+        selectedCustomerId = customerId;
+        $("#orders-popup").dxPopup("show");
+        $("#orders-grid").dxDataGrid("refresh");
+    }
+    function getSelectedCustomerId() {
+        return selectedCustomerId;
+    }
+</script>
+
+@(Html.DevExtreme().DataGrid<Customer>()
+    .ShowBorders(true)
+    .DataSource(d => d.Mvc().Controller("Customer")
+        .LoadAction("Get")
+        .InsertAction("Add")
+        .UpdateAction("Update")
+        .DeleteAction("Delete")
+        .Key("Oid"))
+    .Columns(columns => {
+        columns.Add().Type(GridCommandColumnType.Buttons).Buttons(b => {
+            b.Add().Name(GridColumnButtonName.Edit);
+            b.Add().Name(GridColumnButtonName.Delete);
+        });
+        columns.AddFor(m => m.Oid).Width(100).AllowEditing(false).SortOrder(SortOrder.Desc);
+        columns.AddFor(m => m.FirstName).Caption("First Name").ValidationRules(r => r.AddRequired());
+        columns.AddFor(m => m.LastName).Caption("Last Name").ValidationRules(r => r.AddRequired());
+        columns.Add().Type(GridCommandColumnType.Buttons).Buttons(b => {
+            b.Add().Text("Orders").OnClick(@<text>function(e) { showOrders(e.row.data.Oid); }</text>);
+        });
+    })
+    .Editing(editing => {
+        editing.Mode(GridEditMode.Popup);
+        editing.AllowAdding(true);
+        editing.AllowDeleting(true);
+        editing.AllowUpdating(true);
+        editing.Form(form => form.ColCount(1));
+        editing.Popup(t => t.Title("Edit Customer").ShowTitle(true));
+    })
+    .Paging(p => p.PageSize(15))
+    .HeaderFilter(f => f.Visible(true))
+    .GroupPanel(p => p.Visible(true))
+    .Grouping(g => g.AutoExpandAll(false))
+    .RemoteOperations(true)
+    .OnInitNewRow(@<text>function(e){ e.data.Oid=0; }</text>)
+    .Summary(s => s
+        .TotalItems(totalItems => {
+            totalItems.AddFor(m => m.Oid).SummaryType(SummaryType.Count);
+        })
+        .GroupItems(groupItems => {
+            groupItems.Add().SummaryType(SummaryType.Count);
+        })
+    )
+)
+
+@(Html.DevExtreme().Popup()
+    .ID("orders-popup")
+    .ElementAttr("class", "popup")
+    .ShowTitle(true)
+    .Title("Orders")
+    .Visible(false)
+    .DragEnabled(false)
+    .CloseOnOutsideClick(false)
+    .ContentTemplate(
+        @<text>
+            @(Html.DevExtreme().DataGrid<Order>()
+                .ID("orders-grid")
+                .ShowBorders(true)
+                .DataSource(d => d.Mvc().Controller("Order")
+                    .LoadAction("Get").LoadParams(new { customerId = new JS("getSelectedCustomerId") })
+                    .InsertAction("Add")
+                    .UpdateAction("Update")
+                    .DeleteAction("Delete")
+                    .Key("Oid"))
+                .Columns(columns => {
+                    columns.Add().Type(GridCommandColumnType.Buttons).Buttons(b => {
+                        b.Add().Name(GridColumnButtonName.Edit);
+                        b.Add().Name(GridColumnButtonName.Delete);
+                    });
+                    columns.AddFor(m => m.Oid).Width(100).AllowEditing(false);
+                    columns.AddFor(m => m.OrderDate).Caption("Order Date");
+                    columns.AddFor(m => m.ProductName).Caption("Product Name").ValidationRules(r => r.AddRequired());
+                    columns.AddFor(m => m.Freight).Caption("Freight");
+                    columns.Add()
+                        .DataField("Customer.Oid").CalculateDisplayValue("Customer.ContactName")
+                        .Caption("Customer")
+                        .ValidationRules(r => r.AddRequired())
+                        .Lookup(l => {
+                            l.DisplayExpr("ContactName");
+                            l.ValueExpr("Oid");
+                            l.DataSource(d => d.Mvc().Controller("Customer").Key("Oid").LoadAction("Get")).DataSourceOptions(t => t.Sort("ContactName"));
+                        });
+                })
+                .Editing(editing => {
+                    editing.Mode(GridEditMode.Popup);
+                    editing.AllowAdding(true);
+                    editing.AllowDeleting(true);
+                    editing.AllowUpdating(true);
+                    editing.Form(form => form.ColCount(1));
+                    editing.Popup(t => t.Title("Edit Order").ShowTitle(true));
+                })
+                .Paging(p => p.PageSize(15))
+                .RemoteOperations(true)
+                .OnInitNewRow("function(e){ e.data.Oid = 0; e.data.Customer = {Oid: getSelectedCustomerId()}; }")
+                .Summary(s => s
+                    .TotalItems(totalItems => {
+                        totalItems.AddFor(m => m.Oid).SummaryType(SummaryType.Count);
+                    })
+                )
+            )
+        </text>
+    )
+)

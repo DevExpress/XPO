@@ -1,0 +1,48 @@
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>Customers</h1>
+
+<script type="text/javascript">
+    var selectedCustomerId;
+    function EditOrders(customerId) {
+        selectedCustomerId = customerId;
+        editOrdersPopup.Show();
+        GridOrders.PerformCallback();
+    }
+    function getSelectedCustomerId() {
+        return selectedCustomerId;
+    }
+</script>
+
+@Html.DevExpress().Button(btn => {
+    btn.Name = "btnNewCustomer";
+    btn.Text = "Add New Customer";
+    btn.ClientSideEvents.Click = "function(s,e){ GridCustomers.AddNewRow(); }";
+}).GetHtml()
+
+@Html.Action("CustomerListPartial", "Customer")
+
+@Html.DevExpress().PopupControl(settings => {
+    settings.Name = "editOrdersPopup";
+    settings.Width = 800;
+    settings.AllowDragging = true;
+    settings.CloseAction = CloseAction.CloseButton;
+    settings.PopupAnimationType = AnimationType.None;
+    settings.HeaderText = "Orders";
+    settings.Modal = true;
+    settings.AutoUpdatePosition = true;
+    settings.PopupHorizontalAlign = PopupHorizontalAlign.LeftSides;
+    settings.PopupVerticalAlign = PopupVerticalAlign.TopSides;
+    settings.PopupHorizontalOffset = 16;
+    settings.PopupVerticalOffset = 16;
+    settings.SetContent(() => {
+        Html.DevExpress().Button(btn => {
+            btn.Name = "btnNewOrder";
+            btn.Text = "Add New Order";
+            btn.ClientSideEvents.Click = "function(s,e){ GridOrders.AddNewRow(); }";
+        }).Render();
+        Html.RenderAction("OrderListPartial", "Order", new { customerOid = -1 });
+    });
+}).GetHtml()
