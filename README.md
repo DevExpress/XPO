@@ -80,7 +80,7 @@ To try this demo, open the solution in [Visual Studio 2017 for Windows 15.6.0](h
 The demo is configured to use the in-memory data provider with XML storage. Modify the *App.xaml.cs* file in the *DevExpress.Xpo.XamarinFormsDemo.UI* project to configure another database connection (e.g., **SQLite**, **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)).
 -->
 
-## ORM Benchmark
+## Benchmarks
 
 The solution located in the `Benchmarks` subfolder is a benchmark that you can use to test XPO against [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) and [Entity Framework 6](https://docs.microsoft.com/en-us/ef/ef6/). You can view the benchmark results at [Benchmarks/README.md](Benchmarks/README.md).
 
