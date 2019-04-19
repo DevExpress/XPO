@@ -3,7 +3,7 @@ sudo: required
 solution: DevExpress.Xpo.ConsoleCoreDemo.sln
 mono: none
 dotnet: 2.1
-dist: bionic
+dist: trusty
 script:
  - cd XpoConsoleCoreDemo
  - dotnet restore
