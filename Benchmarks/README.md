@@ -24,7 +24,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/InsertOne-small-data-set.png) | ![](/images/InsertOne-large-data-set.png) |
+| ![](/Benchmarks/images/InsertOne-small-data-set.png) | ![](/Benchmarks/images/InsertOne-large-data-set.png) |
 
 |Row Count                     |Direct SQL Time (milliseconds)|EF 6.0.0 Time (milliseconds)  |EF Core 2.1.4 Time (milliseconds)|XPO 18.2.3 Time (milliseconds)|
 |------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
@@ -43,7 +43,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/InsertMany-small-data-set.png) | ![](/images/InsertMany-large-data-set.png) |
+| ![](/Benchmarks/images/InsertMany-small-data-set.png) | ![](/Benchmarks/images/InsertMany-large-data-set.png) |
 
 |Row Count                     |Direct SQL Time (milliseconds)|EF 6.0.0 Time (milliseconds)  |EF Core 2.1.4 Time (milliseconds)|XPO 18.2.3 Time (milliseconds)|
 |------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
@@ -62,7 +62,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/UpdateOne-small-data-set.png) | ![](/images/UpdateOne-large-data-set.png) |
+| ![](/Benchmarks/images/UpdateOne-small-data-set.png) | ![](/Benchmarks/images/UpdateOne-large-data-set.png) |
 
 |Row Count                     |Direct SQL Time (milliseconds)|EF 6.0.0 Time (milliseconds)  |EF Core 2.1.4 Time (milliseconds)|XPO 18.2.3 Time (milliseconds)|
 |------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
@@ -81,7 +81,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/UpdateMany-small-data-set.png) | ![](/images/UpdateMany-large-data-set.png) |
+| ![](/Benchmarks/images/UpdateMany-small-data-set.png) | ![](/Benchmarks/images/UpdateMany-large-data-set.png) |
 
 |Row Count                     |Direct SQL Time (milliseconds)|EF 6.0.0 Time (milliseconds)  |EF Core 2.1.4 Time (milliseconds)|XPO 18.2.3 Time (milliseconds)|
 |------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
@@ -100,7 +100,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/DeleteOne-small-data-set.png) | ![](/images/DeleteOne-large-data-set.png) |
+| ![](/Benchmarks/images/DeleteOne-small-data-set.png) | ![](/Benchmarks/images/DeleteOne-large-data-set.png) |
 
 |Row Count                     |Direct SQL Time (milliseconds)|EF 6.0.0 Time (milliseconds)  |EF Core 2.1.4 Time (milliseconds)|XPO 18.2.3 Time (milliseconds)|
 |------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
@@ -119,7 +119,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/DeleteMany-small-data-set.png) | ![](/images/DeleteMany-large-data-set.png) |
+| ![](/Benchmarks/images/DeleteMany-small-data-set.png) | ![](/Benchmarks/images/DeleteMany-large-data-set.png) |
 
 |Row Count                     |Direct SQL Time (milliseconds)|EF 6.0.0 Time (milliseconds)  |EF Core 2.1.4 Time (milliseconds)|XPO 18.2.3 Time (milliseconds)|
 |------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
@@ -138,7 +138,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/Fetch-small-data-set.png) | ![](/images/Fetch-large-data-set.png) |
+| ![](/Benchmarks/images/Fetch-small-data-set.png) | ![](/Benchmarks/images/Fetch-large-data-set.png) |
 
 |Row Count                     |Direct SQL Time (milliseconds)|EF 6.0.0 Time (milliseconds)  |EF Core 2.1.4 Time (milliseconds)|XPO 18.2.3 Time (milliseconds)|
 |------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
@@ -157,7 +157,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/InstantiationNative-small-data-set.png) | ![](/images/InstantiationNative-large-data-set.png) |
+| ![](/Benchmarks/images/InstantiationNative-small-data-set.png) | ![](/Benchmarks/images/InstantiationNative-large-data-set.png) |
 
 |Row Count                     |Direct SQL Time (milliseconds)|EF 6.0.0 Time (milliseconds)  |EF Core 2.1.4 Time (milliseconds)|XPO 18.2.3 Time (milliseconds)|
 |------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
@@ -176,7 +176,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/InstantiationLinq-small-data-set.png) | ![](/images/InstantiationLinq-large-data-set.png) |
+| ![](/Benchmarks/images/InstantiationLinq-small-data-set.png) | ![](/Benchmarks/images/InstantiationLinq-large-data-set.png) |
 
 |Row Count                     |Direct SQL Time (milliseconds)|EF 6.0.0 Time (milliseconds)  |EF Core 2.1.4 Time (milliseconds)|XPO 18.2.3 Time (milliseconds)|
 |------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
@@ -195,7 +195,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/ProjectionLinq-small-data-set.png) | ![](/images/ProjectionLinq-large-data-set.png) |
+| ![](/Benchmarks/images/ProjectionLinq-small-data-set.png) | ![](/Benchmarks/images/ProjectionLinq-large-data-set.png) |
 
 |Row Count                     |Direct SQL Time (milliseconds)|EF 6.0.0 Time (milliseconds)  |EF Core 2.1.4 Time (milliseconds)|XPO 18.2.3 Time (milliseconds)|
 |------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
@@ -214,7 +214,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/LinqQuery-small-data-set.png) | ![](/images/LinqQuery-large-data-set.png) |
+| ![](/Benchmarks/images/LinqQuery-small-data-set.png) | ![](/Benchmarks/images/LinqQuery-large-data-set.png) |
 
 |Row Count                     |Direct SQL Time (milliseconds)|EF 6.0.0 Time (milliseconds)  |EF Core 2.1.4 Time (milliseconds)|XPO 18.2.3 Time (milliseconds)|
 |------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
@@ -233,7 +233,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/LinqTakeRecords10-small-data-set.png) | ![](/images/LinqTakeRecords10-large-data-set.png) |
+| ![](/Benchmarks/images/LinqTakeRecords10-small-data-set.png) | ![](/Benchmarks/images/LinqTakeRecords10-large-data-set.png) |
 
 |Row Count                     |Direct SQL Time (milliseconds)|EF 6.0.0 Time (milliseconds)  |EF Core 2.1.4 Time (milliseconds)|XPO 18.2.3 Time (milliseconds)|
 |------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
@@ -252,7 +252,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/LinqTakeRecords20-small-data-set.png) | ![](/images/LinqTakeRecords20-large-data-set.png) |
+| ![](/Benchmarks/images/LinqTakeRecords20-small-data-set.png) | ![](/Benchmarks/images/LinqTakeRecords20-large-data-set.png) |
 
 |Row Count                     |Direct SQL Time (milliseconds)|EF 6.0.0 Time (milliseconds)  |EF Core 2.1.4 Time (milliseconds)|XPO 18.2.3 Time (milliseconds)|
 |------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
@@ -271,7 +271,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/LinqTakeRecords50-small-data-set.png) | ![](/images/LinqTakeRecords50-large-data-set.png) |
+| ![](/Benchmarks/images/LinqTakeRecords50-small-data-set.png) | ![](/Benchmarks/images/LinqTakeRecords50-large-data-set.png) |
 
 |Row Count                     |Direct SQL Time (milliseconds)|EF 6.0.0 Time (milliseconds)  |EF Core 2.1.4 Time (milliseconds)|XPO 18.2.3 Time (milliseconds)|
 |------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
@@ -290,7 +290,7 @@ We kept the first version of this test as simple as possible.  Feel free to make
 
 |                    Small Data Set                    |                    Large Data Set                    |
 | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![](/images/LinqTakeRecords100-small-data-set.png) | ![](/images/LinqTakeRecords100-large-data-set.png) |
+| ![](/Benchmarks/images/LinqTakeRecords100-small-data-set.png) | ![](/Benchmarks/images/LinqTakeRecords100-large-data-set.png) |
 
 |Row Count                     |Direct SQL Time (milliseconds)|EF 6.0.0 Time (milliseconds)  |EF Core 2.1.4 Time (milliseconds)|XPO 18.2.3 Time (milliseconds)|
 |------------------------------|------------------------------|------------------------------|------------------------------|------------------------------|
