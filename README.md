@@ -1,6 +1,6 @@
-# DevExpress XPO for .NET Core / .NET Standard 2.0 Demos
+# DevExpress XPO for .NET Framework / .NET Core / .NET Standard 2.0 Demos
 
-This repository contains demo projects demonstrating how to use [eXpressPersistent Objects™ (XPO)](https://www.devexpress.com/Products/NET/ORM/)  in [\.NET Standard 2.0](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) applications. You can use these projects to learn how to use XPO in console, ASP.NET Core or Xamarin applications. All required DevExpress references are included.
+This repository contains demo projects demonstrating how to use [eXpressPersistent Objects™ (XPO)](https://www.devexpress.com/Products/NET/ORM/)  in [\.NET Standard 2.0](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) applications. You can use these projects to learn how to use XPO in Console, WPF, WinForms, ASP.NET Core/MVC5/WebForms or Xamarin applications. All required DevExpress references are included.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/5479762/32771815-03632fa0-c935-11e7-9f19-2297bd4cc3f5.png" alt="XPO for .NET Core / Standard 2.0 Logo"/>
@@ -23,6 +23,7 @@ Clone this repository:
 git clone https://github.com/DevExpress/XPO.git
 ```
 
+<!--
 If you do not have [Git](https://git-scm.com/) installed, download and extract the ZIP archive using the GitHub web interface.
 
 ## Console Demo [![Build Status](https://travis-ci.org/DevExpress/XPO.svg?branch=master)](https://travis-ci.org/DevExpress/XPO)
@@ -77,10 +78,11 @@ The solution located in the `XpoXamarinFormsDemo` subfolder demonstrates the use
 To try this demo, open the solution in [Visual Studio 2017 for Windows 15.6.0](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes#15.4) or [Visual Studio 2017 for Mac 7.4.0](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-mac-relnotes) or a newer version. In order to use [.NET Standard 2.0 in UWP](https://blogs.msdn.microsoft.com/dotnet/2017/10/10/announcing-uwp-support-for-net-standard-2-0/), you need to target "Windows 10 Fall Creators Update" as the minimum version of your UWP project.
 
 The demo is configured to use the in-memory data provider with XML storage. Modify the *App.xaml.cs* file in the *DevExpress.Xpo.XamarinFormsDemo.UI* project to configure another database connection (e.g., **SQLite**, **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)).
+-->
 
 ## ORM Benchmark
 
-The solution located in the `ORMBenchmark` subfolder is a benchmark that you can use to test XPO against [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) and [Entity Framework 6](https://docs.microsoft.com/en-us/ef/ef6/). You can view the benchmark results at [ORMBenchmark/README.md](ORMBenchmark/README.md).
+The solution located in the `Benchmarks` subfolder is a benchmark that you can use to test XPO against [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) and [Entity Framework 6](https://docs.microsoft.com/en-us/ef/ef6/). You can view the benchmark results at [Benchmarks/README.md](Benchmarks/README.md).
 
 ## Learn More
 
