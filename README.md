@@ -20,14 +20,14 @@ To install the required binaries, use the [DevExpress\.Xpo](https://www.nuget.or
 Clone this repository:
 
 ```
-git clone https://github.com/DevExpress/XpoNetCoreDemos.git
+git clone https://github.com/DevExpress/XPO.git
 ```
 
 If you do not have [Git](https://git-scm.com/) installed, download and extract the ZIP archive using the GitHub web interface.
 
-## Console Demo [![Build Status](https://travis-ci.org/DevExpress/XpoNetCoreDemos.svg?branch=master)](https://travis-ci.org/DevExpress/XpoNetCoreDemos)
+## Console Demo [![Build Status](https://travis-ci.org/DevExpress/XPO.svg?branch=master)](https://travis-ci.org/DevExpress/XPO)
 
-The solution located in the `XpoConsoleCoreDemo` subfolder is a **.NET Standard 2.0** console application, demonstrating how to initialize the data layer and perform basic data operations. To run the application, execute the following commands in the **repository root folder** (XpoNetCoreDemos by default):
+The solution located in the `XpoConsoleCoreDemo` subfolder is a **.NET Standard 2.0** console application, demonstrating how to initialize the data layer and perform basic data operations. To run the application, execute the following commands in the **repository root folder** (XPO by default):
 
 ```
 cd XpoConsoleCoreDemo\XpoConsoleCoreDemo
@@ -37,7 +37,7 @@ dotnet run
 
 The project is configured to use a local **SQLite** database. You can modify the code in the *Program.cs* file to configure another database connection (e.g., **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)).
 
-## ASP.NET Core Razor Pages Demo [![Build Status](https://travis-ci.org/DevExpress/XpoNetCoreDemos.svg?branch=master)](https://travis-ci.org/DevExpress/XpoNetCoreDemos)
+## ASP.NET Core Razor Pages Demo [![Build Status](https://travis-ci.org/DevExpress/XPO.svg?branch=master)](https://travis-ci.org/DevExpress/XPO)
 
 The solution located in the `XpoASPNETCoreDemo` subfolder is a **.NET Standard 2.0** console application that displays a simple view with basic operations (*create*, *delete*, *list*). To run the application, execute the following commands in the repository root folder:
 
@@ -51,7 +51,7 @@ Then, open http://localhost:5000 in your web browser.
 
 The project is configured for a local **SQLite** database. Modify the *Startup.cs* and *appsettings.json* files to configure another database connection (e.g., **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)). Check out the [ASP.NET Core Dependency Injection in XPO](https://www.devexpress.com/Support/Center/Question/Details/T637597/asp-net-core-dependency-injection-in-xpo) help topic for more information. 
 
-## ASP.NET Core MVC Demo [![Build Status](https://travis-ci.org/DevExpress/XpoNetCoreDemos.svg?branch=master)](https://travis-ci.org/DevExpress/XpoNetCoreDemos)
+## ASP.NET Core MVC Demo [![Build Status](https://travis-ci.org/DevExpress/XPO.svg?branch=master)](https://travis-ci.org/DevExpress/XPO)
 
 The solution located in the `XpoASPNETCoreMVCDemo` subfolder is a **.NET Standard 2.0** console application that displays a simple view with basic operations (*create*, *delete*, *list*). To run the application, execute the following commands in the repository root folder:
 
