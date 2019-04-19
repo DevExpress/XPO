@@ -5,12 +5,12 @@ mono: none
 dotnet: 2.1
 dist: bionic
 script:
- - cd XpoConsoleCoreDemo
+ - cd Tutorials/Console/CS
  - dotnet restore
  - dotnet build -c Debug
- - cd ../XpoASPNETCoreDemo
+ - cd ../../ASP.NET/MVC.RazorPages/CS
  - dotnet restore
  - dotnet build -c Debug
- - cd ../XpoASPNETCoreMVCDemo
+ - cd ../../ASP.NET/MVC.Core/CS
  - dotnet restore
  - dotnet build -c Debug 
