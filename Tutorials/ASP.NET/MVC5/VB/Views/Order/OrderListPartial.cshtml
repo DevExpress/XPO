@@ -1,0 +1,58 @@
+@using DevExpress.Web.Data
+@using AspNetMvcApplication.Models
+@model CustomerViewModel
+
+@(
+    Html.DevExpress().GridView<OrderViewModel>(settings => {
+        settings.Name = "GridOrders";
+        settings.CallbackRouteValues = new { Controller = "Order", Action = "OrderListPartial" };
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Order", Action = "AddOrder" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Order", Action = "UpdateOrder" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Order", Action = "DeleteOrder" };
+        settings.KeyFields(m => m.Oid);
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;       
+        settings.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.SettingsPopup.EditForm.VerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.SettingsLoadingPanel.Mode = GridViewLoadingPanelMode.ShowAsPopup;
+        settings.SettingsLoadingPanel.Delay = 0;
+
+        settings.Settings.ShowHeaderFilterButton = true;
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.SettingsEditing.EditFormColumnCount = 1;
+        settings.SettingsText.PopupEditFormCaption = "Edit Order";
+
+        settings.Columns.Add(col => {
+            col.FieldName = "Oid";
+            col.ReadOnly = true;
+            col.SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+        });
+        settings.Columns.Add(col => {
+            col.FieldName = "OrderDate";
+            col.ColumnType = MVCxGridViewColumnType.DateEdit;
+        });
+        settings.Columns.Add(m => m.ProductName);
+        settings.Columns.Add(col => {
+            col.FieldName = "Freight";
+            col.ColumnType = MVCxGridViewColumnType.SpinEdit;
+        });
+        settings.InitNewRow += (object sender, ASPxDataInitNewRowEventArgs e) => {
+            if(Model != null) {
+                e.NewValues["Oid"] = 0;
+                e.NewValues["CustomerId"] = Model.Oid;
+            }
+        };
+        settings.Columns.Add(col => {
+            col.FieldName = "CustomerId";
+            col.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = (ComboBoxProperties)col.PropertiesEdit;
+            comboBoxProperties.TextField = "ContactName";
+            comboBoxProperties.ValueField = "Oid";
+            comboBoxProperties.DataSource = ViewData["CustomersList"];
+        });
+        settings.ClientSideEvents.BeginCallback = "function(s,e) { e.customArgs['customerOid'] = getSelectedCustomerId(); }";
+    }).Bind(Model != null ? Model.Orders : null).GetHtml()
+)

@@ -1,0 +1,36 @@
+﻿html, body
+{
+    background-color: #ffffff;
+    font: 14px Tahoma, Geneva, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+h1, h2, h3
+{
+  font-weight: normal;
+}
+h1
+{
+  font-size: 34px;
+}
+h2
+{
+  font-size: 28px;
+}
+h3
+{
+  font-size: 22px;
+}
+.content-wrapper
+{
+    box-sizing: border-box;
+    margin: 0 auto; 
+    padding: 0 12px; 
+    width: 100%;
+    max-width: 1024px;
+}
+.header,
+.footer
+{
+    padding: 12px 0; 
+}

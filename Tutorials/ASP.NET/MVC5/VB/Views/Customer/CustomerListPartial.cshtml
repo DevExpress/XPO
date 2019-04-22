@@ -1,0 +1,52 @@
+@using DevExpress.Web.Data
+@using AspNetMvcApplication.Models
+@model IEnumerable<CustomerViewModel>
+
+@(
+    Html.DevExpress().GridView<CustomerViewModel>(settings => {
+        settings.Name = "GridCustomers";
+        settings.CallbackRouteValues = new { Controller = "Customer", Action = "CustomerListPartial" };
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Customer", Action = "AddCustomer" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Customer", Action = "UpdateCustomer" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Customer", Action = "DeleteCustomer" };
+        settings.KeyFields(m => m.Oid);
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        settings.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.SettingsPopup.EditForm.VerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.SettingsLoadingPanel.Mode = GridViewLoadingPanelMode.ShowAsPopup;
+        settings.SettingsLoadingPanel.Delay = 0;
+
+        settings.Settings.ShowHeaderFilterButton = true;
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.SettingsEditing.EditFormColumnCount = 1;
+        settings.SettingsText.PopupEditFormCaption = "Edit Customer";
+
+        settings.Columns.Add(col => {
+            col.FieldName = "Oid";
+            col.ReadOnly = true;
+            col.SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+        });
+        settings.Columns.Add(m => m.FirstName);
+        settings.Columns.Add(m => m.LastName);
+        settings.Columns.Add(column => {
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+            column.SetDataItemTemplateContent(container => {
+                var visibleIndex = container.VisibleIndex;
+                var keyValue = container.KeyValue;
+                Html.DevExpress().Button(btn => {
+                    btn.Name = "b" + keyValue.ToString();
+                    btn.Text = "Orders";
+                    btn.ClientSideEvents.Click = string.Format("function(s,e){{ EditOrders({0}); }}", keyValue);
+                }).Render();
+            });
+        });
+
+        settings.InitNewRow += (object sender, ASPxDataInitNewRowEventArgs e) => {
+            e.NewValues["Oid"] = 0;
+        };
+    }).Bind(Model).GetHtml()
+)
