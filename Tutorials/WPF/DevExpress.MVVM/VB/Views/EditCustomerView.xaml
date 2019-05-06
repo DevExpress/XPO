@@ -1,0 +1,68 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             xmlns:vm="clr-namespace:WpfApplicationMvvm.ViewModels"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             x:Class="WpfApplicationMvvm.Views.EditCustomerView" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:EditCustomerViewModel />
+    </UserControl.DataContext>
+    <Grid>
+        <dxlc:LayoutControl Grid.ColumnSpan="2" Grid.Row="1" Orientation="Vertical">
+            <dxlc:LayoutGroup Orientation="Horizontal">
+                <dxlc:LayoutItem>
+                    <dx:SimpleButton Content="Save" Command="{Binding SaveCommand}" />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem>
+                    <dx:SimpleButton Content="Cancel" Command="{Binding CancelCommand}" />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem>
+                    <dx:SimpleButton Content="Reload" Command="{Binding ReloadCommand}" />
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+            <dxlc:LayoutGroup Orientation="Horizontal" DataContext="{Binding CurrentItem}">
+                <dxlc:LayoutItem Label="First Name">
+                    <dxe:TextEdit EditValue="{Binding FirstName}" />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Last Name">
+                    <dxe:TextEdit EditValue="{Binding LastName}" />
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+            <dxlc:LayoutGroup View="Tabs">
+                <dxlc:LayoutGroup Header="Orders" Orientation="Vertical">
+                    <dxlc:LayoutGroup Orientation="Horizontal">
+                        <dxlc:LayoutItem>
+                            <dx:SimpleButton Content="Add" Command="{Binding AddOrderCommand}" />
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem>
+                            <dx:SimpleButton Content="Edit" Command="{Binding EditOrderCommand}" />
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem>
+                            <dx:SimpleButton Content="Delete" Command="{Binding DeleteOrderCommand}"/>
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutGroup>
+                    <dxlc:LayoutGroup>
+                        <dxlc:LayoutItem VerticalAlignment="Stretch">
+                            <dxg:GridControl ItemsSource="{Binding CurrentItem.Orders}" CurrentItem="{Binding CurrentOrder}">
+                                <dxg:GridControl.View>
+                                    <dxg:TableView AllowEditing="False" AutoWidth="True" />
+                                </dxg:GridControl.View>
+                                <dxg:GridColumn FieldName="Oid" Visible="False" />
+                                <dxg:GridColumn FieldName="ProductName" SortOrder="Ascending" />
+                                <dxg:GridColumn FieldName="OrderDate" />
+                                <dxg:GridColumn FieldName="Freight" />
+                            </dxg:GridControl>
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutGroup>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutControl>
+    </Grid>
+</UserControl>
