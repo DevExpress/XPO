@@ -35,7 +35,7 @@ Install the latest v19.1 of the *DevExpress.Xpo* package and accept all the lice
 Create the *DataAccess* folder and add the *Customer.cs, Order.cs* and *DemoDataHelper.cs* code files. 
 ![](/Tutorials/images/MVC.Core/5.png)
 
-To provide their content, copy and paste the code from the corresponding code files [under this shared folder](https://github.com/DevExpress/XPO/tree/39dd7df7311933908627e55f4cf2fd7f769bdcfd/Tutorials/WinForms/Classic/CS/DataAccess).
+To provide their content, copy and paste the code from the corresponding code files [under this shared folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/WinForms/Classic/CS/DataAccess).
 
 This will form your persistent data model and also seed sample data in the database. For more information, refer to the [Object Relational Mapping](https://docs.devexpress.com/XPO/2017/feature-center/object-relational-mapping) and [Persisting Objects](https://docs.devexpress.com/XPO/2025/feature-center/data-exchange-and-manipulation/persisting-objects) articles in the online documentation.
 ![](/Tutorials/images/MVC.Core/5.1.png)
