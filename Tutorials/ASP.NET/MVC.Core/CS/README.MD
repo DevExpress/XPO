@@ -59,7 +59,7 @@ This step can be simplified when these APIs become a part of XPO.
 In *Startup.cs*, modify the *Startup.ConfigureServices* method to configure Dependency Injection services. 
 Here is the modified code:
 
-```
+``` csharp
 public void ConfigureServices(IServiceCollection services)
 {
     // Add framework services.
@@ -81,7 +81,7 @@ public void ConfigureServices(IServiceCollection services)
 
 In the end of the *Startup.Configure* method, add the "app.UseXpoDemoData();" call to create sample data at the application startup. 
 Here is the modified code:
-```
+``` csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
     if (env.IsDevelopment())
@@ -111,7 +111,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 In the *appsettings.json* file, add the connection string for an in-memory database.
 Here is the modified code:
 
-```
+``` json
 {
   "Logging": {
     "IncludeScopes": false,
