@@ -126,7 +126,7 @@ Here is the modified code:
   }
 }
 ```
-You can modify this connection string to point to other [supported databases](http://newdoc.devexpress.devx/XPO/2114/fundamentals/database-systems-supported-by-xpo?v=19.1&b=platform-specific-table&p=netstandard). 
+You can modify this connection string to point to other [supported databases](https://docs.devexpress.com/XPO/2114/fundamentals/database-systems-supported-by-xpo). 
 
 For more information, refer to the [How to create a correct connection string for XPO providers](https://www.devexpress.com/Support/Center/Question/Details/K18445/how-to-create-a-correct-connection-string-for-xpo-providers) and [Configuration in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2) articles.
 
