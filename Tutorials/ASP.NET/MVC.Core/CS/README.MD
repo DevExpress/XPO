@@ -5,81 +5,100 @@
   * **.NET Core cross-platform development**
 * [.NET Core SDK 2.2 or later](https://www.microsoft.com/net/download/all)
 * [Unified Installer for .NET and HTML5 Developers](https://www.devexpress.com/Products/Try/)
-   * We recommend that you select all the DevExpress products when you run the installation. It will register local NuGet package sources, item and project templates required for these tutorials. You can uninstal unnecessary components later.
+  * We recommend that you select all the DevExpress products when you run the installation. It will register local NuGet package sources, item and project templates required for these tutorials. You can uninstal unnecessary components later.
 
-## Step 1: Create a DevExtreme web app
+## Step 1: Create an ASP.NET Core web app with the DevExtreme template
 
 * From the Visual Studio **File** menu, select **New > Project**.
 * Search for the **DevExtreme 19.1 ASP.NET Core Application (.NET Core)** template.
 
-![](/Tutorials/images/MVC.Core/1.png)
+<p align="center">
+  <img width="800" src="/Tutorials/images/MVC.Core/1.png">
+</p>
 
 * Click **Next**, set the project name to **AspNetCoreMvcApplication** and click **Create**.
 
-![](/Tutorials/images/MVC.Core/2.png)
+<p align="center">
+   <img width="800" src="/Tutorials/images/MVC.Core/2.png">
+</p>
 
 * In **Solution Explorer**, remove unnecessary files from the created project:
   * Controllers\OrdersController.cs
   * Models\Order.cs
   * Models\SampleData.cs
 
-![](/Tutorials/images/MVC.Core/3.png)
+<p align="center">
+  <img width="400" src="/Tutorials/images/MVC.Core/3.png">
+</p>
 
-For more information, see [Overview of ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-3.0).
+* For more information, see the following:
+  * [Overview of ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-3.0)
+  * [DevExtreme-based ASP.NET Core controls | Getting Started](https://docs.devexpress.com/AspNetCore/400572/concepts/devextreme-based-controls/getting-started?v=19.1)
   
-## Step 2: Add DevExpress XPO ORM packages with NuGet
+## Step 2: Add the DevExpress XPO ORM package with NuGet
 
-You can install required packages using the following approaches:
-* Console
+You can install required packages using one of the following approaches:
+* Package Manager Console
   * From the Visual Studio **Tools** menu, select **NuGet Package Manager > Package Manager Console**.
-  * Make sure **Package source** is set to **All** and run the following command: 
+  * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 19.1 Local** and run the following command: 
      ```console
-    install-package DevExpress.Xpo -version 19.1
+    Install-Package DevExpress.Xpo -Version 19.1
     ```
 OR
-* GUI
+
+* NuGet Package Manager
   * In **Solution Explorer**, right-click the project name and select **Manage NuGet Packages**.
    
-    ![](/Tutorials/images/MVC.Core/4.png)
+<p align="center">
+  <img width="400" src="/Tutorials/images/MVC.Core/4.png">
+</p>
 
-  * Make sure **Package source** is set to **All** on the right.
-  * In the left top corner under **Browse**, look for the **DevExpress.Xpo** package and select its latest version 19.1.
+  * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 19.1 Local** on the right.
+  * In the left top corner under **Browse**, search for the `DevExpress.Xpo` package and select its latest version 19.1 on the right.
    
-    ![](/Tutorials/images/MVC.Core/4.1.png)
+<p align="center">
+  <img width="1000" src="/Tutorials/images/MVC.Core/4.1.png">
+</p>
   
   * Click **Install** on the right and accept all the licenses in the **License Acceptance** dialogs. 
    
-For more information, see https://www.nuget.org/ and https://nuget.devexpress.com/.
+* For more information, see the following:
+  * https://www.nuget.org/
+  * https://nuget.devexpress.com/
 
 ## Step 3: Create ORM data model and seed initial data
 
 * In **Solution Explorer**, create the **DataAccess** folder and add the `Customer.cs`, `Order.cs` and `DemoDataHelper.cs` code files. 
 
-![](/Tutorials/images/MVC.Core/5.png)
+<p align="center">
+  <img width="800" src="/Tutorials/images/MVC.Core/5.png">
+</p>
+<p align="center">
+  <img width="400" src="/Tutorials/images/MVC.Core/5.1.png">
+</p>
 
-* To provide their content, copy and paste the code from the corresponding files [under this shared folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/WinForms/Classic/CS/DataAccess).
+* Replace their contents with the code copied from the [corresponding files under this shared folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/WinForms/Classic/CS/DataAccess). These files contain the following classes:
+  * `Customer` and `Order`: form the persistent data model that maps to the corresponding tables in the database.
+  * `DemoDataHelper`: provides the `Seed` method to create and save initial data in the database. This method will be called at the application startup on the next steps.
 
-These files serve the following purposes:
-  * `Customer.cs` and `Order.cs`: declare the Customer and Order classes that form persistent data model.
-  * `DemoDataHelper.cs`: declares the DemoDataHelper class that provides the Seed method to create and save initial data in the database. This method will be called at the application startup on the next steps.
-
-![](/Tutorials/images/MVC.Core/5.1.png)
-
-For more information, see [Object Relational Mapping](https://docs.devexpress.com/XPO/2017/feature-center/object-relational-mapping) and [Persisting Objects](https://docs.devexpress.com/XPO/2025/feature-center/data-exchange-and-manipulation/persisting-objects).
+* For more information, see the following:
+  * [Object Relational Mapping](https://docs.devexpress.com/XPO/2017/feature-center/object-relational-mapping)
+  * [Persisting Objects](https://docs.devexpress.com/XPO/2025/feature-center/data-exchange-and-manipulation/persisting-objects)
 
 ## Step 4: Create helpers for JSON serialization and more
 
 * In **Solution Explorer**, create the **Helpers** folder and add the `ApplicationBuilderExtensions.cs`, `JsonPopulateObjectHelper.cs` and `JsonSerializationContractResolver.cs` code files.
+* Replace their contents with the code copied from [the corresponding files under this folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/ASP.NET/MVC.Core/CS/Helpers). These files contain the following classes:
+  * `JsonPopulateObjectHelper` and `SampleJsonSerializationContractResolver`: provide persistent type JSON serialization and deserialization. Make sure that all your persistent types (Customer and Order in this example) are passed to the `GetDataStoreSchema` method in the `SampleJsonSerializationContractResolver` constructor.
+  * `ApplicationBuilderExtensions` and `SampleJsonMvcBuilderExtensions`: declare the extension methods `UseXpoDemoData` and `AddDxSampleModelJsonOptions` respectively. They will call `DemoDataHelper.Seed` and `SampleJsonSerializationContractResolver` respectively at the application startup on the next steps.
 
-* To provide their content, copy and paste the code from the corresponding files [under this folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/ASP.NET/MVC.Core/CS/Helpers).
+<p align="center">
+  <img width="400" src="/Tutorials/images/MVC.Core/6.png">
+</p>
 
-These files serve the following purposes:
-  * `ApplicationBuilderExtensions.cs`: declares the extension method `UseXpoDemoData` that internally calls `DemoDataHelper.Seed` created on the previous step. This extension method will be called at the application startup on the next steps.
-  * `JsonPopulateObjectHelper.cs` and `JsonSerializationContractResolver.cs`: provide persistent type JSON serialization and deserialization. Make sure that all your persistent types (Customer and Order in this example) are passed to the `GetDataStoreSchema` method in the `SampleJsonSerializationContractResolver` constructor.  This step can be simplified when these APIs become a part of XPO.
-
-![](/Tutorials/images/MVC.Core/6.png)
-
-For more information, see [Serialization using ContractResolver](https://www.newtonsoft.com/json/help/html/ContractResolver.htm) and [XPClassInfo](https://docs.devexpress.com/XPO/DevExpress.Xpo.Metadata.XPClassInfo).
+* For more information, see the following:
+  * [Serialization using ContractResolver](https://www.newtonsoft.com/json/help/html/ContractResolver.htm)
+  * [XPClassInfo](https://docs.devexpress.com/XPO/DevExpress.Xpo.Metadata.XPClassInfo) | [XPMemberInfo](https://docs.devexpress.com/XPO/DevExpress.Xpo.Metadata.XPMemberInfo)
 
 ## Step 5: Configure database connection and plug in ORM data model
 
@@ -98,7 +117,7 @@ public void ConfigureServices(IServiceCollection services)
         .AddXpoDefaultUnitOfWork(true, options => options
             .UseConnectionString(Configuration.GetConnectionString("ImMemoryDataStore"))
             .UseThreadSafeDataLayer(true)
-            .UseConnectionPool(false) // Remove this line if you use a network database like MSSQL, Oracle, PostgreSql etc.                    
+            .UseConnectionPool(false) // Remove this line if you use a network database like SQL Server, Oracle, PostgreSql etc.                    
             .UseAutoCreationOption(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema) // Remove this line if the database already exists.
             .UseEntityTypes(typeof(Customer), typeof(Order)) // Pass all of your persistent object types to this method.
         );
@@ -152,7 +171,7 @@ Here is the modified code:
 }
 ```
 
-For more information, see the following:
+* For more information, see the following:
   * [How to create a connection string for XPO providers](https://www.devexpress.com/Support/Center/Question/Details/K18445/how-to-create-a-correct-connection-string-for-xpo-providers)  
   * [Unit of Work](https://docs.devexpress.com/XPO/2138/feature-center/connecting-to-a-data-store/unit-of-work)
   * [Configuration](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/index?view=aspnetcore-3.0)
@@ -160,32 +179,31 @@ For more information, see the following:
   * [ASP.NET Core Dependency Injection in XPO](https://www.devexpress.com/Support/Center/Question/Details/T637597/asp-net-core-dependency-injection-in-xpo)
 
 
-## Step 6: Query data in Controllers and bind it to Views
+## Step 6: Manipulate data in Controllers and bind it to Views
 
 * In the **Controllers** folder, add the `CustomerController.cs` and `OrderController.cs` code files.
-* To provide their content, copy and paste the code from the corresponding files [under this folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/ASP.NET/MVC.Core/CS/Controllers).
-* In `Views/Home/Index.cshtml`, copy and paste the content [from the corresponding code file](https://github.com/DevExpress/XPO/blob/master/Tutorials/ASP.NET/MVC.Core/CS/Views/Home/Index.cshtml).
+* Replace their contents with the code copied from [the corresponding files under this folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/ASP.NET/MVC.Core/CS/Controllers). They contain the `CustomerController` and `OrderController` classes with the `Get`, `Add`, `Update`, and `Delete` API methods that represent [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations with the Customer and Order persistent classes. 
+  * The `Get` method accepts the `loadOptions` argument to support the advanced features of [DevExtreme Data Layer](https://js.devexpress.com/Documentation/Guide/Data_Layer/Data_Layer/).
+  * The [DataSourceLoader](https://devexpress.github.io/DevExtreme.AspNet.Data/net/api/DevExtreme.AspNet.Data.DataSourceLoader.html) class requires the `IQueryable` source to load data from the database using [LINQ to XPO](https://docs.devexpress.com/XPO/4060/feature-center/querying-a-data-store/linq-to-xpo).
+  * The `Add` and `Update` methods use the `JsonPopulateObjectHelper` class added on step 4 to populate persistent object properties with the request data. 
+  * The following asynchronous XPO methods are used to implement CRUD operations in these controller methods: [Session.GetObjectByKeyAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.GetObjectByKeyAsync.overloads), [Session.Delete](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.Delete.overloads), [UnitOfWork.CommitChangesAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.UnitOfWork.CommitChangesAsync.overloads).
 
-These files serve the following purposes:
-   * `CustomerController.cs` and `OrderController.cs`: provide API Controllers with the `Get`, `Add`, `Update`, and `Delete` methods that represent [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations with the Customer and Order persistent classes. 
-      *  The **Get** method accepts the **loadOptions** argument to support the advanced features of [DevExtreme Data Layer](https://js.devexpress.com/Documentation/Guide/Data_Layer/Data_Layer/).
-      *  The [DataSourceLoader](https://devexpress.github.io/DevExtreme.AspNet.Data/net/api/DevExtreme.AspNet.Data.DataSourceLoader.html) class requires the `IQueryable` source to load data from the database using [LINQ to XPO](https://docs.devexpress.com/XPO/4060/feature-center/querying-a-data-store/linq-to-xpo).
-      *  The **Add** and **Update** methods use the **JsonPopulateObjectHelper** class added on step 4 to populate persistent object properties with the request data. 
-      *  The following asynchronous XPO methods are used to implement CRUD operations in these controller methods: [Session.GetObjectByKeyAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.GetObjectByKeyAsync.overloads), [Session.Delete](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.Delete.overloads), [UnitOfWork.CommitChangesAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.UnitOfWork.CommitChangesAsync.overloads).
-   * `Index.cshtml`: provides the Index view to display and edit the Customers list. 
-      * Code uses the [Razor syntax](https://www.w3schools.com/asp/razor_intro.asp) to configure [DevExtreme-based ASP.NET Core controls](https://docs.devexpress.com/AspNetCore/400571/concepts/devextreme-based-controls?v=19.1). 
-      * The `DataSource` method is used to [bind data](https://docs.devexpress.com/AspNetCore/400575/concepts/devextreme-based-controls/data-binding?v=19.1) from the aforementioned Controller methods to the [DataGrid](https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Overview/) control.
-      * To [Popup](https://js.devexpress.com/Demos/Widgetsgallery/Demo/Popup/Overview/jQuery/Light/) control is used to view and edit data in detail forms.
+* Replace the `Views/Home/Index.cshtml` file contents with the code copied from [the corresponding code file](https://github.com/DevExpress/XPO/blob/master/Tutorials/ASP.NET/MVC.Core/CS/Views/Home/Index.cshtml). It declares the Index view to display and edit the Customers list. 
+  * [Razor syntax](https://www.w3schools.com/asp/razor_intro.asp) is used to configure [DevExtreme-based ASP.NET Core controls](https://docs.devexpress.com/AspNetCore/400571/concepts/devextreme-based-controls?v=19.1). 
+  * The `DataSource` method is used to [bind data](https://docs.devexpress.com/AspNetCore/400575/concepts/devextreme-based-controls/data-binding?v=19.1) from the aforementioned Controller methods to the [DataGrid](https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Overview/) control.
+  * The [Popup](https://js.devexpress.com/Demos/Widgetsgallery/Demo/Popup/Overview/jQuery/Light/) control is used to view and edit data in detail forms.
 
-For more information, see the following:
-* [Handle requests with controllers in ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/actions?view=aspnetcore-3.0)
-* [Views in ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/overview?view=aspnetcore-3.0)
-* [DevExtreme-based ASP.NET Core controls | Getting Started](https://docs.devexpress.com/AspNetCore/400572/concepts/devextreme-based-controls/getting-started?v=19.1)
-* [FAQ: XPO Async/Await Method Support](https://www.devexpress.com/Support/Center/Question/Details/T683644/faq-xpo-async-await-method-support)
-* [Unit of Work](https://docs.devexpress.com/XPO/2138/feature-center/connecting-to-a-data-store/unit-of-work)
+* For more information, see the following:
+  * [Handle requests with controllers in ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/actions?view=aspnetcore-3.0)
+  * [Views in ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/overview?view=aspnetcore-3.0)
+  * [DevExtreme-based ASP.NET Core controls | Getting Started](https://docs.devexpress.com/AspNetCore/400572/concepts/devextreme-based-controls/getting-started?v=19.1)
+  * [FAQ: XPO Async/Await Method Support](https://www.devexpress.com/Support/Center/Question/Details/T683644/faq-xpo-async-await-method-support)
+  * [Unit of Work](https://docs.devexpress.com/XPO/2138/feature-center/connecting-to-a-data-store/unit-of-work)
 
 
 ## Step 7: Run and test the app
-Build and run the application with **F5**. The web browser should show the Customers list. You can create, edit or delete customers. You can also view and edit their related orders in a separate form.
-
-![](/Tutorials/images/MVC.Core/10.png)
+* Build and run the application with **F5**. The web browser should show the Customers list.
+<p align="center">
+  <img width="800" src="/Tutorials/images/MVC.Core/10.png">
+</p>
+* You can create, edit or delete customers. You can also view and edit their related orders in a separate form.
