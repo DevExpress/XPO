@@ -13,13 +13,13 @@
 * Search for the **DevExtreme 19.1 ASP.NET Core Application (.NET Core)** template.
 
 <p align="center">
-  <img width="800" src="/Tutorials/images/MVC.Core/1.png">
+  <img width="800" src="/Tutorials/images/MVC.Core/1.1.png">
 </p>
 
 * Click **Next**, set the project name to **AspNetCoreMvcApplication** and click **Create**.
 
 <p align="center">
-   <img width="800" src="/Tutorials/images/MVC.Core/2.png">
+   <img width="800" src="/Tutorials/images/MVC.Core/1.2.png">
 </p>
 
 * In **Solution Explorer**, remove unnecessary files from the created project:
@@ -28,7 +28,7 @@
   * *Models\SampleData.cs*
 
 <p align="center">
-  <img width="400" src="/Tutorials/images/MVC.Core/3.png">
+  <img width="400" src="/Tutorials/images/MVC.Core/1.3.png">
 </p>
 
 * For more information, see the following:
@@ -50,14 +50,14 @@ OR
   * In **Solution Explorer**, right-click the project name and select **Manage NuGet Packages**.
    
 <p align="center">
-  <img width="400" src="/Tutorials/images/MVC.Core/4.png">
+  <img width="400" src="/Tutorials/images/MVC.Core/2.1.png">
 </p>
 
   * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 19.1 Local** on the right.
   * In the left top corner under **Browse**, search for the `DevExpress.Xpo` package and select its latest version, 19.1, on the right.
    
 <p align="center">
-  <img width="1000" src="/Tutorials/images/MVC.Core/4.1.png">
+  <img width="1000" src="/Tutorials/images/MVC.Core/2.2.png">
 </p>
   
   * Click **Install** on the right and accept all the licenses in the **License Acceptance** dialogs. 
@@ -71,10 +71,10 @@ OR
 * In **Solution Explorer**, create the **DataAccess** folder and add the *Customer.cs*, *Order.cs* and *DemoDataHelper.cs* code files. 
 
 <p align="center">
-  <img width="800" src="/Tutorials/images/MVC.Core/5.png">
+  <img width="800" src="/Tutorials/images/MVC.Core/3.1.png">
 </p>
 <p align="center">
-  <img width="400" src="/Tutorials/images/MVC.Core/5.1.png">
+  <img width="400" src="/Tutorials/images/MVC.Core/3.2.png">
 </p>
 
 * Replace their contents with the code copied from the [corresponding files under this shared folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/WinForms/Classic/CS/DataAccess). These files contain the following classes:
@@ -93,7 +93,7 @@ OR
   * ApplicationBuilderExtensions and SampleJsonMvcBuilderExtensions: declare the extension methods `UseXpoDemoData` and `AddDxSampleModelJsonOptions` respectively. They will call DemoDataHelper and SampleJsonSerializationContractResolver respectively at the application startup in the next steps.
 
 <p align="center">
-  <img width="400" src="/Tutorials/images/MVC.Core/6.png">
+  <img width="400" src="/Tutorials/images/MVC.Core/4.png">
 </p>
 
 * For more information, see the following:
@@ -205,11 +205,11 @@ Here is the modified code:
 * Build and run the application with **F5**. The web browser should show the Customers list. You can create, edit or delete customers.
 
 <p align="center">
-  <img width="800" src="/Tutorials/images/MVC.Core/10.png">
+  <img width="800" src="/Tutorials/images/MVC.Core/7.1.png">
 </p>
 
 * You can also view and edit their related orders in a separate form.
 
 <p align="center">
-  <img width="800" src="/Tutorials/images/MVC.Core/10.1.png">
+  <img width="800" src="/Tutorials/images/MVC.Core/7.2.png">
 </p>
