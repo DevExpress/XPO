@@ -60,16 +60,11 @@ You can install required packages using one of the following approaches:
 OR
 
 * NuGet Package Manager
-  * In **Solution Explorer**, right-click the project name and select **Manage NuGet Packages**.
-   
-<p align="center">
-  <img width="400" src="/Tutorials/images/MVC.RazorPages/2.1.png">
-</p>
-
+  * In **Solution Explorer**, right-click the project name and select **Manage NuGet Packages**. <p align="center"><img width="400" src="/Tutorials/images/MVC.RazorPages/2.1.png"></p>
   * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 19.1 Local** on the right.
   * In the left top corner under **Browse**, search for the `DevExpress.Xpo` package and select its latest version, 19.1, on the right.
   * Click **Install** on the right and accept all the licenses in the **License Acceptance** dialogs.
-   
+
 <p align="center">
   <img width="1000" src="/Tutorials/images/MVC.RazorPages/2.2.png">
 </p>
