@@ -5,7 +5,7 @@
   * **.NET Core cross-platform development**
 * [.NET Core SDK 2.2 or later](https://www.microsoft.com/net/download/all)
 * [Unified Installer for .NET and HTML5 Developers](https://www.devexpress.com/Products/Try/)
-  * We recommend that you select all the DevExpress products when you run the installation. It will register local NuGet package sources, item and project templates required for these tutorials. You can uninstal unnecessary components later.
+  * We recommend that you select all the DevExpress products when you run the installation. It will register local NuGet package sources, item and project templates required for these tutorials. You can uninstall unnecessary components later.
 
 ## Step 1: Create an ASP.NET Core web app with the DevExtreme template
 
@@ -54,7 +54,7 @@ OR
 </p>
 
   * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 19.1 Local** on the right.
-  * In the left top corner under **Browse**, search for the `DevExpress.Xpo` package and select its latest version 19.1 on the right.
+  * In the left top corner under **Browse**, search for the `DevExpress.Xpo` package and select its latest version, 19.1, on the right.
    
 <p align="center">
   <img width="1000" src="/Tutorials/images/MVC.Core/4.1.png">
@@ -79,7 +79,7 @@ OR
 
 * Replace their contents with the code copied from the [corresponding files under this shared folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/WinForms/Classic/CS/DataAccess). These files contain the following classes:
   * Customer and Order: form the persistent data model that maps to the corresponding tables in the database.
-  * DemoDataHelper: provides the `Seed` method to create and save initial data in the database. This method will be called at the application startup on the next steps.
+  * DemoDataHelper: provides the `Seed` method to create and save initial data in the database. This method will be called at the application startup in the next steps.
 
 * For more information, see the following:
   * [Object Relational Mapping](https://docs.devexpress.com/XPO/2017/feature-center/object-relational-mapping)
@@ -90,7 +90,7 @@ OR
 * In **Solution Explorer**, create the **Helpers** folder and add the *ApplicationBuilderExtensions.cs*, *JsonPopulateObjectHelper.cs* and *JsonSerializationContractResolver.cs* code files.
 * Replace their contents with the code copied from [the corresponding files under this folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/ASP.NET/MVC.Core/CS/Helpers). These files contain the following classes:
   * JsonPopulateObjectHelper and SampleJsonSerializationContractResolver: provide persistent type JSON serialization and deserialization. Make sure that all your persistent types (Customer and Order in this example) are passed to the `GetDataStoreSchema` method in the `SampleJsonSerializationContractResolver` constructor.
-  * ApplicationBuilderExtensions and SampleJsonMvcBuilderExtensions: declare the extension methods `UseXpoDemoData` and `AddDxSampleModelJsonOptions` respectively. They will call DemoDataHelper and SampleJsonSerializationContractResolver respectively at the application startup on the next steps.
+  * ApplicationBuilderExtensions and SampleJsonMvcBuilderExtensions: declare the extension methods `UseXpoDemoData` and `AddDxSampleModelJsonOptions` respectively. They will call DemoDataHelper and SampleJsonSerializationContractResolver respectively at the application startup in the next steps.
 
 <p align="center">
   <img width="400" src="/Tutorials/images/MVC.Core/6.png">
@@ -125,7 +125,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-* In *Startup.cs*, modify the `Startup.Configure` method and add the `app.UseXpoDemoData();` call to create sample data discussed on steps 3 and 4.
+* In *Startup.cs*, modify the `Startup.Configure` method and add the `app.UseXpoDemoData();` call to create sample data discussed in steps 3 and 4.
 Here is the modified code:
 ``` csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -185,7 +185,7 @@ Here is the modified code:
 * Replace their contents with the code copied from [the corresponding files under this folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/ASP.NET/MVC.Core/CS/Controllers). They contain the CustomerController and OrderController classes with the `Get`, `Add`, `Update`, and `Delete` API methods that represent [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations with the Customer and Order persistent classes. 
   * The `Get` method accepts the `loadOptions` argument to support the advanced features of [DevExtreme Data Layer](https://js.devexpress.com/Documentation/Guide/Data_Layer/Data_Layer/).
   * The [DataSourceLoader](https://devexpress.github.io/DevExtreme.AspNet.Data/net/api/DevExtreme.AspNet.Data.DataSourceLoader.html) class requires the [IQueryable](https://docs.microsoft.com/en-us/dotnet/api/system.linq.iqueryable?view=netcore-3.0) source to load data from the database using [LINQ to XPO](https://docs.devexpress.com/XPO/4060/feature-center/querying-a-data-store/linq-to-xpo).
-  * The `Add` and `Update` methods use the JsonPopulateObjectHelper class added on step 4 to populate persistent object properties with the request data. 
+  * The `Add` and `Update` methods use the JsonPopulateObjectHelper class added in step 4 to populate persistent object properties with the request data. 
   * The following asynchronous XPO methods are used to implement CRUD operations in these controller methods: [Session.GetObjectByKeyAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.GetObjectByKeyAsync.overloads), [Session.Delete](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.Delete.overloads), [UnitOfWork.CommitChangesAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.UnitOfWork.CommitChangesAsync.overloads).
 
 * Replace the contents of *Views/Home/Index.cshtml* with the code copied from [the corresponding code file](https://github.com/DevExpress/XPO/blob/master/Tutorials/ASP.NET/MVC.Core/CS/Views/Home/Index.cshtml). It declares the Index view to display and edit the Customers list. 
@@ -202,8 +202,11 @@ Here is the modified code:
 
 
 ## Step 7: Run and test the app
-* Build and run the application with **F5**. The web browser should show the Customers list.
+* Build and run the application with **F5**. The web browser should show the Customers list. You can create, edit or delete customers.
+* You can also view and edit their related orders in a separate form.
 <p align="center">
   <img width="800" src="/Tutorials/images/MVC.Core/10.png">
 </p>
-* You can create, edit or delete customers. You can also view and edit their related orders in a separate form.
+<p align="center">
+  <img width="800" src="/Tutorials/images/MVC.Core/10.1.png">
+</p>
