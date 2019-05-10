@@ -68,13 +68,12 @@ OR
 
   * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 19.1 Local** on the right.
   * In the left top corner under **Browse**, search for the `DevExpress.Xpo` package and select its latest version, 19.1, on the right.
+  * Click **Install** on the right and accept all the licenses in the **License Acceptance** dialogs.
    
 <p align="center">
   <img width="1000" src="/Tutorials/images/MVC.RazorPages/2.2.png">
 </p>
-  
-* Click **Install** on the right and accept all the licenses in the **License Acceptance** dialogs.
-   
+    
 * For more information, see the following:
   * https://www.nuget.org/
   * https://nuget.devexpress.com/
@@ -84,15 +83,16 @@ OR
 * In **Solution Explorer**, create the **DataAccess** folder and add the *Customer.cs*, *Order.cs* and *DemoDataHelper.cs* code files. 
 
 <p align="center">
-  <img width="800" src="/Tutorials/images/MVC.RazorPages/3.1.png">
-</p>
-<p align="center">
-  <img width="400" src="/Tutorials/images/MVC.RazorPages/3.2.png">
+  <img width="600" src="/Tutorials/images/MVC.RazorPages/3.1.png">
 </p>
 
 * Replace their contents with the code copied from the [corresponding files under this shared folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/WinForms/Classic/CS/DataAccess). These files contain the following classes:
   * Customer and Order: form the persistent data model that maps to the corresponding tables in the database.
   * DemoDataHelper: provides the `Seed` method to create and save initial data in the database. This method will be called at the application startup in the next steps.
+
+<p align="center">
+  <img width="400" src="/Tutorials/images/MVC.RazorPages/3.2.png">
+</p>
 
 * For more information, see the following:
   * [Object Relational Mapping](https://docs.devexpress.com/XPO/2017/feature-center/object-relational-mapping)
@@ -206,19 +206,19 @@ Here is the modified code:
 * Right-click the **Pages** folder and select **Add > Razor Page**.
 
 <p align="center">
-  <img width="400" src="/Tutorials/images/MVC.RazorPages/6.1.png">
+  <img width="600" src="/Tutorials/images/MVC.RazorPages/6.1.png">
 </p>
 
 * In the **Add Scaffold** dialog, select **Razor Page** and click **Add**.
 
 <p align="center">
-  <img width="400" src="/Tutorials/images/MVC.RazorPages/6.2.png">
+  <img width="600" src="/Tutorials/images/MVC.RazorPages/6.2.png">
 </p>
 
 * In the **Add Razor Page** dialog, set the page name to **Index** and click **Add**.
 
 <p align="center">
-  <img width="400" src="/Tutorials/images/MVC.RazorPages/6.3.png">
+  <img width="600" src="/Tutorials/images/MVC.RazorPages/6.3.png">
 </p>
 
 * Replace the contents of *Pages/Index.cshtml* with the code copied from [the corresponding code file](https://github.com/DevExpress/XPO/blob/master/Tutorials/ASP.NET/MVC.RazorPages/CS/Pages/Index.cshtml). It declares the Index page to display and edit the Customers list. 
@@ -227,7 +227,7 @@ Here is the modified code:
   * The [Popup](https://js.devexpress.com/Demos/Widgetsgallery/Demo/Popup/Overview/jQuery/Light/) control is used to view and edit data in detail forms.
 
 <p align="center">
-  <img width="400" src="/Tutorials/images/MVC.RazorPages/6.3.png">
+  <img width="600" src="/Tutorials/images/MVC.RazorPages/6.4.png">
 </p>
 
 * For more information, see the following:
