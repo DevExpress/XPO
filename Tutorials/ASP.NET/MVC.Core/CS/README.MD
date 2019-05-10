@@ -203,10 +203,13 @@ Here is the modified code:
 
 ## Step 7: Run and test the app
 * Build and run the application with **F5**. The web browser should show the Customers list. You can create, edit or delete customers.
-* You can also view and edit their related orders in a separate form.
+
 <p align="center">
   <img width="800" src="/Tutorials/images/MVC.Core/10.png">
 </p>
+
+* You can also view and edit their related orders in a separate form.
+
 <p align="center">
   <img width="800" src="/Tutorials/images/MVC.Core/10.1.png">
 </p>
