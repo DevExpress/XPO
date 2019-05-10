@@ -9,13 +9,14 @@
     <Compile Include="..\..\..\WinForms\Classic\CS\DataAccess\DemoDataHelper.cs" Link="DataAccess\DemoDataHelper.cs" />
     <Compile Include="..\..\..\WinForms\Classic\CS\DataAccess\Order.cs" Link="DataAccess\Order.cs" />
     <Compile Include="..\..\MVC.Core\CS\Helpers\ApplicationBuilderExtensions.cs" Link="Helpers\ApplicationBuilderExtensions.cs" />
+    <Compile Include="..\..\MVC.Core\CS\Helpers\JsonPopulateObjectHelper.cs" Link="Helpers\JsonPopulateObjectHelper.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.Xpo" Version="18.2.7" />
+    <PackageReference Include="DevExpress.Xpo" Version="19.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
     <PackageReference Include="DevExtreme.AspNet.Data" Version="2.0.0" />
-    <PackageReference Include="DevExtreme.AspNet.Core" Version="19.1.1-alpha-19094-0309" />
+    <PackageReference Include="DevExtreme.AspNet.Core" Version="19.1.2-beta" />
   </ItemGroup>
 
   <ItemGroup>

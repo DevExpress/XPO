@@ -4,7 +4,6 @@ using DevExtreme.AspNet.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using DevExpress.Xpo;
 using System.Threading.Tasks;
-using AspNetCoreMvcApplication.Helpers;
 using XpoTutorial;
 
 namespace AspNetCoreMvcApplication.Controllers {

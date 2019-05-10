@@ -2,10 +2,9 @@
 using DevExpress.Xpo.Metadata;
 using System.Collections.Generic;
 using System.Reflection;
-using AspNetCoreMvcApplication.Helpers;
-using XpoTutorial;
 
-namespace AspNetCoreMvcApplication.Helpers {
+namespace XpoTutorial
+{
     public class SampleJsonSerializationContractResolver : Newtonsoft.Json.Serialization.DefaultContractResolver {
         public bool SerializeCollections { get; set; } = false;
         public bool SerializeReferences { get; set; } = true;
@@ -39,7 +38,10 @@ namespace AspNetCoreMvcApplication.Helpers {
     }
 }
 
-namespace Microsoft.Extensions.DependencyInjection {
+namespace Microsoft.Extensions.DependencyInjection
+{
+    using XpoTutorial;
+
     public static class SampleJsonMvcBuilderExtensions {
         public static IMvcBuilder AddDxSampleModelJsonOptions(this IMvcBuilder builder, Action<SampleJsonSerializationContractResolver> setupAction = null) {
             return builder.AddJsonOptions(opt => {

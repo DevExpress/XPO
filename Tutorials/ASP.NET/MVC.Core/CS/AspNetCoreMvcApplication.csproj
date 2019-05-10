@@ -8,10 +8,10 @@
     <Compile Include="..\..\..\WinForms\Classic\CS\DataAccess\Order.cs" Link="DataAccess\Order.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Xpo" Version="18.2.7" />
+    <PackageReference Include="DevExpress.Xpo" Version="19.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
     <PackageReference Include="DevExtreme.AspNet.Data" Version="2.0.0" />
-    <PackageReference Include="DevExtreme.AspNet.Core" Version="19.1.1-alpha-19094-0309" />
+    <PackageReference Include="DevExtreme.AspNet.Core" Version="19.1.2-beta" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
