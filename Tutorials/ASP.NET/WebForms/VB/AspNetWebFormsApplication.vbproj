@@ -162,9 +162,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="My Project\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>

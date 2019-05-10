@@ -5,15 +5,15 @@ using System.Linq;
 
 namespace XpoTutorial {
     public static class DemoDataHelper {
-        private static string[] firstNames = new string[] {
+        private static readonly string[] firstNames = new string[] {
             "Peter", "Ryan", "Richard", "Tom", "Mark", "Steve",
             "Jimmy", "Jeffrey", "Andrew", "Dave", "Bert", "Mike",
             "Ray", "Paul", "Brad", "Carl", "Jerry" };
-        private static string[] lastNames = new string[] {
+        private static readonly string[] lastNames = new string[] {
             "Dolan", "Fischer", "Hamlett", "Hamilton", "Lee",
             "Lewis", "McClain", "Miller", "Murrel", "Parkins",
             "Roller", "Shipman", "Bailey", "Barnes", "Lucas", "Campbell" };
-        private static string[] productNames = new string[] {
+        private static readonly string[] productNames = new string[] {
             "Chai", "Chang", "Aniseed Syrup", "Chef Anton's Cajun Seasoning",
             "Chef Anton's Gumbo Mix", "Grandma's Boysenberry Spread",
             "Uncle Bob's Organic Dried Pears", "Northwoods Cranberry Sauce",
@@ -40,7 +40,7 @@ namespace XpoTutorial {
             "Gudbrandsdalsost", "Outback Lager", "Flotemysost",
             "Mozzarella di Giovanni", "Röd Kaviar", "Longlife Tofu",
             "Rhönbräu Klosterbier", "Lakkalikööri", "Original Frankfurter grüne Soße" };
-        private static Random Random = new Random(0);
+        private static readonly Random Random = new Random(0);
 
         public static void Seed(UnitOfWork uow) {
             int ordersCnt = uow.Query<Order>().Count();
