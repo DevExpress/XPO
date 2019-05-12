@@ -4,8 +4,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Globalization;
 
-namespace XpoTutorial
-{
+namespace XpoTutorial {
     public static class JsonPopulateObjectHelper {
         public static void PopulateObject(string json, Session session, PersistentBase obj) {
             PopulateObject(json, session, obj.ClassInfo, obj);
@@ -36,9 +35,11 @@ namespace XpoTutorial
                 }
                 if(mi.ReferenceType != null && !mi.IsCollection) {
                     PopulateReferenceProperty(jobject, obj, mi, session);
-                } else if(mi.IsCollection) {
+                }
+                else if(mi.IsCollection) {
                     throw new NotImplementedException();
-                } else if(!mi.IsAliased && !mi.IsReadOnly) {
+                }
+                else if(!mi.IsAliased && !mi.IsReadOnly) {
                     PopulateProperty(jobject, obj, mi);
                 }
             }
@@ -56,10 +57,23 @@ namespace XpoTutorial
         }
 
         static void PopulateReferenceProperty(JObject jobject, object obj, XPMemberInfo memberInfo, Session session) {
-            JObject refJObject = (JObject)jobject[memberInfo.Name];
+            JObject refJObject = null;
+            XPMemberInfo keyMemberInfo = memberInfo.ReferenceType.KeyProperty;
+            if(jobject[memberInfo.Name] is JValue referenceShort) {
+                dynamic refJObjectConverted = new JObject();
+                dynamic nestedJObject = new JObject();
+                nestedJObject[keyMemberInfo.Name] = referenceShort;
+                refJObjectConverted[memberInfo.Name] = nestedJObject;
+                refJObject = (JObject)refJObjectConverted[memberInfo.Name];
+            }
+            else if(jobject[memberInfo.Name] is JObject referenceLong) {
+                refJObject = referenceLong;
+            }
+            else if(refJObject == null) {
+                throw new ArgumentException("Unknown JSON format for reference properties! Short and long formats are supported: '{{ReferenceName: KeyValue}}' or {{ReferenceName: {{KeyName: KeyValue}}}}.", "jobject");
+            }
             object refObject = memberInfo.GetValue(obj);
             if(refJObject != null) {
-                XPMemberInfo keyMemberInfo = memberInfo.ReferenceType.KeyProperty;
                 JToken keyToken = refJObject[memberInfo.ReferenceType.KeyProperty.Name];
                 object keyValue = ((JValue)keyToken).Value;
                 if(keyValue != null) {
@@ -68,7 +82,8 @@ namespace XpoTutorial
                     }
                     refObject = session.GetObjectByKey(memberInfo.ReferenceType, keyValue);
                 }
-            } else {
+            }
+            else {
                 refObject = null;
             }
             if(refObject != null) {

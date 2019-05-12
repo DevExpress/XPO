@@ -1,0 +1,140 @@
+﻿@page "/"
+
+@using XpoTutorial
+@using BlazorServerSideApplication.Services
+
+@inject CustomerService CustomerService
+@inject OrderService OrderService
+
+<h1>Customers</h1>
+
+@if (customers == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+
+    <DxDataGrid Data=@customers KeyFieldName="Oid"
+                AllowRowSelection=false PageSize="10" ShowFilterRow=true
+                RowRemoving=@( (dataItem) => this.OnRowRemoving(dataItem) )
+                RowUpdating=@( (updatingDataItem, values) => OnRowUpdating(updatingDataItem, values) )
+                RowInserting=@( (values) => OnRowInserting(values, typeof(Customer)) )>
+
+        <DxDataGridCommandColumn Width="100px"></DxDataGridCommandColumn>
+        <DxDataGridColumn Field=@nameof(Customer.Oid)></DxDataGridColumn>
+        <DxDataGridColumn Field=@nameof(Customer.FirstName)></DxDataGridColumn>
+        <DxDataGridColumn Field=@nameof(Customer.LastName)></DxDataGridColumn>
+        <DxDataGridCommandColumn Width="50px">
+            <CellTemplate>
+                <button class="btn btn-link dxbs-button" onclick="@(()=> OnClickCustomerOrders((Customer)context))" data-toggle="modal" data-target="#exampleModal">Orders</button>
+            </CellTemplate>
+            <HeaderCellTemplate></HeaderCellTemplate>
+            <HeaderFilterCellTemplate></HeaderFilterCellTemplate>
+        </DxDataGridCommandColumn>
+    </DxDataGrid>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width:1000px">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Orders</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @if (selectedCustomerOrders != null && SelectedCustomer != null)
+                    {
+                        <DxDataGrid Data=@selectedCustomerOrders KeyFieldName="Oid"
+                                    AllowRowSelection=false PageSize=5 ShowFilterRow=false
+                                    RowRemoving=@( (dataItem) => this.OnRowRemoving(dataItem) )
+                                    RowUpdating=@( (updatingDataItem, values) => OnRowUpdating(updatingDataItem, values))
+                                    RowInserting=@( (values) => OnRowInserting(values, typeof(Order)))>
+                            <DxDataGridCommandColumn Width="100px"></DxDataGridCommandColumn>
+                            <DxDataGridColumn Field=@nameof(Order.Oid)></DxDataGridColumn>
+                            <DxDataGridDateEditColumn Field=@nameof(Order.OrderDate)></DxDataGridDateEditColumn>
+                            <DxDataGridColumn Field=@nameof(Order.ProductName)></DxDataGridColumn>
+                            <DxDataGridSpinEditColumn Field=@nameof(Order.Freight)></DxDataGridSpinEditColumn>
+                            <DxDataGridColumn Field=@nameof(Order.Customer)>
+                                <DisplayTemplate>
+                                    <span>@(((Order)context).Customer.ContactName)</span>
+                                </DisplayTemplate>
+                                <EditTemplate>
+                                    <DxComboBox Data=@customers TextFieldName="ContactName"
+                                                SelectedItem=@( SelectedCustomer )
+                                                SelectedItemChanged=@( customerReference => OnSelectedItemChanged(customerReference, ((CellEditContext)context)) )>
+                                    </DxComboBox>
+                                </EditTemplate>
+                            </DxDataGridColumn>
+                        </DxDataGrid>
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@functions {
+    private IQueryable<Customer> customers;
+    private IQueryable<Order> selectedCustomerOrders;
+
+    private Customer SelectedCustomer { get; set; }
+
+    protected override async Task OnInitAsync()
+    {
+        customers = await CustomerService.Get();
+    }
+    async void OnRowInserting(Dictionary<string, object>
+    values, Type type)
+    {
+        if (type == typeof(Customer))
+        {
+            await CustomerService.Add(values);
+        }
+        else if (type == typeof(Order))
+        {
+            await OrderService.Add(values, SelectedCustomer);
+        }
+        //StateHasChanged();
+    }
+    async void OnRowUpdating(object item, Dictionary<string, object>
+        values)
+    {
+        if (item is Customer customer)
+        {
+            await CustomerService.Update(customer, values);
+        }
+        else if (item is Order order)
+        {
+            await OrderService.Update(order, values);
+        }
+        //StateHasChanged();
+    }
+    async void OnRowRemoving(object item)
+    {
+        if (item is Customer customer)
+        {
+            await CustomerService.Delete(customer);
+        }
+        else if (item is Order order)
+        {
+            await OrderService.Delete(order);
+        }
+        //StateHasChanged();
+    }
+    async Task OnClickCustomerOrders(Customer item)
+    {
+        SelectedCustomer = item;
+        selectedCustomerOrders = await OrderService.GetCustomerOrders(item);
+        //StateHasChanged();
+    }
+    void OnSelectedItemChanged(Customer customerReference, CellEditContext context)
+    {
+        context.OnChanged(customerReference != null ? (object)customerReference.Oid : null);
+    }
+}
