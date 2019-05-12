@@ -87,7 +87,7 @@ OR
 * In **Solution Explorer**, create the **DataAccess** folder and add the *Customer.cs*, *Order.cs* and *DemoDataHelper.cs* code files. 
 
 <p align="center">
-  <img width="800" src="/Tutorials/images/Blazor.ServerSide/3.1.png">
+  <img width="600" src="/Tutorials/images/Blazor.ServerSide/3.1.png">
 </p>
 <p align="center">
   <img width="400" src="/Tutorials/images/Blazor.ServerSide/3.2.png">
@@ -223,16 +223,11 @@ Here is the modified code:
   * The `Add` and `Update` methods use the JsonPopulateObjectHelper class added in step 4 to populate persistent object properties with the request data. 
   * The following asynchronous XPO methods are used to implement CRUD operations in these controller methods: [Session.GetObjectByKeyAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.GetObjectByKeyAsync.overloads), [Session.Delete](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.Delete.overloads), [UnitOfWork.CommitChangesAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.UnitOfWork.CommitChangesAsync.overloads).
 
-* In the **wwwroot** folder, create the **lib** sub-folder for client-side libraries.
-* Download the *bootstrap.min.js* and *jquery-3.4.1.slim.min.js* JavaScript files for [Bootstrap 4.1](https://getbootstrap.com/docs/4.1/getting-started/download/) and [jQuery 3.4.1](https://jquery.com/download/) respectively.
-* Open https://github.com/DevExpress/Blazor, find the **"How to create a new project"** section and follow steps **2-5** to add DevExpress Blazor into the project.
-* Place the required DevExpress, Bootstrap and jQuery client-side libraries inside the **wwwroot/lib** sub-folder as follows:
-
-<p align="center">
-  <img width="600" src="/Tutorials/images/Blazor.ServerSide/6.1.png">
-</p>
-
-* Open *Pages/_Host.cshtml* and register DevExpress, Bootstrap and jQuery client-libraries:
+* In the **wwwroot** folder, create the **lib** sub-folder. This is to store client-side libraries for DevExpress Blazor and other frameworks during development.
+  * Download the *bootstrap.min.js* and *jquery-3.4.1.slim.min.js* JavaScript files for [Bootstrap 4.1](https://getbootstrap.com/docs/4.1/getting-started/download/) and [jQuery 3.4.1](https://jquery.com/download/) respectively. You can skip this step if you display modal dialogs without Bootstrap in the next steps.
+  * Open https://github.com/DevExpress/Blazor, find the **"How to create a new project"** section and follow steps **2-5** to add DevExpress Blazor into the project.
+  * Place the required DevExpress, Bootstrap and jQuery client-side libraries inside the **wwwroot/lib** sub-folder as follows:<p align="center"><img width="400" src="/Tutorials/images/Blazor.ServerSide/6.1.png"></p>
+  * In *Pages/_Host.cshtml*, register DevExpress, Bootstrap and jQuery client-libraries using the **script** and **link** elements:
 
 ``` html
     <environment include="Development">
