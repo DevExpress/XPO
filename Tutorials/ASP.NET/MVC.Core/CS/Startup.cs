@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,7 +23,7 @@ namespace AspNetCoreMvcApplication {
                 .AddXpoDefaultUnitOfWork(true, options => options
                     .UseConnectionString(Configuration.GetConnectionString("ImMemoryDataStore"))
                     .UseThreadSafeDataLayer(true)
-                    .UseConnectionPool(false) // Remove this line if you use a network database like MSSQL, Oracle, PostgreSql etc.                    
+                    .UseConnectionPool(false) // Remove this line if you use a network database like SQL Server, Oracle, PostgreSql etc.                    
                     .UseAutoCreationOption(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema) // Remove this line if the database already exists
                     .UseEntityTypes(typeof(Customer), typeof(Order)) // Pass all of your persistent object types to this method.
                 );
@@ -43,7 +43,6 @@ namespace AspNetCoreMvcApplication {
             }
 
             app.UseStaticFiles();
-            app.UseXpoDemoData();
 
             app.UseMvc(routes =>
             {
@@ -51,6 +50,10 @@ namespace AspNetCoreMvcApplication {
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //Added lines begin.
+            app.UseXpoDemoData();
+            //Added lines end.
         }
     }
 }

@@ -44,14 +44,15 @@ namespace XpoTutorial {
 
         public static void Seed(UnitOfWork uow) {
             int ordersCnt = uow.Query<Order>().Count();
-            if (ordersCnt > 0) return;
+            if(ordersCnt > 0)
+                return;
             var names = new KeyValuePair<string, string>[firstNames.Length * lastNames.Length];
-            for (int i = 0; i < firstNames.Length * lastNames.Length; i++) {
+            for(int i = 0; i < firstNames.Length * lastNames.Length; i++) {
                 int j = Random.Next(i + 1);
                 names[i] = names[j];
                 names[j] = new KeyValuePair<string, string>(firstNames[i / lastNames.Length], lastNames[i % lastNames.Length]);
             }
-            foreach (var t in names) {
+            foreach(var t in names) {
                 CreateCustomer(uow, t.Key, t.Value);
             }
             uow.CommitChanges();
@@ -61,7 +62,7 @@ namespace XpoTutorial {
             Customer customer = new Customer(uow);
             customer.FirstName = firstName;
             customer.LastName = lastName;
-            for (int i = 0; i < 10; i++) {
+            for(int i = 0; i < 10; i++) {
                 Order order = new Order(uow);
                 order.ProductName = productNames[Random.Next(productNames.Length)];
                 order.OrderDate = new DateTime(Random.Next(2014, 2024), Random.Next(1, 12), Random.Next(1, 28));
