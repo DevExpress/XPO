@@ -60,11 +60,9 @@ namespace XpoTutorial {
             JObject refJObject = null;
             XPMemberInfo keyMemberInfo = memberInfo.ReferenceType.KeyProperty;
             if(jobject[memberInfo.Name] is JValue referenceShort) {
-                dynamic refJObjectConverted = new JObject();
                 dynamic nestedJObject = new JObject();
                 nestedJObject[keyMemberInfo.Name] = referenceShort;
-                refJObjectConverted[memberInfo.Name] = nestedJObject;
-                refJObject = (JObject)refJObjectConverted[memberInfo.Name];
+                refJObject = nestedJObject;
             }
             else if(jobject[memberInfo.Name] is JObject referenceLong) {
                 refJObject = referenceLong;
