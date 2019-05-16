@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Environments;
@@ -25,7 +26,7 @@ namespace ORMBenchmark.PerformanceTests {
                     .WithUnrollFactor(1);
             job.Run.RunStrategy = BenchmarkDotNet.Engines.RunStrategy.Throughput;
             Add(job);
-            Set(new TestSetOrderProvider());
+            Orderer = new TestSetOrderProvider();
             Add(JitOptimizationsValidator.DontFailOnError);
             Add(DefaultConfig.Instance.GetLoggers().ToArray());
             Add(DefaultConfig.Instance.GetExporters().ToArray());
@@ -40,11 +41,11 @@ namespace ORMBenchmark.PerformanceTests {
                 }
             }
 
-            public IEnumerable<BenchmarkCase> GetExecutionOrder(BenchmarkCase[] benchmarksCase) {
+            public IEnumerable<BenchmarkCase> GetExecutionOrder(ImmutableArray<BenchmarkCase> benchmarksCase) {
                 return benchmarksCase;
             }
 
-            public IEnumerable<BenchmarkCase> GetSummaryOrder(BenchmarkCase[] benchmarksCase, Summary summary) {
+            public IEnumerable<BenchmarkCase> GetSummaryOrder(ImmutableArray<BenchmarkCase> benchmarksCase, Summary summary) {
                 return benchmarksCase
                     .OrderBy(t => t.Parameters["Count"])
                     .ThenBy(t => t.Descriptor.WorkloadMethodDisplayInfo.ToString())
@@ -55,7 +56,7 @@ namespace ORMBenchmark.PerformanceTests {
                 return null;
             }
 
-            public string GetLogicalGroupKey(IConfig config, BenchmarkCase[] allBenchmarksCases, BenchmarkCase benchmarkCase) {
+            public string GetLogicalGroupKey(ImmutableArray<BenchmarkCase> allBenchmarksCases, BenchmarkCase benchmarkCase) {
                 return null;
             }
 
