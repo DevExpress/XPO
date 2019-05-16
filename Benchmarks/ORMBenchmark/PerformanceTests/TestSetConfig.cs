@@ -4,6 +4,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Environments;
+using BenchmarkDotNet.Exporters.Json;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Order;
 using BenchmarkDotNet.Reports;
@@ -27,6 +28,7 @@ namespace ORMBenchmark.PerformanceTests {
             job.Run.RunStrategy = BenchmarkDotNet.Engines.RunStrategy.Throughput;
             Add(job);
             Orderer = new TestSetOrderProvider();
+            Add(new JsonExporter("", true, true));
             Add(JitOptimizationsValidator.DontFailOnError);
             Add(DefaultConfig.Instance.GetLoggers().ToArray());
             Add(DefaultConfig.Instance.GetExporters().ToArray());
