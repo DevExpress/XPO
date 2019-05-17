@@ -2,8 +2,8 @@
 
 This project is a [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet)-based benchmark. We used it to test the performance of the following Object-Relational Mapping (ORM) libraries for .NET Framework 4.6.1 and higher:<br/>
  - [Entity Framework 6.2.0](https://docs.microsoft.com/en-us/ef/ef6/) (EF 6);<br/>
- - [Entity Framework Core 2.1.4](https://docs.microsoft.com/en-us/ef/core/) (EF Core);<br/>
- - [eXpress Persistent Objects™ 18.2.3](https://www.devexpress.com/Products/NET/ORM/) (XPO).<br/>
+ - [Entity Framework Core 2.2.4](https://docs.microsoft.com/en-us/ef/core/) (EF Core);<br/>
+ - [eXpress Persistent Objects™ 19.1.3](https://www.devexpress.com/Products/NET/ORM/) (XPO).<br/>
  
 You can run the benchmark tests or review our results below. Needless to say, the lower the execution time the better. 
 
