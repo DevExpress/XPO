@@ -1,5 +1,5 @@
 ﻿namespace WinFormsApplication.Forms {
-    partial class EditOrderForm {
+    partial class EditOrderNestedForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -36,13 +36,11 @@
             this.OrdersBindingSource = new DevExpress.Xpo.XPBindingSource(this.components);
             this.OrderDateDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.FreightCalcEdit = new DevExpress.XtraEditors.CalcEdit();
-            this.CustomerEditor = new DevExpress.XtraEditors.LookUpEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.ItemForProductName = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForOrderDate = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForFreight = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
@@ -51,13 +49,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.OrderDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDateDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FreightCalcEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomerEditor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForProductName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForOrderDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForFreight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -125,7 +121,6 @@
             this.dataLayoutControl1.Controls.Add(this.ProductNameTextEdit);
             this.dataLayoutControl1.Controls.Add(this.OrderDateDateEdit);
             this.dataLayoutControl1.Controls.Add(this.FreightCalcEdit);
-            this.dataLayoutControl1.Controls.Add(this.CustomerEditor);
             this.dataLayoutControl1.DataSource = this.OrdersBindingSource;
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(0, 162);
@@ -138,7 +133,7 @@
             // 
             // ProductNameTextEdit
             // 
-            this.ProductNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.OrdersBindingSource, "ProductName", true));
+            this.ProductNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.OrdersBindingSource, "ProductName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.ProductNameTextEdit.Location = new System.Drawing.Point(82, 12);
             this.ProductNameTextEdit.MenuManager = this.ribbonControl1;
             this.ProductNameTextEdit.Name = "ProductNameTextEdit";
@@ -153,7 +148,7 @@
             // 
             // OrderDateDateEdit
             // 
-            this.OrderDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.OrdersBindingSource, "OrderDate", true));
+            this.OrderDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.OrdersBindingSource, "OrderDate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.OrderDateDateEdit.EditValue = null;
             this.OrderDateDateEdit.Location = new System.Drawing.Point(82, 36);
             this.OrderDateDateEdit.MenuManager = this.ribbonControl1;
@@ -168,7 +163,7 @@
             // 
             // FreightCalcEdit
             // 
-            this.FreightCalcEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.OrdersBindingSource, "Freight", true));
+            this.FreightCalcEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.OrdersBindingSource, "Freight", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.FreightCalcEdit.Location = new System.Drawing.Point(82, 60);
             this.FreightCalcEdit.MenuManager = this.ribbonControl1;
             this.FreightCalcEdit.Name = "FreightCalcEdit";
@@ -181,25 +176,6 @@
             this.FreightCalcEdit.Size = new System.Drawing.Size(706, 20);
             this.FreightCalcEdit.StyleController = this.dataLayoutControl1;
             this.FreightCalcEdit.TabIndex = 6;
-            // 
-            // CustomerEditor
-            // 
-            this.CustomerEditor.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.OrdersBindingSource, "Customer!Key", true));
-            this.CustomerEditor.Location = new System.Drawing.Point(82, 84);
-            this.CustomerEditor.MenuManager = this.ribbonControl1;
-            this.CustomerEditor.Name = "CustomerEditor";
-            this.CustomerEditor.Properties.Appearance.Options.UseTextOptions = true;
-            this.CustomerEditor.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.CustomerEditor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CustomerEditor.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ContactName", "Contact Name")});
-            this.CustomerEditor.Properties.DisplayMember = "ContactName";
-            this.CustomerEditor.Properties.NullText = "";
-            this.CustomerEditor.Properties.ValueMember = "Oid";
-            this.CustomerEditor.Size = new System.Drawing.Size(706, 20);
-            this.CustomerEditor.StyleController = this.dataLayoutControl1;
-            this.CustomerEditor.TabIndex = 7;
             // 
             // Root
             // 
@@ -218,8 +194,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.ItemForProductName,
             this.ItemForOrderDate,
-            this.ItemForFreight,
-            this.layoutControlItem1});
+            this.ItemForFreight});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "autoGeneratedGroup0";
             this.layoutControlGroup1.Size = new System.Drawing.Size(780, 264);
@@ -247,27 +222,18 @@
             this.ItemForFreight.Control = this.FreightCalcEdit;
             this.ItemForFreight.Location = new System.Drawing.Point(0, 48);
             this.ItemForFreight.Name = "ItemForFreight";
-            this.ItemForFreight.Size = new System.Drawing.Size(780, 24);
+            this.ItemForFreight.Size = new System.Drawing.Size(780, 216);
             this.ItemForFreight.Text = "Freight";
             this.ItemForFreight.TextSize = new System.Drawing.Size(67, 13);
             // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.CustomerEditor;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 72);
-            this.layoutControlItem1.Name = "ItemForCustomer!Key";
-            this.layoutControlItem1.Size = new System.Drawing.Size(780, 192);
-            this.layoutControlItem1.Text = "Customer";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(67, 13);
-            // 
-            // EditOrderForm
+            // EditOrderNestedForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 446);
             this.Controls.Add(this.dataLayoutControl1);
             this.Controls.Add(this.ribbonControl1);
-            this.Name = "EditOrderForm";
+            this.Name = "EditOrderNestedForm";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Edit Order";
             this.Load += new System.EventHandler(this.EditOrderForm_Load);
@@ -279,13 +245,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.OrderDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDateDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FreightCalcEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomerEditor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForProductName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForOrderDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForFreight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,12 +268,10 @@
         private DevExpress.XtraEditors.TextEdit ProductNameTextEdit;
         private DevExpress.XtraEditors.DateEdit OrderDateDateEdit;
         private DevExpress.XtraEditors.CalcEdit FreightCalcEdit;
-        private DevExpress.XtraEditors.LookUpEdit CustomerEditor;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem ItemForProductName;
         private DevExpress.XtraLayout.LayoutControlItem ItemForOrderDate;
         private DevExpress.XtraLayout.LayoutControlItem ItemForFreight;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraBars.BarButtonItem btnRefresh;
         private DevExpress.Xpo.XPBindingSource OrdersBindingSource;
     }

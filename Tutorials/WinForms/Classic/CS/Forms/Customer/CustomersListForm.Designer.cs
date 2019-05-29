@@ -24,46 +24,65 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            this.OrdersDataGrid = new DevExpress.XtraGrid.GridControl();
-            this.OrdersView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.CustomersDataGrid = new DevExpress.XtraGrid.GridControl();
+            this.CustomersBindingSource = new DevExpress.Xpo.XPBindingSource(this.components);
+            this.CustomersView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colOid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colContactName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnNew = new DevExpress.XtraBars.BarButtonItem();
             this.btnEdit = new DevExpress.XtraBars.BarButtonItem();
             this.btnRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.CustomersBindingSource = new DevExpress.Xpo.XPBindingSource(this.components);
-            this.colOid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colContactName = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.OrdersDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrdersView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomersDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomersView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
-            // OrdersDataGrid
+            // CustomersDataGrid
             // 
-            this.OrdersDataGrid.DataSource = this.CustomersBindingSource;
-            this.OrdersDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OrdersDataGrid.Location = new System.Drawing.Point(0, 162);
-            this.OrdersDataGrid.MainView = this.OrdersView;
-            this.OrdersDataGrid.Name = "OrdersDataGrid";
-            this.OrdersDataGrid.ShowOnlyPredefinedDetails = true;
-            this.OrdersDataGrid.Size = new System.Drawing.Size(819, 364);
-            this.OrdersDataGrid.TabIndex = 0;
-            this.OrdersDataGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.OrdersView});
+            this.CustomersDataGrid.DataSource = this.CustomersBindingSource;
+            this.CustomersDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CustomersDataGrid.Location = new System.Drawing.Point(0, 162);
+            this.CustomersDataGrid.MainView = this.CustomersView;
+            this.CustomersDataGrid.Name = "CustomersDataGrid";
+            this.CustomersDataGrid.ShowOnlyPredefinedDetails = true;
+            this.CustomersDataGrid.Size = new System.Drawing.Size(819, 364);
+            this.CustomersDataGrid.TabIndex = 0;
+            this.CustomersDataGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.CustomersView});
             // 
-            // OrdersView
+            // CustomersBindingSource
             // 
-            this.OrdersView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.CustomersBindingSource.DisplayableProperties = "Oid;ContactName";
+            this.CustomersBindingSource.ObjectType = typeof(XpoTutorial.Customer);
+            // 
+            // CustomersView
+            // 
+            this.CustomersView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colOid,
             this.colContactName});
-            this.OrdersView.GridControl = this.OrdersDataGrid;
-            this.OrdersView.Name = "OrdersView";
-            this.OrdersView.OptionsBehavior.Editable = false;
-            this.OrdersView.FocusedRowObjectChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventHandler(this.OrdersView_FocusedRowObjectChanged);
+            this.CustomersView.GridControl = this.CustomersDataGrid;
+            this.CustomersView.Name = "CustomersView";
+            this.CustomersView.OptionsBehavior.Editable = false;
+            this.CustomersView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.CustomersView_RowClick);
+            this.CustomersView.FocusedRowObjectChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventHandler(this.OrdersView_FocusedRowObjectChanged);
+            // 
+            // colOid
+            // 
+            this.colOid.FieldName = "Oid";
+            this.colOid.Name = "colOid";
+            // 
+            // colContactName
+            // 
+            this.colContactName.FieldName = "ContactName";
+            this.colContactName.Name = "colContactName";
+            this.colContactName.Visible = true;
+            this.colContactName.VisibleIndex = 0;
             // 
             // ribbonControl1
             // 
@@ -73,9 +92,10 @@
             this.ribbonControl1.SearchEditItem,
             this.btnNew,
             this.btnEdit,
-            this.btnRefresh});
+            this.btnRefresh,
+            this.btnDelete});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 4;
+            this.ribbonControl1.MaxItemId = 5;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -103,6 +123,14 @@
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefresh_ItemClick);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Caption = "Delete";
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Id = 4;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -114,6 +142,7 @@
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnNew);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnEdit);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnDelete);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnRefresh);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Edit";
@@ -123,38 +152,21 @@
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "ribbonPage2";
             // 
-            // CustomersBindingSource
-            // 
-            this.CustomersBindingSource.DisplayableProperties = "Oid;ContactName";
-            this.CustomersBindingSource.ObjectType = typeof(XpoTutorial.Customer);
-            // 
-            // colOid
-            // 
-            this.colOid.FieldName = "Oid";
-            this.colOid.Name = "colOid";
-            // 
-            // colContactName
-            // 
-            this.colContactName.FieldName = "ContactName";
-            this.colContactName.Name = "colContactName";
-            this.colContactName.Visible = true;
-            this.colContactName.VisibleIndex = 1;
-            // 
             // CustomersListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 526);
-            this.Controls.Add(this.OrdersDataGrid);
+            this.Controls.Add(this.CustomersDataGrid);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "CustomersListForm";
             this.Ribbon = this.ribbonControl1;
             this.Text = "Customers";
             this.Load += new System.EventHandler(this.CustomersListForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.OrdersDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrdersView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomersDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomersView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,8 +174,8 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl OrdersDataGrid;
-        private DevExpress.XtraGrid.Views.Grid.GridView OrdersView;
+        private DevExpress.XtraGrid.GridControl CustomersDataGrid;
+        private DevExpress.XtraGrid.Views.Grid.GridView CustomersView;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
@@ -174,5 +186,6 @@
         private DevExpress.Xpo.XPBindingSource CustomersBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colOid;
         private DevExpress.XtraGrid.Columns.GridColumn colContactName;
+        private DevExpress.XtraBars.BarButtonItem btnDelete;
     }
 }

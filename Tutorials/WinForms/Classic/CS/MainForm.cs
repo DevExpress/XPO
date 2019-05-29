@@ -10,10 +10,10 @@ namespace WinFormsApplication {
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
-            OrdersListForm ordersList = new OrdersListForm();
-            ordersList.MdiParent = this;
-            ordersList.WindowState = FormWindowState.Maximized;
-            ordersList.Show();
+            CustomersListForm customersList = new CustomersListForm();
+            customersList.MdiParent = this;
+            customersList.WindowState = FormWindowState.Maximized;
+            customersList.Show();
         }
     }
 }

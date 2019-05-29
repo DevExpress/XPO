@@ -64,28 +64,34 @@
     <Compile Include="DataAccess\Customer.cs" />
     <Compile Include="DataAccess\DemoDataHelper.cs" />
     <Compile Include="DataAccess\Order.cs" />
-    <Compile Include="Forms\EditCustomerForm.cs">
+    <Compile Include="Forms\Customer\EditCustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditCustomerForm.Designer.cs">
+    <Compile Include="Forms\Customer\EditCustomerForm.Designer.cs">
       <DependentUpon>EditCustomerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditOrderForm.cs">
+    <Compile Include="Forms\Order\EditOrderNestedForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditOrderForm.Designer.cs">
+    <Compile Include="Forms\Order\EditOrderNestedForm.Designer.cs">
+      <DependentUpon>EditOrderNestedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Order\EditOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order\EditOrderForm.Designer.cs">
       <DependentUpon>EditOrderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CustomersListForm.cs">
+    <Compile Include="Forms\Customer\CustomersListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CustomersListForm.Designer.cs">
+    <Compile Include="Forms\Customer\CustomersListForm.Designer.cs">
       <DependentUpon>CustomersListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\OrdersListForm.cs">
+    <Compile Include="Forms\Order\OrdersListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\OrdersListForm.Designer.cs">
+    <Compile Include="Forms\Order\OrdersListForm.Designer.cs">
       <DependentUpon>OrdersListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -96,17 +102,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\EditCustomerForm.resx">
+    <EmbeddedResource Include="Forms\Customer\EditCustomerForm.resx">
       <DependentUpon>EditCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditOrderForm.resx">
+    <EmbeddedResource Include="Forms\Order\EditOrderNestedForm.resx">
+      <DependentUpon>EditOrderNestedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order\EditOrderForm.resx">
       <DependentUpon>EditOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomersListForm.resx">
+    <EmbeddedResource Include="Forms\Customer\CustomersListForm.resx">
       <DependentUpon>CustomersListForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\OrdersListForm.resx">
+    <EmbeddedResource Include="Forms\Order\OrdersListForm.resx">
       <DependentUpon>OrdersListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">

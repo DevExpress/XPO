@@ -1,34 +1,36 @@
 ﻿using DevExpress.Xpo;
-using DevExpress.Xpo.DB.Exceptions;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
-using DevExpress.XtraEditors;
-using System.Windows.Forms;
 using System.Collections;
 using XpoTutorial;
 
 namespace WinFormsApplication.Forms {
-    public partial class EditCustomerForm : RibbonForm {
-        public EditCustomerForm() {
+    public partial class EditOrderNestedForm : RibbonForm {
+        private EditOrderNestedForm() {
             InitializeComponent();
         }
 
-        private UnitOfWork Session;
-        public int? CustomerId { get; set; }
+        public EditOrderNestedForm(Session session) : this() {
+            Session = session;
+        }
+
+        private Session Session;
+        private NestedUnitOfWork UOW;
+        public Order Order { get; set; }
 
         private void EditOrderForm_Load(object sender, System.EventArgs e) {
             Reload();
         }
 
-        private async void Reload() {
+        private void Reload() {
             DisableButtons();
             try {
-                if (Session != null) {
-                    Session.ObjectChanged -= Session_ObjectChanged;
+                if (UOW != null) {
+                    UOW.ObjectChanged -= Session_ObjectChanged;
                 }
-                Session = new UnitOfWork();
-                Session.ObjectChanged += Session_ObjectChanged;
-                CustomersBindingSource.DataSource = CustomerId.HasValue ? await Session.GetObjectByKeyAsync<Customer>(CustomerId.Value) : new Customer(Session);
+                UOW = Session.BeginNestedUnitOfWork();
+                UOW.ObjectChanged += Session_ObjectChanged;
+                OrdersBindingSource.DataSource = Order == null ? new Order(UOW) : UOW.GetNestedObject(Order);
             } finally { EnableButtons(); }
         }
 
@@ -37,15 +39,13 @@ namespace WinFormsApplication.Forms {
                 btnSave.Enabled = true;
         }
 
-        private async void btnSave_ItemClick(object sender, ItemClickEventArgs e) {
+        private void btnSave_ItemClick(object sender, ItemClickEventArgs e) {
             DisableButtons();
             try {
-                await Session.CommitChangesAsync();
-                Customer customer = (Customer)CustomersBindingSource.DataSource;
-                CustomerId = customer.Oid; // a new object gets Oid from the database
+                UOW.CommitChanges();
+                Order order = (Order)OrdersBindingSource.DataSource;
+                Order = UOW.GetParentObject(order);
                 Close();
-            } catch (LockingException) {
-                XtraMessageBox.Show("XPO Tutorial", "The record was modified by another user. Please refresh data.", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             } finally { EnableButtons(); }
         }
 

@@ -28,6 +28,9 @@
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.btnClose = new DevExpress.XtraBars.BarButtonItem();
             this.btnRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAddOrder = new DevExpress.XtraBars.BarButtonItem();
+            this.btnEditOrder = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDeleteOrder = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -38,7 +41,7 @@
             this.CustomersBindingSource = new DevExpress.Xpo.XPBindingSource(this.components);
             this.LastNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.OrdersGridControl = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.OrdersView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colOid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOrderDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -48,8 +51,6 @@
             this.ItemForFirstName = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForLastName = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForOrders = new DevExpress.XtraLayout.LayoutControlItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
@@ -57,7 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CustomersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LastNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrdersGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrdersView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForFirstName)).BeginInit();
@@ -74,10 +75,11 @@
             this.btnSave,
             this.btnClose,
             this.btnRefresh,
-            this.barButtonItem1,
-            this.barButtonItem2});
+            this.btnAddOrder,
+            this.btnEditOrder,
+            this.btnDeleteOrder});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 6;
+            this.ribbonControl1.MaxItemId = 11;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -108,6 +110,29 @@
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefresh_ItemClick);
             // 
+            // btnAddOrder
+            // 
+            this.btnAddOrder.Caption = "Add Order";
+            this.btnAddOrder.Id = 8;
+            this.btnAddOrder.Name = "btnAddOrder";
+            this.btnAddOrder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddOrder_ItemClick);
+            // 
+            // btnEditOrder
+            // 
+            this.btnEditOrder.Caption = "Edit Order";
+            this.btnEditOrder.Enabled = false;
+            this.btnEditOrder.Id = 9;
+            this.btnEditOrder.Name = "btnEditOrder";
+            this.btnEditOrder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEditOrder_ItemClick);
+            // 
+            // btnDeleteOrder
+            // 
+            this.btnDeleteOrder.Caption = "Delete Order";
+            this.btnDeleteOrder.Enabled = false;
+            this.btnDeleteOrder.Id = 10;
+            this.btnDeleteOrder.Name = "btnDeleteOrder";
+            this.btnDeleteOrder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDeleteOrder_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -132,8 +157,9 @@
             // 
             // ribbonPageGroup2
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem2);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnAddOrder);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnEditOrder);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnDeleteOrder);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Edit";
             // 
@@ -160,7 +186,7 @@
             // 
             // FirstNameTextEdit
             // 
-            this.FirstNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CustomersBindingSource, "FirstName", true));
+            this.FirstNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CustomersBindingSource, "FirstName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.FirstNameTextEdit.Location = new System.Drawing.Point(66, 12);
             this.FirstNameTextEdit.MenuManager = this.ribbonControl1;
             this.FirstNameTextEdit.Name = "FirstNameTextEdit";
@@ -175,7 +201,7 @@
             // 
             // LastNameTextEdit
             // 
-            this.LastNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CustomersBindingSource, "LastName", true));
+            this.LastNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CustomersBindingSource, "LastName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.LastNameTextEdit.Location = new System.Drawing.Point(66, 36);
             this.LastNameTextEdit.MenuManager = this.ribbonControl1;
             this.LastNameTextEdit.Name = "LastNameTextEdit";
@@ -189,24 +215,26 @@
             this.OrdersGridControl.DataMember = "Orders";
             this.OrdersGridControl.DataSource = this.CustomersBindingSource;
             this.OrdersGridControl.Location = new System.Drawing.Point(12, 60);
-            this.OrdersGridControl.MainView = this.gridView1;
+            this.OrdersGridControl.MainView = this.OrdersView;
             this.OrdersGridControl.MenuManager = this.ribbonControl1;
             this.OrdersGridControl.Name = "OrdersGridControl";
             this.OrdersGridControl.Size = new System.Drawing.Size(776, 212);
             this.OrdersGridControl.TabIndex = 6;
             this.OrdersGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.OrdersView});
             // 
-            // gridView1
+            // OrdersView
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.OrdersView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colOid,
             this.colProductName,
             this.colOrderDate,
             this.colFreight});
-            this.gridView1.GridControl = this.OrdersGridControl;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
+            this.OrdersView.GridControl = this.OrdersGridControl;
+            this.OrdersView.Name = "OrdersView";
+            this.OrdersView.OptionsBehavior.Editable = false;
+            this.OrdersView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.OrdersView_RowClick);
+            this.OrdersView.FocusedRowObjectChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventHandler(this.OrdersView_FocusedRowObjectChanged);
             // 
             // colOid
             // 
@@ -285,18 +313,6 @@
             this.ItemForOrders.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForOrders.TextVisible = false;
             // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Link";
-            this.barButtonItem1.Id = 4;
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Unlink";
-            this.barButtonItem2.Id = 5;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
             // EditCustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,7 +331,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CustomersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LastNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrdersGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrdersView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForFirstName)).EndInit();
@@ -341,7 +357,7 @@
         private DevExpress.XtraEditors.TextEdit FirstNameTextEdit;
         private DevExpress.XtraEditors.TextEdit LastNameTextEdit;
         private DevExpress.XtraGrid.GridControl OrdersGridControl;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView OrdersView;
         private DevExpress.XtraGrid.Columns.GridColumn colOid;
         private DevExpress.XtraGrid.Columns.GridColumn colProductName;
         private DevExpress.XtraGrid.Columns.GridColumn colOrderDate;
@@ -352,7 +368,8 @@
         private DevExpress.XtraLayout.LayoutControlItem ItemForOrders;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem btnAddOrder;
+        private DevExpress.XtraBars.BarButtonItem btnEditOrder;
+        private DevExpress.XtraBars.BarButtonItem btnDeleteOrder;
     }
 }
