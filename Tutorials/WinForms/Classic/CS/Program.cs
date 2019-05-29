@@ -1,7 +1,6 @@
-﻿using DevExpress.Xpo;
-using System;
-using System.Configuration;
+﻿using System;
 using System.Windows.Forms;
+using DevExpress.Xpo;
 using XpoTutorial;
 
 namespace WinFormsApplication {
@@ -13,8 +12,8 @@ namespace WinFormsApplication {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ConnectionHelper.Connect();
-            using (UnitOfWork uow = new UnitOfWork()) {
+            ConnectionHelper.Connect(false);
+            using(UnitOfWork uow = new UnitOfWork()) {
                 DemoDataHelper.Seed(uow);
             }
             Application.Run(new MainForm());

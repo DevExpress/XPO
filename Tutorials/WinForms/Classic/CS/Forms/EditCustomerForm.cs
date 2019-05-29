@@ -4,18 +4,17 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using System.Windows.Forms;
-using System.Linq;
 using System.Collections;
 using XpoTutorial;
 
 namespace WinFormsApplication.Forms {
-    public partial class EditOrderForm : RibbonForm {
-        public EditOrderForm() {
+    public partial class EditCustomerForm : RibbonForm {
+        public EditCustomerForm() {
             InitializeComponent();
         }
 
         private UnitOfWork Session;
-        public int? OrderId { get; set; }
+        public int? CustomerId { get; set; }
 
         private void EditOrderForm_Load(object sender, System.EventArgs e) {
             Reload();
@@ -29,8 +28,7 @@ namespace WinFormsApplication.Forms {
                 }
                 Session = new UnitOfWork();
                 Session.ObjectChanged += Session_ObjectChanged;
-                OrdersBindingSource.DataSource = OrderId.HasValue ? await Session.GetObjectByKeyAsync<Order>(OrderId.Value) : new Order(Session);
-                CustomerEditor.Properties.DataSource = await Session.Query<Customer>().Select(c => new { c.Oid, c.ContactName }).ToListAsync();
+                CustomersBindingSource.DataSource = CustomerId.HasValue ? await Session.GetObjectByKeyAsync<Customer>(CustomerId.Value) : new Customer(Session);
             } finally { EnableButtons(); }
         }
 
@@ -43,8 +41,8 @@ namespace WinFormsApplication.Forms {
             DisableButtons();
             try {
                 await Session.CommitChangesAsync();
-                Order order = (Order)OrdersBindingSource.DataSource;
-                OrderId = order.Oid; // a new object gets Oid from the database
+                Customer customer = (Customer)CustomersBindingSource.DataSource;
+                CustomerId = customer.Oid; // a new object gets Oid from the database
                 Close();
             } catch (LockingException) {
                 XtraMessageBox.Show("XPO Tutorial", "The record was modified by another user. Please refresh data.", MessageBoxButtons.OK, MessageBoxIcon.Stop);

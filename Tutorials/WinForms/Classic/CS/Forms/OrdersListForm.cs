@@ -24,7 +24,7 @@ namespace WinFormsApplication.Forms {
         }
 
         private void OrdersView_FocusedRowObjectChanged(object sender, FocusedRowObjectChangedEventArgs e) {
-            btnEdit.Enabled = e.Row != null;
+            btnEdit.Enabled = btnDelete.Enabled = e.Row != null;
         }
 
         private void btnNew_ItemClick(object sender, ItemClickEventArgs e) {
@@ -44,6 +44,8 @@ namespace WinFormsApplication.Forms {
             form.FormClosing += EditForm_FormClosing;
         }
 
+        private void btnDelete_ItemClick(object sender, ItemClickEventArgs e) {
+        }
 
         private void btnRefresh_ItemClick(object sender, ItemClickEventArgs e) {
             Reload();
