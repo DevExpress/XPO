@@ -19,7 +19,6 @@ Namespace WpfApplication
 		End Sub
 
 		Private Sub ButtonSave_ItemClick(ByVal sender As Object, ByVal e As DevExpress.Xpf.Bars.ItemClickEventArgs)
-			model.Save()
 			DialogResult = True
 		End Sub
 
@@ -29,6 +28,14 @@ Namespace WpfApplication
 
 		Private Sub ButtonReload_ItemClick(ByVal sender As Object, ByVal e As DevExpress.Xpf.Bars.ItemClickEventArgs)
 			model.Reload()
+		End Sub
+
+		Private Sub ThemedWindow_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs)
+			If DialogResult.Equals(True) Then
+				model.EndEdit()
+			Else
+				model.CancelEdit()
+			End If
 		End Sub
 	End Class
 End Namespace

@@ -29,7 +29,7 @@ Namespace WpfApplication.Wrappers
 
 		Public ReadOnly Property CustomerList() As IList(Of Customer)
 			Get
-				Dim customers = order_Renamed.Session.Query(Of Customer)().OrderBy(Function(t) t.ContactName).ToList()
+				Dim customers = order_Renamed.Session.Query(Of Customer)().OrderBy(Function(t) t.FirstName).ThenBy(Function(t) t.LastName).ToList()
 				If Not customers.Contains(order_Renamed.Customer) Then
 					customers.Add(order_Renamed.Customer)
 				End If
@@ -38,14 +38,16 @@ Namespace WpfApplication.Wrappers
 		End Property
 
 		Public Sub Reload()
-			If order_Renamed.Oid > 0 Then
-				DirectCast(order_Renamed, IEditableObject).CancelEdit()
-				DirectCast(order_Renamed, IEditableObject).BeginEdit()
-			End If
+			DirectCast(order_Renamed, IEditableObject).CancelEdit()
+			DirectCast(order_Renamed, IEditableObject).BeginEdit()
 		End Sub
 
-		Public Sub Save()
+		Public Sub EndEdit()
 			DirectCast(order_Renamed, IEditableObject).EndEdit()
+		End Sub
+
+		Public Sub CancelEdit()
+			DirectCast(order_Renamed, IEditableObject).CancelEdit()
 		End Sub
 
 		Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged

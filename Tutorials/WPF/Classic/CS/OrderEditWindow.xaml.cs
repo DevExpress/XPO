@@ -17,7 +17,6 @@ namespace WpfApplication {
         }
 
         private void ButtonSave_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e) {
-            model.Save();
             DialogResult = true;
         }
 
@@ -27,6 +26,15 @@ namespace WpfApplication {
 
         private void ButtonReload_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e) {
             model.Reload();
+        }
+
+        private void ThemedWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+            if(DialogResult == true) {
+                model.EndEdit();
+            }
+            else {
+                model.CancelEdit();
+            }
         }
     }
 }

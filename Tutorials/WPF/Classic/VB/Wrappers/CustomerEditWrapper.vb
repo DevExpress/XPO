@@ -3,6 +3,8 @@ Imports DevExpress.Xpo
 Imports System.ComponentModel
 Imports XpoTutorial
 Imports System.Threading.Tasks
+Imports System.Collections.ObjectModel
+Imports System.Collections.Generic
 
 Namespace WpfApplication.Wrappers
 	Friend Class CustomerEditWrapper
@@ -30,17 +32,21 @@ Namespace WpfApplication.Wrappers
 			End Get
 			Set(ByVal value As Customer)
 				customer_Renamed = value
-				orderList_Renamed.DataSource = customer_Renamed.Orders
+				OrderList = customer_Renamed.Orders
 				OnPropertyChanged(NameOf(Customer))
 			End Set
 		End Property
 
 'INSTANT VB NOTE: The field orderList was renamed since Visual Basic does not allow fields to have the same name as other class members:
-		Private ReadOnly orderList_Renamed As New XPBindingSource()
-		Public ReadOnly Property OrderList() As XPBindingSource
+		Private orderList_Renamed As IList(Of Order)
+		Public Property OrderList() As IList(Of Order)
 			Get
 				Return orderList_Renamed
 			End Get
+			Set(ByVal value As IList(Of Order))
+				orderList_Renamed = value
+				OnPropertyChanged(NameOf(OrderList))
+			End Set
 		End Property
 
 'INSTANT VB NOTE: The field selectedOrder was renamed since Visual Basic does not allow fields to have the same name as other class members:
@@ -77,7 +83,7 @@ Namespace WpfApplication.Wrappers
 
 		Public Sub DeleteSelectedOrder()
 			If SelectedOrder IsNot Nothing Then
-				SelectedOrder.Delete()
+				unitOfWork.Delete(selectedOrder_Renamed)
 			End If
 		End Sub
 

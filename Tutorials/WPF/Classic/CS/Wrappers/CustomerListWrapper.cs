@@ -5,6 +5,7 @@ using System.ComponentModel;
 using XpoTutorial;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace WpfApplication.Wrappers {
 
@@ -14,13 +15,13 @@ namespace WpfApplication.Wrappers {
 
         public CustomerListWrapper() {
             unitOfWork = new UnitOfWork(XpoDefault.DataLayer);
-            customerList.DataSource = unitOfWork.Query<Customer>().OrderByDescending(t => t.Oid).ToList();
+            CustomerList = unitOfWork.Query<Customer>().OrderByDescending(t => t.Oid).ToObservableCollection();
         }
 
         public async Task ReloadAsync() {
             Customer currentItem = SelectedCustomer;
             unitOfWork = new UnitOfWork(XpoDefault.DataLayer);
-            customerList.DataSource = await unitOfWork.Query<Customer>().OrderByDescending(t => t.Oid).ToListAsync();
+            CustomerList = await unitOfWork.Query<Customer>().OrderByDescending(t => t.Oid).ToObservableCollectionAsync();
             if(currentItem != null) {
                 SelectedCustomer = await unitOfWork.Query<Customer>().FirstOrDefaultAsync(t => t.Oid == currentItem.Oid);
             } else {
@@ -30,16 +31,20 @@ namespace WpfApplication.Wrappers {
 
         public async Task DeleteSelectedCustomerAsync() {
             if(SelectedCustomer != null) {
-                SelectedCustomer.Delete();
+                unitOfWork.Delete(selectedCustomer);
                 await unitOfWork.CommitChangesAsync();
                 await ReloadAsync();
             }
         }
 
-        readonly XPBindingSource customerList = new XPBindingSource();
-        public XPBindingSource CustomerList {
+        ObservableCollection<Customer> customerList;
+        public ObservableCollection<Customer> CustomerList {
             get {
                 return customerList;
+            }
+            set {
+                customerList = value;
+                OnPropertyChanged(nameof(CustomerList));
             }
         }
 

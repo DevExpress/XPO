@@ -7,7 +7,7 @@
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
     x:Class="WpfApplication.OrderEditWindow" WindowStartupLocation="CenterOwner"
-    Title="Edit Order" Height="350" Width="500">
+    Title="Edit Order" Height="350" Width="500" Closing="ThemedWindow_Closing">
     <DockPanel LastChildFill="True">
         <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010">
             <dxr:RibbonDefaultPageCategory>
@@ -59,11 +59,11 @@
             <dxe:TextEdit Grid.Row="2" Grid.Column="1"  EditValue="{Binding Order.ProductName, UpdateSourceTrigger=PropertyChanged}"/>
 
             <Label Content="Freight:" Grid.Row="3" Grid.Column="0"/>
-            <dxe:SpinEdit Grid.Row="3" Grid.Column="1" EditValue="{Binding Order.Freight, UpdateSourceTrigger=PropertyChanged}"/>
+            <dxe:SpinEdit Grid.Row="3" Grid.Column="1" EditValue="{Binding Order.Freight, UpdateSourceTrigger=PropertyChanged}" AllowNullInput="True"/>
 
             <Label Content="Customer:" Grid.Row="4" Grid.Column="0"/>
             <dxe:ComboBoxEdit Grid.Row="4" Grid.Column="1" IsTextEditable="False"
-                              EditValue="{Binding Order.Customer!}"
+                              EditValue="{Binding Order.Customer, UpdateSourceTrigger=PropertyChanged}"
                               ItemsSource="{Binding CustomerList}"
                               DisplayMember="ContactName" />
 

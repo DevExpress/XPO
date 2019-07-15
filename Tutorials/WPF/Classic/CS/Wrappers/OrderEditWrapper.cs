@@ -26,7 +26,7 @@ namespace WpfApplication.Wrappers {
 
         public IList<Customer> CustomerList {
             get {
-                var customers = order.Session.Query<Customer>().OrderBy(t => t.ContactName).ToList();
+                var customers = order.Session.Query<Customer>().OrderBy(t => t.FirstName).ThenBy(t => t.LastName).ToList();
                 if(!customers.Contains(order.Customer)) {
                     customers.Add(order.Customer);
                 }
@@ -35,14 +35,16 @@ namespace WpfApplication.Wrappers {
         }
 
         public void Reload() {
-            if(order.Oid > 0) {
-                ((IEditableObject)order).CancelEdit();
-                ((IEditableObject)order).BeginEdit();
-            }
+            ((IEditableObject)order).CancelEdit();
+            ((IEditableObject)order).BeginEdit();
         }
 
-        public void Save() {
+        public void EndEdit() {
             ((IEditableObject)order).EndEdit();
+        }
+
+        public void CancelEdit() {
+            ((IEditableObject)order).CancelEdit();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
