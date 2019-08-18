@@ -12,18 +12,21 @@ namespace XpoTutorial {
             get { return productName; }
             set { SetPropertyValue(nameof(ProductName), ref productName, value); }
         }
+        DateTime orderDate;
         public DateTime OrderDate {
-            get { return GetPropertyValue<DateTime>(nameof(OrderDate)); }
-            set { SetPropertyValue(nameof(OrderDate), value); }
+            get { return orderDate; }
+            set { SetPropertyValue(nameof(OrderDate), ref orderDate, value); }
         }
+        decimal? freight;
         public decimal? Freight {
-            get { return GetPropertyValue<decimal?>(nameof(Freight)); }
-            set { SetPropertyValue(nameof(Freight), value); }
+            get { return freight; }
+            set { SetPropertyValue(nameof(Freight), ref freight, value); }
         }
+        Customer customer;
         [Association("CustomerOrders")]
         public Customer Customer {
-            get { return GetPropertyValue<Customer>(nameof(Customer)); }
-            set { SetPropertyValue(nameof(Customer), value); }
+            get { return customer; }
+            set { SetPropertyValue(nameof(Customer), ref customer, value); }
         }
 
         #region IEditableObject implementation
