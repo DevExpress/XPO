@@ -24,52 +24,48 @@ Namespace WpfApplication.Wrappers
 			Customer = unitOfWork.GetObjectByKey(Of Customer)(customerOid)
 		End Sub
 
-'INSTANT VB NOTE: The field customer was renamed since Visual Basic does not allow fields to have the same name as other class members:
-		Private customer_Renamed As Customer
+		Private fCustomer As Customer
 		Public Property Customer() As Customer
 			Get
-				Return customer_Renamed
+				Return fCustomer
 			End Get
 			Set(ByVal value As Customer)
-				customer_Renamed = value
-				OrderList = customer_Renamed.Orders
+				fCustomer = value
+				OrderList = fCustomer.Orders
 				OnPropertyChanged(NameOf(Customer))
 			End Set
 		End Property
 
-'INSTANT VB NOTE: The field orderList was renamed since Visual Basic does not allow fields to have the same name as other class members:
-		Private orderList_Renamed As IList(Of Order)
+		Private fOrderList As IList(Of Order)
 		Public Property OrderList() As IList(Of Order)
 			Get
-				Return orderList_Renamed
+				Return fOrderList
 			End Get
 			Set(ByVal value As IList(Of Order))
-				orderList_Renamed = value
+				fOrderList = value
 				OnPropertyChanged(NameOf(OrderList))
 			End Set
 		End Property
 
-'INSTANT VB NOTE: The field selectedOrder was renamed since Visual Basic does not allow fields to have the same name as other class members:
-		Private selectedOrder_Renamed As Order
+		Private fSelectedOrder As Order
 		Public Property SelectedOrder() As Order
 			Get
-				Return selectedOrder_Renamed
+				Return fSelectedOrder
 			End Get
 			Set(ByVal value As Order)
-				selectedOrder_Renamed = value
+				fSelectedOrder = value
 				IsOrderSelected = (value IsNot Nothing)
 				OnPropertyChanged(NameOf(SelectedOrder))
 			End Set
 		End Property
 
-'INSTANT VB NOTE: The field isOrderSelected was renamed since Visual Basic does not allow fields to have the same name as other class members:
-		Private isOrderSelected_Renamed As Boolean
+		Private fIsOrderSelected As Boolean
 		Public Property IsOrderSelected() As Boolean
 			Get
-				Return isOrderSelected_Renamed
+				Return fIsOrderSelected
 			End Get
 			Set(ByVal value As Boolean)
-				isOrderSelected_Renamed = value
+				fIsOrderSelected = value
 				OnPropertyChanged(NameOf(IsOrderSelected))
 			End Set
 		End Property

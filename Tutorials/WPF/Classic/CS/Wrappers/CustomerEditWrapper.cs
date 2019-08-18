@@ -22,48 +22,48 @@ namespace WpfApplication.Wrappers {
             Customer = unitOfWork.GetObjectByKey<Customer>(customerOid);
         }
 
-        Customer customer;
+        Customer fCustomer;
         public Customer Customer {
             get {
-                return customer;
+                return fCustomer;
             }
             set {
-                customer = value;
-                OrderList = customer.Orders;
+                fCustomer = value;
+                OrderList = fCustomer.Orders;
                 OnPropertyChanged(nameof(Customer));
             }
         }
 
-        IList<Order> orderList;
+        IList<Order> fOrderList;
         public IList<Order> OrderList {
             get {
-                return orderList;
+                return fOrderList;
             }
             set {
-                orderList = value;
+                fOrderList = value;
                 OnPropertyChanged(nameof(OrderList));
             }
         }
 
-        Order selectedOrder;
+        Order fSelectedOrder;
         public Order SelectedOrder {
             get {
-                return selectedOrder;
+                return fSelectedOrder;
             }
             set {
-                selectedOrder = value;
+                fSelectedOrder = value;
                 IsOrderSelected = (value != null);
                 OnPropertyChanged(nameof(SelectedOrder));
             }
         }
 
-        bool isOrderSelected;
+        bool fIsOrderSelected;
         public bool IsOrderSelected {
             get {
-                return isOrderSelected;
+                return fIsOrderSelected;
             }
             set {
-                isOrderSelected = value;
+                fIsOrderSelected = value;
                 OnPropertyChanged(nameof(IsOrderSelected));
             }
         }

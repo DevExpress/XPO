@@ -38,39 +38,36 @@ Namespace WpfApplication.Wrappers
 			End If
 		End Function
 
-'INSTANT VB NOTE: The field customerList was renamed since Visual Basic does not allow fields to have the same name as other class members:
-		Private customerList_Renamed As ObservableCollection(Of Customer)
+		Private fCustomerList As ObservableCollection(Of Customer)
 		Public Property CustomerList() As ObservableCollection(Of Customer)
 			Get
-				Return customerList_Renamed
+				Return fCustomerList
 			End Get
 			Set(ByVal value As ObservableCollection(Of Customer))
-				customerList_Renamed = value
+				fCustomerList = value
 				OnPropertyChanged(NameOf(CustomerList))
 			End Set
 		End Property
 
-'INSTANT VB NOTE: The field selectedCustomer was renamed since Visual Basic does not allow fields to have the same name as other class members:
-		Private selectedCustomer_Renamed As Customer
+		Private fSelectedCustomer As Customer
 		Public Property SelectedCustomer() As Customer
 			Get
-				Return selectedCustomer_Renamed
+				Return fSelectedCustomer
 			End Get
 			Set(ByVal value As Customer)
-				selectedCustomer_Renamed = value
+				fSelectedCustomer = value
 				IsCustomerSelected = (value IsNot Nothing)
 				OnPropertyChanged(NameOf(SelectedCustomer))
 			End Set
 		End Property
 
-'INSTANT VB NOTE: The field isCustomerSelected was renamed since Visual Basic does not allow fields to have the same name as other class members:
-		Private isCustomerSelected_Renamed As Boolean
+		Private fIsCustomerSelected As Boolean
 		Public Property IsCustomerSelected() As Boolean
 			Get
-				Return isCustomerSelected_Renamed
+				Return fIsCustomerSelected
 			End Get
 			Set(ByVal value As Boolean)
-				isCustomerSelected_Renamed = value
+				fIsCustomerSelected = value
 				OnPropertyChanged(NameOf(IsCustomerSelected))
 			End Set
 		End Property
