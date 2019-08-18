@@ -2,6 +2,7 @@
 
 namespace XpoTutorial {
 
+    [NonPersistent]
     [DeferredDeletion]
     [OptimisticLocking]
     public class BaseObject : PersistentBase {
