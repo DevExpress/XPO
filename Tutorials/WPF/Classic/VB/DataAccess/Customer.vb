@@ -12,20 +12,22 @@ Namespace XpoTutorial
 		Public Sub New(ByVal session As Session)
 			MyBase.New(session)
 		End Sub
+		Private fFirstName As String
 		Public Property FirstName() As String
 			Get
-				Return GetPropertyValue(Of String)(NameOf(FirstName))
+				Return fFirstName
 			End Get
 			Set(ByVal value As String)
-				SetPropertyValue(NameOf(FirstName), value)
+				SetPropertyValue(NameOf(FirstName), fFirstName, value)
 			End Set
 		End Property
+		Private fLastName As String
 		Public Property LastName() As String
 			Get
-				Return GetPropertyValue(Of String)(NameOf(LastName))
+				Return fLastName
 			End Get
 			Set(ByVal value As String)
-				SetPropertyValue(NameOf(LastName), value)
+				SetPropertyValue(NameOf(LastName), fLastName, value)
 			End Set
 		End Property
 		<NonPersistent>
