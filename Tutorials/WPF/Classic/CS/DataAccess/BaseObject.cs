@@ -7,11 +7,12 @@ namespace XpoTutorial {
     public class BaseObject : PersistentBase {
         public BaseObject(Session session) : base(session) { }
 
-        int fOid;
         [Key(true)]
+        [Persistent("OID")]
+        int fOid;
+        [PersistentAlias("fOid")]
         public int Oid {
             get { fOid; }
-            set { SetPropertyValue(nameof(Oid), ref fOid, value); }
         }
     }
 }
