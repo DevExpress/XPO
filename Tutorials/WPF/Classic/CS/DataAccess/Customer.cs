@@ -8,15 +8,15 @@ namespace XpoTutorial {
 
     public class Customer : BaseObject {
         public Customer(Session session) : base(session) { }
-        string firstName;
+        string fFirstName;
         public string FirstName {
-            get { return firstName; }
-            set { SetPropertyValue(nameof(FirstName), ref firstName, value); }
+            get { return fFirstName; }
+            set { SetPropertyValue(nameof(FirstName), ref fFirstName, value); }
         }
-        string lastName;
+        string fLastName;
         public string LastName {
-            get { return lastName; }
-            set { SetPropertyValue(nameof(LastName), ref lastName, value); }
+            get { return fLastName; }
+            set { SetPropertyValue(nameof(LastName), ref fLastName, value); }
         }
         [NonPersistent]
         public string ContactName {

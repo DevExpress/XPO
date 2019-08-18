@@ -7,26 +7,26 @@ namespace XpoTutorial {
 
     public class Order : BaseObject, IEditableObject {
         public Order(Session session) : base(session) { }
-        string productName;
+        string fProductName;
         public string ProductName {
-            get { return productName; }
-            set { SetPropertyValue(nameof(ProductName), ref productName, value); }
+            get { return fProductName; }
+            set { SetPropertyValue(nameof(ProductName), ref fProductName, value); }
         }
-        DateTime orderDate;
+        DateTime fOrderDate;
         public DateTime OrderDate {
-            get { return orderDate; }
-            set { SetPropertyValue(nameof(OrderDate), ref orderDate, value); }
+            get { return fOrderDate; }
+            set { SetPropertyValue(nameof(OrderDate), ref fOrderDate, value); }
         }
-        decimal? freight;
+        decimal? fFreight;
         public decimal? Freight {
-            get { return freight; }
-            set { SetPropertyValue(nameof(Freight), ref freight, value); }
+            get { return fFreight; }
+            set { SetPropertyValue(nameof(Freight), ref fFreight, value); }
         }
-        Customer customer;
+        Customer fCustomer;
         [Association("CustomerOrders")]
         public Customer Customer {
-            get { return customer; }
-            set { SetPropertyValue(nameof(Customer), ref customer, value); }
+            get { return fCustomer; }
+            set { SetPropertyValue(nameof(Customer), ref fCustomer, value); }
         }
 
         #region IEditableObject implementation
