@@ -18,7 +18,7 @@ namespace XpoTutorial {
 
         static IDataLayer CreateDataLayer(bool threadSafe) {
             string connStr = ConfigurationManager.ConnectionStrings["XpoTutorial"].ConnectionString;
-            //connStr = XpoDefault.GetConnectionPoolString(connStr);  // Uncomment this line if you use a network database like SQL Server, Oracle, PostgreSql etc.
+            //connStr = XpoDefault.GetConnectionPoolString(connStr);  // Uncomment this line if you use a database server like SQL Server, Oracle, PostgreSql etc.
             ReflectionDictionary dictionary = new ReflectionDictionary();
             dictionary.GetDataStoreSchema(PersistentTypes);   // Pass all of your persistent object types to this method.
             AutoCreateOption autoCreateOption = AutoCreateOption.DatabaseAndSchema;  // Use AutoCreateOption.DatabaseAndSchema if the database or tables does not exists. Use AutoCreateOption.SchemaAlreadyExists if the database already exists.
