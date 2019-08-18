@@ -10,8 +10,10 @@ Namespace XpoTutorial
 			MyBase.New(session)
 		End Sub
 
+		<Key(True)> _
+		<Persistent("OID")> _
 		Private fOid As Integer
-		<Key(True)>
+		<PersistentAlias("fOid")>
 		Public Property Oid() As Integer
 			Get
 				Return fOid
