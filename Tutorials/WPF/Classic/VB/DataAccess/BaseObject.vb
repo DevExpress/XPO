@@ -2,6 +2,7 @@
 
 Namespace XpoTutorial
 
+	<NonPersistent> _
 	<DeferredDeletion, OptimisticLocking>
 	Public Class BaseObject
 		Inherits PersistentBase
