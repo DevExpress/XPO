@@ -6,7 +6,7 @@
 [Step 2](/connect-data-grid-to-xpo-objects.md)   
 
 * Create a new Windows Forms App project in Visual Studio.
-* Add references to the following assemblies ([Manage references in a project](https://docs.microsoft.com/en-us/visualstudio/ide/managing-references-in-a-project)):  
+* Add references to these assemblies ([Manage references in a project](https://docs.microsoft.com/en-us/visualstudio/ide/managing-references-in-a-project)):  
   **DevExpress.Data**  
   **DevExpress.Xpo**  
   These assemblies are available under the **Assemblies > Extensions** category in the **Reference Manager**. 
@@ -23,7 +23,7 @@
     ```
     ### See also:  
     [XPO Classes Comparison](https://docs.devexpress.com/XPO/3311/concepts/xpo-classes-comparison)
-* Add the **FirstName** and **LastName** properties to the **Customer** class. These properties will be mapped to corresponding column in the Customer table that will be created later.
+* Add the **FirstName** and **LastName** properties to the **Customer** class. XPO maps these proeprties to columns in the Customer table.
     ```csharp
     public string FirstName {
         get { return fFirstName; }
@@ -37,7 +37,7 @@
     }
     ```
     The **SetPropertyValue** method raises the **PropertyChanged** event that is used by data bound controls to update their display text.
-* Add the read-only **ContactName** property. This property is not mapped to any column. It calculates its value using other properties.
+* Add the read-only **ContactName** property. This property is not mapped to any column. Use the `FirstName` and `LastName` properties to calcualate the `ContactName` property value.
     ```csharp
     public string ContactName {
         get { return string.Concat(FirstName, " ", LastName); }
@@ -50,10 +50,10 @@
         get { return string.Concat(FirstName, " ", LastName); }
     }
     ```
-* Add the **Order** class with the **ProductName**(String), **OrderDate**(DateTime), and **Freight**(decimal) properties using the same approach. Check our example code in case of any difficulty:  
+* Use the same approach to add the **Order** class with the **ProductName**(String), **OrderDate**(DateTime), and **Freight**(decimal) properties. Check our example code in case of any difficulty:  
   [Order.cs](/Tutorials/WinForms/Classic/CS/DataAccess/Order.cs)  
   [Order.vb](/Tutorials/WinForms/Classic/VB/DataAccess/Order.vb)
-* Create a [relationship](https://docs.devexpress.com/XPO/2041/concepts/relationships-between-objects) between the **Customer** and **Order** classes by adding the **Orders** and **Customer** properties.
+* Add the `Orders` and `Customer` properties to create a [relationship](https://docs.devexpress.com/XPO/2041/concepts/relationships-between-objects) between the **Customer** and **Order** classes.
     ```csharp
     // Customer.cs
     [Association("CustomerOrders")]
@@ -87,7 +87,7 @@
         <add name="XpoTutorial" connectionString="XpoProvider=InMemoryDataStore"/>
     </connectionStrings>
     ```
-* To populate the database with the initial demo data, add the [DemoDataHelper.cs](/Tutorials/WinForms/Classic/CS/DataAccess/DemoDataHelper.cs)/[DemoDataHelper.vb](/Tutorials/WinForms/Classic/VB/DataAccess/DemoDataHelper.vb) file to your project and put the following code after the **ConnectionHelper.Connect** method call.
+* To populate the database with the initial demo data, add the [DemoDataHelper.cs](/Tutorials/WinForms/Classic/CS/DataAccess/DemoDataHelper.cs)/[DemoDataHelper.vb](/Tutorials/WinForms/Classic/VB/DataAccess/DemoDataHelper.vb) file to your project and put this code after the **ConnectionHelper.Connect** method call.
     ```csharp
     using (UnitOfWork uow = new UnitOfWork()) {
         DemoDataHelper.Seed(uow);

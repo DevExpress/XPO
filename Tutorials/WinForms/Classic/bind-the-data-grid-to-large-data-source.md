@@ -10,17 +10,17 @@
 * Change the class name and constructor name accordingly. Open the CustomersListform.Designer.cs (vb) file and rename the class there. If this file is hidden, use the **Show All Files** toolbar item in the Solution Explorer window
 * Open the EditOrderForm designer and change the **Text** property to **Edit Order**
 * Rename the **CustomerBindingSource** component to **OrderBindingSource**
-* Rebuild the project and set the **OrderBindingSource.ObjectClassInfo** property to **DxSample.DataAccess.Order** (select the corresponding item in the combo box)
+* Rebuild the project and set the **OrderBindingSource.ObjectClassInfo** property to **DxSample.DataAccess.Order**
 * Set the **OrderBindingSource.DisplayableProperties** property to **ProductName;OrderDate;Freight;Customer!Key**. The last property name (**Customer!Key** is a [virtual property](https://docs.devexpress.com/XPO/3113/concepts/property-descriptors) used to edit an object reference; see also: [How to: Bind an XPCollection to a LookUp](https://docs.devexpress.com/XPO/2000/examples/how-to-bind-an-xpcollection-to-a-lookup))
 * Rename the **CustomerLayoutControl** component to **OrderLayoutControl**
 * Rebuild the project, select the **OrderLayoutControl** component on the design surface, and click a smart-tag icon at the top-right corner
 * Click the **Retrieve Fields** command in the smart tag menu to open the Select Binding Source wizard.
-* Click the **Next** button and choose the following properties and editors on the Manage Data Bindings screen:
+* Click the **Next** button and choose these properties and editors on the Manage Data Bindings screen:
     * ProductName, TextEdit
     * OrderDate, DateEdit
     * Freight, CalcEdit
     * Customer, LookupEdit 
-* Click the **Finish** button, delete the **First Name** and **Last Name** layout items, reorder the remaining layout items to have the layout similar to the EditCustomerForm, and save changes
+* Click the **Finish** button, delete the **First Name** and **Last Name** layout items, reorder the rest layout items to have the layout similar to the EditCustomerForm, and save changes
 * Add the **XPBindingSource** component to the Form and rename it to **CustomersBindingSource**.
 * Rebuild the project and set properties:
     * ObjectClassInfo=DxSample.DataAccess.Customer
@@ -85,8 +85,8 @@
 * Open the OrdersListForm designer and change the **Text** property to **Orders**
 * Select the Events tab page in the Properties window, right click the **OrdersListForm.Load** event to invoke the context menu and select the **Reset** menu item
 * Add the **XPInstantFeedbackView** component form the toolbox. Change its name to **OrdersInstantFeedbackView**. This component is used with large data sources (see also: [Large Data Sources: Server and Instant Feedback Modes](https://docs.devexpress.com/WindowsForms/8398/controls-and-libraries/data-grid/data-binding/large-data-sources-server-and-instant-feedback-modes))
-* Rebuild the project and set the **OrdersInstantFeedbackView.ObjectType** property to **DxSample.DataAccess.Order** (select the corresponding item in the combo box)
-* Click the ellipsis button near the **Properties** property and add the following properties:
+* Rebuild the project and set the **OrdersInstantFeedbackView.ObjectType** property to **DxSample.DataAccess.Order**
+* Click the ellipsis button near the **Properties** property and add these properties:
     * Name = Oid, Property = [Oid]
     * Name = Product Name, Property = [ProductName]
     * Name = Order Date, Property = [OrderDate]
@@ -151,7 +151,7 @@
     </details>
 
 * Select the **OrdersInstantFeedbackView** component and double click the **ResolveSession** event to add the event handler. Do the same for the **DismissSession** event
-* Put the following code in the event handlers:
+* Put these code in the event handlers:
     ```csharp
     private void OrdersInstantFeedbackView_ResolveSession(object sender, ResolveSessionEventArgs e) {
         e.Session = new Session()
@@ -165,7 +165,7 @@
 * Right-click the project item in the Solution Explorer to invoke the context menu and select the **Add DevExpress Item > New Item** menu item
 * In the DevExpress Template Gallery window select the **WinForms** tab, click the **WinForms Popular UIs > UI-ready Form** item in the navigation control.
 * In the Settings section to the right select the **Tabbed MDI** UI Type, select the **Navigation Container** View Type, and change the **Item Name** to **MainForm**
-* In the MainForm designer change the following properties:
+* In the MainForm designer change these properties:
 * MainForm.Text = XPO Tutorial
 * employeesAccordionControlElement.Name = ordersAccordionControlElement
 * ordersAccordionControlElement.Text = Orders
@@ -264,7 +264,7 @@
     ```
     </details>
 
-* For C# projects only. Open the **Program.cs** file, and change the following line
+* For C# projects only. Open the **Program.cs** file, and change this line
     ```csharp
     Application.Run(new CustomersListForm());
     ```
