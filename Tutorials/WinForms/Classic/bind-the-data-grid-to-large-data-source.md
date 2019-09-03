@@ -96,7 +96,7 @@
 * Set the `OrdersGridControl.DataSource` property to **OrdersInstantFeedbackView**.
 * Select the `OrdersGridControl` control on the design surface and click the **Run Designer** smart tag command.
 * Select the **Columns** item in the navigation panel and click the **Retrieve Fields** button in the toolbar.
-* Select the **Layout** item in the navigation panel, drag the **Oid** grid column down, and release it when the cross icon appears. The hidden **Oid** column will be used later to obtain object identifiers. Click the **Apply** button, close the designer, and save changes.
+* Select the **Layout** item in the navigation panel, drag the **Oid** grid column down, and release it when the cross icon appears. The hidden **Oid** column is used later to obtain object identifiers. Click the **Apply** button, close the designer, and save the changes.
 * Open the code editor and change the code as follows:
     <details>
     <summary>Click to expand</summary>
