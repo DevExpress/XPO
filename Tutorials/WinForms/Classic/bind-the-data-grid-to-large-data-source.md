@@ -5,27 +5,27 @@
 [Back to TOC](../../)
 
 ## Create the edit order form
-* Select the **EditCustomerForm** item in the Solution Explorer window and press the **Ctrl+C** keyboard shortcut to copy the Form
+* Select the **EditCustomerForm** item in the **Solution Explorer** window and press the **Ctrl+C** keyboard shortcut to copy the Form
 * Press the **Ctrl+V** keyboard shortcut to create an EditCustomerForm copy. Rename it to **EditOrderForm**
-* Change the class name and constructor name accordingly. Open the CustomersListform.Designer.cs (vb) file and rename the class there. If this file is hidden, use the **Show All Files** toolbar item in the Solution Explorer window
-* Open the EditOrderForm designer and change the **Text** property to **Edit Order**
-* Rename the **CustomerBindingSource** component to **OrderBindingSource**
-* Rebuild the project and set the **OrderBindingSource.ObjectClassInfo** property to **DxSample.DataAccess.Order**
-* Set the **OrderBindingSource.DisplayableProperties** property to **ProductName;OrderDate;Freight;Customer!Key**. The last property name (**Customer!Key** is a [virtual property](https://docs.devexpress.com/XPO/3113/concepts/property-descriptors) used to edit an object reference; see also: [How to: Bind an XPCollection to a LookUp](https://docs.devexpress.com/XPO/2000/examples/how-to-bind-an-xpcollection-to-a-lookup))
-* Rename the **CustomerLayoutControl** component to **OrderLayoutControl**
-* Rebuild the project, select the **OrderLayoutControl** component on the design surface, and click a smart-tag icon at the top-right corner
-* Click the **Retrieve Fields** command in the smart tag menu to open the Select Binding Source wizard.
-* Click the **Next** button and choose these properties and editors on the Manage Data Bindings screen:
+* Change the class name and constructor name accordingly. Open the CustomersListform.Designer.cs file and rename the class there. If this file is hidden, use the **Show All Files** toolbar item in the **Solution Explorer** window
+* Open the `EditOrderForm` designer and change the `Text` property to **Edit Order**
+* Rename the `CustomerBindingSource` component to **OrderBindingSource**
+* Rebuild the project and set the `OrderBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Order**
+* Set the `OrderBindingSource.DisplayableProperties` property to **ProductName;OrderDate;Freight;Customer!Key**. The last property name (**Customer!Key** is a [virtual property](https://docs.devexpress.com/XPO/3113/concepts/property-descriptors) used to edit an object reference; see also: [How to: Bind an XPCollection to a LookUp](https://docs.devexpress.com/XPO/2000/examples/how-to-bind-an-xpcollection-to-a-lookup))
+* Rename the `CustomerLayoutControl` component to **OrderLayoutControl**
+* Rebuild the project, select the `OrderLayoutControl` component on the design surface, and click a smart-tag icon at the top-right corner
+* Click the **Retrieve Fields** command in the smart tag menu to open the **Select Binding Source** wizard.
+* Click the **Next** button and choose these properties and editors on the **Manage Data Bindings** screen:
     * ProductName, TextEdit
     * OrderDate, DateEdit
     * Freight, CalcEdit
     * Customer, LookupEdit 
-* Click the **Finish** button, delete the **First Name** and **Last Name** layout items, reorder the rest layout items to have the layout similar to the EditCustomerForm, and save changes
-* Add the **XPBindingSource** component to the Form and rename it to **CustomersBindingSource**.
+* Click the **Finish** button, delete the **First Name** and **Last Name** layout items, reorder the rest layout items to have the layout similar to the `EditCustomerForm`, and save changes
+* Add the `XPBindingSource` component to the `Form` and rename it to **CustomersBindingSource**.
 * Rebuild the project and set properties:
     * ObjectClassInfo=DxSample.DataAccess.Customer
     * DisplayableProperties=Oid;ContactName
-* Select the **lookUpEdit1** editor placed near the **Customer** label and open its smart-tag at the top-right corner. Open the combo box near the **Data Source** field, find the **CustomersBindingSource** component under the **Other Data Sources > EditOrderForm List Instances** node, and select it. 
+* Select the `lookUpEdit1` editor placed near the **Customer** label and open its smart-tag at the top-right corner. Open the combo box near the **Data Source** field, find the `CustomersBindingSource` component under the **Other Data Sources > EditOrderForm List Instances** node, and select it. 
 * Select the **ContactName** and **Oid** properties as the **Display Member** and **Value Member** if they were not selected automatically.
 * Open the code editor and change the code as follows
     <details>
@@ -82,19 +82,19 @@
 * Select the **CustomersListForm** item in the Solution Explorer window and press the **Ctrl+C** keyaborad shortcut to copy the Form
 * Press the **Ctrl+V** keyboard shortcut to create a CustomersListForm copy. Rename it to **OrdersListForm**
 * Change the class name and constructor name accordingly
-* Open the OrdersListForm designer and change the **Text** property to **Orders**
-* Select the Events tab page in the Properties window, right click the **OrdersListForm.Load** event to invoke the context menu and select the **Reset** menu item
-* Add the **XPInstantFeedbackView** component form the toolbox. Change its name to **OrdersInstantFeedbackView**. This component is used with large data sources (see also: [Large Data Sources: Server and Instant Feedback Modes](https://docs.devexpress.com/WindowsForms/8398/controls-and-libraries/data-grid/data-binding/large-data-sources-server-and-instant-feedback-modes))
-* Rebuild the project and set the **OrdersInstantFeedbackView.ObjectType** property to **DxSample.DataAccess.Order**
+* Open the `OrdersListForm` designer and change the `Text` property to **Orders**
+* Select the **Events** tab page in the **Properties** window, right click the `OrdersListForm.Load` event to invoke the context menu and select the **Reset** menu item
+* Add the `XPInstantFeedbackView` component form the toolbox. Change its name to **OrdersInstantFeedbackView**. This component is used with large data sources (see also: [Large Data Sources: Server and Instant Feedback Modes](https://docs.devexpress.com/WindowsForms/8398/controls-and-libraries/data-grid/data-binding/large-data-sources-server-and-instant-feedback-modes))
+* Rebuild the project and set the `OrdersInstantFeedbackView.ObjectType` property to **DxSample.DataAccess.Order**
 * Click the ellipsis button near the **Properties** property and add these properties:
     * Name = Oid, Property = [Oid]
     * Name = Product Name, Property = [ProductName]
     * Name = Order Date, Property = [OrderDate]
     * Name = Freight, Property = [Freight]
-* Delete the **CustomersBindingSource** component
-* Change the **CustomersGridControl** name to **OrdersGridControl** and do the same for **CustomersGridView**
-* Set the **OrdersGridControl.DataSource** property to **OrdersInstantFeedbackView**
-* Select the **OrdersGridControl** control on the design surface and click the smart tag button in the top-right corner to open the menu. Click the **Run Designer** menu item
+* Delete the `CustomersBindingSource` component
+* Change the `CustomersGridControl` name to **OrdersGridControl** and do the same for `CustomersGridView`
+* Set the `OrdersGridControl.DataSource` property to **OrdersInstantFeedbackView**
+* Select the `OrdersGridControl` control on the design surface and click the smart tag button in the top-right corner to open the menu. Click the **Run Designer** menu item
 * Select the **Columns** item in the navigation panel and click the **Retrieve Fields** button in the toolbar
 * Select the **Layout** item in the navigation panel, drag the **Oid** grid column down and release it when the cross icon appears. The hidden **Oid** column will be used later to obtain object identifiers. Click the **Apply** button, close the designer, and save changes
 * Open the code editor and change the code as follows:
@@ -150,7 +150,7 @@
     ```
     </details>
 
-* Select the **OrdersInstantFeedbackView** component and double click the **ResolveSession** event to add the event handler. Do the same for the **DismissSession** event
+* Select the `OrdersInstantFeedbackView` component and double click the `ResolveSession` event to add the event handler. Do the same for the `DismissSession` event
 * Put these code in the event handlers:
     ```csharp
     private void OrdersInstantFeedbackView_ResolveSession(object sender, ResolveSessionEventArgs e) {
@@ -162,15 +162,15 @@
     }
     ```
 ## Create the navigation container Form
-* Right-click the project item in the Solution Explorer to invoke the context menu and select the **Add DevExpress Item > New Item** menu item
-* In the DevExpress Template Gallery window select the **WinForms** tab, click the **WinForms Popular UIs > UI-ready Form** item in the navigation control.
-* In the Settings section to the right select the **Tabbed MDI** UI Type, select the **Navigation Container** View Type, and change the **Item Name** to **MainForm**
-* In the MainForm designer change these properties:
-* MainForm.Text = XPO Tutorial
-* employeesAccordionControlElement.Name = ordersAccordionControlElement
-* ordersAccordionControlElement.Text = Orders
-* documentManager.MdiParent = MainForm
-* Open the **MainForm** code file and change the code as follows:
+* Right-click the project item in the **Solution Explorer** to invoke the context menu and select the **Add DevExpress Item > New Item** menu item
+* In the **DevExpress Template Gallery** window select the **WinForms** tab, click the **WinForms Popular UIs > UI-ready Form** item in the navigation control.
+* In the **Settings** section to the right select the **Tabbed MDI** UI Type, select the **Navigation Container** View Type, and change the **Item Name** to **MainForm**
+* In the `MainForm` designer change these properties:
+    * MainForm.Text = XPO Tutorial
+    * employeesAccordionControlElement.Name = ordersAccordionControlElement
+    * ordersAccordionControlElement.Text = Orders
+    * documentManager.MdiParent = MainForm
+* Open the `MainForm` code file and change the code as follows:
 
     <details>
         <summary>Click to expand</summary>
@@ -273,8 +273,8 @@
     Application.Run(new MainForm());
     ```
 * Form VB.NET projects only. 
-    * Right-click the project item in the Solution Explorer window to invoke the context menu and select the **Properties** menu item (you can use the **Alt+Enter** keyboard shortcut instead). In the Properties window select the **Application** page and change the **Startup form** property to **MainForm**
-    * Open the **CustomersListForm** code, cut the **ConnectionHelper** and **DemoDataHelper** code and paste it to the **MainForm** constructor
+    * Right-click the project item in the **Solution Explorer** window to invoke the context menu and select the **Properties** menu item (you can use the **Alt+Enter** keyboard shortcut instead). In the **Properties** window select the **Application** page and change the **Startup form** property to `MainForm`
+    * Open the `CustomersListForm` code, cut the `ConnectionHelper` and `DemoDataHelper` code and paste it to the `MainForm` constructor
         ```vbnet
         Public Sub New()
             ConnectionHelper.Connect(False)
