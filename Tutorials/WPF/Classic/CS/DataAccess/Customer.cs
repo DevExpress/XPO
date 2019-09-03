@@ -16,7 +16,7 @@ namespace XpoTutorial {
             get { return GetPropertyValue<string>(nameof(LastName)); }
             set { SetPropertyValue(nameof(LastName), value); }
         }
-        [NonPersistent]
+        [PersistentAlias("Concat(FirstName, ' ', LastName)")]
         public string ContactName {
             get { return string.Concat(FirstName, " ", LastName); }
         }
