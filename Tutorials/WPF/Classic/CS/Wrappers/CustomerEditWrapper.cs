@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 
 namespace WpfApplication.Wrappers {
-    class CustomerEditWrapper : INotifyPropertyChanged {
+    public class CustomerEditWrapper : INotifyPropertyChanged {
         UnitOfWork unitOfWork;
         readonly int? customerOid;
 

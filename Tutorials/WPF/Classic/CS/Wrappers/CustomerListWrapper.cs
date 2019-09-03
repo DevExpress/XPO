@@ -9,7 +9,7 @@ using System.Collections.ObjectModel;
 
 namespace WpfApplication.Wrappers {
 
-    class CustomerListWrapper : INotifyPropertyChanged {
+    public class CustomerListWrapper : INotifyPropertyChanged {
 
         UnitOfWork unitOfWork;
 
