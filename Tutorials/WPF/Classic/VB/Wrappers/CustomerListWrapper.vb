@@ -9,7 +9,7 @@ Imports System.Collections.ObjectModel
 
 Namespace WpfApplication.Wrappers
 
-	Friend Class CustomerListWrapper
+	Public Class CustomerListWrapper
 		Implements INotifyPropertyChanged
 
 		Private unitOfWork As UnitOfWork

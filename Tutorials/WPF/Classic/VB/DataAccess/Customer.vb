@@ -30,7 +30,7 @@ Namespace XpoTutorial
 				SetPropertyValue(NameOf(LastName), fLastName, value)
 			End Set
 		End Property
-		<NonPersistent>
+		<PersistentAlias("Concat(FirstName, ' ', LastName)")>
 		Public ReadOnly Property ContactName() As String
 			Get
 				Return String.Concat(FirstName, " ", LastName)

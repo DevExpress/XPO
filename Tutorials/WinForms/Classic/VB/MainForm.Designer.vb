@@ -75,8 +75,6 @@
 			Me.Ribbon = Me.ribbonControl1
 			Me.StatusBar = Me.ribbonStatusBar1
 			Me.Text = "XPO Tutorial"
-'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
-'ORIGINAL LINE: this.Load += new System.EventHandler(this.MainForm_Load);
 			CType(Me.ribbonControl1, System.ComponentModel.ISupportInitialize).EndInit()
 			CType(Me.documentManager1, System.ComponentModel.ISupportInitialize).EndInit()
 			CType(Me.nativeMdiView1, System.ComponentModel.ISupportInitialize).EndInit()

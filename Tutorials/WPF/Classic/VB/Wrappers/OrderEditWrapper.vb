@@ -7,7 +7,7 @@ Imports System.Linq
 
 Namespace WpfApplication.Wrappers
 
-	Friend Class OrderEditWrapper
+	Public Class OrderEditWrapper
 		Implements INotifyPropertyChanged
 
 		Public Sub New(ByVal order As Order)

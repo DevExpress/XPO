@@ -7,7 +7,7 @@ Imports System.Collections.ObjectModel
 Imports System.Collections.Generic
 
 Namespace WpfApplication.Wrappers
-	Friend Class CustomerEditWrapper
+	Public Class CustomerEditWrapper
 		Implements INotifyPropertyChanged
 
 		Private unitOfWork As UnitOfWork

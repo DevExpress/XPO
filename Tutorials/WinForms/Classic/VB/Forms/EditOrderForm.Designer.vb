@@ -77,16 +77,12 @@
 			Me.btnSave.Enabled = False
 			Me.btnSave.Id = 1
 			Me.btnSave.Name = "btnSave"
-'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
-'ORIGINAL LINE: this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClick);
 			' 
 			' btnClose
 			' 
 			Me.btnClose.Caption = "Close"
 			Me.btnClose.Id = 2
 			Me.btnClose.Name = "btnClose"
-'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
-'ORIGINAL LINE: this.btnClose.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnClose_ItemClick);
 			' 
 			' btnRefresh
 			' 
@@ -94,8 +90,6 @@
 			Me.btnRefresh.Enabled = False
 			Me.btnRefresh.Id = 3
 			Me.btnRefresh.Name = "btnRefresh"
-'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
-'ORIGINAL LINE: this.btnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefresh_ItemClick);
 			' 
 			' ribbonPage1
 			' 
@@ -256,8 +250,6 @@
 			Me.Name = "EditOrderForm"
 			Me.Ribbon = Me.ribbonControl1
 			Me.Text = "Edit Order"
-'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
-'ORIGINAL LINE: this.Load += new System.EventHandler(this.EditOrderForm_Load);
 			CType(Me.ribbonControl1, System.ComponentModel.ISupportInitialize).EndInit()
 			CType(Me.dataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
 			Me.dataLayoutControl1.ResumeLayout(False)

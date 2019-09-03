@@ -66,8 +66,6 @@
 			Me.OrdersView.GridControl = Me.OrdersDataGrid
 			Me.OrdersView.Name = "OrdersView"
 			Me.OrdersView.OptionsBehavior.Editable = False
-'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
-'ORIGINAL LINE: this.OrdersView.FocusedRowObjectChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventHandler(this.OrdersView_FocusedRowObjectChanged);
 			' 
 			' colProductName
 			' 
@@ -111,8 +109,6 @@
 			Me.btnNew.Caption = "New"
 			Me.btnNew.Id = 1
 			Me.btnNew.Name = "btnNew"
-'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
-'ORIGINAL LINE: this.btnNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNew_ItemClick);
 			' 
 			' btnEdit
 			' 
@@ -120,8 +116,6 @@
 			Me.btnEdit.Enabled = False
 			Me.btnEdit.Id = 2
 			Me.btnEdit.Name = "btnEdit"
-'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
-'ORIGINAL LINE: this.btnEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEdit_ItemClick);
 			' 
 			' ribbonPage1
 			' 
@@ -147,8 +141,6 @@
 			Me.btnRefresh.Caption = "Refresh"
 			Me.btnRefresh.Id = 3
 			Me.btnRefresh.Name = "btnRefresh"
-'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
-'ORIGINAL LINE: this.btnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefresh_ItemClick);
 			' 
 			' OrdersListForm
 			' 
