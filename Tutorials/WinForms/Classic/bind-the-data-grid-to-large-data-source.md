@@ -83,7 +83,7 @@
 * Press **Ctrl+V** to create a CustomersListForm copy. Rename it to **OrdersListForm**.
 * Change the class name and constructor name to **OrdersListForm**.
 * Open the `OrdersListForm` designer and change the `Text` property to **Orders**.
-* Select the **Events** tab page in the **Properties** window, right click the `OrdersListForm.Load` event to invoke the context menu and select the **Reset** menu item.
+* Select the **Events** tab page in the **Properties** window, right-click the `OrdersListForm.Load` event to invoke the context menu, and select the **Reset** menu item.
 * Add the `XPInstantFeedbackView` component from the toolbox. Change its name to **OrdersInstantFeedbackView**. This component is used with large data sources (see also: [Large Data Sources: Server and Instant Feedback Modes](https://docs.devexpress.com/WindowsForms/8398/controls-and-libraries/data-grid/data-binding/large-data-sources-server-and-instant-feedback-modes)).
 * Rebuild the project and set the `OrdersInstantFeedbackView.ObjectType` property to **DxSample.DataAccess.Order**.
 * Select the **Properties** property and click the ellipsis button to add these properties:
