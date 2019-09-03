@@ -151,7 +151,7 @@
     </details>
 
 * Select the `OrdersInstantFeedbackView` component and double click the `ResolveSession` event to add the event handler. Do the same for the `DismissSession` event.
-* Put this code in the event handlers:
+* Add the following code to the event handlers:
     ```csharp
     private void OrdersInstantFeedbackView_ResolveSession(object sender, ResolveSessionEventArgs e) {
         e.Session = new Session()
