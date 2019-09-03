@@ -274,7 +274,7 @@
     ```
 * For VB.NET projects only. 
     * Right-click the project item in the **Solution Explorer** window to invoke the context menu and select the **Properties** menu item (or use **Alt+Enter**). In the **Properties** window, select the **Application** page and change the **Startup Form** property to `MainForm`.
-    * Open the `CustomersListForm` code, cut the `ConnectionHelper` and `DemoDataHelper` code, and paste it to the `MainForm` constructor
+    * Open the `CustomersListForm` code, cut the `ConnectionHelper` and `DemoDataHelper` code, and paste it to the `MainForm` constructor.
         ```vbnet
         Public Sub New()
             ConnectionHelper.Connect(False)
