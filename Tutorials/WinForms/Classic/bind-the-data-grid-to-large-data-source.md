@@ -27,7 +27,7 @@
 * Set the `CustomersBindingSource.DisplayableProperties` property to **Oid;ContactName**.
 * Select the `lookUpEdit1` editor placed near the **Customer** label and open the **Data Source** smart tag menu. Select the `CustomersBindingSource` component under the **Other Data Sources > EditOrderForm List Instances** node. 
 * Select the **ContactName** and **Oid** properties as the **Display Member** and **Value Member** if they were not selected automatically.
-* Open the code editor and change the code as follows
+* Open the code editor and change the code as follows:
     <details>
         <summary>Click to expand</summary>   
 
