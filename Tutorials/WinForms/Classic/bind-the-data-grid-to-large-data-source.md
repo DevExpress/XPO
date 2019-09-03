@@ -13,8 +13,8 @@
 * Rebuild the project and set the `OrderBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Order**
 * Set the `OrderBindingSource.DisplayableProperties` property to **ProductName;OrderDate;Freight;Customer!Key**. The last property name (**Customer!Key** is a [virtual property](https://docs.devexpress.com/XPO/3113/concepts/property-descriptors) designed for LookUp editors; see also: [How to: Bind an XPCollection to a LookUp](https://docs.devexpress.com/XPO/2000/examples/how-to-bind-an-xpcollection-to-a-lookup))
 * Rename the `CustomerLayoutControl` component to **OrderLayoutControl**
-* Rebuild the project, select the `OrderLayoutControl` component on the design surface, and click a smart-tag icon at the top-right corner
-* Click the **Retrieve Fields** command in the smart tag menu to open the **Select Binding Source** wizard.
+* Rebuild the project, select the `OrderLayoutControl` component on the design surface
+* Click the **Retrieve Fields** smart tag command to open the **Select Binding Source** wizard.
 * Click the **Next** button and choose these properties and editors on the **Manage Data Bindings** screen:
     * ProductName, TextEdit
     * OrderDate, DateEdit
@@ -25,7 +25,7 @@
 * Rebuild the project and set properties:
     * ObjectClassInfo=DxSample.DataAccess.Customer
     * DisplayableProperties=Oid;ContactName
-* Select the `lookUpEdit1` editor placed near the **Customer** label and open its smart-tag at the top-right corner. Open the combo box near the **Data Source** field, find the `CustomersBindingSource` component under the **Other Data Sources > EditOrderForm List Instances** node, and select it. 
+* Select the `lookUpEdit1` editor placed near the **Customer** label and open the **Data Source** smart tag menu. Find the `CustomersBindingSource` component under the **Other Data Sources > EditOrderForm List Instances** node, and select it. 
 * Select the **ContactName** and **Oid** properties as the **Display Member** and **Value Member** if they were not selected automatically.
 * Open the code editor and change the code as follows
     <details>
@@ -94,7 +94,7 @@
 * Delete the `CustomersBindingSource` component
 * Change the `CustomersGridControl` name to **OrdersGridControl** and do the same for `CustomersGridView`
 * Set the `OrdersGridControl.DataSource` property to **OrdersInstantFeedbackView**
-* Select the `OrdersGridControl` control on the design surface and click the smart tag button in the top-right corner to open the menu. Click the **Run Designer** menu item
+* Select the `OrdersGridControl` control on the design surface and click the **Run Designer** smart tag command
 * Select the **Columns** item in the navigation panel and click the **Retrieve Fields** button in the toolbar
 * Select the **Layout** item in the navigation panel, drag the **Oid** grid column down and release it when the cross icon appears. The hidden **Oid** column will be used later to obtain object identifiers. Click the **Apply** button, close the designer, and save changes
 * Open the code editor and change the code as follows:

@@ -14,8 +14,8 @@
     * CustomerBindingSource.ObjectClassInfo = DxSample.DataAccess.Customer *(select a value from the drop-down list and rebuild the project)*
     * CustomerBindingSource.DisplayableProperties = FirstName;LastName
     * CustomerLayoutControl.Dock = Fill
-* Select the `CustomerLayoutControl` component on the design surface. Click a smart-tag icon at the top-right corner. If the smart-tag icon is not visible, press the **Esc** key to navigate from the root `LayoutGroup` to the `LayoutControl`
-* Click the **Retrieve Fields** command in the smart tag menu to open the **Select Binding Source** wizard
+* Select the `CustomerLayoutControl` component on the design surface
+* Click the **Retrieve Fields** smart tag command to open the **Select Binding Source** wizard (if the smart tag icon is not visible, press the **Esc** key to navigate from the root `LayoutGroup` to the `LayoutControl`)
 * Change the **Data Source Update Mode** property value to **OnPropertyChanged** and click the **Next** button
 * The **Manage Data Bindings** screen displays a list of available properties. Choose the **First Name** and **Last Name** properties, click the **Finish** button, and save changes
 * Open the code editor and overload the constructor to accept a nullable integer value (a database record's identifier)
@@ -115,8 +115,8 @@
     }
     ```
 ## Create a new record
-  * Open the `CustomersListForm` in the designer, click the header to make the XtraForm's smart tag visible at the top-right corner
-  * Open the smart tag and click the **Convert to RibbonForm** menu item
+  * Open the `CustomersListForm` in the designer
+  * Click the **Convert to RibbonForm** smart tag command
   * Change the `ribbonPage1` text to **Home**
   * Change the `ribbonPageGroup1` text to **Edit**
   * Delete the `ribbonPageGroup2`
