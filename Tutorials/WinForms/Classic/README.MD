@@ -7,7 +7,7 @@ This example demonstrates how to create a simple XPO-based CRUD application. The
   - [Editors](https://docs.devexpress.com/WindowsForms/4712/controls-and-libraries/editors-and-simple-controls/simple-editors/product-information/editors)
   - [Server Mode Collections](https://docs.devexpress.com/WindowsForms/8398/controls-and-libraries/data-grid/data-binding/large-data-sources-server-and-instant-feedback-modes).
 
->For simplicity, the instructions include only C# code snippets. For the complete C# and VB code, see the CS and VB sub-directories.  
+>The instructions include only C# code snippets. For the complete C# and VB code, see the CS and VB sub-directories.  
 
 
 ## Prerequisites
