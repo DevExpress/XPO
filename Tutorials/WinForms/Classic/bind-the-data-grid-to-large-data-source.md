@@ -5,8 +5,8 @@
 [Back to TOC](../../)
 
 ## Create the edit order form
-* Select the **EditCustomerForm** item in the **Solution Explorer** window and press the **Ctrl+C** keyboard shortcut to copy the Form
-* Press the **Ctrl+V** keyboard shortcut to create an EditCustomerForm copy. Rename it to **EditOrderForm**
+* Select the **EditCustomerForm** item in the **Solution Explorer** window and press **Ctrl+C** to copy the Form
+* Press **Ctrl+V** to create an EditCustomerForm copy. Rename it to **EditOrderForm**
 * Change the class name and constructor name accordingly. Open the CustomersListform.Designer.cs file and rename the class there. If this file is hidden, use the **Show All Files** toolbar item in the **Solution Explorer** window
 * Open the `EditOrderForm` designer and change the `Text` property to **Edit Order**
 * Rename the `CustomerBindingSource` component to **OrderBindingSource**
@@ -79,8 +79,8 @@
     ```
     </details>
 ## Create the orders list Form
-* Select the **CustomersListForm** item in the Solution Explorer window and press the **Ctrl+C** keyaborad shortcut to copy the Form
-* Press the **Ctrl+V** keyboard shortcut to create a CustomersListForm copy. Rename it to **OrdersListForm**
+* Select the **CustomersListForm** item in the Solution Explorer window and press **Ctrl+C** to copy the Form
+* Press **Ctrl+V** to create a CustomersListForm copy. Rename it to **OrdersListForm**
 * Change the class name and constructor name accordingly
 * Open the `OrdersListForm` designer and change the `Text` property to **Orders**
 * Select the **Events** tab page in the **Properties** window, right click the `OrdersListForm.Load` event to invoke the context menu and select the **Reset** menu item
@@ -273,7 +273,7 @@
     Application.Run(new MainForm());
     ```
 * Form VB.NET projects only. 
-    * Right-click the project item in the **Solution Explorer** window to invoke the context menu and select the **Properties** menu item (you can use the **Alt+Enter** keyboard shortcut instead). In the **Properties** window select the **Application** page and change the **Startup form** property to `MainForm`
+    * Right-click the project item in the **Solution Explorer** window to invoke the context menu and select the **Properties** menu item (you can use **Alt+Enter** instead). In the **Properties** window select the **Application** page and change the **Startup form** property to `MainForm`
     * Open the `CustomersListForm` code, cut the `ConnectionHelper` and `DemoDataHelper` code and paste it to the `MainForm` constructor
         ```vbnet
         Public Sub New()

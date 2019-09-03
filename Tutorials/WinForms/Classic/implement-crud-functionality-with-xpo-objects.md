@@ -87,7 +87,7 @@
         CustomersBindingSource.DataSource = new XPCollection<Customer>(new Session());
     }
     ```
-* Optionally, use the Visual Studio **Refactor** tool to rename the `Form1_Load` event handler to `CustomersListForm_Load`. Put the cursor at the method name, and click the **Edit > Refactor > Rename** menu item or use the **Ctrl+R,Ctrl+R** keyboard shortcut     
+* Optionally, use the Visual Studio **Refactor** tool to rename the `Form1_Load` event handler to `CustomersListForm_Load`. Put the cursor at the method name, and click the **Edit > Refactor > Rename** menu item or use **Ctrl+R,Ctrl+R**     
 * Run the application, open the edit Form, change something, and click the **Save** button to see the result
 ## Handle concurrent changes    
 ### Test with multiple users
@@ -99,7 +99,7 @@
 * Open the `EditCustomerForm` in the designer. Drag a `SimpleButton` component from the toolbox and drop it to the `LayoutControl`. Customize the layout to align all buttons neatly
 * Rename the `simpleButton1` control to **btnReload** and change its `Text` to **&Reload**
 * Double click the `btnReload` control to add the `Click` event handler or use the **Properties** window to add it 
-* Select all lines in the `EditCustomerForm_Load` method, and click the **Edit > Refactor > Extract Method** menu item or use the **Ctrl+R,Ctrl+M** keyboard shortcut 
+* Select all lines in the `EditCustomerForm_Load` method, and click the **Edit > Refactor > Extract Method** menu item or use **Ctrl+R,Ctrl+M** 
 * Change the method name to **Reload** and call this method in the `btnReload_Click` event handler
 * Modify the `btnSave_Click` method
     ```csharp
@@ -122,7 +122,7 @@
   * Delete the `ribbonPageGroup2`
   * Add the `BarButtonItem` item to the **Edit** group, change its name to `btnNew` and the caption to **New**
   * Double-click the **New** button to create an event handler
-  * Select the `using` statement in the `CustomersGridView_RowClick` method, and click the **Edit > Refactor > Extract Method** menu item or use the **Ctrl+R,Ctrl+M** keyboard shortcut
+  * Select the `using` statement in the `CustomersGridView_RowClick` method, and click the **Edit > Refactor > Extract Method** menu item or use **Ctrl+R,Ctrl+M**
   * Change the method name to **ShowEditForm** and the `customerID` parameter type to `int?`
   * Call the `ShowEditForm` method in the `btnNew_ItemClick` event handler and pass a `null` value as a parameter
   * A new object initially does not have the identifier. XPO assigns it with a value from the auto-incremented key column when a new object is saved to the database. Open the `EditCustomerForm` code and add this line to the `btnSave_Click` method after the `CommitChanges` method call:
