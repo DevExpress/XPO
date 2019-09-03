@@ -163,7 +163,7 @@
     ```
 ## Create the navigation container Form
 * Right-click the project item in the **Solution Explorer** to invoke the context menu and select the **Add DevExpress Item > New Item** menu item.
-* In the **DevExpress Template Gallery** window select the **WinForms** tab and click the **WinForms Popular UIs > UI-ready Form** item in the navigation control.
+* In the **DevExpress Template Gallery** window, select the **WinForms** tab and click the **WinForms Popular UIs > UI-ready Form** item in the navigation control.
 * In the **Settings** section, select the **Tabbed MDI** UI Type, select the **Navigation Container** View Type, and change the **Item Name** to **MainForm**.
 * Open the `MainForm` designer.
 * Set the `MainForm.Text` property to **XPO Tutorial**.
