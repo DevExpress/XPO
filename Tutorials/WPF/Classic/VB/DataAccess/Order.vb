@@ -12,39 +12,41 @@ Namespace XpoTutorial
 		Public Sub New(ByVal session As Session)
 			MyBase.New(session)
 		End Sub
-'INSTANT VB NOTE: The field productName was renamed since Visual Basic does not allow fields to have the same name as other class members:
-		Private productName_Renamed As String
+		Private fProductName As String
 		Public Property ProductName() As String
 			Get
-				Return productName_Renamed
+				Return fProductName
 			End Get
 			Set(ByVal value As String)
-				SetPropertyValue(NameOf(ProductName), productName_Renamed, value)
+				SetPropertyValue(NameOf(ProductName), fProductName, value)
 			End Set
 		End Property
+		Private fOrderDate As Date
 		Public Property OrderDate() As Date
 			Get
-				Return GetPropertyValue(Of Date)(NameOf(OrderDate))
+				Return fOrderDate
 			End Get
 			Set(ByVal value As Date)
-				SetPropertyValue(NameOf(OrderDate), value)
+				SetPropertyValue(NameOf(OrderDate), fOrderDate, value)
 			End Set
 		End Property
+		Private fFreight Decimal
 		Public Property Freight() As Decimal?
 			Get
-				Return GetPropertyValue(Of Decimal?)(NameOf(Freight))
+				Return fFreight
 			End Get
 			Set(ByVal value? As Decimal)
-				SetPropertyValue(NameOf(Freight), value)
+				SetPropertyValue(NameOf(Freight), fFreight, value)
 			End Set
 		End Property
+		Private fCustomer As Customer
 		<Association("CustomerOrders")>
 		Public Property Customer() As Customer
 			Get
-				Return GetPropertyValue(Of Customer)(NameOf(Customer))
+				Return fCustomer
 			End Get
 			Set(ByVal value As Customer)
-				SetPropertyValue(NameOf(Customer), value)
+				SetPropertyValue(NameOf(Customer), fCustomer, value)
 			End Set
 		End Property
 

@@ -10,13 +10,16 @@ Namespace XpoTutorial
 			MyBase.New(session)
 		End Sub
 
-		<Key(True)>
+		<Key(True)> _
+		<Persistent("OID")> _
+		Private fOid As Integer
+		<PersistentAlias("fOid")>
 		Public Property Oid() As Integer
 			Get
-				Return GetPropertyValue(Of Integer)(NameOf(Oid))
+				Return fOid
 			End Get
 			Set(ByVal value As Integer)
-				SetPropertyValue(NameOf(Oid), value)
+				SetPropertyValue(NameOf(Oid), fOid, value)
 			End Set
 		End Property
 	End Class

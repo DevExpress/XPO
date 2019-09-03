@@ -8,9 +8,11 @@ namespace XpoTutorial {
         public BaseObject(Session session) : base(session) { }
 
         [Key(true)]
+        [Persistent("OID")]
+        int fOid;
+        [PersistentAlias("fOid")]
         public int Oid {
-            get { return GetPropertyValue<int>(nameof(Oid)); }
-            set { SetPropertyValue(nameof(Oid), value); }
+            get { fOid; }
         }
     }
 }
