@@ -20,7 +20,7 @@
     * OrderDate, DateEdit
     * Freight, CalcEdit
     * Customer, LookupEdit 
-* Click the **Finish** button, delete the **First Name** and **Last Name** layout items, reorder the rest layout items to have the layout similar to the `EditCustomerForm`, and save changes.
+* Click the **Finish** button, delete the **First Name** and **Last Name** layout items, reorder the rest layout items to create a layout similar to the `EditCustomerForm`, and save the changes.
 * Add the `XPBindingSource` component to the `Form` and rename it to **CustomersBindingSource**.
 * Rebuild the project.
 * Set the `CustomersBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Customer**.
