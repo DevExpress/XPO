@@ -13,7 +13,7 @@
 * Rebuild the project and set the `OrderBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Order**.
 * Set the `OrderBindingSource.DisplayableProperties` property to **ProductName;OrderDate;Freight;Customer!Key**. The last property name (**Customer!Key** is a [virtual property](https://docs.devexpress.com/XPO/3113/concepts/property-descriptors) designed for LookUp editors; see also: [How to: Bind an XPCollection to a LookUp](https://docs.devexpress.com/XPO/2000/examples/how-to-bind-an-xpcollection-to-a-lookup)).
 * Rename the `CustomerLayoutControl` component to **OrderLayoutControl**.
-* Rebuild the project, select the `OrderLayoutControl` component on the design surface.
+* Rebuild the project and select the `OrderLayoutControl` component on the design surface.
 * Click the **Retrieve Fields** smart tag command to open the **Select Binding Source** wizard.
 * Click the **Next** button and choose these properties and editors on the **Manage Data Bindings** screen:
     * ProductName, TextEdit
@@ -25,7 +25,7 @@
 * Rebuild the project.
 * Set the `CustomersBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Customer**.
 * Set the `CustomersBindingSource.DisplayableProperties` property to **Oid;ContactName**.
-* Select the `lookUpEdit1` editor placed near the **Customer** label and open the **Data Source** smart tag menu. Find the `CustomersBindingSource` component under the **Other Data Sources > EditOrderForm List Instances** node, and select it. 
+* Select the `lookUpEdit1` editor placed near the **Customer** label and open the **Data Source** smart tag menu. Find the `CustomersBindingSource` component under the **Other Data Sources > EditOrderForm List Instances** node and select it. 
 * Select the **ContactName** and **Oid** properties as the **Display Member** and **Value Member** if they were not selected automatically.
 * Open the code editor and change the code as follows
     <details>
@@ -96,7 +96,7 @@
 * Set the `OrdersGridControl.DataSource` property to **OrdersInstantFeedbackView**.
 * Select the `OrdersGridControl` control on the design surface and click the **Run Designer** smart tag command.
 * Select the **Columns** item in the navigation panel and click the **Retrieve Fields** button in the toolbar.
-* Select the **Layout** item in the navigation panel, drag the **Oid** grid column down and release it when the cross icon appears. The hidden **Oid** column will be used later to obtain object identifiers. Click the **Apply** button, close the designer, and save changes.
+* Select the **Layout** item in the navigation panel, drag the **Oid** grid column down, and release it when the cross icon appears. The hidden **Oid** column will be used later to obtain object identifiers. Click the **Apply** button, close the designer, and save changes.
 * Open the code editor and change the code as follows:
     <details>
     <summary>Click to expand</summary>
@@ -151,7 +151,7 @@
     </details>
 
 * Select the `OrdersInstantFeedbackView` component and double click the `ResolveSession` event to add the event handler. Do the same for the `DismissSession` event.
-* Put these code in the event handlers:
+* Put this code in the event handlers:
     ```csharp
     private void OrdersInstantFeedbackView_ResolveSession(object sender, ResolveSessionEventArgs e) {
         e.Session = new Session()
@@ -163,8 +163,8 @@
     ```
 ## Create the navigation container Form
 * Right-click the project item in the **Solution Explorer** to invoke the context menu and select the **Add DevExpress Item > New Item** menu item.
-* In the **DevExpress Template Gallery** window select the **WinForms** tab, click the **WinForms Popular UIs > UI-ready Form** item in the navigation control.
-* In the **Settings** section to the right select the **Tabbed MDI** UI Type, select the **Navigation Container** View Type, and change the **Item Name** to **MainForm**.
+* In the **DevExpress Template Gallery** window select the **WinForms** tab and click the **WinForms Popular UIs > UI-ready Form** item in the navigation control.
+* In the **Settings** section to the right, select the **Tabbed MDI** UI Type, select the **Navigation Container** View Type, and change the **Item Name** to **MainForm**.
 * Open the `MainForm` designer.
 * Set the `MainForm.Text` property to **XPO Tutorial**.
 * Set the `employeesAccordionControlElement.Name` property to **ordersAccordionControlElement**.
@@ -273,8 +273,8 @@
     Application.Run(new MainForm());
     ```
 * Form VB.NET projects only. 
-    * Right-click the project item in the **Solution Explorer** window to invoke the context menu and select the **Properties** menu item (you can use **Alt+Enter** instead). In the **Properties** window select the **Application** page and change the **Startup Form** property to `MainForm`.
-    * Open the `CustomersListForm` code, cut the `ConnectionHelper` and `DemoDataHelper` code and paste it to the `MainForm` constructor
+    * Right-click the project item in the **Solution Explorer** window to invoke the context menu and select the **Properties** menu item (you can use **Alt+Enter** instead). In the **Properties** window, select the **Application** page and change the **Startup Form** property to `MainForm`.
+    * Open the `CustomersListForm` code, cut the `ConnectionHelper` and `DemoDataHelper` code, and paste it to the `MainForm` constructor
         ```vbnet
         Public Sub New()
             ConnectionHelper.Connect(False)

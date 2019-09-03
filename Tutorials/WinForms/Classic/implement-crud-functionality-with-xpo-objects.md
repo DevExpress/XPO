@@ -7,7 +7,11 @@
 [>> Step 4](/bind-the-data-grid-to-large-data-source.md)   
 
 ## Edit an object in a separate window and save changes
-* Create the **Forms** folder and invoke the context menu for it in the **Solution Explorer**. Click the **Add DevExpress Item**  to open the **DevExpress Template Gallery** window. In the **WinForms** tab page select the **WinForms Common > Form** item and change the **Item Name** to **EditCustomerForm**. Click the **Add Item** button to open a new Form in a visual designer. Select the `Text` property in the **Properties** window and change it to **Edit Customer**.
+* Create the **Forms** folder and invoke the context menu for it in the **Solution Explorer**. 
+* Click the **Add DevExpress Item**  to open the **DevExpress Template Gallery** window. 
+* In the **WinForms** tab page, select the **WinForms Common > Form** item and change the **Item Name** to **EditCustomerForm**. 
+* Click the **Add Item** button to open a new Form in a visual designer.
+*  Select the `Text` property in the **Properties** window and change it to **Edit Customer**.
 * Move the *Form1.cs* file to the *Forms* folder and rename the file to *CustomersListForm.cs*. Visual Studio should prompt whether to change the class name as well. If not, open the code editor and use the **Rename** menu command (**Ctrl+R, Ctrl+R**) to change the class name . Change the base class to `XtraForm`, open the designer, and set the `Text` property to **Customers**.
 * Drop the `XPBindingSource` and `DataLayoutControl` components from the toolbox and change their names to **CustomerBindingSource** and **CustomerLayoutControl**.
 * Rebuild the project.
@@ -28,7 +32,7 @@
     }
     public int? CustomerID { get; private set; }
     ```
-* Open the `Form` designer and double click the `Form` header to add the `EditCustomerForm_Load` event handler or use the **Properties** window to add it. 
+* Open the `Form` designer and double click the `Form` header to add the `EditCustomerForm_Load` event handler (you can use the **Properties** window to add it). 
 * Put this code in the auto-generated `EditCustomerForm_Load` method:
     ```csharp
     using DevExpress.Xpo;
@@ -59,7 +63,7 @@
 * Press the **F5** key to run the application, double-click a `GridView` record, and see the result.
 * Close the both windows and open the `EditCustomerForm` in the designer. Drag a `SimpleButton` component from the toolbox and drop it to the `LayoutControl`. Add `EmptySpaceItem` elements to neatly align the button.
 * Rename the `simpleButton1` control to **btnSave** and change its `Text` to **&Save** (the ampersand sign assigns a mnemonic command to the button).
-* Double click the `btnSave` control to add the `Click` event handler or use the **Properties** window to add it.
+* Double click the `btnSave` control to add the `Click` event handler (you can use the **Properties** window to add it).
 * Add this code to the `btnSave_Click` event handler:
     ```csharp
     private void btnSave_Click(object sender, EventArgs e) {
@@ -67,7 +71,7 @@
         Close();
     }
     ```
-* The [UnitOfwork.CommitChanges](https://docs.devexpress.com/XPO/DevExpress.Xpo.UnitOfWork.CommitChanges) method saves changes to the database. To show changes in the `CustomersListForm`, change the code as follows: 
+* The [UnitOfwork.CommitChanges](https://docs.devexpress.com/XPO/DevExpress.Xpo.UnitOfWork.CommitChanges) method saves changes to the database. To show changes in the Data Grid (`CustomersListForm`), change code as follows: 
     ```csharp
     private void Form1_Load(object sender, EventArgs e) {
         Reload();
@@ -87,7 +91,7 @@
         CustomersBindingSource.DataSource = new XPCollection<Customer>(new Session());
     }
     ```
-* Optionally, use the Visual Studio **Refactor** tool to rename the `Form1_Load` event handler to `CustomersListForm_Load`. Put the cursor at the method name, and click the **Edit > Refactor > Rename** menu item or use **Ctrl+R,Ctrl+R**.   
+* Optionally, use the Visual Studio **Refactor** tool to rename the `Form1_Load` event handler to `CustomersListForm_Load`. Put the cursor at the method name and click the **Edit > Refactor > Rename** menu item or use **Ctrl+R,Ctrl+R**.   
 * Run the application, open the edit Form, change something, and click the **Save** button to see the result.
 ## Handle concurrent changes    
 ### Test with multiple users
@@ -97,9 +101,9 @@
 * Type something and save changes in each window. The second time the application should crash and show this error message: *Cannot persist the object. It was modified or deleted (purged) by another application*. The next section demonstrates how to handle such situations gracefully.
 ### Handle the exception and reload an object
 * Open the `EditCustomerForm` in the designer. Drag a `SimpleButton` component from the toolbox and drop it to the `LayoutControl`. Customize the layout to align all buttons neatly.
-* Rename the `simpleButton1` control to **btnReload** and change its `Text` to **&Reload**.
-* Double click the `btnReload` control to add the `Click` event handler or use the **Properties** window to add it.
-* Select all lines in the `EditCustomerForm_Load` method, and click the **Edit > Refactor > Extract Method** menu item or use **Ctrl+R,Ctrl+M**.
+* Rename the `simpleButton1` control to **btnReload** and set the `Text` property to **&Reload**.
+* Double click the `btnReload` control to add the `Click` event handler (you can use the **Properties** window to add it).
+* Select all lines in the `EditCustomerForm_Load` method and click the **Edit > Refactor > Extract Method** menu item or use **Ctrl+R,Ctrl+M**.
 * Change the method name to **Reload** and call this method in the `btnReload_Click` event handler.
 * Modify the `btnSave_Click` method.
     ```csharp
@@ -120,16 +124,18 @@
   * Change the `ribbonPage1` text to **Home**.
   * Change the `ribbonPageGroup1` text to **Edit**.
   * Delete the `ribbonPageGroup2`.
-  * Add the `BarButtonItem` item to the **Edit** group, change its name to `btnNew` and the caption to **New**.
+  * Add the `BarButtonItem` item to the **Edit** group and change its name to **btnNew**.
+  * Set the `btnNew.Caption` property to **New**.
   * Double-click the **New** button to create an event handler.
-  * Select the `using` statement in the `CustomersGridView_RowClick` method, and click the **Edit > Refactor > Extract Method** menu item or use **Ctrl+R,Ctrl+M**.
-  * Change the method name to **ShowEditForm** and the `customerID` parameter type to `int?`.
+  * Select the `using` statement in the `CustomersGridView_RowClick` method and click the **Edit > Refactor > Extract Method** menu item (**Ctrl+R,Ctrl+M**).
+  * Change the method name to **ShowEditForm**.
+  * Change the `customerID` parameter type to `int?`.
   * Call the `ShowEditForm` method in the `btnNew_ItemClick` event handler and pass a `null` value as a parameter.
-  * A new object initially does not have the identifier. XPO assigns it with a value from the auto-incremented key column when a new object is saved to the database. Open the `EditCustomerForm` code and add this line to the `btnSave_Click` method after the `CommitChanges` method call:
+  * A new object initially does not have an identifier. XPO assigns it with a value from the auto-incremented key column when a new object is saved to the database. Open the `EditCustomerForm` code and add this line to the `btnSave_Click` method after the `CommitChanges` method call:
     ```csharp
     CustomerID = ((Customer)CustomerBindingSource.DataSource).Oid;
     ```
-  * Run the application, click the New button, fill editors and click the **Save** button to see the result.
+  * Run the application, click the New button, fill editors, and click the **Save** button to see the result.
 ## Delete a selected record
   * Open the `CustomersListForm` and add the **Delete (btnDelete)** button to the `RibbonControl`.
   * Double-click the **Delete** button to add the event handler.
