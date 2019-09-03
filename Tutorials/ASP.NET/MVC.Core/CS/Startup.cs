@@ -23,7 +23,7 @@ namespace AspNetCoreMvcApplication {
                 .AddXpoDefaultUnitOfWork(true, options => options
                     .UseConnectionString(Configuration.GetConnectionString("ImMemoryDataStore"))
                     .UseThreadSafeDataLayer(true)
-                    .UseConnectionPool(false) // Remove this line if you use a network database like SQL Server, Oracle, PostgreSql etc.                    
+                    .UseConnectionPool(false) // Remove this line if you use a database server like SQL Server, Oracle, PostgreSql etc.                    
                     .UseAutoCreationOption(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema) // Remove this line if the database already exists
                     .UseEntityTypes(typeof(Customer), typeof(Order)) // Pass all of your persistent object types to this method.
                 );
