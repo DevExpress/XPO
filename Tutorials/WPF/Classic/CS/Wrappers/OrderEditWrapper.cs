@@ -13,38 +13,38 @@ namespace WpfApplication.Wrappers {
             ((IEditableObject)order).BeginEdit();
         }
 
-        Order order;
+        Order fOrder;
         public Order Order {
             get {
-                return order;
+                return fOrder;
             }
             set {
-                order = value;
+                fOrder = value;
                 OnPropertyChanged(nameof(Customer));
             }
         }
 
         public IList<Customer> CustomerList {
             get {
-                var customers = order.Session.Query<Customer>().OrderBy(t => t.FirstName).ThenBy(t => t.LastName).ToList();
-                if(!customers.Contains(order.Customer)) {
-                    customers.Add(order.Customer);
+                var customers = Order.Session.Query<Customer>().OrderBy(t => t.FirstName).ThenBy(t => t.LastName).ToList();
+                if(!customers.Contains(Order.Customer)) {
+                    customers.Add(Order.Customer);
                 }
                 return customers;
             }
         }
 
         public void Reload() {
-            ((IEditableObject)order).CancelEdit();
-            ((IEditableObject)order).BeginEdit();
+            ((IEditableObject)Order).CancelEdit();
+            ((IEditableObject)Order).BeginEdit();
         }
 
         public void EndEdit() {
-            ((IEditableObject)order).EndEdit();
+            ((IEditableObject)Order).EndEdit();
         }
 
         public void CancelEdit() {
-            ((IEditableObject)order).CancelEdit();
+            ((IEditableObject)Order).CancelEdit();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

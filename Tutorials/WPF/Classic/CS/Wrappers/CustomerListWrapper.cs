@@ -37,36 +37,36 @@ namespace WpfApplication.Wrappers {
             }
         }
 
-        ObservableCollection<Customer> customerList;
+        ObservableCollection<Customer> fCustomerList;
         public ObservableCollection<Customer> CustomerList {
             get {
-                return customerList;
+                return fCustomerList;
             }
             set {
-                customerList = value;
+                fCustomerList = value;
                 OnPropertyChanged(nameof(CustomerList));
             }
         }
 
-        Customer selectedCustomer;
+        Customer fSelectedCustomer;
         public Customer SelectedCustomer {
             get {
-                return selectedCustomer;
+                return fSelectedCustomer;
             }
             set {
-                selectedCustomer = value;
+                fSelectedCustomer = value;
                 IsCustomerSelected = (value != null);
                 OnPropertyChanged(nameof(SelectedCustomer));
             }
         }
 
-        bool isCustomerSelected;
+        bool fIsCustomerSelected;
         public bool IsCustomerSelected {
             get {
-                return isCustomerSelected;
+                return fIsCustomerSelected;
             }
             set {
-                isCustomerSelected = value;
+                fIsCustomerSelected = value;
                 OnPropertyChanged(nameof(IsCustomerSelected));
             }
         }
