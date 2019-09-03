@@ -22,9 +22,9 @@
     * Customer, LookupEdit 
 * Click the **Finish** button, delete the **First Name** and **Last Name** layout items, reorder the rest layout items to have the layout similar to the `EditCustomerForm`, and save changes
 * Add the `XPBindingSource` component to the `Form` and rename it to **CustomersBindingSource**.
-* Rebuild the project and set properties:
-    * ObjectClassInfo=DxSample.DataAccess.Customer
-    * DisplayableProperties=Oid;ContactName
+* Rebuild the project
+* Set the `CustomersBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Customer**
+* Set the `CustomersBindingSource.DisplayableProperties` property to **Oid;ContactName**
 * Select the `lookUpEdit1` editor placed near the **Customer** label and open the **Data Source** smart tag menu. Find the `CustomersBindingSource` component under the **Other Data Sources > EditOrderForm List Instances** node, and select it. 
 * Select the **ContactName** and **Oid** properties as the **Display Member** and **Value Member** if they were not selected automatically.
 * Open the code editor and change the code as follows
@@ -165,11 +165,11 @@
 * Right-click the project item in the **Solution Explorer** to invoke the context menu and select the **Add DevExpress Item > New Item** menu item
 * In the **DevExpress Template Gallery** window select the **WinForms** tab, click the **WinForms Popular UIs > UI-ready Form** item in the navigation control.
 * In the **Settings** section to the right select the **Tabbed MDI** UI Type, select the **Navigation Container** View Type, and change the **Item Name** to **MainForm**
-* In the `MainForm` designer change these properties:
-    * MainForm.Text = XPO Tutorial
-    * employeesAccordionControlElement.Name = ordersAccordionControlElement
-    * ordersAccordionControlElement.Text = Orders
-    * documentManager.MdiParent = MainForm
+* Open the `MainForm` designer
+* Set the `MainForm.Text` property to **XPO Tutorial**
+* Set the `employeesAccordionControlElement.Name` property to **ordersAccordionControlElement**
+* Set the `ordersAccordionControlElement.Text` property to **Orders**
+* Set the `documentManager.MdiParent` property to **MainForm**
 * Open the `MainForm` code file and change the code as follows:
 
     <details>

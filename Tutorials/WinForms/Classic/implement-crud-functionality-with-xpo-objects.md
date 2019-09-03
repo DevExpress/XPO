@@ -10,10 +10,10 @@
 * Create the **Forms** folder and invoke the context menu for it in the **Solution Explorer**. Click the **Add DevExpress Item**  to open the **DevExpress Template Gallery** window. In the **WinForms** tab page select the **WinForms Common > Form** item and change the **Item Name** to **EditCustomerForm**. Click the **Add Item** button to open a new Form in a visual designer. Select the `Text` property in the **Properties** window and change it to **Edit Customer**
 * Move the `Form1` form to the *Forms* folder and rename the file to *CustomersListForm.cs*. Visual Studio should prompt whether to change the class name as well. If not, open the code editor and use the **Rename** menu command (**Ctrl+R, Ctrl+R**) to change the class name . Change the base class to `XtraForm`, open the designer, and set the `Text` property to **Customers**
 * Drop the `XPBindingSource` and `DataLayoutControl` components from the toolbox and change their names to **CustomerBindingSource** and **CustomerLayoutControl**.
-* Rebuild the project and change the component's properties in the **Properties** window:
-    * CustomerBindingSource.ObjectClassInfo = DxSample.DataAccess.Customer *(select a value from the drop-down list and rebuild the project)*
-    * CustomerBindingSource.DisplayableProperties = FirstName;LastName
-    * CustomerLayoutControl.Dock = Fill
+* Rebuild the project
+* Set the `CustomerBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Customer** *(select a value from the drop-down list and rebuild the project)*
+* Set the `CustomerBindingSource.DisplayableProperties` property to **FirstName;LastName**
+* Set the `CustomerLayoutControl.Dock` property to **Fill**
 * Select the `CustomerLayoutControl` component on the design surface
 * Click the **Retrieve Fields** smart tag command to open the **Select Binding Source** wizard (if the smart tag icon is not visible, press the **Esc** key to navigate from the root `LayoutGroup` to the `LayoutControl`)
 * Change the **Data Source Update Mode** property value to **OnPropertyChanged** and click the **Next** button
