@@ -6,7 +6,7 @@
 
 ## Create the edit order Form
 * Select the **EditCustomerForm** item in the **Solution Explorer** window and press **Ctrl+C** to copy the Form.
-* Press **Ctrl+V** to create an EditCustomerForm copy. Rename it to **EditOrderForm**.
+* Press **Ctrl+V** to create a copy of an EditCustomerForm and rename it to **EditOrderForm**.
 * Change the class and constructor name to **EditOrderForm**. Open the CustomersListForm.Designer.cs (vb) file and rename the class there. If this file is hidden, use the **Show All Files** toolbar item in the Solution Explorer window.
 * Open the `EditOrderForm` designer and change the `Text` property to **Edit Order**.
 * Rename the `CustomerBindingSource` component to **OrderBindingSource**.
