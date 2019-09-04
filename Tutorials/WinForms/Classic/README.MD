@@ -1,7 +1,7 @@
 <br />
 <br />
 
-This example demonstrates how to create a simple XPO-based CRUD application. The tutorial uses these DevExpress components:
+This example demonstrates how to create a simple XPO-based CRUD application. The tutorial uses the following DevExpress components:
   - [Data Grid](https://docs.devexpress.com/WindowsForms/3455/controls-and-libraries/data-grid)
   - [Data Layout Control](https://docs.devexpress.com/WindowsForms/4921/controls-and-libraries/form-layout-managers/layout-and-data-layout-controls/data-layout-control)
   - [Editors](https://docs.devexpress.com/WindowsForms/4712/controls-and-libraries/editors-and-simple-controls/simple-editors/product-information/editors)
