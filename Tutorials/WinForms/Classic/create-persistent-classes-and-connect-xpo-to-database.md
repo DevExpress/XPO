@@ -81,12 +81,15 @@
         Application.Run(new MainForm());
     }
     ```
-* Open the application configuration file (*app.config*) and add the connection string. The `InMemoryDataStore` provider is used in this tutorial for the sake of simplicity. The complete list of supported XPO providers is provided at [K18445 - How to create a correct connection string for XPO providers](https://www.devexpress.com/Support/Center/Question/Details/K18445).
+* Open the application configuration file (*app.config*) and add the connection string. 
     ```xml
     <connectionStrings>
         <add name="XpoTutorial" connectionString="XpoProvider=InMemoryDataStore"/>
     </connectionStrings>
     ```
+    The [InMemoryDataStore](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore) provider is used in this tutorial for the sake of simplicity. You can use your database server or an embedded database (for example, [SQLite](https://www.sqlite.org/index.html)). XPO supports 14 database engines. Refer to the following articles for details:\
+    [Database Systems Supported by XPO](https://docs.devexpress.com/XPO/2114/Fundamentals/Database-Systems-Supported-by-XPO)\
+    [K18445 - How to create a correct connection string for XPO providers](https://www.devexpress.com/Support/Center/Question/Details/K18445)
 * To populate the database with the initial demo data, add the [DemoDataHelper.cs](/Tutorials/WinForms/Classic/CS/DataAccess/DemoDataHelper.cs)/[DemoDataHelper.vb](/Tutorials/WinForms/Classic/VB/DataAccess/DemoDataHelper.vb) file to your project and put this code after the `ConnectionHelper.Connect` method call.
     ```csharp
     using (UnitOfWork uow = new UnitOfWork()) {

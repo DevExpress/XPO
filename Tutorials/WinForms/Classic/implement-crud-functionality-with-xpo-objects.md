@@ -93,12 +93,12 @@
     ```
 * Optionally, use the Visual Studio **Refactor** tool to rename the `Form1_Load` event handler to `CustomersListForm_Load`. Put the cursor at the method name and click the **Edit > Refactor > Rename** menu item or use **Ctrl+R,Ctrl+R**.   
 * Run the application, open the edit Form, change something, and click the **Save** button to see the result.
-## Handle concurrent changes    
-### Test with multiple users
-* Open the *App.config* file and change the connection string to use your database server ([K18445 - How to create a correct connection string for XPO providers](https://www.devexpress.com/Support/Center/Question/Details/K18445)). *You can skip this and the next 3 steps if you do not use a database server*.
+## Handle concurrent changes
+*You can skip this part if you are using [InMemoryDataStore](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore) or an embedded database*
+### Test with multiple users 
 * Build the project and open the output folder (*bin\Debug*) in the file manager. Locate the application executable file and run two application instances.
 * Double click a record in one window to open the edit dialog, and double click the same record in another window.
-* Type something and save changes in each window. The second time the application should crash and show this error message: *Cannot persist the object. It was modified or deleted (purged) by another application*. The next section demonstrates how to handle such situations gracefully.
+* Type something and save changes in each window. The first application saves changes successfully, but the second fails with the error message: *Cannot persist the object. It was modified or deleted (purged) by another application*.
 ### Handle the exception and reload an object
 * Open the `EditCustomerForm` in the designer. Drag a `SimpleButton` component from the toolbox and drop it to the `LayoutControl`. Customize the layout to align all buttons neatly.
 * Rename the `simpleButton1` control to **btnReload** and set the `Text` property to **&Reload**.
