@@ -80,7 +80,7 @@
     </details>
 ## Create the orders list Form
 * Select the **CustomersListForm** item in the Solution Explorer window and press **Ctrl+C** to copy the Form.
-* Press **Ctrl+V** to create a CustomersListForm copy. Rename it to **OrdersListForm**.
+* Press **Ctrl+V** to create a copy of a CustomersListForm copy and rename it to **OrdersListForm**.
 * Change the class name and constructor name to **OrdersListForm**.
 * Open the `OrdersListForm` designer and change the `Text` property to **Orders**.
 * Select the **Events** tab page in the **Properties** window, right-click the `OrdersListForm.Load` event to invoke the context menu, and select the **Reset** menu item.
