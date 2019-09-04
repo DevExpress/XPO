@@ -21,7 +21,7 @@
 * Select the `CustomerLayoutControl` component on the design surface.
 * Click the **Retrieve Fields** smart tag command to open the **Select Binding Source** wizard (if the smart tag icon is not visible, press the **Esc** key to navigate from the root `LayoutGroup` to the `LayoutControl`).
 * Change the **Data Source Update Mode** property value to **OnPropertyChanged** and click the **Next** button.
-* The **Manage Data Bindings** screen displays a list of available properties. Choose the **First Name** and **Last Name** properties, click the **Finish** button, and save changes.
+* The **Manage Data Bindings** screen displays a list of available properties. Choose the **First Name** and **Last Name** properties, click the **Finish** button, and save the changes.
 * Open the code editor and overload the constructor to accept a nullable integer value (a database record's identifier).
     ```csharp
     public EditCustomerForm() {
