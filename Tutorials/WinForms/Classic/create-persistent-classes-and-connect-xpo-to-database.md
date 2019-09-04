@@ -43,7 +43,7 @@
         get { return string.Concat(FirstName, " ", LastName); }
     }
     ```
-* Add the [PersistentAliasAttribute](https://docs.devexpress.com/XPO/DevExpress.Xpo.PersistentAliasAttribute) to the `ContactName` property. With this attribute, XPO will be able to include this property in a filter. The expression passed to the attribute constructor should follow the [Criteria Language Syntax](https://docs.devexpress.com/CoreLibraries/4928/devexpress-data-library/criteria-language-syntax). XPO uses the Persistent Alias expression to build a SQL command compatible with the target database.
+* Add the [PersistentAliasAttribute](https://docs.devexpress.com/XPO/DevExpress.Xpo.PersistentAliasAttribute) to the `ContactName` property. This attribute allows XPO to include this property in a filter. The expression passed to the attribute constructor should follow the [Criteria Language Syntax](https://docs.devexpress.com/CoreLibraries/4928/devexpress-data-library/criteria-language-syntax). XPO uses the Persistent Alias expression to build a SQL command that is compatible with the target database.
     ```csharp
     [PersistentAlias("concat(FirstName, ' ', LastName)")]
     public string ContactName {
