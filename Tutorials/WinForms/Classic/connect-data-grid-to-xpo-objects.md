@@ -13,7 +13,7 @@
 * Set the `CustomersGridControl.DataSource` property to **CustomersSoruce**.
 * Select the `gridView1` component in the **Properties** window and rename it to **CustomersGridView**.
 * Change the `CustomersGridView.OptionsBehavior.Editable` property to `False`.
-* Drag the **Oid** grid column down and release it when the cross icon appears. The hidden **Oid** column will be used later to obtain object identifiers.
+* Drag the **Oid** grid column down and release it when the cross icon appears. The hidden **Oid** column is used later to obtain object identifiers.
 * Save changes. Double click the Form header to add the `Form1_Load` event handler or use the **Properties** window to add it.
 * Put this code in the auto-generated `Form1_Load` method:
     ```csharp
