@@ -81,7 +81,7 @@
 ## Create the orders list Form
 * Select the **CustomersListForm** item in the Solution Explorer window and press **Ctrl+C** to copy the Form.
 * Press **Ctrl+V** to create a copy of a CustomersListForm copy and rename it to **OrdersListForm**.
-* Change the class name and constructor name to **OrdersListForm**.
+* Change the class and constructor name to **OrdersListForm**.
 * Open the `OrdersListForm` designer and change the `Text` property to **Orders**.
 * Select the **Events** tab page in the **Properties** window, right-click the `OrdersListForm.Load` event to invoke the context menu, and select the **Reset** menu item.
 * Add the `XPInstantFeedbackView` component from the toolbox. Change its name to **OrdersInstantFeedbackView**. This component is used with large data sources (see also: [Large Data Sources: Server and Instant Feedback Modes](https://docs.devexpress.com/WindowsForms/8398/controls-and-libraries/data-grid/data-binding/large-data-sources-server-and-instant-feedback-modes)).
