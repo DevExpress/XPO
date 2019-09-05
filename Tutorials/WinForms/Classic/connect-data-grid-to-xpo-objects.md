@@ -5,7 +5,7 @@
 &nbsp;&nbsp;&nbsp;
 [>> Step 3](/implement-crud-functionality-with-xpo-objects.md)   
 
-* Open the `Form` designer, drop the `XPBindingSource` and `GridControl` components from the toolbox, and change their names to **CustomersBindingSource** and **CustomersGridControl**.
+* Open the `Form` designer, add the `XPBindingSource` and `GridControl` components from Toolbox, and change their names to **CustomersBindingSource** and **CustomersGridControl**.
 * Rebuild the project.
 * Set the `CustomersBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Customer** *(select a value from the drop-down list and rebuild the project)*.
 * Set the `CustomersBindingSource.DisplayableProperties` property to **Oid;ContactName**.

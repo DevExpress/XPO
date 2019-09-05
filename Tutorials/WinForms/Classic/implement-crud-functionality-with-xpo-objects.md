@@ -13,7 +13,7 @@
 * Click the **Add Item** button to open a new Form in a visual designer.
 *  Select the `Text` property in the **Properties** window and change it to **Edit Customer**.
 * Move the *Form1.cs* file to the *Forms* folder and rename the file to *CustomersListForm.cs*. Visual Studio should prompt whether to change the class name as well. If not, open the code editor and use the **Rename** menu command (**Ctrl+R, Ctrl+R**) to change the class name . Change the base class to `XtraForm`, open the designer, and set the `Text` property to **Customers**.
-* Drop the `XPBindingSource` and `DataLayoutControl` components from the toolbox and change their names to **CustomerBindingSource** and **CustomerLayoutControl**.
+* Add the `XPBindingSource` and `DataLayoutControl` components from Toolbox and change their names to **CustomerBindingSource** and **CustomerLayoutControl**.
 * Rebuild the project.
 * Set the `CustomerBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Customer** *(select a value from the drop-down list and rebuild the project)*.
 * Set the `CustomerBindingSource.DisplayableProperties` property to **FirstName;LastName**.
@@ -61,7 +61,8 @@
     }
     ```
 * Press the **F5** key to run the application, double-click a `GridView` record, and see the result.
-* Close the both windows and open the `EditCustomerForm` in the designer. Drag a `SimpleButton` component from the toolbox and drop it to the `LayoutControl`. Add `EmptySpaceItem` elements to neatly align the button.
+* Close the both windows and open the `EditCustomerForm` designer.
+* Select `LayoutControl` and add `SimpleButton` from Toolbox. Add `EmptySpaceItem` elements to neatly align the button.
 * Rename the `simpleButton1` control to **btnSave** and change its `Text` to **&Save** (the ampersand sign assigns a mnemonic command to the button).
 * Double click the `btnSave` control to add the `Click` event handler (you can use the **Properties** window to add it).
 * Add this code to the `btnSave_Click` event handler:
@@ -100,7 +101,9 @@
 * Double click a record in one window to open the edit dialog, and double click the same record in another window.
 * Type something and save changes in each window. The first application saves changes successfully, but the second fails with the error message: *Cannot persist the object. It was modified or deleted (purged) by another application*.
 ### Handle the exception and reload an object
-* Open the `EditCustomerForm` in the designer. Drag a `SimpleButton` component from the toolbox and drop it to the `LayoutControl`. Customize the layout to align all buttons neatly.
+* Open the `EditCustomerForm` designer.
+* Select `LayoutControl` and add `SimpleButton` from Toolbox.
+* Customize the layout to align all buttons neatly.
 * Rename the `simpleButton1` control to **btnReload** and set the `Text` property to **&Reload**.
 * Double click the `btnReload` control to add the `Click` event handler (you can use the **Properties** window to add it).
 * Select all lines in the `EditCustomerForm_Load` method and click the **Edit > Refactor > Extract Method** menu item or use **Ctrl+R,Ctrl+M**.
