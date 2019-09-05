@@ -19,7 +19,8 @@
 * Set the `CustomerBindingSource.DisplayableProperties` property to **FirstName;LastName**.
 * Set the `CustomerLayoutControl.Dock` property to **Fill**.
 * Select the `CustomerLayoutControl` component on the design surface.
-* Click the **Retrieve Fields** smart tag command to open the **Select Binding Source** wizard (if the smart tag icon is not visible, press the **Esc** key to navigate from the root `LayoutGroup` to the `LayoutControl`).
+* Click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph. If the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph is not visible, press **Esc** several times to navigate from the selected `LayoutGroup` to the `LayoutControl`.
+* Select the **Retrieve Fields** item to open the **Select Binding Source** wizard.
 * Change the **Data Source Update Mode** property value to **OnPropertyChanged** and click the **Next** button.
 * The **Manage Data Bindings** screen displays a list of available properties. Choose the **First Name** and **Last Name** properties, click the **Finish** button, and save the changes.
 * Open the code editor and overload the constructor to accept a nullable integer value (a database record's identifier).
@@ -123,7 +124,8 @@
     ```
 ## Create a new record
   * Open the `CustomersListForm` in the designer.
-  * Click the **Convert to RibbonForm** smart tag command.
+  * Click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph.
+  * Select the **Convert to RibbonForm** menu item.
   * Change the `ribbonPage1` text to **Home**.
   * Change the `ribbonPageGroup1` text to **Edit**.
   * Delete the `ribbonPageGroup2`.
