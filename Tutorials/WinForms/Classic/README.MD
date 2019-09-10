@@ -1,7 +1,7 @@
 <br />
 <br />
 
-This example demonstrates how to create a simple XPO-based CRUD application. The tutorial uses the following DevExpress components:
+This tutorial demonstrates how to create a simple XPO-based CRUD application. The demo application uses the following DevExpress components:
   - [Data Grid](https://docs.devexpress.com/WindowsForms/3455/controls-and-libraries/data-grid)
   - [Data Layout Control](https://docs.devexpress.com/WindowsForms/4921/controls-and-libraries/form-layout-managers/layout-and-data-layout-controls/data-layout-control)
   - [Editors](https://docs.devexpress.com/WindowsForms/4712/controls-and-libraries/editors-and-simple-controls/simple-editors/product-information/editors)
@@ -14,7 +14,6 @@ This example demonstrates how to create a simple XPO-based CRUD application. The
 
 * [Visual Studio 2017 or 2019](https://visualstudio.microsoft.com/vs/).
 * [Unified Installer for .NET and HTML5 Developers](https://www.devexpress.com/Products/Try/).
-* We recommend that you select all the DevExpress products when you run the installation. This registers local NuGet package sources and Visual Studio templates.
 * Basic C# (VB.NET) and WinForms knowledge. If you are new to WinForms, refer to the Microsoft tutorials:   
   [Tutorial 1: Create a picture viewer (C#)](https://docs.microsoft.com/en-us/visualstudio/ide/tutorial-1-create-a-picture-viewer)   
   [Create a Windows Forms app in Visual Studio with Visual Basic](https://docs.microsoft.com/en-us/visualstudio/ide/create-a-visual-basic-winform-in-visual-studio)  

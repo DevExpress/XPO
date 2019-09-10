@@ -6,7 +6,7 @@
 [Step 2](/connect-data-grid-to-xpo-objects.md)   
 
 * Create a new Windows Forms App project in Visual Studio.
-* Add references to these assemblies ([Manage references in a project](https://docs.microsoft.com/en-us/visualstudio/ide/managing-references-in-a-project)):  
+* Add references to the following assemblies ([Manage references in a project](https://docs.microsoft.com/en-us/visualstudio/ide/managing-references-in-a-project)):  
   **DevExpress.Data**  
   **DevExpress.Xpo**  
   These assemblies are available under the **Assemblies > Extensions** category in the **Reference Manager**. 
@@ -23,7 +23,7 @@
     ```
     **See also:**   
     [XPO Classes Comparison](https://docs.devexpress.com/XPO/3311/concepts/xpo-classes-comparison)
-* Add the `FirstName` and `LastName` properties to the `Customer` class. XPO maps these proeprties to columns in the Customer table.
+* Add the `FirstName` and `LastName` properties to the `Customer` class. XPO maps these properties to columns in the Customer table.
     ```csharp
     public string FirstName {
         get { return fFirstName; }
@@ -36,14 +36,15 @@
         set { SetPropertyValue(nameof(LastName), ref fLastName, value); }
     }
     ```
-    The `SetPropertyValue` method raises the `PropertyChanged` event that is used by data bound controls to update their display text.
-* Add the read-only `ContactName` property. This property is not mapped to any column. Use the `FirstName` and `LastName` properties to calcualate the `ContactName` property value.
+    The `SetPropertyValue` method raises the `PropertyChanged` event that is used by data-bound controls to update their display text.
+* Add the read-only `ContactName` property. XPO does not map read-only properties to database columns. Use the `FirstName` and `LastName` properties to calculate the `ContactName` property value.
     ```csharp
     public string ContactName {
         get { return string.Concat(FirstName, " ", LastName); }
     }
     ```
-* Add the [PersistentAliasAttribute](https://docs.devexpress.com/XPO/DevExpress.Xpo.PersistentAliasAttribute) to the `ContactName` property. This attribute allows XPO to include this property in a filter. The expression passed to the attribute constructor should follow the [Criteria Language Syntax](https://docs.devexpress.com/CoreLibraries/4928/devexpress-data-library/criteria-language-syntax). XPO uses the Persistent Alias expression to build a SQL command that is compatible with the target database.
+* Add the [PersistentAlias](https://docs.devexpress.com/XPO/DevExpress.Xpo.PersistentAliasAttribute) attribute to the `ContactName` property. 
+  >The [PersistentAlias](https://docs.devexpress.com/XPO/DevExpress.Xpo.PersistentAliasAttribute) attribute specifies an expression that substitutes for the property name in a SQL query. The expression passed to the attribute constructor should follow the [Criteria Language Syntax](https://docs.devexpress.com/CoreLibraries/4928/devexpress-data-library/criteria-language-syntax). 
     ```csharp
     [PersistentAlias("concat(FirstName, ' ', LastName)")]
     public string ContactName {
@@ -70,8 +71,10 @@
     }
     ```
 * Add a reference to the **System.Configuration** assembly. This assembly contains classes used to access connection string settings from the application's configuration file [Connection Strings and Configuration Files](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/connection-strings-and-configuration-files).
-* Add the `ConnectionHelper` class and copy the code from the [ConnectionHelper.cs](/Tutorials/WinForms/Classic/CS/DataAccess/ConnectionHelper.cs) ([ConnectionHelper.vb](/Tutorials/WinForms/Classic/VB/DataAccess/ConnectionHelper.vb)) file. In most cases, this generic helper can be used without modifications. The complete documentation about possible connection settings is provided in the XPO documentation: [Connecting to a Data Store](https://docs.devexpress.com/XPO/2020/feature-center/connecting-to-a-data-store).
-* Open the *Program.cs* file and add the `ConnectionHelper.Connect` method call to the `Main` method (Visual Studio does not create the *Program.vb* file in a VB.NET project, use the `Form1` class constructor, instead):
+* Add the *ConnectionHelper.cs* file, copy code from the example ([ConnectionHelper.cs](/Tutorials/WinForms/Classic/CS/DataAccess/ConnectionHelper.cs)), and paste it to a new file. 
+  >This code can be used without modifications in a real application. Refer to the following article for additional details: [Connecting to a Data Store](https://docs.devexpress.com/XPO/2020/feature-center/connecting-to-a-data-store).
+* Open the *Program.cs* file and add the `ConnectionHelper.Connect` method call to the `Main` method.
+  >Visual Studio does not create the *Program.vb* file in a VB.NET project, use the `Form1` class constructor, instead.
     ```csharp
     [STAThread]
     static void Main() {
@@ -87,10 +90,10 @@
         <add name="XpoTutorial" connectionString="XpoProvider=InMemoryDataStore"/>
     </connectionStrings>
     ```
-    The [InMemoryDataStore](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore) provider is for demo and testing purposes. You can use your database server or an embedded database (for example, [SQLite](https://www.sqlite.org/index.html)). XPO supports 14 database engines. Refer to the following articles for details:\
-    [Database Systems Supported by XPO](https://docs.devexpress.com/XPO/2114/Fundamentals/Database-Systems-Supported-by-XPO)\
-    [K18445 - How to create a correct connection string for XPO providers](https://www.devexpress.com/Support/Center/Question/Details/K18445)
-* To populate the database with the initial demo data, add the [DemoDataHelper.cs](/Tutorials/WinForms/Classic/CS/DataAccess/DemoDataHelper.cs)/[DemoDataHelper.vb](/Tutorials/WinForms/Classic/VB/DataAccess/DemoDataHelper.vb) file to your project and put this code after the `ConnectionHelper.Connect` method call.
+    >The [InMemoryDataStore](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore) provider is for demo and testing purposes. You can use your database server or an embedded database (for example, [SQLite](https://www.sqlite.org/index.html)). XPO supports 14 database engines. Refer to the following articles for details:\
+    >[Database Systems Supported by XPO](https://docs.devexpress.com/XPO/2114/Fundamentals/Database-Systems-Supported-by-XPO)\
+    >[K18445 - How to create a correct connection string for XPO providers](https://www.devexpress.com/Support/Center/Question/Details/K18445)
+* To populate the database with the demo data, add the [DemoDataHelper.cs](/Tutorials/WinForms/Classic/CS/DataAccess/DemoDataHelper.cs) file to your project and put the following code after the `ConnectionHelper.Connect` method call.
     ```csharp
     using (UnitOfWork uow = new UnitOfWork()) {
         DemoDataHelper.Seed(uow);

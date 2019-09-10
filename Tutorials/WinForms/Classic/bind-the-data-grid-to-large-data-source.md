@@ -7,7 +7,7 @@
 ## Create the edit order Form
 * Select the **EditCustomerForm** item in the **Solution Explorer** window and press **Ctrl+C** to copy the Form.
 * Press **Ctrl+V** to create a copy of an EditCustomerForm and rename it to **EditOrderForm**.
-* Change the class and constructor name to **EditOrderForm**. Open the CustomersListForm.Designer.cs (vb) file and rename the class there. If this file is hidden, use the **Show All Files** toolbar item in the Solution Explorer window.
+* Change the class and constructor name to **EditOrderForm**. Open the *CustomersListForm.Designer.cs* file and rename the class there. If this file is hidden, use the **Show All Files** toolbar item in the Solution Explorer window.
 * Open the `EditOrderForm` designer and change the `Text` property to **Edit Order**.
 * Rename the `CustomerBindingSource` component to **OrderBindingSource**.
 * Rebuild the project and set the `OrderBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Order**.
@@ -87,7 +87,8 @@
 * Change the class and constructor name to **OrdersListForm**.
 * Open the `OrdersListForm` designer and change the `Text` property to **Orders**.
 * Select the **Events** tab page in the **Properties** window, right-click the `OrdersListForm.Load` event to invoke the context menu, and select the **Reset** menu item.
-* Add the `XPInstantFeedbackView` component from the toolbox. Change its name to **OrdersInstantFeedbackView**. This component is used with large data sources (see also: [Large Data Sources: Server and Instant Feedback Modes](https://docs.devexpress.com/WindowsForms/8398/controls-and-libraries/data-grid/data-binding/large-data-sources-server-and-instant-feedback-modes)).
+* Add the [XPInstantFeedbackView](https://docs.devexpress.com/XPO/DevExpress.Xpo.XPInstantFeedbackView) component from the toolbox. Change its name to **OrdersInstantFeedbackView**. 
+  > The [XPInstantFeedbackView](https://docs.devexpress.com/XPO/DevExpress.Xpo.XPInstantFeedbackView) component improves performance when working with large tables. Refer to the [Large Data Sources: Server and Instant Feedback Modes](https://docs.devexpress.com/WindowsForms/8398/controls-and-libraries/data-grid/data-binding/large-data-sources-server-and-instant-feedback-modes) article for additional details.
 * Rebuild the project and set the `OrdersInstantFeedbackView.ObjectType` property to **DxSample.DataAccess.Order**.
 * Select the **Properties** property and click the ellipsis button to add the following properties:
     * Name = Oid, Property = [Oid]
@@ -97,10 +98,11 @@
 * Delete the `CustomersBindingSource` component.
 * Change the `CustomersGridControl` name to **OrdersGridControl** and do the same for `CustomersGridView`.
 * Set the `OrdersGridControl.DataSource` property to **OrdersInstantFeedbackView**.
-* Select the `OrdersGridControl` control on the design surface and click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph. 
+* Select the `OrdersGridControl` control and click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph. 
 * Select the **Run Designer** menu item.
 * Select the **Columns** item in the navigation panel and click the **Retrieve Fields** button in the toolbar.
-* Select the **Layout** item in the navigation panel, drag the **Oid** grid column down, and release it when the cross icon appears. The hidden **Oid** column is used later to obtain object identifiers. Click **Apply**, close the designer, and save the changes.
+* Select the **Layout** item in the navigation panel, drag the **Oid** grid column down, and release it when the cross icon appears. 
+  > Do not delete this column from the [Columns](https://docs.devexpress.com/WindowsForms/DevExpress.XtraGrid.Views.Base.ColumnView.Columns) collection. It is required to retrieve record indentifiers using the [GetRowCellValue](https://docs.devexpress.com/WindowsForms/DevExpress.XtraGrid.Views.Grid.GridView.GetRowCellValue.overloads) method. Click **Apply**, close the designer, and save the changes.
 * Open the code editor and change the code as follows:
     <details>
     <summary>Click to expand</summary>
@@ -268,15 +270,16 @@
     ```
     </details>
 
-* For C# projects only. Open the **Program.cs** file, and change this line
-    ```csharp
-    Application.Run(new CustomersListForm());
-    ```
-    to
-    ```csharp
-    Application.Run(new MainForm());
-    ```
-* For VB.NET projects only. 
+* For C# projects. 
+    * Open the **Program.cs** file, and change this line
+      ```csharp
+      Application.Run(new CustomersListForm());
+      ```
+      to
+      ```csharp
+      Application.Run(new MainForm());
+      ```
+* For VB.NET projects. 
     * Right-click the project item in the **Solution Explorer** window to invoke the context menu and select the **Properties** menu item (or use **Alt+Enter**). In the **Properties** window, select the **Application** page and change the **Startup Form** property to `MainForm`.
     * Open the `CustomersListForm` code, cut the `ConnectionHelper` and `DemoDataHelper` code, and paste it in the `MainForm` constructor.
         ```vbnet
