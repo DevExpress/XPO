@@ -50,7 +50,7 @@
         get { return string.Concat(FirstName, " ", LastName); }
     }
     ```
-* Use the same approach to add the `Order` class with the `ProductName`(String), `OrderDate`(DateTime), and `Freight`(decimal) properties. Check our example code in case of any difficulty:  
+* Use the same approach to add the `Order` class with the `ProductName`(String), `OrderDate`(DateTime), and `Freight`(decimal) properties. The complete code is available here:  
   [Order.cs](/Tutorials/WinForms/Classic/CS/DataAccess/Order.cs)  
   [Order.vb](/Tutorials/WinForms/Classic/VB/DataAccess/Order.vb)
 * Add the `Orders` and `Customer` properties to create a [relationship](https://docs.devexpress.com/XPO/2041/concepts/relationships-between-objects) between the **Customer** and **Order** classes.
