@@ -71,7 +71,7 @@
     ```
 * Add a reference to the **System.Configuration** assembly. This assembly contains classes used to access connection string settings from the application's configuration file [Connection Strings and Configuration Files](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/connection-strings-and-configuration-files).
 * Add the `ConnectionHelper` class and copy the code from the [ConnectionHelper.cs](/Tutorials/WinForms/Classic/CS/DataAccess/ConnectionHelper.cs) ([ConnectionHelper.vb](/Tutorials/WinForms/Classic/VB/DataAccess/ConnectionHelper.vb)) file. In most cases, this generic helper can be used without modifications. The complete documentation about possible connection settings is provided in the XPO documentation: [Connecting to a Data Store](https://docs.devexpress.com/XPO/2020/feature-center/connecting-to-a-data-store).
-* Open the *Program.cs* file and add the `ConnectionHelper.Connect` method call to the `Main` method (the *Program.vb* file does not exist in a VB.NET project by defult, use the `Form1` class constructor, instead):
+* Open the *Program.cs* file and add the `ConnectionHelper.Connect` method call to the `Main` method (Visual Studio does not create the *Program.vb* file in a VB.NET project, use the `Form1` class constructor, instead):
     ```csharp
     [STAThread]
     static void Main() {
