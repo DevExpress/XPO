@@ -102,7 +102,8 @@
 * Select the **Run Designer** menu item.
 * Select the **Columns** item in the navigation panel and click the **Retrieve Fields** button in the toolbar.
 * Select the **Layout** item in the navigation panel, drag the **Oid** grid column down, and release it when the cross icon appears. 
-  > Do not delete this column from the [Columns](https://docs.devexpress.com/WindowsForms/DevExpress.XtraGrid.Views.Base.ColumnView.Columns) collection. It is required to retrieve record indentifiers using the [GetRowCellValue](https://docs.devexpress.com/WindowsForms/DevExpress.XtraGrid.Views.Grid.GridView.GetRowCellValue.overloads) method. Click **Apply**, close the designer, and save the changes.
+  > Do not delete this column from the [Columns](https://docs.devexpress.com/WindowsForms/DevExpress.XtraGrid.Views.Base.ColumnView.Columns) collection. It stores object keys required to show the Edit Form or delete an object. 
+* Click **Apply**, close the designer, and save the changes.
 * Open the code editor and change the code as follows:
     <details>
     <summary>Click to expand</summary>

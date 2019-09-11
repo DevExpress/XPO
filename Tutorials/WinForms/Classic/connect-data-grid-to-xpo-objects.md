@@ -14,7 +14,7 @@
 * Select the `gridView1` component in the **Properties** window and rename it to **CustomersGridView**.
 * Change the `CustomersGridView.OptionsBehavior.Editable` property to `False`.
 * Drag the **Oid** grid column down and release it when the cross icon appears.
-    > Do not delete this column from the [Columns](https://docs.devexpress.com/WindowsForms/DevExpress.XtraGrid.Views.Base.ColumnView.Columns) collection. It is required to retrieve record indentifiers using the [GetRowCellValue](https://docs.devexpress.com/WindowsForms/DevExpress.XtraGrid.Views.Grid.GridView.GetRowCellValue.overloads) method.
+    > Do not delete this column from the [Columns](https://docs.devexpress.com/WindowsForms/DevExpress.XtraGrid.Views.Base.ColumnView.Columns) collection. It holds object keys required to show the Edit Form or delete an object.
 * Save changes. 
 * Double click the Form header to add the `Form1_Load` event handler or use the **Properties** window to add it.
 * Put this code in the auto-generated `Form1_Load` method:
