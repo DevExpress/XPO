@@ -97,7 +97,7 @@
 * Use the Visual Studio **Refactor** tool to rename the `Form1_Load` event handler to `CustomersListForm_Load`. To do this, put the cursor at the method name and click the **Edit > Refactor > Rename** menu item or use **Ctrl+R,Ctrl+R**.   
 * Run the application, open the edit Form, change something, and click the **Save** button.
 ## Handle concurrent changes
->You can skip this part if you are using [InMemoryDataStore](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore) or an embedded database.
+>You can skip this part if you use [InMemoryDataStore](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore) or an embedded database.
 ### Test with multiple users 
 * Build the project and open the output folder (*bin\Debug*) in the file manager. Locate the application executable file and run two application instances.
 * Double click a record in one window to open the edit dialog, and double click the same record in another window.
