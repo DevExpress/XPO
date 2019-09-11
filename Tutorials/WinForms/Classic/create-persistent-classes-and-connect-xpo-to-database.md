@@ -44,7 +44,7 @@
     }
     ```
 * Add the [PersistentAlias](https://docs.devexpress.com/XPO/DevExpress.Xpo.PersistentAliasAttribute) attribute to the `ContactName` property. 
-  >The [PersistentAlias](https://docs.devexpress.com/XPO/DevExpress.Xpo.PersistentAliasAttribute) attribute specifies an expression that substitutes for the property name in a SQL query. The expression passed to the attribute constructor should follow the [Criteria Language Syntax](https://docs.devexpress.com/CoreLibraries/4928/devexpress-data-library/criteria-language-syntax). 
+  >The [PersistentAlias](https://docs.devexpress.com/XPO/DevExpress.Xpo.PersistentAliasAttribute) attribute specifies an expression that XPO should use instead of the property name in a SQL query. Use [Criteria Language](https://docs.devexpress.com/CoreLibraries/4928/devexpress-data-library/criteria-language-syntax) to build the expression. 
     ```csharp
     [PersistentAlias("concat(FirstName, ' ', LastName)")]
     public string ContactName {
