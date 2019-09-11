@@ -119,7 +119,7 @@
             UnitOfWork.CommitChanges();
             Close();
         } catch (LockingException) {
-            XtraMessageBox.Show(this, "The record was modified or deleted by another user. Please click the Reload button and try again.", "XPO Tutorial", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            XtraMessageBox.Show(this, "The record was modified or deleted. Click Reload and try again.", "XPO Tutorial", MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
     }
     ```
