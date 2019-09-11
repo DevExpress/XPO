@@ -160,7 +160,7 @@
         Session.Delete(focusedObject);
     }
     ```
-* Run the application and try to delete a record to see the result.
+* Run the application and try to delete a record.
 
 [Step 2 <<](/connect-data-grid-to-xpo-objects.md) 
 &nbsp;&nbsp;&nbsp;
