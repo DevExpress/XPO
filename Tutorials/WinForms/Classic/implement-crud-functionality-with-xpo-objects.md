@@ -141,7 +141,7 @@
     ```csharp
     CustomerID = ((Customer)CustomerBindingSource.DataSource).Oid;
     ```
-  * Run the application, click the New button, fill editors, and click the **Save** button to see the result.
+  * Run the application, click the New button, fill editors, and click the **Save** button.
 ## Delete a selected record
   * Open the `CustomersListForm` and add the **Delete (btnDelete)** button to the `RibbonControl`.
   * Double-click the **Delete** button to add the event handler.
