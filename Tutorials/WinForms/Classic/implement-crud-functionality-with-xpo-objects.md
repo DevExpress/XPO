@@ -9,7 +9,9 @@
 ## Edit an object in a separate window and save changes
 * Create the *Forms* folder and invoke the context menu for it in the **Solution Explorer**. 
 * Click the **Add DevExpress Item**  to open the **DevExpress Template Gallery** window. 
-* In the **WinForms** tab page, select the **WinForms Common > Form** item and change the **Item Name** to **EditCustomerForm**. 
+* Select the **WinForms** category.
+* Switch to the **WinForms Common > Form** page.
+* Set the **Item Name** property to **EditCustomerForm**. 
 * Click the **Add Item** button to open a new Form in a visual designer.
 *  Set the Form's `Text` property to **Edit Customer**.
 * Move the *Form1.cs* file to the *Forms* folder and rename it to *CustomersListForm.cs*. 
@@ -20,8 +22,9 @@
 * Set the `CustomerBindingSource.DisplayableProperties` property to **FirstName;LastName**.
 * Set the `CustomerLayoutControl.Dock` property to **Fill**.
 * Select the `CustomerLayoutControl` component on the design surface.
-* Click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph. If the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph is not visible, press **Esc** several times to navigate from the selected `LayoutGroup` to the `LayoutControl`.
-* Select the **Retrieve Fields** item to open the **Select Binding Source** wizard.
+* Click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph.
+  >If the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph is not visible, press **Esc** several times to navigate from the selected `LayoutGroup` to the `LayoutControl`.
+* Click the **Retrieve Fields** menu item to open the **Select Binding Source** wizard.
 * Change the **Data Source Update Mode** property value to **OnPropertyChanged** and click the **Next** button.
 * The **Manage Data Bindings** screen displays a list of available properties. Choose the **First Name** and **Last Name** properties, click the **Finish** button, and save the changes.
 * Open the code editor and overload the constructor to accept a nullable integer value (a database record's identifier).
@@ -126,7 +129,7 @@
 ## Create a new record
   * Open the `CustomersListForm` in the designer.
   * Click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph.
-  * Select the **Convert to RibbonForm** menu item.
+  * Click the **Convert to RibbonForm** menu item.
   * Change the `ribbonPage1` text to **Home**.
   * Change the `ribbonPageGroup1` text to **Edit**.
   * Delete the `ribbonPageGroup2`.

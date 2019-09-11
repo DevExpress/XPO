@@ -15,8 +15,9 @@
 * Rename the `CustomerLayoutControl` component to **OrderLayoutControl**.
 * Rebuild the project.
 * Select the `OrderLayoutControl` component on the design surface. 
-* Click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph. If the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph is not visible, press **Esc** several times to navigate from the selected `LayoutGroup` to the `LayoutControl`.
-* Select the **Retrieve Fields** item to open the **Select Binding Source** wizard.
+* Click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph.
+  >If the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph is not visible, press **Esc** several times to navigate from the selected `LayoutGroup` to the `LayoutControl`.
+* Click the **Retrieve Fields** item to open the **Select Binding Source** wizard.
 * Click the **Next** button and select the following properties and editors on the **Manage Data Bindings** screen:
     * ProductName, TextEdit
     * OrderDate, DateEdit
@@ -86,7 +87,7 @@
 * Press **Ctrl+V** to create a copy of a CustomersListForm copy and rename it to **OrdersListForm**.
 * Change the class and constructor name to **OrdersListForm**.
 * Open the `OrdersListForm` designer and change the `Text` property to **Orders**.
-* Select the **Events** tab page in the **Properties** window, right-click the `OrdersListForm.Load` event to invoke the context menu, and select the **Reset** menu item.
+* Select the **Events** page in the **Properties** window, right-click the `OrdersListForm.Load` event to invoke the context menu, and click the **Reset** menu item.
 * Add the [XPInstantFeedbackView](https://docs.devexpress.com/XPO/DevExpress.Xpo.XPInstantFeedbackView) component from the toolbox. Change its name to **OrdersInstantFeedbackView**. 
   > The [XPInstantFeedbackView](https://docs.devexpress.com/XPO/DevExpress.Xpo.XPInstantFeedbackView) component improves performance when working with large tables. Refer to the [Large Data Sources: Server and Instant Feedback Modes](https://docs.devexpress.com/WindowsForms/8398/controls-and-libraries/data-grid/data-binding/large-data-sources-server-and-instant-feedback-modes) article for additional details.
 * Rebuild the project and set the `OrdersInstantFeedbackView.ObjectType` property to **DxSample.DataAccess.Order**.
@@ -99,9 +100,9 @@
 * Change the `CustomersGridControl` name to **OrdersGridControl** and do the same for `CustomersGridView`.
 * Set the `OrdersGridControl.DataSource` property to **OrdersInstantFeedbackView**.
 * Select the `OrdersGridControl` control and click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph. 
-* Select the **Run Designer** menu item.
-* Select the **Columns** item in the navigation panel and click the **Retrieve Fields** button in the toolbar.
-* Select the **Layout** item in the navigation panel, drag the **Oid** grid column down, and release it when the cross icon appears. 
+* Click the **Run Designer** menu item.
+* Switch to the **Columns** page and click the **Retrieve Fields** button in the toolbar.
+* Switch to the **Layout** page, drag the **Oid** grid column down, and release it when the cross icon appears. 
   > Do not delete this column from the [Columns](https://docs.devexpress.com/WindowsForms/DevExpress.XtraGrid.Views.Base.ColumnView.Columns) collection. It stores object keys required to show the Edit Form or delete an object. 
 * Click **Apply**, close the designer, and save the changes.
 * Open the code editor and change the code as follows:
@@ -169,9 +170,11 @@
     }
     ```
 ## Create the navigation container Form
-* Right-click the project item in the **Solution Explorer** to invoke the context menu and select the **Add DevExpress Item > New Item** menu item.
-* In the **DevExpress Template Gallery** window, select the **WinForms** tab and click the **WinForms Popular UIs > UI-ready Form** item in the navigation control.
-* In the **Settings** section, select the **Tabbed MDI** UI Type, select the **Navigation Container** View Type, and change the **Item Name** to **MainForm**.
+* Right-click the project item in the **Solution Explorer** to invoke the context menu and click the **Add DevExpress Item > New Item** menu item.
+* In the **DevExpress Template Gallery** window, select the **WinForms** category and switch to the **WinForms Popular UIs > UI-ready Form** page.
+* Set the **UI Type** property to **Tabbed MDI**.
+* Set the **View Tyepe** property to **Navigation Container**.
+* Set the **Item Name** property to **MainForm**.
 * Open the `MainForm` designer.
 * Set the `MainForm.Text` property to **XPO Tutorial**.
 * Set the `employeesAccordionControlElement.Name` property to **ordersAccordionControlElement**.
@@ -281,7 +284,7 @@
       Application.Run(new MainForm());
       ```
 * For VB.NET projects. 
-    * Right-click the project item in the **Solution Explorer** window to invoke the context menu and select the **Properties** menu item (or use **Alt+Enter**). In the **Properties** window, select the **Application** page and change the **Startup Form** property to `MainForm`.
+    * Right-click the project item in the **Solution Explorer** window to invoke the context menu and click the **Properties** menu item (or use **Alt+Enter**). In the **Properties** window, switch to the **Application** page and change the **Startup Form** property to `MainForm`.
     * Open the `CustomersListForm` code, cut the `ConnectionHelper` and `DemoDataHelper` code, and paste it in the `MainForm` constructor.
         ```vbnet
         Public Sub New()
