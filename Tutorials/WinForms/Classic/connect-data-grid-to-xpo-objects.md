@@ -25,7 +25,7 @@
         CustomersBindingSource.DataSource = new XPCollection<Customer>(new Session());
     }
     ```
-* Press the **F5** key to run the application and see the result.
+* Press the **F5** key to run the application.
 
 [Step 1 <<](/create-persistent-classes-and-connect-xpo-to-database.md) 
 &nbsp;&nbsp;&nbsp;
