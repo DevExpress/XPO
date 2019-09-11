@@ -137,7 +137,7 @@
   * Change the method name to **ShowEditForm**.
   * Change the `customerID` parameter type to `int?`.
   * Call the `ShowEditForm` method in the `btnNew_ItemClick` event handler and pass the `null` value as a parameter.
-  * A new object initially does not have an identifier. XPO assigns a value to it from the auto-incremented key column when a new object is saved to the database. Open the `EditCustomerForm` code and add the following line to the `btnSave_Click` method after the `CommitChanges` method call:
+  * A new object does not have an identifier initially - XPO assigns a value to it from the auto-incremented key column when a new object is saved to the database. Open the `EditCustomerForm` code and add the following line to the `btnSave_Click` method after the `CommitChanges` method call:
     ```csharp
     CustomerID = ((Customer)CustomerBindingSource.DataSource).Oid;
     ```
