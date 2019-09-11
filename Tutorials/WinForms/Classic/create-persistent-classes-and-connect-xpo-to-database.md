@@ -90,7 +90,7 @@
         <add name="XpoTutorial" connectionString="XpoProvider=InMemoryDataStore"/>
     </connectionStrings>
     ```
-    >The [InMemoryDataStore](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore) provider is for demo and testing purposes. You can use your database server or an embedded database (for example, [SQLite](https://www.sqlite.org/index.html)). XPO supports 14 database engines. Refer to the following articles for details:\
+    >The [InMemoryDataStore](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore) provider is for demo and testing purposes. You can use your database server or an embedded database (for example, [SQLite](https://www.sqlite.org/index.html)). XPO supports 14 database engines. Refer to the following articles for more information:\
     >[Database Systems Supported by XPO](https://docs.devexpress.com/XPO/2114/Fundamentals/Database-Systems-Supported-by-XPO)\
     >[K18445 - How to create a correct connection string for XPO providers](https://www.devexpress.com/Support/Center/Question/Details/K18445)
 * To populate the database with the demo data, add the [DemoDataHelper.cs](/Tutorials/WinForms/Classic/CS/DataAccess/DemoDataHelper.cs) file to your project and put the following code after the `ConnectionHelper.Connect` method call.
