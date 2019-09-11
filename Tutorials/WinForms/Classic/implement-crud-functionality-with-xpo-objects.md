@@ -62,7 +62,7 @@
         }
     }
     ```
-* Press the **F5** key to run the application, double-click a `GridView` record, and see the result.
+* Press **F5** to run the application and double-click a `GridView` record.
 * Close both windows and open the `EditCustomerForm` designer.
 * Select `LayoutControl` and add `SimpleButton` from Toolbox. Add `EmptySpaceItem` elements to adjust the button position and size.
 * Rename the `simpleButton1` control to **btnSave** and set its `Text` property to **&Save** (the ampersand sign assigns a mnemonic command to the button).
