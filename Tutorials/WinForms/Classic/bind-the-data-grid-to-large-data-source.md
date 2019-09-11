@@ -17,7 +17,7 @@
 * Select the `OrderLayoutControl` component on the design surface. 
 * Click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph. If the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph is not visible, press **Esc** several times to navigate from the selected `LayoutGroup` to the `LayoutControl`.
 * Select the **Retrieve Fields** item to open the **Select Binding Source** wizard.
-* Click the **Next** button and choose these properties and editors on the **Manage Data Bindings** screen:
+* Click the **Next** button and select the following properties and editors on the **Manage Data Bindings** screen:
     * ProductName, TextEdit
     * OrderDate, DateEdit
     * Freight, CalcEdit
