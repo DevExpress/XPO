@@ -11,7 +11,7 @@
 * Open the `EditOrderForm` designer and change the `Text` property to **Edit Order**.
 * Rename the `CustomerBindingSource` component to **OrderBindingSource**.
 * Rebuild the project and set the `OrderBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Order**.
-* Set the `OrderBindingSource.DisplayableProperties` property to **ProductName;OrderDate;Freight;Customer!Key**. The last property name (**Customer!Key** is a [virtual property](https://docs.devexpress.com/XPO/3113/concepts/property-descriptors) designed for LookUp editors; see also: [How to: Bind an XPCollection to a LookUp](https://docs.devexpress.com/XPO/2000/examples/how-to-bind-an-xpcollection-to-a-lookup)).
+* Set the `OrderBindingSource.DisplayableProperties` property to **ProductName;OrderDate;Freight;Customer!Key**. The last property name (**Customer!Key** is a [virtual property](https://docs.devexpress.com/XPO/3113/concepts/property-descriptors) designed for LookUp editors. See also: [How to: Bind an XPCollection to a LookUp](https://docs.devexpress.com/XPO/2000/examples/how-to-bind-an-xpcollection-to-a-lookup)).
 * Rename the `CustomerLayoutControl` component to **OrderLayoutControl**.
 * Rebuild the project.
 * Select the `OrderLayoutControl` component on the design surface. 
