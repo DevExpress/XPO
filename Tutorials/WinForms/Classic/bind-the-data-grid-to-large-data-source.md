@@ -27,7 +27,7 @@
 * Rebuild the project.
 * Set the `CustomersBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Customer**.
 * Set the `CustomersBindingSource.DisplayableProperties` property to **Oid;ContactName**.
-* Select the `lookUpEdit1` editor placed near the **Customer** label and click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph. 
+* Select the `lookUpEdit1` editor and click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph. 
 * Click the **Data Source** item to open the drop-down list and select the `CustomersBindingSource` component under the **Other Data Sources > EditOrderForm List Instances** node. 
 * Select the **ContactName** and **Oid** properties as the **Display Member** and **Value Member** if they were not selected automatically.
 * Open the code editor and change the code as follows:
