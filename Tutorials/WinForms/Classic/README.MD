@@ -14,7 +14,7 @@ This tutorial explains how to create a simple XPO-based CRUD application. The de
 
 * [Visual Studio 2017 or 2019](https://visualstudio.microsoft.com/vs/).
 * [Unified Installer for .NET and HTML5 Developers](https://www.devexpress.com/Products/Try/).
-* Basic C# (VB.NET) and WinForms knowledge. If you are new to WinForms, refer to the Microsoft tutorials:   
+* Basic C# (VB.NET) and WinForms knowledge. If you are new to WinForms, refer to the following Microsoft tutorials:   
   [Tutorial 1: Create a picture viewer (C#)](https://docs.microsoft.com/en-us/visualstudio/ide/tutorial-1-create-a-picture-viewer)   
   [Create a Windows Forms app in Visual Studio with Visual Basic](https://docs.microsoft.com/en-us/visualstudio/ide/create-a-visual-basic-winform-in-visual-studio)  
 
