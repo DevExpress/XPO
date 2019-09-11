@@ -271,7 +271,7 @@
     </details>
 
 * For C# projects. 
-    * Open the **Program.cs** file, and change this line
+    * Open the **Program.cs** file, and change 
       ```csharp
       Application.Run(new CustomersListForm());
       ```
