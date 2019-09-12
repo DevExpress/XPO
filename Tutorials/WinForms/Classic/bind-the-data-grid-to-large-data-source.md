@@ -90,7 +90,7 @@
 * Select the **Events** page in the **Properties** window.
 * Right-click the `OrdersListForm.Load` event to open the context menu.
 * Click the **Reset** menu item.
-* Add the [XPInstantFeedbackView](https://docs.devexpress.com/XPO/DevExpress.Xpo.XPInstantFeedbackView) component from the toolbox. Change its name to **OrdersInstantFeedbackView**. 
+* Add the [XPInstantFeedbackView](https://docs.devexpress.com/XPO/DevExpress.Xpo.XPInstantFeedbackView) component from the Toolbox. Change its name to **OrdersInstantFeedbackView**. 
   > The [XPInstantFeedbackView](https://docs.devexpress.com/XPO/DevExpress.Xpo.XPInstantFeedbackView) component improves performance when working with large tables. Refer to the [Large Data Sources: Server and Instant Feedback Modes](https://docs.devexpress.com/WindowsForms/8398/controls-and-libraries/data-grid/data-binding/large-data-sources-server-and-instant-feedback-modes) article for for information.
 * Rebuild the project and set the `OrdersInstantFeedbackView.ObjectType` property to **DxSample.DataAccess.Order**.
 * Select the **Properties** property and click the ellipsis button to add the following properties:

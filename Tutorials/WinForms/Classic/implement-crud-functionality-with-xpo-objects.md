@@ -68,7 +68,7 @@
     ```
 * Press **F5** to run the application and double-click a `GridView` record.
 * Close both windows and open the `EditCustomerForm` designer.
-* Select `LayoutControl` and add `SimpleButton` from Toolbox. Add `EmptySpaceItem` elements to adjust the button position and size.
+* Select `LayoutControl` and add `SimpleButton` from the Toolbox. Add `EmptySpaceItem` elements to adjust the button position and size.
 * Rename the `simpleButton1` control to **btnSave** and set its `Text` property to **&Save** (the ampersand sign assigns a mnemonic command to the button).
 * Double click the `btnSave` control to add the `Click` event handler (you can use the **Properties** window to add it).
 * Add this code to the `btnSave_Click` event handler:
@@ -108,7 +108,7 @@
 * Type something and save changes in each window. The first application saves changes successfully, but the second fails with the following error message: *"Cannot persist the object. It was modified or deleted (purged) by another application"*.
 ### Handle the exception and reload an object
 * Open the `EditCustomerForm` designer.
-* Select the [LayoutControl](https://docs.devexpress.com/WindowsForms/DevExpress.XtraLayout.LayoutControl) component and add the [SimpleButton](https://docs.devexpress.com/WindowsForms/DevExpress.XtraEditors.SimpleButton) control from Toolbox.
+* Select the [LayoutControl](https://docs.devexpress.com/WindowsForms/DevExpress.XtraLayout.LayoutControl) component and add the [SimpleButton](https://docs.devexpress.com/WindowsForms/DevExpress.XtraEditors.SimpleButton) control from the Toolbox.
 * Adjust buttons' positions and sizes.
 * Rename the `simpleButton1` control to **btnReload** and set the `Text` property to **&Reload**.
 * Double click the `btnReload` control to add the `Click` event handler (you can use the **Properties** window to add it).
