@@ -72,7 +72,7 @@
 * Add the ([ConnectionHelper.cs](/Tutorials/WinForms/Classic/CS/DataAccess/ConnectionHelper.cs)) file to your project. 
   >This code initializes the [Data Access Layer](https://docs.devexpress.com/XPO/2121/Feature-Center/Connecting-to-a-Data-Store/Data-Access-Layer). Refer to the following article for more information: [Connecting to a Data Store](https://docs.devexpress.com/XPO/2020/feature-center/connecting-to-a-data-store).
 * Open the *Program.cs* file and add the `ConnectionHelper.Connect` method call to the `Main` method.
-  >Visual Studio does not create the *Program.vb* file in a VB.NET project, use the `Form1` class constructor, instead.
+  >Visual Studio does not create the *Program.vb* file in a VB.NET project. You can add this code to the `Form1` class constructor before the `InitializeComponent` method.
     ```csharp
     [STAThread]
     static void Main() {
