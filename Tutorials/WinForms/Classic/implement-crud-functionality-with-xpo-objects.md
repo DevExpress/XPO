@@ -8,7 +8,7 @@
 
 ## Edit an object in a separate window and save changes
 * Create the *Forms* folder
-* Rigt-click the *Forms* folder in the **Solution Explorer** to open the context menu.
+* Right-click the *Forms* folder in the **Solution Explorer** to open the context menu.
 * Click the **Add DevExpress Item** menu item to open the **DevExpress Template Gallery** window. 
 * Select the **WinForms** category.
 * Switch to the **WinForms Common > Form** page.
