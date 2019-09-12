@@ -68,7 +68,7 @@
     ```
 * Press **F5** to run the application and double-click a `GridView` record.
 * Close both windows and open the `EditCustomerForm` designer.
-* Select `LayoutControl` and add `SimpleButton` from the Toolbox. Add `EmptySpaceItem` elements to adjust the button position and size.
+* Select `LayoutControl` and add `SimpleButton` from the Toolbox. Add `EmptySpaceItem` elements to adjust the button's position and size.
 * Rename the `simpleButton1` control to **btnSave** and set its `Text` property to **&Save** (the ampersand sign assigns a mnemonic command to the button).
 * Double click the `btnSave` control to add the `Click` event handler (you can use the **Properties** window to add it).
 * Add this code to the `btnSave_Click` event handler:
