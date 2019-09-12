@@ -7,8 +7,9 @@
 [>> Step 4](/bind-the-data-grid-to-large-data-source.md)   
 
 ## Edit an object in a separate window and save changes
-* Create the *Forms* folder and invoke the context menu for it in the **Solution Explorer**. 
-* Click the **Add DevExpress Item**  to open the **DevExpress Template Gallery** window. 
+* Create the *Forms* folder
+* Rigt-click the *Forms* folder in the **Solution Explorer** to open the context menu.
+* Click the **Add DevExpress Item** menu item to open the **DevExpress Template Gallery** window. 
 * Select the **WinForms** category.
 * Switch to the **WinForms Common > Form** page.
 * Set the **Item Name** property to **EditCustomerForm**. 

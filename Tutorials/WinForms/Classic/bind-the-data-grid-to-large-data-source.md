@@ -87,7 +87,9 @@
 * Press **Ctrl+V** to create a copy of a CustomersListForm copy and rename it to **OrdersListForm**.
 * Change the class and constructor name to **OrdersListForm**.
 * Open the `OrdersListForm` designer and change the `Text` property to **Orders**.
-* Select the **Events** page in the **Properties** window, right-click the `OrdersListForm.Load` event to invoke the context menu, and click the **Reset** menu item.
+* Select the **Events** page in the **Properties** window.
+* Right-click the `OrdersListForm.Load` event to open the context menu.
+* Click the **Reset** menu item.
 * Add the [XPInstantFeedbackView](https://docs.devexpress.com/XPO/DevExpress.Xpo.XPInstantFeedbackView) component from the toolbox. Change its name to **OrdersInstantFeedbackView**. 
   > The [XPInstantFeedbackView](https://docs.devexpress.com/XPO/DevExpress.Xpo.XPInstantFeedbackView) component improves performance when working with large tables. Refer to the [Large Data Sources: Server and Instant Feedback Modes](https://docs.devexpress.com/WindowsForms/8398/controls-and-libraries/data-grid/data-binding/large-data-sources-server-and-instant-feedback-modes) article for for information.
 * Rebuild the project and set the `OrdersInstantFeedbackView.ObjectType` property to **DxSample.DataAccess.Order**.
@@ -170,7 +172,8 @@
     }
     ```
 ## Create the navigation container Form
-* Right-click the project item in the **Solution Explorer** to invoke the context menu and click the **Add DevExpress Item > New Item** menu item.
+* Right-click the project item in the **Solution Explorer** to open the context menu.
+* Click the **Add DevExpress Item > New Item** menu item.
 * In the **DevExpress Template Gallery** window, select the **WinForms** category and switch to the **WinForms Popular UIs > UI-ready Form** page.
 * Set the **UI Type** property to **Tabbed MDI**.
 * Set the **View Tyepe** property to **Navigation Container**.
@@ -284,7 +287,10 @@
       Application.Run(new MainForm());
       ```
 * For VB.NET projects. 
-    * Right-click the project item in the **Solution Explorer** window to invoke the context menu and click the **Properties** menu item (or use **Alt+Enter**). In the **Properties** window, switch to the **Application** page and change the **Startup Form** property to `MainForm`.
+    * Right-click the project item in the **Solution Explorer** window to open the context menu.
+    * Click the **Properties** menu item (or use **Alt+Enter**). 
+    * In the **Properties** window, switch to the **Application** page.
+    * Set the **Startup Form** property to **MainForm**.
     * Open the `CustomersListForm` code, cut the `ConnectionHelper` and `DemoDataHelper` code, and paste it in the `MainForm` constructor.
         ```vbnet
         Public Sub New()
