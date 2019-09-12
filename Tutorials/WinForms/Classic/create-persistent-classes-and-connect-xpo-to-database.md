@@ -70,7 +70,7 @@
     ```
 * Add a reference to the **System.Configuration** assembly. This assembly contains classes used to access connection string settings from the application's configuration file [Connection Strings and Configuration Files](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/connection-strings-and-configuration-files).
 * Add the ([ConnectionHelper.cs](/Tutorials/WinForms/Classic/CS/DataAccess/ConnectionHelper.cs)) file to your project. 
-  >This code can be used without modifications in a real application. Refer to the following article for additional details: [Connecting to a Data Store](https://docs.devexpress.com/XPO/2020/feature-center/connecting-to-a-data-store).
+  >This code initializes the [Data Access Layer](https://docs.devexpress.com/XPO/2121/Feature-Center/Connecting-to-a-Data-Store/Data-Access-Layer). Refer to the following article for more information: [Connecting to a Data Store](https://docs.devexpress.com/XPO/2020/feature-center/connecting-to-a-data-store).
 * Open the *Program.cs* file and add the `ConnectionHelper.Connect` method call to the `Main` method.
   >Visual Studio does not create the *Program.vb* file in a VB.NET project, use the `Form1` class constructor, instead.
     ```csharp
