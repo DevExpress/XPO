@@ -149,7 +149,9 @@
 ## Delete a selected record
   * Open the `CustomersListForm` and add the **Delete (btnDelete)** button to the `RibbonControl`.
   * Double-click the **Delete** button to add the event handler.
-  * Change the `Reload` method to make the `Session` instance available in the class scope:
+    >Note: You cannot use the [Session.Delete](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.Delete(System.Object)) method with an object that belongs to a different [Session](https://docs.devexpress.com/XPO/2022/Feature-Center/Connecting-to-a-Data-Store/Session). 
+  * Add the `Session` property to the `CustomerListForm` class.
+  * Change the `Reload` method to use the `Session` property instead of a local variable:
     ```csharp
     protected Session Session { get; private set; }
     private void Reload() {
