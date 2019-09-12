@@ -51,9 +51,7 @@
         get { return string.Concat(FirstName, " ", LastName); }
     }
     ```
-* Use the same approach to add the `Order` class with the `ProductName`(String), `OrderDate`(DateTime), and `Freight`(decimal) properties. The complete code is available here:  
-  [Order.cs](/Tutorials/WinForms/Classic/CS/DataAccess/Order.cs)  
-  [Order.vb](/Tutorials/WinForms/Classic/VB/DataAccess/Order.vb)
+* Use the same approach to add the `Order` class with the `ProductName`(String), `OrderDate`(DateTime), and `Freight`(decimal) properties. The complete code is available here: [Order.cs](/Tutorials/WinForms/Classic/CS/DataAccess/Order.cs)  
 * Add the `Orders` and `Customer` properties to create a [relationship](https://docs.devexpress.com/XPO/2041/concepts/relationships-between-objects) between the **Customer** and **Order** classes.
     ```csharp
     // Customer.cs
@@ -71,7 +69,7 @@
     }
     ```
 * Add a reference to the **System.Configuration** assembly. This assembly contains classes used to access connection string settings from the application's configuration file [Connection Strings and Configuration Files](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/connection-strings-and-configuration-files).
-* Add the *ConnectionHelper.cs* file, copy code from the example ([ConnectionHelper.cs](/Tutorials/WinForms/Classic/CS/DataAccess/ConnectionHelper.cs)), and paste it to a new file. 
+* Add the ([ConnectionHelper.cs](/Tutorials/WinForms/Classic/CS/DataAccess/ConnectionHelper.cs)) file to your project. 
   >This code can be used without modifications in a real application. Refer to the following article for additional details: [Connecting to a Data Store](https://docs.devexpress.com/XPO/2020/feature-center/connecting-to-a-data-store).
 * Open the *Program.cs* file and add the `ConnectionHelper.Connect` method call to the `Main` method.
   >Visual Studio does not create the *Program.vb* file in a VB.NET project, use the `Form1` class constructor, instead.
