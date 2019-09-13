@@ -30,8 +30,8 @@ Namespace XpoTutorial
 				SetPropertyValue(NameOf(OrderDate), fOrderDate, value)
 			End Set
 		End Property
-		Private fFreight Decimal
-		Public Property Freight() As Decimal?
+        Private fFreight As Decimal?
+        Public Property Freight() As Decimal?
 			Get
 				Return fFreight
 			End Get

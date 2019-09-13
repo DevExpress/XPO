@@ -79,8 +79,8 @@ Namespace WpfApplication.Wrappers
 
 		Public Sub DeleteSelectedOrder()
 			If SelectedOrder IsNot Nothing Then
-				unitOfWork.Delete(selectedOrder_Renamed)
-			End If
+                unitOfWork.Delete(SelectedOrder)
+            End If
 		End Sub
 
 		Public Async Function ReloadAsync() As Task

@@ -32,8 +32,8 @@ Namespace WpfApplication.Wrappers
 
 		Public Async Function DeleteSelectedCustomerAsync() As Task
 			If SelectedCustomer IsNot Nothing Then
-				unitOfWork.Delete(selectedCustomer_Renamed)
-				Await unitOfWork.CommitChangesAsync()
+                unitOfWork.Delete(SelectedCustomer)
+                Await unitOfWork.CommitChangesAsync()
 				Await ReloadAsync()
 			End If
 		End Function

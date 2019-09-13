@@ -77,7 +77,7 @@ namespace WpfApplication.Wrappers {
 
         public void DeleteSelectedOrder() {
             if(SelectedOrder != null) {
-                unitOfWork.Delete(selectedOrder);
+                unitOfWork.Delete(SelectedOrder);
             }
         }
 
