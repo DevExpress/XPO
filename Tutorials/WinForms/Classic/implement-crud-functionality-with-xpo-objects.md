@@ -78,7 +78,7 @@
         Close();
     }
     ```
-* The [UnitOfwork.CommitChanges](https://docs.devexpress.com/XPO/DevExpress.Xpo.UnitOfWork.CommitChanges) method saves changes to the database. To refresh the CustomersList Form, change code in the `CustomersGridView_RowClick` method as follows: 
+* The [UnitOfwork.CommitChanges](https://docs.devexpress.com/XPO/DevExpress.Xpo.UnitOfWork.CommitChanges) method saves changes to the database. To refresh the CustomersList Form, change the code in the `CustomersGridView_RowClick` method as follows: 
     ```csharp
     private void Form1_Load(object sender, EventArgs e) {
         Reload();
