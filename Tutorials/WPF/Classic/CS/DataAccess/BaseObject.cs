@@ -13,7 +13,7 @@ namespace XpoTutorial {
         int fOid;
         [PersistentAlias("fOid")]
         public int Oid {
-            get { fOid; }
+            get { return fOid; }
         }
     }
 }

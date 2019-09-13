@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace WpfApplication.Wrappers {
 
-    pubilc class OrderEditWrapper : INotifyPropertyChanged {
+    public class OrderEditWrapper : INotifyPropertyChanged {
         public OrderEditWrapper(Order order) {
             Order = order;
             ((IEditableObject)order).BeginEdit();

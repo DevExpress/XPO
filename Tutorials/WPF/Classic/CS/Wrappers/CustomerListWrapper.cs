@@ -31,7 +31,7 @@ namespace WpfApplication.Wrappers {
 
         public async Task DeleteSelectedCustomerAsync() {
             if(SelectedCustomer != null) {
-                unitOfWork.Delete(selectedCustomer);
+                unitOfWork.Delete(SelectedCustomer);
                 await unitOfWork.CommitChangesAsync();
                 await ReloadAsync();
             }
