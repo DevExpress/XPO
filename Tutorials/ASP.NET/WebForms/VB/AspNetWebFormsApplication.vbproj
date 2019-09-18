@@ -130,18 +130,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\WinForms\Classic\VB\DataAccess\ConnectionHelper.vb">
-      <Link>App_Code\DataAccess\ConnectionHelper.vb</Link>
-    </Compile>
-    <Compile Include="..\..\..\WinForms\Classic\VB\DataAccess\Customer.vb">
-      <Link>App_Code\DataAccess\Customer.vb</Link>
-    </Compile>
-    <Compile Include="..\..\..\WinForms\Classic\VB\DataAccess\DemoDataHelper.vb">
-      <Link>App_Code\DataAccess\DemoDataHelper.vb</Link>
-    </Compile>
-    <Compile Include="..\..\..\WinForms\Classic\VB\DataAccess\Order.vb">
-      <Link>App_Code\DataAccess\Order.vb</Link>
-    </Compile>
+    <Compile Include="DataAccess\ConnectionHelper.vb" />
+    <Compile Include="DataAccess\Customer.vb" />
+    <Compile Include="DataAccess\DemoDataHelper.vb" />
+    <Compile Include="DataAccess\Order.vb" />
     <Compile Include="Default.aspx.vb">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -163,6 +155,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

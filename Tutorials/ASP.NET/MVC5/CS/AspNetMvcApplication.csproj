@@ -150,18 +150,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\WinForms\Classic\CS\DataAccess\ConnectionHelper.cs">
-      <Link>DataAccess\ConnectionHelper.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\WinForms\Classic\CS\DataAccess\Customer.cs">
-      <Link>DataAccess\Customer.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\WinForms\Classic\CS\DataAccess\DemoDataHelper.cs">
-      <Link>DataAccess\DemoDataHelper.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\WinForms\Classic\CS\DataAccess\Order.cs">
-      <Link>DataAccess\Order.cs</Link>
-    </Compile>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -169,6 +157,10 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DataAccess\ConnectionHelper.cs" />
+    <Compile Include="DataAccess\Customer.cs" />
+    <Compile Include="DataAccess\DemoDataHelper.cs" />
+    <Compile Include="DataAccess\Order.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

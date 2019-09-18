@@ -96,18 +96,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="..\..\..\WinForms\Classic\VB\DataAccess\ConnectionHelper.vb">
-      <Link>DataAccess\ConnectionHelper.vb</Link>
-    </Compile>
-    <Compile Include="..\..\..\WinForms\Classic\VB\DataAccess\Customer.vb">
-      <Link>DataAccess\Customer.vb</Link>
-    </Compile>
-    <Compile Include="..\..\..\WinForms\Classic\VB\DataAccess\DemoDataHelper.vb">
-      <Link>DataAccess\DemoDataHelper.vb</Link>
-    </Compile>
-    <Compile Include="..\..\..\WinForms\Classic\VB\DataAccess\Order.vb">
-      <Link>DataAccess\Order.vb</Link>
-    </Compile>
+    <Compile Include="DataAccess\BaseObject.vb" />
+    <Compile Include="DataAccess\ConnectionHelper.vb" />
+    <Compile Include="DataAccess\Customer.vb" />
+    <Compile Include="DataAccess\DemoDataHelper.vb" />
+    <Compile Include="DataAccess\Order.vb" />
     <Compile Include="Services\InstantFeedbackService.vb" />
     <Compile Include="ViewModels\CustomerListViewModel.vb" />
     <Compile Include="ViewModels\EditCustomerViewModel.vb" />

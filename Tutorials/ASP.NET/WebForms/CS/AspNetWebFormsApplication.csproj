@@ -114,18 +114,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\WinForms\Classic\CS\DataAccess\ConnectionHelper.cs">
-      <Link>App_Code\DataAccess\ConnectionHelper.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\WinForms\Classic\CS\DataAccess\Customer.cs">
-      <Link>App_Code\DataAccess\Customer.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\WinForms\Classic\CS\DataAccess\DemoDataHelper.cs">
-      <Link>App_Code\DataAccess\DemoDataHelper.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\WinForms\Classic\CS\DataAccess\Order.cs">
-      <Link>App_Code\DataAccess\Order.cs</Link>
-    </Compile>
+    <Compile Include="DataAccess\ConnectionHelper.cs" />
+    <Compile Include="DataAccess\Customer.cs" />
+    <Compile Include="DataAccess\DemoDataHelper.cs" />
+    <Compile Include="DataAccess\Order.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -144,6 +136,9 @@
     <Compile Include="Site.master.designer.cs">
       <DependentUpon>Site.master</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
