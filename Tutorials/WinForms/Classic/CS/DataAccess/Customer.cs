@@ -4,13 +4,15 @@ namespace XpoTutorial {
 
     public class Customer : XPObject {
         public Customer(Session session) : base(session) { }
+        private string fFirstName;
         public string FirstName {
-            get { return GetPropertyValue<string>(nameof(FirstName)); }
-            set { SetPropertyValue(nameof(FirstName), value); }
+            get { return fFirstName; }
+            set { SetPropertyValue(nameof(FirstName), ref fFirstName, value); }
         }
+        private string fLastName;
         public string LastName {
-            get { return GetPropertyValue<string>(nameof(LastName)); }
-            set { SetPropertyValue(nameof(LastName), value); }
+            get { return fLastName; }
+            set { SetPropertyValue(nameof(LastName), ref fLastName, value); }
         }
         [PersistentAlias("Concat([FirstName], ' ', [LastName])")]
         public string ContactName {

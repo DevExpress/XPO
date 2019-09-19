@@ -5,22 +5,26 @@ namespace XpoTutorial {
 
     public class Order :XPObject {
         public Order(Session session) : base(session) { }
+        private string fProductName;
         public string ProductName {
-            get { return GetPropertyValue<string>(nameof(ProductName)); }
-            set { SetPropertyValue(nameof(ProductName), value); }
+            get { return fProductName; }
+            set { SetPropertyValue(nameof(ProductName), ref fProductName, value); }
         }
+        private DateTime fOrderDate;
         public DateTime OrderDate {
-            get { return GetPropertyValue<DateTime>(nameof(OrderDate)); }
-            set { SetPropertyValue(nameof(OrderDate), value); }
+            get { return fOrderDate; }
+            set { SetPropertyValue(nameof(OrderDate), ref fOrderDate, value); }
         }
+        private decimal fFreight;
         public decimal Freight {
-            get { return GetPropertyValue<decimal>(nameof(Freight)); }
-            set { SetPropertyValue(nameof(Freight), value); }
+            get { return fFreight; }
+            set { SetPropertyValue(nameof(Freight), ref fFreight, value); }
         }
+        private Customer fCustomer;
         [Association("CustomerOrders")]
         public Customer Customer {
-            get { return GetPropertyValue<Customer>(nameof(Customer)); }
-            set { SetPropertyValue(nameof(Customer), value); }
+            get { return fCustomer; }
+            set { SetPropertyValue(nameof(Customer), ref fCustomer, value); }
         }
     }
 }
