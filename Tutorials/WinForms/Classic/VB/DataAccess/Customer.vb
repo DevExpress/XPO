@@ -29,7 +29,7 @@ Namespace XpoTutorial
 		<PersistentAlias("Concat([FirstName], ' ', [LastName])")>
 		Public ReadOnly Property ContactName() As String
 			Get
-                Return String.Concat(FirstName, " ", LastName)
+                Return CType(EvaluateAlias(NameOf(ContactName)), String)
             End Get
 		End Property
 		<Association("CustomerOrders")>

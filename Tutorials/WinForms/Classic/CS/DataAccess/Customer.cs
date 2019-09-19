@@ -16,7 +16,7 @@ namespace XpoTutorial {
         }
         [PersistentAlias("Concat([FirstName], ' ', [LastName])")]
         public string ContactName {
-            get { return string.Concat(FirstName, " ", LastName); }
+            get { return (string)EvaluateAlias(nameof(ContactName)); }
         }
         [Association("CustomerOrders")]
         public XPCollection<Order> Orders {
