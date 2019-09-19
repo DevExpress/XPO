@@ -5,6 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\..\..\WinForms\Classic\CS\DataAccess\Customer.cs" Link="DataAccess\Customer.cs" />
+    <Compile Include="..\..\..\WinForms\Classic\CS\DataAccess\DemoDataHelper.cs" Link="DataAccess\DemoDataHelper.cs" />
+    <Compile Include="..\..\..\WinForms\Classic\CS\DataAccess\Order.cs" Link="DataAccess\Order.cs" />
     <Compile Include="..\..\MVC.Core\CS\Helpers\ApplicationBuilderExtensions.cs" Link="Helpers\ApplicationBuilderExtensions.cs" />
     <Compile Include="..\..\MVC.Core\CS\Helpers\JsonPopulateObjectHelper.cs" Link="Helpers\JsonPopulateObjectHelper.cs" />
   </ItemGroup>
@@ -18,6 +21,10 @@
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataAccess\" />
   </ItemGroup>
 
 </Project>
