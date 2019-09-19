@@ -1,9 +1,9 @@
 # Connect Data Grid to XPO objects
-[Step 1 <<](/create-persistent-classes-and-connect-xpo-to-database.md) 
+[Step 1 <<](/Tutorials/WinForms/Classic/create-persistent-classes-and-connect-xpo-to-database.md) 
 &nbsp;&nbsp;&nbsp;
-[Back to TOC](../../)
+[Back to TOC](/Tutorials/WinForms/Classic/)
 &nbsp;&nbsp;&nbsp;
-[>> Step 3](/implement-crud-functionality-with-xpo-objects.md)   
+[>> Step 3](/Tutorials/WinForms/Classic/implement-crud-functionality-with-xpo-objects.md)   
 
 * Open the `Form` designer, add the `XPBindingSource` and `GridControl` components from the Toolbox, and change their names to **CustomersBindingSource** and **CustomersGridControl**.
 * Rebuild the project.
@@ -27,8 +27,8 @@
     ```
 * Press the **F5** key to run the application.
 
-[Step 1 <<](/create-persistent-classes-and-connect-xpo-to-database.md) 
+[Step 1 <<](/Tutorials/WinForms/Classic/create-persistent-classes-and-connect-xpo-to-database.md) 
 &nbsp;&nbsp;&nbsp;
-[Back to TOC](../../)
+[Back to TOC](/Tutorials/WinForms/Classic/)
 &nbsp;&nbsp;&nbsp;
-[>> Step 3](/implement-crud-functionality-with-xpo-objects.md)   
+[>> Step 3](/Tutorials/WinForms/Classic/implement-crud-functionality-with-xpo-objects.md)   

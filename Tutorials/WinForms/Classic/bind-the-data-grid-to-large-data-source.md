@@ -1,8 +1,8 @@
 # Bind the Data Grid to a large data source
 
-[Step 3](/implement-crud-functionality-with-xpo-objects.md)
+[Step 3](/Tutorials/WinForms/Classic/implement-crud-functionality-with-xpo-objects.md)
 &nbsp;&nbsp;&nbsp;
-[Back to TOC](../../)
+[Back to TOC](/Tutorials/WinForms/Classic/)
 
 ## Create the edit order Form
 * Select the **EditCustomerForm** item in the **Solution Explorer** window and press **Ctrl+C** to copy the Form.
@@ -306,6 +306,6 @@
         ```
 * Run the application and click the **Orders** navigation item to see the result.
 
-[Step 3](/implement-crud-functionality-with-xpo-objects.md)
+[Step 3](/Tutorials/WinForms/Classic/implement-crud-functionality-with-xpo-objects.md)
 &nbsp;&nbsp;&nbsp;
-[Back to TOC](../../)
+[Back to TOC](/Tutorials/WinForms/Classic/)

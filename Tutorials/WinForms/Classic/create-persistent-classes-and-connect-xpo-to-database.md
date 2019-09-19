@@ -1,9 +1,9 @@
 # Create persistent classes and connect XPO to the database
 
 &nbsp;&nbsp;&nbsp;
-[Back to TOC](../../)
+[Back to TOC](/Tutorials/WinForms/Classic/)
 &nbsp;&nbsp;&nbsp;
-[Step 2](/connect-data-grid-to-xpo-objects.md)   
+[Step 2](/Tutorials/WinForms/Classic/connect-data-grid-to-xpo-objects.md)   
 
 * Create a new Windows Forms App project in Visual Studio.
 * Add references to the following assemblies ([Manage references in a project](https://docs.microsoft.com/en-us/visualstudio/ide/managing-references-in-a-project)):  
@@ -98,6 +98,6 @@
     }
     ```
 &nbsp;&nbsp;&nbsp;
-[Back to TOC](../../)
+[Back to TOC](/Tutorials/WinForms/Classic/)
 &nbsp;&nbsp;&nbsp;
-[Step 2](/connect-data-grid-to-xpo-objects.md)   
+[Step 2](/Tutorials/WinForms/Classic/connect-data-grid-to-xpo-objects.md)   
