@@ -20,8 +20,8 @@ This tutorial explains how to create a simple XPO-based CRUD application. The de
 
 ## Tutorial
 
-[Step 1: Create persistent classes and connect XPO to the database](/create-persistent-classes-and-connect-xpo-to-database.md)   
-[Step 2: Connect Data Grid to XPO objects](/connect-data-grid-to-xpo-objects.md)  
-[Step 3: Implement CRUD functionality with XPO objects](/implement-crud-functionality-with-xpo-objects.md)   
-[Step 4: Bind the Data Grid to a large data source](/bind-the-data-grid-to-large-data-source.md)
+[Step 1: Create persistent classes and connect XPO to the database](/Tutorials/WinForms/Classic/create-persistent-classes-and-connect-xpo-to-database.md)   
+[Step 2: Connect Data Grid to XPO objects](/Tutorials/WinForms/Classic/connect-data-grid-to-xpo-objects.md)  
+[Step 3: Implement CRUD functionality with XPO objects](/Tutorials/WinForms/Classic/implement-crud-functionality-with-xpo-objects.md)   
+[Step 4: Bind the Data Grid to a large data source](/Tutorials/WinForms/Classic/bind-the-data-grid-to-large-data-source.md)
 

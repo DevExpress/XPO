@@ -1,10 +1,10 @@
 # Implement CRUD functionality with XPO objects
 
-[Step 2 <<](/connect-data-grid-to-xpo-objects.md) 
+[Step 2 <<](/Tutorials/WinForms/Classic/connect-data-grid-to-xpo-objects.md) 
 &nbsp;&nbsp;&nbsp;
-[Back to TOC](../../)
+[Back to TOC](/Tutorials/WinForms/Classic/)
 &nbsp;&nbsp;&nbsp;
-[>> Step 4](/bind-the-data-grid-to-large-data-source.md)   
+[>> Step 4](/Tutorials/WinForms/Classic/bind-the-data-grid-to-large-data-source.md)   
 
 ## Edit an object in a separate window and save changes
 * Create the *Forms* folder
@@ -168,8 +168,8 @@
     ```
 * Run the application and try to delete a record.
 
-[Step 2 <<](/connect-data-grid-to-xpo-objects.md) 
+[Step 2 <<](/Tutorials/WinForms/Classic/connect-data-grid-to-xpo-objects.md) 
 &nbsp;&nbsp;&nbsp;
-[Back to TOC](../../)
+[Back to TOC](/Tutorials/WinForms/Classic/)
 &nbsp;&nbsp;&nbsp;
-[>> Step 4](/bind-the-data-grid-to-large-data-source.md)   
+[>> Step 4](/Tutorials/WinForms/Classic/bind-the-data-grid-to-large-data-source.md)   
