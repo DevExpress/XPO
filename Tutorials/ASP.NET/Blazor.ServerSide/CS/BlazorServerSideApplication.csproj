@@ -11,8 +11,8 @@
     <Compile Include="..\..\MVC.Core\CS\Helpers\JsonPopulateObjectHelper.cs" Link="Helpers\JsonPopulateObjectHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Blazor" Version="0.0.12-ctp" />
+    <PackageReference Include="DevExpress.Blazor" Version="0.4.1" />
     <PackageReference Include="DevExpress.Xpo" Version="19.1.5-pre-19172" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0-preview6.19307.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
   </ItemGroup>
 </Project>

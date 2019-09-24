@@ -82,7 +82,7 @@ else {
 
     private Customer SelectedCustomer { get; set; }
 
-    protected override async Task OnInitAsync() {
+    protected override async Task OnInitializedAsync() {
         customers = await CustomerService.Get();
     }
     async void OnRowInserting(Dictionary<string, object>
