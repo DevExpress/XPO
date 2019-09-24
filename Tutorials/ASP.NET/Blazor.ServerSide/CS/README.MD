@@ -233,8 +233,8 @@ Here is the modified code:
     <environment include="Development">
         <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
         @*//Added lines begin.*@
-        <script src="/lib/jquery/jquery-3.4.1.slim.min.js"></script>/>
-        <script src="/lib/bootstrap/bootstrap.min.js"></script>/>
+        <script src="/lib/jquery/jquery-3.4.1.slim.min.js"></script>
+        <script src="/lib/bootstrap/bootstrap.min.js"></script>
         @*//Added lines end.*@
     </environment>
     </environment>
