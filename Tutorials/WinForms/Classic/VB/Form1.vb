@@ -9,4 +9,9 @@ Public Class Form1
         End Using
         InitializeComponent()
     End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim session As New Session
+        CustomersBindingSource.DataSource = New XPCollection(Of Customer)(session)
+    End Sub
 End Class

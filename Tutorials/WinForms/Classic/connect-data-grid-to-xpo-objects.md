@@ -22,7 +22,8 @@
     using DevExpress.Xpo;
     // ...
     private void Form1_Load(object sender, EventArgs e) {
-        CustomersBindingSource.DataSource = new XPCollection<Customer>(new Session());
+        Session session = new Session();
+        CustomersBindingSource.DataSource = new XPCollection<Customer>(session);
     }
     ```
 * Press the **F5** key to run the application.
