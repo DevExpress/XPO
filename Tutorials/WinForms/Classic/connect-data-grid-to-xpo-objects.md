@@ -5,12 +5,24 @@
 &nbsp;&nbsp;&nbsp;
 [>> Step 3](/Tutorials/WinForms/Classic/implement-crud-functionality-with-xpo-objects.md)   
 
-* Open the `Form` designer, add the `XPBindingSource` and `GridControl` components from the Toolbox, and change their names to **CustomersBindingSource** and **CustomersGridControl**.
+* Open the `Form` designer.
+* Add the `GridControl` component from the Toolbox and change its name to **CustomersGridControl**.
 * Rebuild the project.
-* Set the `CustomersBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Customer** *(select a value from the drop-down list)* and rebuild the project.
-* Set the `CustomersBindingSource.DisplayableProperties` property to **Oid;ContactName**.
+* Select the `CustomersGridControl` component on the design surface.
+* Click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph.
+* Click the **Data Source Wizard** menu item to open the **Data Source Configuration Wizard** window.
+* Select the **DevExpress ORM Tool (XPO)** Technology.
+* Select the **Persistent Data Model** Data Source.\
+  ![](/Tutorials/images/WinForms.Classic/2.1.png)
+* Click the **Next** button.
+* Select the **Client-Side Data Processing** item.\
+  ![](/Tutorials/images/WinForms.Classic/2.2.png)
+* Click the **Next** button.
+* Select the **Customer** Object Type.
+* Select the **Binding via the XPBindingSource component** Binding Type.\
+  ![](/Tutorials/images/WinForms.Classic/2.3.png)
+* Click the **Finish** button.
 * Set the `CustomersGridControl.Dock` property to **Fill**.
-* Set the `CustomersGridControl.DataSource` property to **CustomersBindingSource**.
 * Select the `gridView1` component in the **Properties** window and rename it to **CustomersGridView**.
 * Change the `CustomersGridView.OptionsBehavior.Editable` property to `False`.
 * Drag the **Oid** grid column down and release it when the cross icon appears.
