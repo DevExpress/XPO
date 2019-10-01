@@ -7,8 +7,8 @@ using WinFormsApplication.Forms;
 using XpoTutorial;
 
 namespace WinFormsApplication {
-    public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm {
-        public Form1() {
+    public partial class CustomersListForm : DevExpress.XtraBars.Ribbon.RibbonForm {
+        public CustomersListForm() {
             InitializeComponent();
         }
         protected Session Session { get; private set; }

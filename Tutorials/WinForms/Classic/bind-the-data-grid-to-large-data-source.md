@@ -11,7 +11,8 @@
 * Open the `EditOrderForm` designer and change the `Text` property to **Edit Order**.
 * Rename the `CustomerBindingSource` component to **OrderBindingSource**.
 * Rebuild the project and set the `OrderBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Order**.
-* Set the `OrderBindingSource.DisplayableProperties` property to **ProductName;OrderDate;Freight;Customer!Key**. The last property name (**Customer!Key** is a [virtual property](https://docs.devexpress.com/XPO/3113/concepts/property-descriptors) designed for LookUp editors. See also: [How to: Bind an XPCollection to a LookUp](https://docs.devexpress.com/XPO/2000/examples/how-to-bind-an-xpcollection-to-a-lookup)).
+* Set the `OrderBindingSource.DisplayableProperties` property to **ProductName;OrderDate;Freight;Customer!Key**. 
+  >The last property name (**Customer!Key** is a [virtual property](https://docs.devexpress.com/XPO/3113/concepts/property-descriptors) designed for LookUp editors. See also: [How to: Bind an XPCollection to a LookUp](https://docs.devexpress.com/XPO/2000/examples/how-to-bind-an-xpcollection-to-a-lookup)).
 * Rename the `CustomerLayoutControl` component to **OrderLayoutControl**.
 * Rebuild the project.
 * Select the `OrderLayoutControl` component on the design surface. 
@@ -23,7 +24,8 @@
     * OrderDate, DateEdit
     * Freight, CalcEdit
     * Customer, LookupEdit 
-* Click the **Finish** button, delete the **First Name** and **Last Name** layout items, reorder the rest layout items to create a layout similar to the `EditCustomerForm`, and save the changes.
+* Click the **Finish** button, delete the **First Name** and **Last Name** layout items, reorder the rest layout items to create a layout similar to the `EditCustomerForm`, and save the changes.\
+  ![](/Tutorials/images/WinForms.Classic/4.1.png)
 * Add the `XPBindingSource` component to the `Form` and rename it to **CustomersBindingSource**.
 * Rebuild the project.
 * Set the `CustomersBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Customer**.
@@ -65,7 +67,7 @@
                 CustomersBindingSource.DataSource = new XPCollection<Customer>(UnitOfWork);
             }
 
-            private void btnSave_Click(object sender, EventArgs e) {
+            private void BtnSave_Click(object sender, EventArgs e) {
                 try {
                     UnitOfWork.CommitChanges();
                     OrderID = ((Order)OrderBindingSource.DataSource).Oid;
@@ -75,7 +77,7 @@
                 }
             }
 
-            private void btnReload_Click(object sender, EventArgs e) {
+            private void BtnReload_Click(object sender, EventArgs e) {
                 Reload();
             }
         }
@@ -144,11 +146,11 @@
                 OrdersInstantFeedbackView.Refresh();
             }
 
-            private void btnNew_ItemClick(object sender, ItemClickEventArgs e) {
+            private void BtnNew_ItemClick(object sender, ItemClickEventArgs e) {
                 ShowEditForm(null);
             }
 
-            private void btnDelete_ItemClick(object sender, ItemClickEventArgs e) {
+            private void BtnDelete_ItemClick(object sender, ItemClickEventArgs e) {
                 using (Session session = new Session()) {
                     object orderId = OrdersGridView.GetFocusedRowCellValue(colOid);
                     Order order = session.GetObjectByKey<Order>(orderId);
@@ -164,11 +166,11 @@
 * Add the following code to the event handlers:
     ```csharp
     private void OrdersInstantFeedbackView_ResolveSession(object sender, ResolveSessionEventArgs e) {
-        e.Session = new Session()
+        e.Session = new Session();
     }
 
     private void OrdersInstantFeedbackView_DismissSession(object sender, ResolveSessionEventArgs e) {
-        e.Session.Session.Dispose()
+        e.Session.Session.Dispose();
     }
     ```
 ## Create the navigation container Form
@@ -176,8 +178,9 @@
 * Click the **Add DevExpress Item > New Item** menu item.
 * In the **DevExpress Template Gallery** window, select the **WinForms** category and switch to the **WinForms Popular UIs > UI-ready Form** page.
 * Set the **UI Type** property to **Tabbed MDI**.
-* Set the **View Tyepe** property to **Navigation Container**.
+* Set the **View Type** property to **Navigation Container**.
 * Set the **Item Name** property to **MainForm**.
+* Click the **Add Item** button.
 * Open the `MainForm` designer.
 * Set the `MainForm.Text` property to **XPO Tutorial**.
 * Set the `employeesAccordionControlElement.Name` property to **ordersAccordionControlElement**.

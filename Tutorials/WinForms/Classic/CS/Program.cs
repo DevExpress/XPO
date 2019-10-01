@@ -13,7 +13,7 @@ namespace WinFormsApplication {
             using(UnitOfWork uow = new UnitOfWork()) {
                 DemoDataHelper.Seed(uow);
             }
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }
