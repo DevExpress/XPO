@@ -9,7 +9,7 @@
 ## Edit an object in a separate window and save changes
 * Create the *Forms* folder
 * Right-click the *Forms* folder in the **Solution Explorer** to open the context menu.
-* Click the **Add DevExpress Item** menu item to open the **DevExpress Template Gallery** window. 
+* Click the **Add DevExpress Item > New Item** menu item to open the **DevExpress Template Gallery** window. 
 * Select the **WinForms** category.
 * Switch to the **WinForms Common > Form** page.
 * Set the **Item Name** property to **EditCustomerForm**. 
@@ -25,6 +25,7 @@
 * Select the `CustomerLayoutControl` component on the design surface.
 * Click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph.
   >If the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph is not visible, press **Esc** several times to navigate from the selected `LayoutGroup` to the `LayoutControl`.
+* Click the **Choose Data Source** combo box and select the `CustomersBindingSource` component.
 * Click the **Retrieve Fields** menu item to open the **Select Binding Source** wizard.
 * Change the **Data Source Update Mode** property value to **OnPropertyChanged** and click the **Next** button.
 * The **Manage Data Bindings** screen displays a list of available properties. Choose the **First Name** and **Last Name** properties, click the **Finish** button, and save the changes.
@@ -69,7 +70,8 @@
 * Press **F5** to run the application and double-click a `GridView` record.
 * Close both windows and open the `EditCustomerForm` designer.
 * Select `LayoutControl` and add `SimpleButton` from the Toolbox. Add `EmptySpaceItem` elements to adjust the button's position and size.
-* Rename the `simpleButton1` control to **btnSave** and set its `Text` property to **&Save** (the ampersand sign assigns a mnemonic command to the button).
+* Rename the `simpleButton1` control to **btnSave** and set its `Text` property to **&Save** (the ampersand sign assigns a mnemonic command to the button).\
+  ![](/Tutorials/images/WinForms.Classic/3.1.png)
 * Double click the `btnSave` control to add the `Click` event handler (you can use the **Properties** window to add it).
 * Add this code to the `btnSave_Click` event handler:
     ```csharp
@@ -95,7 +97,8 @@
         }
     }
     private void Reload() {
-        CustomersBindingSource.DataSource = new XPCollection<Customer>(new Session());
+        Session session = new Session();
+        CustomersBindingSource.DataSource = new XPCollection<Customer>(session);
     }
     ```
 * Use the Visual Studio **Refactor** tool to rename the `Form1_Load` event handler to `CustomersListForm_Load`. To do this, put the cursor before the method name and click the **Edit > Refactor > Rename** menu item or use **Ctrl+R,Ctrl+R**.   
@@ -110,7 +113,8 @@
 * Open the `EditCustomerForm` designer.
 * Select the [LayoutControl](https://docs.devexpress.com/WindowsForms/DevExpress.XtraLayout.LayoutControl) component and add the [SimpleButton](https://docs.devexpress.com/WindowsForms/DevExpress.XtraEditors.SimpleButton) control from the Toolbox.
 * Adjust buttons' positions and sizes.
-* Rename the `simpleButton1` control to **btnReload** and set the `Text` property to **&Reload**.
+* Rename the `simpleButton1` control to **btnReload** and set the `Text` property to **&Reload**.\
+  ![](Tutorials/images/WinForms.Classic/3.2.png)
 * Double click the `btnReload` control to add the `Click` event handler (you can use the **Properties** window to add it).
 * Select all lines in the `EditCustomerForm_Load` method and click the **Edit > Refactor > Extract Method** menu item or use **Ctrl+R,Ctrl+M**.
 * Change the method name to **Reload** and call this method in the `btnReload_Click` event handler.
@@ -141,15 +145,16 @@
   * Change the method name to **ShowEditForm**.
   * Change the `customerID` parameter type to `int?`.
   * Call the `ShowEditForm` method in the `btnNew_ItemClick` event handler and pass the `null` value as a parameter.
-  * A new object does not have an identifier initially - XPO assigns a value to it from the auto-incremented key column when a new object is saved to the database. Open the `EditCustomerForm` code and add the following line to the `btnSave_Click` method after the `CommitChanges` method call:
+  * Open the `EditCustomerForm` code and add the following line to the `btnSave_Click` method after the `CommitChanges` method call:
     ```csharp
     CustomerID = ((Customer)CustomerBindingSource.DataSource).Oid;
     ```
+    >A new object does not have an identifier initially - XPO assigns a value to it from the auto-incremented key column when a new object is saved to the database. 
   * Run the application, click the New button, fill editors, and click the **Save** button.
 ## Delete a selected record
   * Open the `CustomersListForm` and add the **Delete (btnDelete)** button to the `RibbonControl`.
   * Double-click the **Delete** button to add the event handler.
-    >Note: You cannot use the [Session.Delete](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.Delete(System.Object)) method with an object that belongs to a different [Session](https://docs.devexpress.com/XPO/2022/Feature-Center/Connecting-to-a-Data-Store/Session). 
+
   * Add the `Session` property to the `CustomerListForm` class.
   * Change the `Reload` method to use the `Session` property instead of a local variable:
     ```csharp
@@ -159,6 +164,7 @@
         CustomersBindingSource.DataSource = new XPCollection<Customer>(Session);
     }
     ```
+    >Note: You cannot use the [Session.Delete](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.Delete(System.Object)) method with an object that belongs to a different [Session](https://docs.devexpress.com/XPO/2022/Feature-Center/Connecting-to-a-Data-Store/Session). 
 * Use the [GridView.GetFocusedRow](https://docs.devexpress.com/WindowsForms/DevExpress.XtraGrid.Views.Base.ColumnView.GetFocusedRow) method to retrieve a focused object  and call the [Session.Delete](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.Delete(System.Object)) method to delete the object.
     ```csharp
     private void btnDelete_ItemClick(object sender, ItemClickEventArgs e) {
