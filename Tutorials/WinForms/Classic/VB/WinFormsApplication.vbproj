@@ -49,6 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v19.1, Version=19.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v19.1, Version=19.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v19.1.Core, Version=19.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v19.1.Core, Version=19.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v19.1, Version=19.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -94,6 +95,12 @@
     <Compile Include="DataAccess\Customer.vb" />
     <Compile Include="DataAccess\DemoDataHelper.vb" />
     <Compile Include="DataAccess\Order.vb" />
+    <Compile Include="Forms\OrdersListForm.Designer.vb">
+      <DependentUpon>OrdersListForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OrdersListForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\CustomersListForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +112,18 @@
       <DependentUpon>EditCustomerForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\EditCustomerForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditOrderForm.Designer.vb">
+      <DependentUpon>EditOrderForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditOrderForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -124,11 +143,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\OrdersListForm.resx">
+      <DependentUpon>OrdersListForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomersListForm.resx">
       <DependentUpon>CustomersListForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditCustomerForm.resx">
       <DependentUpon>EditCustomerForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditOrderForm.resx">
+      <DependentUpon>EditOrderForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">

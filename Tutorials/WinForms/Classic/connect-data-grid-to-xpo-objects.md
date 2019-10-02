@@ -10,7 +10,7 @@
 * Set the `CustomersBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Customer** *(select a value from the drop-down list)* and rebuild the project.
 * Set the `CustomersBindingSource.DisplayableProperties` property to **Oid;ContactName**.
 * Set the `CustomersGridControl.Dock` property to **Fill**.
-* Set the `CustomersGridControl.DataSource` property to **CustomersSoruce**.
+* Set the `CustomersGridControl.DataSource` property to **CustomersBindingSource**.
 * Select the `gridView1` component in the **Properties** window and rename it to **CustomersGridView**.
 * Change the `CustomersGridView.OptionsBehavior.Editable` property to `False`.
 * Drag the **Oid** grid column down and release it when the cross icon appears.
