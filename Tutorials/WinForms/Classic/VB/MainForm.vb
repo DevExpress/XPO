@@ -19,7 +19,7 @@ Partial Public Class MainForm
         InitializeComponent()
         CustomersForm = CreateForm(CustomersFormName)
         OrdersForm = CreateForm(OrdersFormName)
-        accordionControl.SelectedElement = ordersAccordionControlElement
+        SetAccordionSelectedElement(CustomersFormName)
     End Sub
 
     Private Sub TabbedView_DocumentActivated(sender As Object, e As DocumentEventArgs) Handles tabbedView.DocumentActivated

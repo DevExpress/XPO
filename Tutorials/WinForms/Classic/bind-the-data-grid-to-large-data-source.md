@@ -156,6 +156,7 @@
                     Order order = session.GetObjectByKey<Order>(orderId);
                     session.Delete(order);
                 }
+                Reload();
             }
         }
     }

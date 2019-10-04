@@ -51,10 +51,10 @@
             // 
             this.CustomersGridControl.DataSource = this.CustomersBindingSource;
             this.CustomersGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CustomersGridControl.Location = new System.Drawing.Point(0, 143);
+            this.CustomersGridControl.Location = new System.Drawing.Point(0, 162);
             this.CustomersGridControl.MainView = this.CustomersGridView;
             this.CustomersGridControl.Name = "CustomersGridControl";
-            this.CustomersGridControl.Size = new System.Drawing.Size(800, 276);
+            this.CustomersGridControl.Size = new System.Drawing.Size(800, 262);
             this.CustomersGridControl.TabIndex = 0;
             this.CustomersGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.CustomersGridView});
@@ -94,7 +94,7 @@
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbonControl1.Size = new System.Drawing.Size(800, 143);
+            this.ribbonControl1.Size = new System.Drawing.Size(800, 162);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
             // btnNew
@@ -115,6 +115,7 @@
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1});
+            this.ribbonPage1.MergeOrder = 1;
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Home";
             // 
@@ -127,10 +128,10 @@
             // 
             // ribbonStatusBar1
             // 
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 419);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 424);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(800, 31);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(800, 26);
             // 
             // ribbonPage2
             // 

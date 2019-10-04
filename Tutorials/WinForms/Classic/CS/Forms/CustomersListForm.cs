@@ -27,8 +27,10 @@ namespace WinFormsApplication {
         private void ShowEditForm(int? customerID) {
             using(EditCustomerForm form = new EditCustomerForm(customerID)) {
                 form.ShowDialog(this);
-                Reload();
-                CustomersGridView.FocusedRowHandle = CustomersGridView.LocateByValue("Oid", form.CustomerID.Value);
+                if (form.CustomerID.HasValue) {
+                    Reload();
+                    CustomersGridView.FocusedRowHandle = CustomersGridView.LocateByValue("Oid", form.CustomerID.Value);
+                }
             }
         }
 

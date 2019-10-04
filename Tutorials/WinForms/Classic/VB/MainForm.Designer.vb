@@ -30,6 +30,7 @@ Partial Public Class MainForm
         Me.barSubItemNavigation = New DevExpress.XtraBars.BarSubItem()
         Me.employeesBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.customersBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
+        Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.ribbonPage = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.ribbonPageGroupNavigation = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.ribbonPageGroup = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -55,15 +56,15 @@ Partial Public Class MainForm
         'ribbonControl
         '
         Me.ribbonControl.ExpandCollapseItem.Id = 0
-        Me.ribbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl.ExpandCollapseItem, Me.skinRibbonGalleryBarItem, Me.barSubItemNavigation, Me.employeesBarButtonItem, Me.customersBarButtonItem, Me.ribbonControl.SearchEditItem})
+        Me.ribbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl.ExpandCollapseItem, Me.ribbonControl.SearchEditItem, Me.skinRibbonGalleryBarItem, Me.barSubItemNavigation, Me.employeesBarButtonItem, Me.customersBarButtonItem})
         Me.ribbonControl.Location = New System.Drawing.Point(0, 0)
         Me.ribbonControl.MaxItemId = 48
         Me.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always
         Me.ribbonControl.Name = "ribbonControl"
-        Me.ribbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.ribbonPage})
+        Me.ribbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.ribbonPage})
         Me.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
         Me.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.[False]
-        Me.ribbonControl.Size = New System.Drawing.Size(790, 143)
+        Me.ribbonControl.Size = New System.Drawing.Size(790, 162)
         Me.ribbonControl.StatusBar = Me.ribbonStatusBar
         Me.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden
         '
@@ -92,6 +93,11 @@ Partial Public Class MainForm
         Me.customersBarButtonItem.Id = 47
         Me.customersBarButtonItem.Name = "customersBarButtonItem"
         '
+        'RibbonPage1
+        '
+        Me.RibbonPage1.Name = "RibbonPage1"
+        Me.RibbonPage1.Text = "Home"
+        '
         'ribbonPage
         '
         Me.ribbonPage.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.ribbonPageGroupNavigation, Me.ribbonPageGroup})
@@ -114,10 +120,10 @@ Partial Public Class MainForm
         '
         'ribbonStatusBar
         '
-        Me.ribbonStatusBar.Location = New System.Drawing.Point(0, 568)
+        Me.ribbonStatusBar.Location = New System.Drawing.Point(0, 573)
         Me.ribbonStatusBar.Name = "ribbonStatusBar"
         Me.ribbonStatusBar.Ribbon = Me.ribbonControl
-        Me.ribbonStatusBar.Size = New System.Drawing.Size(790, 31)
+        Me.ribbonStatusBar.Size = New System.Drawing.Size(790, 26)
         '
         'dockManager
         '
@@ -130,18 +136,18 @@ Partial Public Class MainForm
         Me.dockPanel.Controls.Add(Me.dockPanel_Container)
         Me.dockPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left
         Me.dockPanel.ID = New System.Guid("a045df26-1503-4d9a-99c1-a531310af22b")
-        Me.dockPanel.Location = New System.Drawing.Point(0, 143)
+        Me.dockPanel.Location = New System.Drawing.Point(0, 162)
         Me.dockPanel.Name = "dockPanel"
         Me.dockPanel.OriginalSize = New System.Drawing.Size(200, 200)
-        Me.dockPanel.Size = New System.Drawing.Size(200, 425)
+        Me.dockPanel.Size = New System.Drawing.Size(200, 411)
         Me.dockPanel.Text = "Navigation"
         '
         'dockPanel_Container
         '
         Me.dockPanel_Container.Controls.Add(Me.accordionControl)
-        Me.dockPanel_Container.Location = New System.Drawing.Point(4, 23)
+        Me.dockPanel_Container.Location = New System.Drawing.Point(3, 30)
         Me.dockPanel_Container.Name = "dockPanel_Container"
-        Me.dockPanel_Container.Size = New System.Drawing.Size(191, 398)
+        Me.dockPanel_Container.Size = New System.Drawing.Size(193, 378)
         Me.dockPanel_Container.TabIndex = 0
         '
         'accordionControl
@@ -151,13 +157,13 @@ Partial Public Class MainForm
         Me.accordionControl.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.mainAccordionGroup})
         Me.accordionControl.Location = New System.Drawing.Point(0, 0)
         Me.accordionControl.Name = "accordionControl"
-        Me.accordionControl.Size = New System.Drawing.Size(191, 398)
+        Me.accordionControl.Size = New System.Drawing.Size(193, 378)
         Me.accordionControl.TabIndex = 0
         Me.accordionControl.Text = "accordionControl"
         '
         'mainAccordionGroup
         '
-        Me.mainAccordionGroup.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.ordersAccordionControlElement, Me.customersAccordionControlElement})
+        Me.mainAccordionGroup.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.customersAccordionControlElement, Me.ordersAccordionControlElement})
         Me.mainAccordionGroup.Expanded = True
         Me.mainAccordionGroup.HeaderVisible = False
         Me.mainAccordionGroup.Name = "mainAccordionGroup"
@@ -229,4 +235,5 @@ Partial Public Class MainForm
     Private WithEvents mainAccordionGroup As DevExpress.XtraBars.Navigation.AccordionControlElement
     Private WithEvents tabbedView As DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView
     Private WithEvents documentManager As DevExpress.XtraBars.Docking2010.DocumentManager
+    Friend WithEvents RibbonPage1 As DevExpress.XtraBars.Ribbon.RibbonPage
 End Class

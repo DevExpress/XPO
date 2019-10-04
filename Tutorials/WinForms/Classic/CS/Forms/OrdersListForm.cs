@@ -21,9 +21,11 @@ namespace WinFormsApplication {
         private void ShowEditForm(int? orderID) {
             using(EditOrderForm form = new EditOrderForm(orderID)) {
                 form.ShowDialog(this);
-                Reload();
-                OrdersGridView.FocusedRowHandle = OrdersGridView.LocateByValue("Oid", form.OrderID.Value,
-                    rowHandle => OrdersGridView.FocusedRowHandle = (int)rowHandle);
+                if (form.OrderID.HasValue) {
+                    Reload();
+                    OrdersGridView.FocusedRowHandle = OrdersGridView.LocateByValue("Oid", form.OrderID.Value,
+                        rowHandle => OrdersGridView.FocusedRowHandle = (int)rowHandle);
+                }
             }
         }
         private void Reload() {
@@ -40,6 +42,7 @@ namespace WinFormsApplication {
                 Order order = session.GetObjectByKey<Order>(orderId);
                 session.Delete(order);
             }
+            Reload();
         }
 
         private void OrdersInstantFeedbackView_ResolveSession(object sender, ResolveSessionEventArgs e) {

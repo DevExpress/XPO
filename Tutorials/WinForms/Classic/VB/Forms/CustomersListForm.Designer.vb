@@ -30,11 +30,11 @@ Partial Class CustomersListForm
         Me.colContactName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RibbonControl1 = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.btnNew = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnDelete = New DevExpress.XtraBars.BarButtonItem()
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonStatusBar1 = New DevExpress.XtraBars.Ribbon.RibbonStatusBar()
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage()
-        Me.btnDelete = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.CustomersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CustomersGridControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CustomersGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,10 +50,10 @@ Partial Class CustomersListForm
         '
         Me.CustomersGridControl.DataSource = Me.CustomersBindingSource
         Me.CustomersGridControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CustomersGridControl.Location = New System.Drawing.Point(0, 143)
+        Me.CustomersGridControl.Location = New System.Drawing.Point(0, 162)
         Me.CustomersGridControl.MainView = Me.CustomersGridView
         Me.CustomersGridControl.Name = "CustomersGridControl"
-        Me.CustomersGridControl.Size = New System.Drawing.Size(800, 276)
+        Me.CustomersGridControl.Size = New System.Drawing.Size(800, 262)
         Me.CustomersGridControl.TabIndex = 0
         Me.CustomersGridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.CustomersGridView})
         '
@@ -84,7 +84,7 @@ Partial Class CustomersListForm
         Me.RibbonControl1.MaxItemId = 3
         Me.RibbonControl1.Name = "RibbonControl1"
         Me.RibbonControl1.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1})
-        Me.RibbonControl1.Size = New System.Drawing.Size(800, 143)
+        Me.RibbonControl1.Size = New System.Drawing.Size(800, 162)
         Me.RibbonControl1.StatusBar = Me.RibbonStatusBar1
         '
         'btnNew
@@ -92,6 +92,12 @@ Partial Class CustomersListForm
         Me.btnNew.Caption = "New"
         Me.btnNew.Id = 1
         Me.btnNew.Name = "btnNew"
+        '
+        'btnDelete
+        '
+        Me.btnDelete.Caption = "Delete"
+        Me.btnDelete.Id = 2
+        Me.btnDelete.Name = "btnDelete"
         '
         'RibbonPage1
         '
@@ -108,21 +114,15 @@ Partial Class CustomersListForm
         '
         'RibbonStatusBar1
         '
-        Me.RibbonStatusBar1.Location = New System.Drawing.Point(0, 419)
+        Me.RibbonStatusBar1.Location = New System.Drawing.Point(0, 424)
         Me.RibbonStatusBar1.Name = "RibbonStatusBar1"
         Me.RibbonStatusBar1.Ribbon = Me.RibbonControl1
-        Me.RibbonStatusBar1.Size = New System.Drawing.Size(800, 31)
+        Me.RibbonStatusBar1.Size = New System.Drawing.Size(800, 26)
         '
         'RibbonPage2
         '
         Me.RibbonPage2.Name = "RibbonPage2"
         Me.RibbonPage2.Text = "RibbonPage2"
-        '
-        'btnDelete
-        '
-        Me.btnDelete.Caption = "Delete"
-        Me.btnDelete.Id = 2
-        Me.btnDelete.Name = "btnDelete"
         '
         'CustomersListForm
         '
@@ -135,7 +135,7 @@ Partial Class CustomersListForm
         Me.Name = "CustomersListForm"
         Me.Ribbon = Me.RibbonControl1
         Me.StatusBar = Me.RibbonStatusBar1
-        Me.Text = "Form1"
+        Me.Text = "Customers"
         CType(Me.CustomersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CustomersGridControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CustomersGridView, System.ComponentModel.ISupportInitialize).EndInit()

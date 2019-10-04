@@ -23,12 +23,14 @@ Public Class OrdersListForm
         End If
     End Sub
 
-    Private Sub ShowEditForm(customerId As Nullable(Of Integer))
-        Using form As New EditCustomerForm(customerId)
+    Private Sub ShowEditForm(orderId As Nullable(Of Integer))
+        Using form As New EditOrderForm(orderId)
             form.ShowDialog(Me)
-            Reload()
-            OrdersGridView.FocusedRowHandle = OrdersGridView.LocateByValue("Oid", form.CustomerID.Value,
-                                                                           Function(ByVal rowHandle) OrdersGridView.FocusedRowHandle = CInt(rowHandle))
+            If form.OrderID.HasValue Then
+                Reload()
+                OrdersGridView.FocusedRowHandle = OrdersGridView.LocateByValue("Oid", form.OrderID.Value,
+                                                                           Sub(ByVal rowHandle) OrdersGridView.FocusedRowHandle = CInt(rowHandle))
+            End If
         End Using
     End Sub
     Private Sub BtnNew_ItemClick(sender As Object, e As ItemClickEventArgs) Handles btnNew.ItemClick
@@ -41,6 +43,7 @@ Public Class OrdersListForm
             Dim order As Order = session.GetObjectByKey(Of Order)(orderId)
             session.Delete(order)
         End Using
+        Reload()
     End Sub
 
     Private Sub OrdersInstantFeedbackView_ResolveSession(sender As Object, e As ResolveSessionEventArgs) Handles OrdersInstantFeedbackView.ResolveSession

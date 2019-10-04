@@ -16,7 +16,7 @@ namespace WinFormsApplication {
             InitializeComponent();
             ordersForm = CreateForm(OrdersFormName);
             customersForm = CreateForm(CustomersFormName);
-            accordionControl.SelectedElement = ordersAccordionControlElement;
+            SetAccordionSelectedElement(CustomersFormName);
             tabbedView.DocumentActivated += TabbedView_DocumentActivated;
         }
 

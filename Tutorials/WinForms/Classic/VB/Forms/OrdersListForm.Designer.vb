@@ -46,10 +46,10 @@ Partial Class OrdersListForm
         '
         Me.OrdersGridControl.DataSource = Me.OrdersInstantFeedbackView
         Me.OrdersGridControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.OrdersGridControl.Location = New System.Drawing.Point(0, 143)
+        Me.OrdersGridControl.Location = New System.Drawing.Point(0, 162)
         Me.OrdersGridControl.MainView = Me.OrdersGridView
         Me.OrdersGridControl.Name = "OrdersGridControl"
-        Me.OrdersGridControl.Size = New System.Drawing.Size(800, 276)
+        Me.OrdersGridControl.Size = New System.Drawing.Size(800, 262)
         Me.OrdersGridControl.TabIndex = 0
         Me.OrdersGridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.OrdersGridView})
         '
@@ -99,7 +99,7 @@ Partial Class OrdersListForm
         Me.RibbonControl1.MaxItemId = 3
         Me.RibbonControl1.Name = "RibbonControl1"
         Me.RibbonControl1.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1})
-        Me.RibbonControl1.Size = New System.Drawing.Size(800, 143)
+        Me.RibbonControl1.Size = New System.Drawing.Size(800, 162)
         Me.RibbonControl1.StatusBar = Me.RibbonStatusBar1
         '
         'btnNew
@@ -129,10 +129,10 @@ Partial Class OrdersListForm
         '
         'RibbonStatusBar1
         '
-        Me.RibbonStatusBar1.Location = New System.Drawing.Point(0, 419)
+        Me.RibbonStatusBar1.Location = New System.Drawing.Point(0, 424)
         Me.RibbonStatusBar1.Name = "RibbonStatusBar1"
         Me.RibbonStatusBar1.Ribbon = Me.RibbonControl1
-        Me.RibbonStatusBar1.Size = New System.Drawing.Size(800, 31)
+        Me.RibbonStatusBar1.Size = New System.Drawing.Size(800, 26)
         '
         'RibbonPage2
         '
@@ -150,7 +150,7 @@ Partial Class OrdersListForm
         Me.Name = "OrdersListForm"
         Me.Ribbon = Me.RibbonControl1
         Me.StatusBar = Me.RibbonStatusBar1
-        Me.Text = "Form1"
+        Me.Text = "Orders"
         CType(Me.OrdersGridControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OrdersGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RibbonControl1, System.ComponentModel.ISupportInitialize).EndInit()

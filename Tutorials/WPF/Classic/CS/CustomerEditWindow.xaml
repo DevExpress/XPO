@@ -45,8 +45,6 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             
-            <Label Content="Oid:" Grid.Row="0" Grid.Column="0"/>
-            <dxe:TextEdit Grid.Row="0" Grid.Column="1" IsReadOnly="True" EditValue="{Binding Customer.Oid}"/>
             <Label Content="First Name:" Grid.Row="1" Grid.Column="0"/>
             <dxe:TextEdit Grid.Row="1" Grid.Column="1"  EditValue="{Binding Customer.FirstName, UpdateSourceTrigger=PropertyChanged}"/>
             <Label Content="Last Name:" Grid.Row="2" Grid.Column="0"/>

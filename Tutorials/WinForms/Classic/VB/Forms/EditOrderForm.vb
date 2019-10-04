@@ -39,6 +39,7 @@ Public Class EditOrderForm
         Else
             OrdersBindingSource.DataSource = New Order(UnitOfWork)
         End If
+        CustomersBindingSource.DataSource = New XPCollection(Of Customer)(UnitOfWork)
     End Sub
 
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click

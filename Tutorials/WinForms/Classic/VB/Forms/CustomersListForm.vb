@@ -37,8 +37,10 @@ Public Class CustomersListForm
     Private Sub ShowEditForm(customerId As Nullable(Of Integer))
         Using form As New EditCustomerForm(customerId)
             form.ShowDialog(Me)
-            Reload()
-            CustomersGridView.FocusedRowHandle = CustomersGridView.LocateByValue("Oid", form.CustomerID.Value)
+            If form.CustomerID.HasValue Then
+                Reload()
+                CustomersGridView.FocusedRowHandle = CustomersGridView.LocateByValue("Oid", form.CustomerID.Value)
+            End If
         End Using
     End Sub
 
