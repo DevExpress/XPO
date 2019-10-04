@@ -114,7 +114,7 @@
 * Select the [LayoutControl](https://docs.devexpress.com/WindowsForms/DevExpress.XtraLayout.LayoutControl) component and add the [SimpleButton](https://docs.devexpress.com/WindowsForms/DevExpress.XtraEditors.SimpleButton) control from the Toolbox.
 * Adjust buttons' positions and sizes.
 * Rename the `simpleButton1` control to **btnReload** and set the `Text` property to **&Reload**.\
-  ![](Tutorials/images/WinForms.Classic/3.2.png)
+  ![](/Tutorials/images/WinForms.Classic/3.2.png)
 * Double click the `btnReload` control to add the `Click` event handler (you can use the **Properties** window to add it).
 * Select all lines in the `EditCustomerForm_Load` method and click the **Edit > Refactor > Extract Method** menu item or use **Ctrl+R,Ctrl+M**.
 * Change the method name to **Reload** and call this method in the `btnReload_Click` event handler.
