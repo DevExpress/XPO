@@ -155,7 +155,7 @@
   * Open the `CustomersListForm` and add the **Delete (btnDelete)** button to the `RibbonControl`.
   * Double-click the **Delete** button to add the event handler.
 
-  * Add the `Session` property to the `CustomerListForm` class.
+  * Add the `Session` property to the `CustomersListForm` class.
   * Change the `Reload` method to use the `Session` property instead of a local variable:
     ```csharp
     protected Session Session { get; private set; }
