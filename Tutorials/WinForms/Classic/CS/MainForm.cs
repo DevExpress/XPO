@@ -1,86 +1,47 @@
 ﻿using System;
-using System.Windows.Forms;
 using DevExpress.XtraBars.Docking2010.Views;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraBars.Ribbon;
-using System.Globalization;
+using System.Linq;
 
 namespace WinFormsApplication {
     public partial class MainForm : RibbonForm {
-        const string OrdersFormName = "Orders";
-        const string CustomersFormName = "Customers";
-        Form ordersForm;
-        Form customersForm;
         public MainForm() {
             InitializeComponent();
-            ordersForm = CreateForm(OrdersFormName);
-            customersForm = CreateForm(CustomersFormName);
-            SetAccordionSelectedElement(CustomersFormName);
             tabbedView.DocumentActivated += TabbedView_DocumentActivated;
+            tabbedView.QueryControl += TabbedView_QueryControl;
+            customersAccordionControlElement.Tag = customersBarButtonItem.Tag = typeof(CustomersListForm).Name;
+            ordersAccordionControlElement.Tag = ordersBarButtonItem.Tag = typeof(OrdersListForm).Name;
+            SetAccordionSelectedElement((string)customersAccordionControlElement.Tag);
+        }
+
+        private void TabbedView_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e) {
+            if(e.Document.ControlName == typeof(CustomersListForm).Name)
+                e.Control = new CustomersListForm();
+            else if(e.Document.ControlName == typeof(OrdersListForm).Name)
+                e.Control = new OrdersListForm();
+            else throw new ArgumentException($"Unknown control name {e.Document.ControlName}");
         }
 
         private void TabbedView_DocumentActivated(object sender, DocumentEventArgs e) {
-            SetAccordionSelectedElement(e.Document.Caption);
-        }
-
-        Form CreateForm(string name) {
-            Form result = null;
-            switch(name) {
-                case OrdersFormName:
-                    result = new OrdersListForm();
-                    break;
-                case CustomersFormName:
-                    result = new CustomersListForm();
-                    break;
-                default:
-                    string msg = string.Format(CultureInfo.CurrentUICulture, "Unknown view name: {0}", name);
-                    throw new ArgumentException(msg);
-            }
-            return result;
+            SetAccordionSelectedElement(e.Document.ControlName);
         }
         void accordionControl_SelectedElementChanged(object sender, SelectedElementChangedEventArgs e) {
             if(e.Element == null)
                 return;
-            Form form = null;
-            switch(e.Element.Text) {
-                case OrdersFormName:
-                    form = ordersForm;
-                    break;
-                case CustomersFormName:
-                    form = customersForm;
-                    break;
-            }
-            if(form != null) {
-                tabbedView.AddDocument(form);
-                tabbedView.ActivateDocument(form);
-            }
+            string controlName = (string)e.Element.Tag;
+            BaseDocument document = tabbedView.Documents.FindFirst(d => d.ControlName == controlName);
+            if (document == null)
+                document = tabbedView.AddDocument(e.Element.Text, controlName);
+            tabbedView.Controller.Activate(document);
         }
         void barButtonNavigation_ItemClick(object sender, ItemClickEventArgs e) {
-            SetAccordionSelectedElement(e.Item.Caption);
+            SetAccordionSelectedElement((string)e.Item.Tag);
         }
-        void tabbedView_DocumentClosed(object sender, DocumentEventArgs e) {
-            RecreateForms(e);
-        }
-        void SetAccordionSelectedElement(string name) {
-            switch(name) {
-                case OrdersFormName:
-                    accordionControl.SelectedElement = ordersAccordionControlElement;
-                    break;
-                case CustomersFormName:
-                    accordionControl.SelectedElement = customersAccordionControlElement;
-                    break;
-            }
-        }
-        void RecreateForms(DocumentEventArgs e) {
-            switch(e.Document.Caption) {
-                case OrdersFormName:
-                    ordersForm = CreateForm(OrdersFormName);
-                    break;
-                case CustomersFormName:
-                    customersForm = CreateForm(CustomersFormName);
-                    break;
-            }
+        void SetAccordionSelectedElement(string controlTypeName) {
+            accordionControl.SelectedElement = accordionControl.GetElements()
+                .Single(e => (string)e.Tag == controlTypeName);
         }
     }
 }

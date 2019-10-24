@@ -28,7 +28,7 @@ Partial Public Class MainForm
         Me.ribbonControl = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.skinRibbonGalleryBarItem = New DevExpress.XtraBars.SkinRibbonGalleryBarItem()
         Me.barSubItemNavigation = New DevExpress.XtraBars.BarSubItem()
-        Me.employeesBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
+        Me.ordersBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.customersBarButtonItem = New DevExpress.XtraBars.BarButtonItem()
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.ribbonPage = New DevExpress.XtraBars.Ribbon.RibbonPage()
@@ -40,8 +40,8 @@ Partial Public Class MainForm
         Me.dockPanel_Container = New DevExpress.XtraBars.Docking.ControlContainer()
         Me.accordionControl = New DevExpress.XtraBars.Navigation.AccordionControl()
         Me.mainAccordionGroup = New DevExpress.XtraBars.Navigation.AccordionControlElement()
-        Me.ordersAccordionControlElement = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.customersAccordionControlElement = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.ordersAccordionControlElement = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.tabbedView = New DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(Me.components)
         Me.documentManager = New DevExpress.XtraBars.Docking2010.DocumentManager(Me.components)
         CType(Me.ribbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,15 +56,16 @@ Partial Public Class MainForm
         'ribbonControl
         '
         Me.ribbonControl.ExpandCollapseItem.Id = 0
-        Me.ribbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl.ExpandCollapseItem, Me.ribbonControl.SearchEditItem, Me.skinRibbonGalleryBarItem, Me.barSubItemNavigation, Me.employeesBarButtonItem, Me.customersBarButtonItem})
+        Me.ribbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl.ExpandCollapseItem, Me.ribbonControl.SearchEditItem, Me.skinRibbonGalleryBarItem, Me.barSubItemNavigation, Me.ordersBarButtonItem, Me.customersBarButtonItem})
         Me.ribbonControl.Location = New System.Drawing.Point(0, 0)
+        Me.ribbonControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ribbonControl.MaxItemId = 48
         Me.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always
         Me.ribbonControl.Name = "ribbonControl"
         Me.ribbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.ribbonPage})
         Me.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
         Me.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.[False]
-        Me.ribbonControl.Size = New System.Drawing.Size(790, 162)
+        Me.ribbonControl.Size = New System.Drawing.Size(922, 198)
         Me.ribbonControl.StatusBar = Me.ribbonStatusBar
         Me.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden
         '
@@ -78,14 +79,14 @@ Partial Public Class MainForm
         Me.barSubItemNavigation.Caption = "Navigation"
         Me.barSubItemNavigation.Id = 15
         Me.barSubItemNavigation.ImageOptions.ImageUri.Uri = "NavigationBar"
-        Me.barSubItemNavigation.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.employeesBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.customersBarButtonItem)})
+        Me.barSubItemNavigation.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.ordersBarButtonItem), New DevExpress.XtraBars.LinkPersistInfo(Me.customersBarButtonItem)})
         Me.barSubItemNavigation.Name = "barSubItemNavigation"
         '
-        'employeesBarButtonItem
+        'ordersBarButtonItem
         '
-        Me.employeesBarButtonItem.Caption = "Employees"
-        Me.employeesBarButtonItem.Id = 46
-        Me.employeesBarButtonItem.Name = "employeesBarButtonItem"
+        Me.ordersBarButtonItem.Caption = "Orders"
+        Me.ordersBarButtonItem.Id = 46
+        Me.ordersBarButtonItem.Name = "ordersBarButtonItem"
         '
         'customersBarButtonItem
         '
@@ -120,10 +121,11 @@ Partial Public Class MainForm
         '
         'ribbonStatusBar
         '
-        Me.ribbonStatusBar.Location = New System.Drawing.Point(0, 573)
+        Me.ribbonStatusBar.Location = New System.Drawing.Point(0, 705)
+        Me.ribbonStatusBar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ribbonStatusBar.Name = "ribbonStatusBar"
         Me.ribbonStatusBar.Ribbon = Me.ribbonControl
-        Me.ribbonStatusBar.Size = New System.Drawing.Size(790, 26)
+        Me.ribbonStatusBar.Size = New System.Drawing.Size(922, 32)
         '
         'dockManager
         '
@@ -136,18 +138,20 @@ Partial Public Class MainForm
         Me.dockPanel.Controls.Add(Me.dockPanel_Container)
         Me.dockPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left
         Me.dockPanel.ID = New System.Guid("a045df26-1503-4d9a-99c1-a531310af22b")
-        Me.dockPanel.Location = New System.Drawing.Point(0, 162)
+        Me.dockPanel.Location = New System.Drawing.Point(0, 198)
+        Me.dockPanel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dockPanel.Name = "dockPanel"
         Me.dockPanel.OriginalSize = New System.Drawing.Size(200, 200)
-        Me.dockPanel.Size = New System.Drawing.Size(200, 411)
+        Me.dockPanel.Size = New System.Drawing.Size(233, 507)
         Me.dockPanel.Text = "Navigation"
         '
         'dockPanel_Container
         '
         Me.dockPanel_Container.Controls.Add(Me.accordionControl)
-        Me.dockPanel_Container.Location = New System.Drawing.Point(3, 30)
+        Me.dockPanel_Container.Location = New System.Drawing.Point(4, 37)
+        Me.dockPanel_Container.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dockPanel_Container.Name = "dockPanel_Container"
-        Me.dockPanel_Container.Size = New System.Drawing.Size(193, 378)
+        Me.dockPanel_Container.Size = New System.Drawing.Size(223, 466)
         Me.dockPanel_Container.TabIndex = 0
         '
         'accordionControl
@@ -156,8 +160,9 @@ Partial Public Class MainForm
         Me.accordionControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.accordionControl.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.mainAccordionGroup})
         Me.accordionControl.Location = New System.Drawing.Point(0, 0)
+        Me.accordionControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.accordionControl.Name = "accordionControl"
-        Me.accordionControl.Size = New System.Drawing.Size(193, 378)
+        Me.accordionControl.Size = New System.Drawing.Size(223, 466)
         Me.accordionControl.TabIndex = 0
         Me.accordionControl.Text = "accordionControl"
         '
@@ -169,17 +174,17 @@ Partial Public Class MainForm
         Me.mainAccordionGroup.Name = "mainAccordionGroup"
         Me.mainAccordionGroup.Text = "mainGroup"
         '
-        'ordersAccordionControlElement
-        '
-        Me.ordersAccordionControlElement.Name = "ordersAccordionControlElement"
-        Me.ordersAccordionControlElement.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
-        Me.ordersAccordionControlElement.Text = "Orders"
-        '
         'customersAccordionControlElement
         '
         Me.customersAccordionControlElement.Name = "customersAccordionControlElement"
         Me.customersAccordionControlElement.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
         Me.customersAccordionControlElement.Text = "Customers"
+        '
+        'ordersAccordionControlElement
+        '
+        Me.ordersAccordionControlElement.Name = "ordersAccordionControlElement"
+        Me.ordersAccordionControlElement.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
+        Me.ordersAccordionControlElement.Text = "Orders"
         '
         'tabbedView
         '
@@ -193,13 +198,14 @@ Partial Public Class MainForm
         '
         'MainForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(790, 599)
+        Me.ClientSize = New System.Drawing.Size(922, 737)
         Me.Controls.Add(Me.dockPanel)
         Me.Controls.Add(Me.ribbonStatusBar)
         Me.Controls.Add(Me.ribbonControl)
         Me.IsMdiContainer = True
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "MainForm"
         Me.Ribbon = Me.ribbonControl
         Me.StatusBar = Me.ribbonStatusBar
@@ -227,7 +233,7 @@ Partial Public Class MainForm
     Private WithEvents dockPanel_Container As DevExpress.XtraBars.Docking.ControlContainer
     Private WithEvents accordionControl As DevExpress.XtraBars.Navigation.AccordionControl
     Private WithEvents ribbonPageGroupNavigation As DevExpress.XtraBars.Ribbon.RibbonPageGroup
-    Private WithEvents employeesBarButtonItem As DevExpress.XtraBars.BarButtonItem
+    Private WithEvents ordersBarButtonItem As DevExpress.XtraBars.BarButtonItem
     Private WithEvents customersBarButtonItem As DevExpress.XtraBars.BarButtonItem
     Private WithEvents barSubItemNavigation As DevExpress.XtraBars.BarSubItem
     Private WithEvents ordersAccordionControlElement As DevExpress.XtraBars.Navigation.AccordionControlElement

@@ -186,6 +186,18 @@
 * Set the `MainForm.Text` property to **XPO Tutorial**.
 * Set the `employeesAccordionControlElement.Name` property to **ordersAccordionControlElement**.
 * Set the `ordersAccordionControlElement.Text` property to **Orders**.
+* Select the `ribbonControl` component on the design surface. 
+* Click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph.
+* Click the **Run Designer** item to open the **Ribbon Control Designer** dialog.
+* In the **Toolbar > Ribbon Items** category, select the **Employees** item. Set its Caption and Name properties to **Orders** and **ordersBarButtonItem**, accordingly.
+* Close the designer.
+* Select the `documentManager` component on the design surface. 
+* Click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph.
+* Click the **Run Designer** item to open the **DocumentManager Designer** dialog.
+* In the **Main > Views** category, select the **tabbedView** item.
+* Select the **Events** category in the property grid and right-click the **DocumentClosed** event to open te context menu.
+* Click the **Reset** menu item.
+* Close the designer.
 * Set the `documentManager.MdiParent` property to **MainForm**.
 * Open the `MainForm` code file and change the code as follows:
 
