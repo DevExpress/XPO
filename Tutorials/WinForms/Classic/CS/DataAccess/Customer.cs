@@ -1,7 +1,6 @@
 ﻿using DevExpress.Xpo;
 
 namespace XpoTutorial {
-
     public class Customer : XPObject {
         public Customer(Session session) : base(session) { }
         private string fFirstName;
@@ -9,6 +8,7 @@ namespace XpoTutorial {
             get { return fFirstName; }
             set { SetPropertyValue(nameof(FirstName), ref fFirstName, value); }
         }
+
         private string fLastName;
         public string LastName {
             get { return fLastName; }
@@ -23,5 +23,4 @@ namespace XpoTutorial {
             get { return GetCollection<Order>(nameof(Orders)); }
         }
     }
-
 }

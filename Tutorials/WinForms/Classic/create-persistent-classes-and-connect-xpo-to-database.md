@@ -15,7 +15,7 @@
     ``` csharp
     using DevExpress.Xpo;
 
-    namespace DxSample.DataAccess {
+    namespace XpoTutorial {
         public class Customer :XPObject {
             public Customer(Session session) : base(session) { }
         }
@@ -25,6 +25,7 @@
     [XPO Classes Comparison](https://docs.devexpress.com/XPO/3311/concepts/xpo-classes-comparison)
 * Add the `FirstName` and `LastName` properties to the `Customer` class. XPO maps these properties to columns in the Customer table.
     ```csharp
+    private string fFirstName;
     public string FirstName {
         get { return fFirstName; }
         set { SetPropertyValue(nameof(FirstName), ref fFirstName, value); }
@@ -45,13 +46,24 @@
     ```
 * Add the [PersistentAlias](https://docs.devexpress.com/XPO/DevExpress.Xpo.PersistentAliasAttribute) attribute to the `ContactName` property. 
   >The [PersistentAlias](https://docs.devexpress.com/XPO/DevExpress.Xpo.PersistentAliasAttribute) attribute specifies an expression that XPO should use instead of the property name in a SQL query. Use [Criteria Language](https://docs.devexpress.com/CoreLibraries/4928/devexpress-data-library/criteria-language-syntax) to build the expression. 
+
+  > You can calculate the property value directly (as shown above) or use the [EvaluateAlias](https://docs.devexpress.com/XPO/DevExpress.Xpo.XPBaseObject.EvaluateAlias(System.String)) method. Both approaches are correct. The first approach is preferable for heavy calculations because C# or VB.NET provides many ways for performance optimization.  
     ```csharp
-    [PersistentAlias("concat(FirstName, ' ', LastName)")]
+    [PersistentAlias("Concat([FirstName], ' ', [LastName])")]
     public string ContactName {
-        get { return string.Concat(FirstName, " ", LastName); }
+        get { return (string)EvaluateAlias(nameof(ContactName)); }
     }
     ```
 * Use the same approach to add the `Order` class with the `ProductName`(String), `OrderDate`(DateTime), and `Freight`(decimal) properties. The complete code is available here: [Order.cs](/Tutorials/WinForms/Classic/CS/DataAccess/Order.cs)  
+  > The maximum number of characters for a column which XPO creates for a property of the String type is 100 ([SizeAttribute.DefaultStringMappingFieldSize](https://docs.devexpress.com/XPO/DevExpress.Xpo.SizeAttribute.DefaultStringMappingFieldSize)). Use the [Size](https://docs.devexpress.com/XPO/DevExpress.Xpo.SizeAttribute) attribute to change the maximum number of characters for some properties.
+* Add the [Size](https://docs.devexpress.com/XPO/DevExpress.Xpo.SizeAttribute) attribute to the `ProductName` property.
+    ```cs
+    [Size(200)]
+    public string ProductName {
+        get { return fProductName; }
+        set { SetPropertyValue(nameof(ProductName), ref fProductName, value); }
+    }
+    ```
 * Add the `Orders` and `Customer` properties to create a [relationship](https://docs.devexpress.com/XPO/2041/concepts/relationships-between-objects) between the **Customer** and **Order** classes.
     ```csharp
     // Customer.cs
@@ -93,6 +105,8 @@
     >[K18445 - How to create a correct connection string for XPO providers](https://www.devexpress.com/Support/Center/Question/Details/K18445)
 * To populate the database with the demo data, add the [DemoDataHelper.cs](/Tutorials/WinForms/Classic/CS/DataAccess/DemoDataHelper.cs) file to your project and put the following code after the `ConnectionHelper.Connect` method call.
     ```csharp
+    using DevExpress.Xpo;
+    // ..
     using (UnitOfWork uow = new UnitOfWork()) {
         DemoDataHelper.Seed(uow);
     }

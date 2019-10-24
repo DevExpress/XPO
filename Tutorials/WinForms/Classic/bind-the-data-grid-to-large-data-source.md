@@ -11,19 +11,19 @@
 * Open the `EditOrderForm` designer and change the `Text` property to **Edit Order**.
 * Rename the `CustomerBindingSource` component to **OrderBindingSource**.
 * Rebuild the project and set the `OrderBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Order**.
-* Set the `OrderBindingSource.DisplayableProperties` property to **ProductName;OrderDate;Freight;Customer!Key**. The last property name (**Customer!Key** is a [virtual property](https://docs.devexpress.com/XPO/3113/concepts/property-descriptors) designed for LookUp editors. See also: [How to: Bind an XPCollection to a LookUp](https://docs.devexpress.com/XPO/2000/examples/how-to-bind-an-xpcollection-to-a-lookup)).
+* Set the `OrderBindingSource.DisplayableProperties` property to **ProductName;OrderDate;Freight;Customer!Key**. 
+  >The last property name (**Customer!Key** is a [virtual property](https://docs.devexpress.com/XPO/3113/concepts/property-descriptors) designed for LookUp editors. See also: [How to: Bind an XPCollection to a LookUp](https://docs.devexpress.com/XPO/2000/examples/how-to-bind-an-xpcollection-to-a-lookup)).
 * Rename the `CustomerLayoutControl` component to **OrderLayoutControl**.
 * Rebuild the project.
 * Select the `OrderLayoutControl` component on the design surface. 
 * Click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph.
   >If the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph is not visible, press **Esc** several times to navigate from the selected `LayoutGroup` to the `LayoutControl`.
 * Click the **Retrieve Fields** item to open the **Select Binding Source** wizard.
-* Click the **Next** button and select the following properties and editors on the **Manage Data Bindings** screen:
-    * ProductName, TextEdit
-    * OrderDate, DateEdit
-    * Freight, CalcEdit
-    * Customer, LookupEdit 
-* Click the **Finish** button, delete the **First Name** and **Last Name** layout items, reorder the rest layout items to create a layout similar to the `EditCustomerForm`, and save the changes.
+* Click the **Next** button to open the **Manage Data Bindings** screen.
+* Assign editors to each property as shown in the screenshot:
+  ![](/Tutorials/images/WinForms.Classic/4.2.png)
+* Click the **Finish** button, delete the **First Name** and **Last Name** layout items, reorder the rest layout items to create a layout similar to the `EditCustomerForm`, and save the changes.\
+  ![](/Tutorials/images/WinForms.Classic/4.1.png)
 * Add the `XPBindingSource` component to the `Form` and rename it to **CustomersBindingSource**.
 * Rebuild the project.
 * Set the `CustomersBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Customer**.
@@ -65,7 +65,7 @@
                 CustomersBindingSource.DataSource = new XPCollection<Customer>(UnitOfWork);
             }
 
-            private void btnSave_Click(object sender, EventArgs e) {
+            private void BtnSave_Click(object sender, EventArgs e) {
                 try {
                     UnitOfWork.CommitChanges();
                     OrderID = ((Order)OrderBindingSource.DataSource).Oid;
@@ -75,7 +75,7 @@
                 }
             }
 
-            private void btnReload_Click(object sender, EventArgs e) {
+            private void BtnReload_Click(object sender, EventArgs e) {
                 Reload();
             }
         }
@@ -144,31 +144,33 @@
                 OrdersInstantFeedbackView.Refresh();
             }
 
-            private void btnNew_ItemClick(object sender, ItemClickEventArgs e) {
+            private void BtnNew_ItemClick(object sender, ItemClickEventArgs e) {
                 ShowEditForm(null);
             }
 
-            private void btnDelete_ItemClick(object sender, ItemClickEventArgs e) {
+            private void BtnDelete_ItemClick(object sender, ItemClickEventArgs e) {
                 using (Session session = new Session()) {
                     object orderId = OrdersGridView.GetFocusedRowCellValue(colOid);
                     Order order = session.GetObjectByKey<Order>(orderId);
                     session.Delete(order);
                 }
+                Reload();
             }
         }
     }
     ```
     </details>
 
+* Use the Visual Studio **Refactor** tool to rename the `CustomersGridView_RowClick` event handler to `OrdersGridView_RowClick`. To do this, put the cursor before the method name and click the **Edit > Refactor > Rename** menu item or use **Ctrl+R,Ctrl+R**.   
 * Select the `OrdersInstantFeedbackView` component and double click the `ResolveSession` event to add the event handler. Do the same for the `DismissSession` event.
 * Add the following code to the event handlers:
     ```csharp
     private void OrdersInstantFeedbackView_ResolveSession(object sender, ResolveSessionEventArgs e) {
-        e.Session = new Session()
+        e.Session = new Session();
     }
 
     private void OrdersInstantFeedbackView_DismissSession(object sender, ResolveSessionEventArgs e) {
-        e.Session.Session.Dispose()
+        e.Session.Session.Dispose();
     }
     ```
 ## Create the navigation container Form
@@ -176,12 +178,25 @@
 * Click the **Add DevExpress Item > New Item** menu item.
 * In the **DevExpress Template Gallery** window, select the **WinForms** category and switch to the **WinForms Popular UIs > UI-ready Form** page.
 * Set the **UI Type** property to **Tabbed MDI**.
-* Set the **View Tyepe** property to **Navigation Container**.
+* Set the **View Type** property to **Navigation Container**.
 * Set the **Item Name** property to **MainForm**.
+* Click the **Add Item** button.
 * Open the `MainForm` designer.
 * Set the `MainForm.Text` property to **XPO Tutorial**.
 * Set the `employeesAccordionControlElement.Name` property to **ordersAccordionControlElement**.
 * Set the `ordersAccordionControlElement.Text` property to **Orders**.
+* Select the `ribbonControl` component on the design surface. 
+* Click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph.
+* Click the **Run Designer** item to open the **Ribbon Control Designer** dialog.
+* In the **Toolbar > Ribbon Items** category, select the **Employees** item. Set its Caption and Name properties to **Orders** and **ordersBarButtonItem**, accordingly.
+* Close the designer.
+* Select the `documentManager` component on the design surface. 
+* Click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph.
+* Click the **Run Designer** item to open the **DocumentManager Designer** dialog.
+* In the **Main > Views** category, select the **tabbedView** item.
+* Select the **Events** category in the property grid and right-click the **DocumentClosed** event to open te context menu.
+* Click the **Reset** menu item.
+* Close the designer.
 * Set the `documentManager.MdiParent` property to **MainForm**.
 * Open the `MainForm` code file and change the code as follows:
 

@@ -5,14 +5,11 @@ using XpoTutorial;
 
 namespace WinFormsApplication {
     static class Program {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ConnectionHelper.Connect(false);
+            ConnectionHelper.Connect();
             using(UnitOfWork uow = new UnitOfWork()) {
                 DemoDataHelper.Seed(uow);
             }

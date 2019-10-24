@@ -1,11 +1,12 @@
-﻿using DevExpress.Xpo;
-using System;
+﻿using System;
+using DevExpress.Xpo;
 
 namespace XpoTutorial {
-
     public class Order :XPObject {
         public Order(Session session) : base(session) { }
+
         private string fProductName;
+        [Size(200)]
         public string ProductName {
             get { return fProductName; }
             set { SetPropertyValue(nameof(ProductName), ref fProductName, value); }

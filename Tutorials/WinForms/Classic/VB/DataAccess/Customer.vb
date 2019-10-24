@@ -1,10 +1,8 @@
 ﻿Imports DevExpress.Xpo
 
 Namespace XpoTutorial
-
-	Public Class Customer
-		Inherits XPObject
-
+    Public Class Customer
+        Inherits XPObject
         Public Sub New(ByVal session As Session)
             MyBase.New(session)
         End Sub
@@ -13,31 +11,30 @@ Namespace XpoTutorial
             Get
                 Return fFirstName
             End Get
-            Set(ByVal value As String)
+            Set(value As String)
                 SetPropertyValue(NameOf(FirstName), fFirstName, value)
             End Set
         End Property
         Private fLastName As String
         Public Property LastName() As String
-			Get
+            Get
                 Return fLastName
             End Get
-			Set(ByVal value As String)
-                SetPropertyValue("LastName", fLastName, value)
+            Set(value As String)
+                SetPropertyValue(NameOf(LastName), fLastName, value)
             End Set
-		End Property
-		<PersistentAlias("Concat([FirstName], ' ', [LastName])")>
-		Public ReadOnly Property ContactName() As String
-			Get
+        End Property
+        <PersistentAlias("Concat([FirstName], ' ', [LastName])")>
+        Public ReadOnly Property ContactName() As String
+            Get
                 Return CType(EvaluateAlias(NameOf(ContactName)), String)
             End Get
-		End Property
-		<Association("CustomerOrders")>
-		Public ReadOnly Property Orders() As XPCollection(Of Order)
-			Get
-				Return GetCollection(Of Order)(NameOf(Orders))
-			End Get
-		End Property
-	End Class
-
+        End Property
+        <Association("CustomerOrders")>
+        Public ReadOnly Property Orders() As XPCollection(Of Order)
+            Get
+                Return GetCollection(Of Order)(NameOf(Orders))
+            End Get
+        End Property
+    End Class
 End Namespace

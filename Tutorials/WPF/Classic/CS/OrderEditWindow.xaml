@@ -49,9 +49,6 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             
-            <Label Content="Oid:" Grid.Row="0" Grid.Column="0"/>
-            <dxe:TextEdit Grid.Row="0" Grid.Column="1" IsReadOnly="True" EditValue="{Binding Order.Oid}"/>
-
             <Label Content="Order Date:" Grid.Row="1" Grid.Column="0"/>
             <dxe:DateEdit Grid.Row="1" Grid.Column="1"  EditValue="{Binding Order.OrderDate, UpdateSourceTrigger=PropertyChanged}"/>
 

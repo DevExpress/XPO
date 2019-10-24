@@ -3,7 +3,7 @@ Imports DevExpress.Xpo.DB.Exceptions
 Imports DevExpress.XtraEditors
 Imports WinFormsApplication.XpoTutorial
 
-Public Class EditOrderForm
+Public Class EditCustomerForm
     Public Sub New()
 
         ' This call is required by the designer.
@@ -12,14 +12,14 @@ Public Class EditOrderForm
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
-    Public Sub New(ByVal orderID As Nullable(Of Integer))
+    Public Sub New(ByVal customerID As Nullable(Of Integer))
         Me.New()
-        fOrderID = orderID
+        fCustomerID = customerID
     End Sub
-    Private fOrderID As Nullable(Of Integer)
-    Public ReadOnly Property OrderID() As Nullable(Of Integer)
+    Private fCustomerID As Nullable(Of Integer)
+    Public ReadOnly Property CustomerID() As Nullable(Of Integer)
         Get
-            Return fOrderID
+            Return fCustomerID
         End Get
     End Property
     Private fUnitOfWork As UnitOfWork
@@ -34,18 +34,17 @@ Public Class EditOrderForm
 
     Private Sub Reload()
         fUnitOfWork = New UnitOfWork()
-        If OrderID.HasValue Then
-            OrdersBindingSource.DataSource = UnitOfWork.GetObjectByKey(Of Order)(OrderID.Value)
+        If CustomerID.HasValue Then
+            CustomersBindingSource.DataSource = UnitOfWork.GetObjectByKey(Of Customer)(CustomerID.Value)
         Else
-            OrdersBindingSource.DataSource = New Order(UnitOfWork)
+            CustomersBindingSource.DataSource = New Customer(UnitOfWork)
         End If
-        CustomersBindingSource.DataSource = New XPCollection(Of Customer)(UnitOfWork)
     End Sub
 
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
             UnitOfWork.CommitChanges()
-            fOrderID = CType(OrdersBindingSource.DataSource, Order).Oid
+            fCustomerID = CType(CustomersBindingSource.DataSource, Customer).Oid
             Close()
         Catch ex As LockingException
             XtraMessageBox.Show(Me, "The record was modified or deleted. Click Reload and try again.", "XPO Tutorial", MessageBoxButtons.OK, MessageBoxIcon.Stop)

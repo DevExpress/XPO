@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class OrdersListForm
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class CustomersListForm
     Inherits DevExpress.XtraBars.Ribbon.RibbonForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,16 +20,14 @@ Partial Class OrdersListForm
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.OrdersGridControl = New DevExpress.XtraGrid.GridControl()
-        Me.OrdersInstantFeedbackView = New DevExpress.Xpo.XPInstantFeedbackView(Me.components)
-        Me.OrdersGridView = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.CustomersBindingSource = New DevExpress.Xpo.XPBindingSource(Me.components)
+        Me.CustomersGridControl = New DevExpress.XtraGrid.GridControl()
+        Me.CustomersGridView = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.colOid = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colProductName = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colOrderDate = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colFreight = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colContactName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RibbonControl1 = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.btnNew = New DevExpress.XtraBars.BarButtonItem()
         Me.btnDelete = New DevExpress.XtraBars.BarButtonItem()
@@ -37,59 +35,46 @@ Partial Class OrdersListForm
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonStatusBar1 = New DevExpress.XtraBars.Ribbon.RibbonStatusBar()
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage()
-        CType(Me.OrdersGridControl, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.OrdersGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CustomersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CustomersGridControl, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CustomersGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RibbonControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'OrdersGridControl
+        'CustomersBindingSource
         '
-        Me.OrdersGridControl.DataSource = Me.OrdersInstantFeedbackView
-        Me.OrdersGridControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.OrdersGridControl.Location = New System.Drawing.Point(0, 162)
-        Me.OrdersGridControl.MainView = Me.OrdersGridView
-        Me.OrdersGridControl.Name = "OrdersGridControl"
-        Me.OrdersGridControl.Size = New System.Drawing.Size(800, 262)
-        Me.OrdersGridControl.TabIndex = 0
-        Me.OrdersGridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.OrdersGridView})
+        Me.CustomersBindingSource.DisplayableProperties = "Oid;ContactName"
+        Me.CustomersBindingSource.ObjectType = GetType(WinFormsApplication.XpoTutorial.Customer)
         '
-        'OrdersInstantFeedbackView
+        'CustomersGridControl
         '
-        Me.OrdersInstantFeedbackView.ObjectType = GetType(WinFormsApplication.XpoTutorial.Order)
-        Me.OrdersInstantFeedbackView.Properties.AddRange(New DevExpress.Xpo.ServerViewProperty() {New DevExpress.Xpo.ServerViewProperty("Oid", DevExpress.Xpo.SortDirection.None, "[Oid]"), New DevExpress.Xpo.ServerViewProperty("Product Name", DevExpress.Xpo.SortDirection.None, "[ProductName]"), New DevExpress.Xpo.ServerViewProperty("Order Date", DevExpress.Xpo.SortDirection.None, "[OrderDate]"), New DevExpress.Xpo.ServerViewProperty("Freight", DevExpress.Xpo.SortDirection.None, "[Freight]")})
+        Me.CustomersGridControl.DataSource = Me.CustomersBindingSource
+        Me.CustomersGridControl.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CustomersGridControl.Location = New System.Drawing.Point(0, 162)
+        Me.CustomersGridControl.MainView = Me.CustomersGridView
+        Me.CustomersGridControl.Name = "CustomersGridControl"
+        Me.CustomersGridControl.Size = New System.Drawing.Size(800, 262)
+        Me.CustomersGridControl.TabIndex = 0
+        Me.CustomersGridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.CustomersGridView})
         '
-        'OrdersGridView
+        'CustomersGridView
         '
-        Me.OrdersGridView.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colOid, Me.colProductName, Me.colOrderDate, Me.colFreight})
-        Me.OrdersGridView.GridControl = Me.OrdersGridControl
-        Me.OrdersGridView.Name = "OrdersGridView"
-        Me.OrdersGridView.OptionsBehavior.Editable = False
+        Me.CustomersGridView.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colOid, Me.colContactName})
+        Me.CustomersGridView.GridControl = Me.CustomersGridControl
+        Me.CustomersGridView.Name = "CustomersGridView"
+        Me.CustomersGridView.OptionsBehavior.Editable = False
         '
         'colOid
         '
         Me.colOid.FieldName = "Oid"
         Me.colOid.Name = "colOid"
         '
-        'colProductName
+        'colContactName
         '
-        Me.colProductName.FieldName = "Product Name"
-        Me.colProductName.Name = "colProductName"
-        Me.colProductName.Visible = True
-        Me.colProductName.VisibleIndex = 0
-        '
-        'colOrderDate
-        '
-        Me.colOrderDate.FieldName = "Order Date"
-        Me.colOrderDate.Name = "colOrderDate"
-        Me.colOrderDate.Visible = True
-        Me.colOrderDate.VisibleIndex = 1
-        '
-        'colFreight
-        '
-        Me.colFreight.FieldName = "Freight"
-        Me.colFreight.Name = "colFreight"
-        Me.colFreight.Visible = True
-        Me.colFreight.VisibleIndex = 2
+        Me.colContactName.FieldName = "ContactName"
+        Me.colContactName.Name = "colContactName"
+        Me.colContactName.Visible = True
+        Me.colContactName.VisibleIndex = 0
         '
         'RibbonControl1
         '
@@ -139,27 +124,32 @@ Partial Class OrdersListForm
         Me.RibbonPage2.Name = "RibbonPage2"
         Me.RibbonPage2.Text = "RibbonPage2"
         '
-        'OrdersListForm
+        'CustomersListForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.OrdersGridControl)
+        Me.Controls.Add(Me.CustomersGridControl)
         Me.Controls.Add(Me.RibbonStatusBar1)
         Me.Controls.Add(Me.RibbonControl1)
-        Me.Name = "OrdersListForm"
+        Me.Name = "CustomersListForm"
         Me.Ribbon = Me.RibbonControl1
         Me.StatusBar = Me.RibbonStatusBar1
-        Me.Text = "Orders"
-        CType(Me.OrdersGridControl, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.OrdersGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Text = "Customers"
+        CType(Me.CustomersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CustomersGridControl, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CustomersGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RibbonControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents OrdersGridControl As DevExpress.XtraGrid.GridControl
-    Friend WithEvents OrdersGridView As DevExpress.XtraGrid.Views.Grid.GridView
+
+    Friend WithEvents CustomersBindingSource As DevExpress.Xpo.XPBindingSource
+    Friend WithEvents CustomersGridControl As DevExpress.XtraGrid.GridControl
+    Friend WithEvents CustomersGridView As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents colOid As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colContactName As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RibbonControl1 As DevExpress.XtraBars.Ribbon.RibbonControl
     Friend WithEvents RibbonPage1 As DevExpress.XtraBars.Ribbon.RibbonPage
     Friend WithEvents RibbonPageGroup1 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
@@ -167,9 +157,4 @@ Partial Class OrdersListForm
     Friend WithEvents RibbonPage2 As DevExpress.XtraBars.Ribbon.RibbonPage
     Friend WithEvents btnNew As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnDelete As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents OrdersInstantFeedbackView As DevExpress.Xpo.XPInstantFeedbackView
-    Friend WithEvents colOid As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colProductName As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colOrderDate As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colFreight As DevExpress.XtraGrid.Columns.GridColumn
 End Class
