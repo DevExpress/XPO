@@ -19,7 +19,7 @@
   >Visual Studio should ask whether to change the class name. If not, open the code editor and use the **Rename** menu command (**Ctrl+R, Ctrl+R**) to change the class name. Change the base class to `XtraForm`, open the designer, and set the `Text` property to **Customers**.
 * Add the `XPBindingSource` and `DataLayoutControl` components from the Toolbox and change their names to **CustomerBindingSource** and **CustomerLayoutControl**.
 * Rebuild the project.
-* Set the `CustomerBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Customer** *(select a value from the drop-down list and rebuild the project)*.
+* Set the `CustomerBindingSource.ObjectClassInfo` property to **XpoTutorial.Customer** *(select a value from the drop-down list and rebuild the project)*.
 * Set the `CustomerBindingSource.DisplayableProperties` property to **FirstName;LastName**.
 * Set the `CustomerLayoutControl.Dock` property to **Fill**.
 * Select the `CustomerLayoutControl` component on the design surface.

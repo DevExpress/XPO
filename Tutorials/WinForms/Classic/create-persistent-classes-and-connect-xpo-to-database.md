@@ -15,7 +15,7 @@
     ``` csharp
     using DevExpress.Xpo;
 
-    namespace DxSample.DataAccess {
+    namespace XpoTutorial {
         public class Customer :XPObject {
             public Customer(Session session) : base(session) { }
         }
