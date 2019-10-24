@@ -76,7 +76,7 @@
             this.OrdersGridView.GridControl = this.OrdersGridControl;
             this.OrdersGridView.Name = "OrdersGridView";
             this.OrdersGridView.OptionsBehavior.Editable = false;
-            this.OrdersGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.CustomersGridView_RowClick);
+            this.OrdersGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.OrdersGridView_RowClick);
             // 
             // colOid
             // 

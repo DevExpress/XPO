@@ -15,7 +15,7 @@ Public Class OrdersListForm
         OrdersInstantFeedbackView.Refresh()
     End Sub
 
-    Private Sub CustomersGridView_RowClick(sender As Object, e As RowClickEventArgs) Handles OrdersGridView.RowClick
+    Private Sub OrdersGridView_RowClick(sender As Object, e As RowClickEventArgs) Handles OrdersGridView.RowClick
         If e.Clicks = 2 Then
             e.Handled = True
             Dim customerId As Integer = CType(OrdersGridView.GetRowCellValue(e.RowHandle, colOid), Integer)

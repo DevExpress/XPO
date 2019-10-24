@@ -10,7 +10,7 @@ namespace WinFormsApplication {
         public OrdersListForm() {
             InitializeComponent();
         }
-        private void CustomersGridView_RowClick(object sender, RowClickEventArgs e) {
+        private void OrdersGridView_RowClick(object sender, RowClickEventArgs e) {
             if(e.Clicks == 2) {
                 e.Handled = true;
                 int orderID = (int)OrdersGridView.GetRowCellValue(e.RowHandle, colOid);

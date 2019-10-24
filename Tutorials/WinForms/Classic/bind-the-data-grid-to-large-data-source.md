@@ -163,6 +163,7 @@
     ```
     </details>
 
+* Use the Visual Studio **Refactor** tool to rename the `CustomersGridView_RowClick` event handler to `OrdersGridView_RowClick`. To do this, put the cursor before the method name and click the **Edit > Refactor > Rename** menu item or use **Ctrl+R,Ctrl+R**.   
 * Select the `OrdersInstantFeedbackView` component and double click the `ResolveSession` event to add the event handler. Do the same for the `DismissSession` event.
 * Add the following code to the event handlers:
     ```csharp
