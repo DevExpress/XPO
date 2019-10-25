@@ -85,39 +85,43 @@ else {
     protected override async Task OnInitializedAsync() {
         customers = await CustomerService.Get();
     }
-    async void OnRowInserting(Dictionary<string, object>
-    values, Type type) {
+    async void OnRowInserting(Dictionary<string, object> values, Type type) {
         if(type == typeof(Customer)) {
             await CustomerService.Add(values);
         }
         else if(type == typeof(Order)) {
-            await OrderService.Add(values, SelectedCustomer);
+            await OrderService.Add(values, SelectedCustomer.Oid);
         }
-        //StateHasChanged();
+        StateHasChanged();
     }
-    async void OnRowUpdating(object item, Dictionary<string, object>
-        values) {
-        if(item is Customer customer) {
-            await CustomerService.Update(customer, values);
+    async void OnRowUpdating(object item, Dictionary<string, object> values) {
+        Customer customer = item as Customer;
+        if(customer != null) {
+            await CustomerService.Update(customer.Oid, values);
+        } else {
+            Order order = item as Order;
+            if(order != null) {
+                await OrderService.Update(order.Oid, values);
+            }
         }
-        else if(item is Order order) {
-            await OrderService.Update(order, values);
-        }
-        //StateHasChanged();
+        StateHasChanged();
     }
     async void OnRowRemoving(object item) {
-        if(item is Customer customer) {
-            await CustomerService.Delete(customer);
+        Customer customer = item as Customer;
+        if(customer != null) {
+            await CustomerService.Delete(customer.Oid);
+        } else {
+            Order order = item as Order;
+            if(order != null) {
+                await OrderService.Delete(order.Oid);
+            }
         }
-        else if(item is Order order) {
-            await OrderService.Delete(order);
-        }
-        //StateHasChanged();
+        StateHasChanged();
     }
     async void OnClickCustomerOrders(Customer item) {
         SelectedCustomer = item;
-        selectedCustomerOrders = await OrderService.GetCustomerOrders(item);
-        //StateHasChanged();
+        selectedCustomerOrders = await OrderService.GetCustomerOrders(item.Oid);
+        StateHasChanged();
     }
     void OnSelectedItemChanged(Customer customerReference, CellEditContext context) {
         context.OnChanged(customerReference != null ? (object)customerReference.Oid : null);
