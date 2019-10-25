@@ -8,38 +8,41 @@ using System.Threading.Tasks;
 using XpoTutorial;
 
 namespace BlazorServerSideApplication.Services {
-    public class OrderService {
-        UnitOfWork unitOfWork;
-        public OrderService(UnitOfWork uow) {
-            unitOfWork = uow;
-        }
+    public class OrderService : BaseService {
+        public OrderService(IDataLayer dataLayer, UnitOfWork readUnitOfWork)
+            : base(dataLayer, readUnitOfWork) { }
         public Task<IQueryable<Order>> Get() {
-            var query = (IQueryable<Order>)unitOfWork.Query<Order>();
+            var query = (IQueryable<Order>)readUnitOfWork.Query<Order>();
             return Task.FromResult(query);
         }
-        public Task<IQueryable<Order>> GetCustomerOrders(Customer customer) {
-            var query = (IQueryable<Order>)unitOfWork.Query<Order>().Where(order => order.Customer != null && customer != null & order.Customer.Oid == customer.Oid);
+        public Task<IQueryable<Order>> GetCustomerOrders(int customerOid) {
+            var query = readUnitOfWork.Query<Order>().Where(order => order.Customer.Oid == customerOid);
             return Task.FromResult(query);
         }
-        public async Task<Order> Add(Dictionary<string, object> values, Customer customer) {
+        public async Task<Order> Add(Dictionary<string, object> values, int customerOid) {
             string json = JsonConvert.SerializeObject(values);
-            var dataItem = JsonPopulateObjectHelper.PopulateObject<Order>(json, unitOfWork);
-            dataItem.Customer = customer; //TODO: Remove once the DxDataGrid provides the InitNewItemRow event or passes current editor values even if they are unchanged.
-            await unitOfWork.CommitChangesAsync();
-            return dataItem;
-        }
-        public async Task<Order> Update(Order dataItem, Dictionary<string, object> values) {
-            if(dataItem != null) {
-                string json = JsonConvert.SerializeObject(values);
-                JsonPopulateObjectHelper.PopulateObject(json, unitOfWork, dataItem);
-                await unitOfWork.CommitChangesAsync();
+            using(UnitOfWork uow = CreateModificationUnitOfWork()) {
+                var customer = await uow.GetObjectByKeyAsync<Customer>(customerOid);
+                var newOrder = JsonPopulateObjectHelper.PopulateObject<Order>(json, uow);
+                newOrder.Customer = customer;
+                await uow.CommitChangesAsync();
+                return await readUnitOfWork.GetObjectByKeyAsync<Order>(newOrder.Oid, true);
             }
-            return dataItem;
         }
-        public async Task Delete(Order dataItem) {
-            if(dataItem != null) {
-                dataItem.Delete();
-                await unitOfWork.CommitChangesAsync();
+        public async Task<Order> Update(int oid, Dictionary<string, object> values) {
+            string json = JsonConvert.SerializeObject(values);
+            using(UnitOfWork uow = CreateModificationUnitOfWork()) {
+                var order = await uow.GetObjectByKeyAsync<Order>(oid);
+                JsonPopulateObjectHelper.PopulateObject(json, uow, order);
+                await uow.CommitChangesAsync();
+            }
+            return await readUnitOfWork.GetObjectByKeyAsync<Order>(oid, true);
+        }
+        public async Task Delete(int oid) {
+            using(UnitOfWork uow = CreateModificationUnitOfWork()) {
+                var order = await uow.GetObjectByKeyAsync<Order>(oid);
+                order.Delete();
+                await uow.CommitChangesAsync();
             }
         }
     }
