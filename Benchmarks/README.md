@@ -1,4 +1,4 @@
-# .NET ORM Benchmark
+# .NET Core ORM Benchmark
 
 This project is a [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet)-based benchmark. We used it to test the performance of the following Object-Relational Mapping (ORM) libraries for .NET Core 3.0.0 and higher:<br/>
  - [Entity Framework 6.3.0](https://docs.microsoft.com/en-us/ef/ef6/) (EF 6);<br/>
