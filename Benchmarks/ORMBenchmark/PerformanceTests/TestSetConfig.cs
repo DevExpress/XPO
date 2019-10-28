@@ -17,8 +17,7 @@ namespace ORMBenchmark.PerformanceTests {
         public static int[] RowCounts = new int[] { 10, 50, 100, 250, 500, 1000, 2500, 5000 };
 
         public TestSetConfig() {
-            var job = Job.Clr
-                    .With(Runtime.Clr)
+            var job = Job.Default.With(CoreRuntime.Core30)
                     .WithLaunchCount(1)
                     .WithWarmupCount(1)
                     .WithMinInvokeCount(1)
