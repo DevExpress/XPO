@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using BenchmarkDotNet.Running;
-using System.Linq;
 using ORMBenchmark.PerformanceTests;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ConsoleApp1 {
     class Program {
@@ -27,7 +27,9 @@ namespace ConsoleApp1 {
             }
             var summary = BenchmarkRunner.Run<PerformanceTestSet>(new TestSetConfig());
             string resultsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "BenchmarkDotNet.Artifacts", "results", "ORMBenchmark.PerformanceTests.PerformanceTestSet-report.html");
-            System.Diagnostics.Process.Start(resultsPath);
+            var psi = new ProcessStartInfo(resultsPath);
+            psi.UseShellExecute = true;
+            Process.Start(psi);
         }
     }
 }
