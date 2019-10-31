@@ -1,99 +1,25 @@
-# DevExpress XPO for .NET Framework / .NET Core / .NET Standard 2.0 Demos
+# DevExpress XPO ORM for .NET Framework / .NET Core / .NET Standard 2.0
 
-This repository contains demo projects demonstrating how to use [eXpressPersistent Objects™ (XPO)](https://www.devexpress.com/Products/NET/ORM/)  in [\.NET Standard 2.0](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) applications. You can use these projects to learn how to use XPO in Console, WPF, WinForms, ASP.NET Core/MVC5/WebForms or Xamarin applications. All required DevExpress references are included.
+The [Tutorials](Tutorials) subfolder contains samples and tutorials demonstrating how to use [eXpressPersistent Objects™ (XPO)](https://www.devexpress.com/Products/NET/ORM/?utm_source=GitHub&utm_medium=ReadMe&utm_campaign=XPO&utm_content=Root) in Console, WinForms, WPF, ASP.NET Core/MVC5/WebForms/Blazor or Xamarin applications. 
+
+The [Benchmarks](Benchmarks) subfolder contains performance benchmarks that you can use to test XPO against Entity Framework Core and Entity Framework 6. All required DevExpress references are included.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/5479762/32771815-03632fa0-c935-11e7-9f19-2297bd4cc3f5.png" alt="XPO for .NET Core / Standard 2.0 Logo"/>
 </p>
 
-## Prerequisites
+## Obtain XPO Assemblies
+If you don't need XPO [design-time features](https://docs.devexpress.com/XPO/14809/design-time-features), use the [DevExpress\.Xpo](https://www.nuget.org/packages/DevExpress.Xpo/) NuGet package for .NET Framework and .NET Standard 2.0 development.
 
-Download and install [.NET Core 2.1 SDK](https://www.microsoft.com/net/download/core).
+Otherwise, download the [Unified Installers](https://www.devexpress.com/Products/Try/?utm_source=GitHub&utm_medium=ReadMe&utm_campaign=XPO&utm_content=Root) for .NET Framework and .NET Core 3.0 Desktop development.
+
+## Online Documentation, Knowledge Base & Yet More Samples
+
+You can search free [online documentation](https://docs.devexpress.com/XPO/1998/express-persistent-objects), yet more [GitHub Code Examples](https://github.com/DevExpress-Examples?q=eXpress+Persistent+Objects) and a large [support knowledge base](https://www.devexpress.com/sc) as needed.
 
 ## Available Free of Charge without Technical Support
-If you do not require technical assistance from [our Support Team](https://www.devexpress.com/Support/Center/), you can use fully-functional XPO - ORM Library in your applications **free of charge**. Support is included with several paid subscriptions, including a dedicated [XPO - ORM Library Subscription](https://www.devexpress.com/Products/NET/ORM/#Pricing) license. [Learn more...](https://community.devexpress.com/blogs/xpo/archive/2018/05/21/xpo-free-of-charge-in-v18-1.aspx)
-
-To install the required binaries, use the [DevExpress\.Xpo](https://www.nuget.org/packages/DevExpress.Xpo/) NuGet package or [Unified Installer for .NET and HTML5 Developers](https://www.devexpress.com/Products/Try/). 
-
-## Get the Sources
-
-Clone this repository:
-
-```
-git clone https://github.com/DevExpress/XPO.git
-```
-
-<!--
-If you do not have [Git](https://git-scm.com/) installed, download and extract the ZIP archive using the GitHub web interface.
-
-## Console Demo [![Build Status](https://travis-ci.org/DevExpress/XPO.svg?branch=master)](https://travis-ci.org/DevExpress/XPO)
-
-The solution located in the `XpoConsoleCoreDemo` subfolder is a **.NET Standard 2.0** console application, demonstrating how to initialize the data layer and perform basic data operations. To run the application, execute the following commands in the **repository root folder** (XPO by default):
-
-```
-cd XpoConsoleCoreDemo\XpoConsoleCoreDemo
-dotnet restore
-dotnet run
-```
-
-The project is configured to use a local **SQLite** database. You can modify the code in the *Program.cs* file to configure another database connection (e.g., **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)).
-
-## ASP.NET Core Razor Pages Demo [![Build Status](https://travis-ci.org/DevExpress/XPO.svg?branch=master)](https://travis-ci.org/DevExpress/XPO)
-
-The solution located in the `XpoASPNETCoreDemo` subfolder is a **.NET Standard 2.0** console application that displays a simple view with basic operations (*create*, *delete*, *list*). To run the application, execute the following commands in the repository root folder:
-
-```
-cd XpoASPNETCoreDemo\DevExpress.Xpo.AspNetCoreDemo
-dotnet restore
-dotnet run
-```
-
-Then, open http://localhost:5000 in your web browser.
-
-The project is configured for a local **SQLite** database. Modify the *Startup.cs* and *appsettings.json* files to configure another database connection (e.g., **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)). Check out the [ASP.NET Core Dependency Injection in XPO](https://www.devexpress.com/Support/Center/Question/Details/T637597/asp-net-core-dependency-injection-in-xpo) help topic for more information. 
-
-## ASP.NET Core MVC Demo [![Build Status](https://travis-ci.org/DevExpress/XPO.svg?branch=master)](https://travis-ci.org/DevExpress/XPO)
-
-The solution located in the `XpoASPNETCoreMVCDemo` subfolder is a **.NET Standard 2.0** console application that displays a simple view with basic operations (*create*, *delete*, *list*). To run the application, execute the following commands in the repository root folder:
-
-```
-cd XpoASPNETCoreMVCDemo\DevExpress.Xpo.AspNetCoreMVCDemo
-dotnet restore
-dotnet run
-```
-
-Then, open http://localhost:5000 in your web browser.
-
-The project is configured for a local **SQLite** database. Modify the *Startup.cs* and *appsettings.json* files to configure another database connection (e.g., **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)). Check out the [ASP.NET Core Dependency Injection in XPO](https://www.devexpress.com/Support/Center/Question/Details/T637597/asp-net-core-dependency-injection-in-xpo) help topic for more information.
-
-
-## Xamarin Demo
-
-The solution located in the `XpoXamarinFormsDemo` subfolder demonstrates the use of XPO in [Xamarin\.Forms](https://www.xamarin.com/forms). It contains the following projects:
- - *DevExpress.Xpo.XamarinFormsDemo.UI* - the common .NET Standard 2.0 project with business logic (data layer initialization, data manipulation) and page layouts;
- - *DevExpress.Xpo.XamarinFormsDemo.Android* [![Build status](https://build.appcenter.ms/v0.1/apps/6437f2e5-5b4f-44f5-925c-e8a8df334afa/branches/master/badge)](https://appcenter.ms)  - Android app project;
- - *DevExpress.Xpo.XamarinFormsDemo.iOS* [![Build status](https://build.appcenter.ms/v0.1/apps/235d5dbc-83bf-42d5-9e48-52dd8770d5bf/branches/master/badge)](https://appcenter.ms) - iOS app project;
- - *DevExpress.Xpo.XamarinFormsDemo.UWP* - UWP app project.
-
-To try this demo, open the solution in [Visual Studio 2017 for Windows 15.6.0](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes#15.4) or [Visual Studio 2017 for Mac 7.4.0](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-mac-relnotes) or a newer version. In order to use [.NET Standard 2.0 in UWP](https://blogs.msdn.microsoft.com/dotnet/2017/10/10/announcing-uwp-support-for-net-standard-2-0/), you need to target "Windows 10 Fall Creators Update" as the minimum version of your UWP project.
-
-The demo is configured to use the in-memory data provider with XML storage. Modify the *App.xaml.cs* file in the *DevExpress.Xpo.XamarinFormsDemo.UI* project to configure another database connection (e.g., **SQLite**, **MS SQL Server** or [any other supported database](https://documentation.devexpress.com/CoreLibraries/2114/DevExpress-ORM-Tool/Fundamentals/Database-Systems-Supported-by-XPO)).
--->
-
-## Benchmarks
-
-The solution located in the `Benchmarks` subfolder is a benchmark that you can use to test XPO against [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) and [Entity Framework 6](https://docs.microsoft.com/en-us/ef/ef6/). You can view the benchmark results at [Benchmarks/README.md](Benchmarks/README.md).
-
-## Learn More
-
-This tutorial demonstrates how to create an XPO-based .NET Standard 2.0 console application that initializes the data layer and performs basic data operations: [Getting Started with \.NET Core](https://documentation.devexpress.com/CoreLibraries/119377/DevExpress-ORM-Tool/Getting-Started/Getting-Started-with-NET-Core).
-
-## Your feedback is needed!
-
-We would greatly appreciate it if you [participate in this short survey (6 questions, ~3 min)](https://www.devexpress.com/go/XPO_Try_NET_Core_Beta_Survey.aspx).
+If you do not require technical assistance from the DevExpress Support Team, you can use fully-functional XPO - ORM Library in your applications **free of charge**. Support is included with several paid subscriptions, including a dedicated [XPO - ORM Library Subscription](https://www.devexpress.com/buy/net/?utm_source=GitHub&utm_medium=ReadMe&utm_campaign=XPO&utm_content=Root) license.
 
 ## See Also
-* [An ASP.NET Core Web API CRUD Service](https://github.com/DevExpress-Examples/xpo-json-serialization)  
 * [How to: Connect to a Data Store](https://documentation.devexpress.com/CoreLibraries/2123/DevExpress-ORM-Tool/Concepts/How-to-Connect-to-a-Data-Store)<br>
-* [Microsoft Identity and XPO Continues: Support for .NET Core available](https://community.devexpress.com/blogs/donw/archive/2018/03/07/microsoft-identity-and-xpo-continues-support-for-net-core-available.aspx)
-
+* [User Authentication and Group Authorization API for .NET Apps Powered by the XPO ORM](https://github.com/DevExpress-Examples/XAF_how-to-use-the-integrated-mode-of-the-security-system-in-non-xaf-applications-e4908)
