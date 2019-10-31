@@ -22,6 +22,10 @@
 * Select the **Binding via the XPBindingSource component** Binding Type.\
   ![](/Tutorials/images/WinForms.Classic/2.3.png)
 * Click the **Finish** button.
+* The Wizard adds three components: `customerXPBindingSource`, 'unitOfWork1`, and `xpCollection1`. Delete the `unitOfWork1` and `xpCollection1` components.
+* Rebuild the project.
+* Set the `customerXPBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Customer** *(select a value from the drop-down list)* and rebuild the project.
+* Set the `customerXPBindingSource.DisplayableProperties` property to **Oid;ContactName**.
 * Set the `CustomersGridControl.Dock` property to **Fill**.
 * Select the `gridView1` component in the **Properties** window and rename it to **CustomersGridView**.
 * Change the `CustomersGridView.OptionsBehavior.Editable` property to `False`.
@@ -35,7 +39,7 @@
     // ...
     private void Form1_Load(object sender, EventArgs e) {
         Session session = new Session();
-        CustomersBindingSource.DataSource = new XPCollection<Customer>(session);
+        customerXPBindingSource.DataSource = new XPCollection<Customer>(session);
     }
     ```
 * Press the **F5** key to run the application.

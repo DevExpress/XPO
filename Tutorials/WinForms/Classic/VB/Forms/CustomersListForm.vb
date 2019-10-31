@@ -23,7 +23,7 @@ Public Class CustomersListForm
 
     Private Sub Reload()
         fSession = New Session
-        CustomersBindingSource.DataSource = New XPCollection(Of Customer)(Session)
+        customerXPBindingSource.DataSource = New XPCollection(Of Customer)(Session)
     End Sub
 
     Private Sub CustomersGridView_RowClick(sender As Object, e As RowClickEventArgs) Handles CustomersGridView.RowClick

@@ -36,7 +36,7 @@ namespace WinFormsApplication {
 
         private void Reload() {
             Session = new Session();
-            CustomersBindingSource.DataSource = new XPCollection<Customer>(Session);
+            customerXPBindingSource.DataSource = new XPCollection<Customer>(Session);
         }
 
         private void BtnNew_ItemClick(object sender, ItemClickEventArgs e) {

@@ -24,8 +24,8 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            this.CustomersBindingSource = new DevExpress.Xpo.XPBindingSource(this.components);
             this.CustomersGridControl = new DevExpress.XtraGrid.GridControl();
+            this.customerXPBindingSource = new DevExpress.Xpo.XPBindingSource(this.components);
             this.CustomersGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colOid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colContactName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -36,34 +36,37 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerXPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
-            // CustomersBindingSource
-            // 
-            this.CustomersBindingSource.DisplayableProperties = "Oid;ContactName";
-            this.CustomersBindingSource.ObjectType = typeof(XpoTutorial.Customer);
-            // 
             // CustomersGridControl
             // 
-            this.CustomersGridControl.DataSource = this.CustomersBindingSource;
+            this.CustomersGridControl.DataSource = this.customerXPBindingSource;
             this.CustomersGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CustomersGridControl.Location = new System.Drawing.Point(0, 162);
+            this.CustomersGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CustomersGridControl.Location = new System.Drawing.Point(0, 198);
             this.CustomersGridControl.MainView = this.CustomersGridView;
+            this.CustomersGridControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CustomersGridControl.Name = "CustomersGridControl";
-            this.CustomersGridControl.Size = new System.Drawing.Size(800, 262);
+            this.CustomersGridControl.Size = new System.Drawing.Size(933, 324);
             this.CustomersGridControl.TabIndex = 0;
             this.CustomersGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.CustomersGridView});
+            // 
+            // customerXPBindingSource
+            // 
+            this.customerXPBindingSource.DisplayableProperties = "Oid;ContactName";
+            this.customerXPBindingSource.ObjectType = typeof(XpoTutorial.Customer);
             // 
             // CustomersGridView
             // 
             this.CustomersGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colOid,
             this.colContactName});
+            this.CustomersGridView.DetailHeight = 431;
             this.CustomersGridView.GridControl = this.CustomersGridControl;
             this.CustomersGridView.Name = "CustomersGridView";
             this.CustomersGridView.OptionsBehavior.Editable = false;
@@ -72,14 +75,18 @@
             // colOid
             // 
             this.colOid.FieldName = "Oid";
+            this.colOid.MinWidth = 23;
             this.colOid.Name = "colOid";
+            this.colOid.Width = 87;
             // 
             // colContactName
             // 
             this.colContactName.FieldName = "ContactName";
+            this.colContactName.MinWidth = 23;
             this.colContactName.Name = "colContactName";
             this.colContactName.Visible = true;
             this.colContactName.VisibleIndex = 0;
+            this.colContactName.Width = 87;
             // 
             // ribbonControl1
             // 
@@ -90,11 +97,12 @@
             this.btnNew,
             this.btnDelete});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl1.MaxItemId = 3;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbonControl1.Size = new System.Drawing.Size(800, 162);
+            this.ribbonControl1.Size = new System.Drawing.Size(933, 198);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
             // btnNew
@@ -128,10 +136,11 @@
             // 
             // ribbonStatusBar1
             // 
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 424);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 522);
+            this.ribbonStatusBar1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(800, 26);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(933, 32);
             // 
             // ribbonPage2
             // 
@@ -140,19 +149,20 @@
             // 
             // CustomersListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(933, 554);
             this.Controls.Add(this.CustomersGridControl);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CustomersListForm";
             this.Ribbon = this.ribbonControl1;
             this.StatusBar = this.ribbonStatusBar1;
             this.Text = "Customers";
             this.Load += new System.EventHandler(this.CustomersListForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.CustomersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerXPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             this.ResumeLayout(false);
@@ -161,8 +171,6 @@
         }
 
         #endregion
-
-        private DevExpress.Xpo.XPBindingSource CustomersBindingSource;
         private DevExpress.XtraGrid.GridControl CustomersGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView CustomersGridView;
         private DevExpress.XtraGrid.Columns.GridColumn colOid;
@@ -174,6 +182,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.BarButtonItem btnNew;
         private DevExpress.XtraBars.BarButtonItem btnDelete;
+        private DevExpress.Xpo.XPBindingSource customerXPBindingSource;
     }
 }
 
