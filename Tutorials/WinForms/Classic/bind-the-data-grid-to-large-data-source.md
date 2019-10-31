@@ -9,7 +9,7 @@
 * Press **Ctrl+V** to create a copy of an EditCustomerForm and rename it to **EditOrderForm**.
 * Change the class and constructor name to **EditOrderForm**. Open the *CustomersListForm.Designer.cs* file and rename the class there. If this file is hidden, use the **Show All Files** toolbar item in the Solution Explorer window.
 * Open the `EditOrderForm` designer and change the `Text` property to **Edit Order**.
-* Rename the `CustomerBindingSource` component to **OrderBindingSource**.
+* Rename the `customerXPBindingSource` component to **OrderBindingSource**.
 * Rebuild the project and set the `OrderBindingSource.ObjectClassInfo` property to **DxSample.DataAccess.Order**.
 * Set the `OrderBindingSource.DisplayableProperties` property to **ProductName;OrderDate;Freight;Customer!Key**. 
   >The last property name (**Customer!Key** is a [virtual property](https://docs.devexpress.com/XPO/3113/concepts/property-descriptors) designed for LookUp editors. See also: [How to: Bind an XPCollection to a LookUp](https://docs.devexpress.com/XPO/2000/examples/how-to-bind-an-xpcollection-to-a-lookup)).
@@ -98,7 +98,7 @@
     * Name = Product Name, Property = [ProductName]
     * Name = Order Date, Property = [OrderDate]
     * Name = Freight, Property = [Freight]
-* Delete the `CustomersBindingSource` component.
+* Delete the `customerXPBindingSource` component.
 * Change the `CustomersGridControl` name to **OrdersGridControl** and do the same for `CustomersGridView`.
 * Set the `OrdersGridControl.DataSource` property to **OrdersInstantFeedbackView**.
 * Select the `OrdersGridControl` control and click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph. 

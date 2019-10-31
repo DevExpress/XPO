@@ -17,15 +17,29 @@
 *  Set the Form's `Text` property to **Edit Customer**.
 * Move the *Form1.cs* file to the *Forms* folder and rename it to *CustomersListForm.cs*. 
   >Visual Studio should ask whether to change the class name. If not, open the code editor and use the **Rename** menu command (**Ctrl+R, Ctrl+R**) to change the class name. Change the base class to `XtraForm`, open the designer, and set the `Text` property to **Customers**.
-* Add the `XPBindingSource` and `DataLayoutControl` components from the Toolbox and change their names to **CustomerBindingSource** and **CustomerLayoutControl**.
+* Add the `DataLayoutControl` components from the Toolbox and change its name to **CustomerLayoutControl**.
 * Rebuild the project.
-* Set the `CustomerBindingSource.ObjectClassInfo` property to **XpoTutorial.Customer** *(select a value from the drop-down list and rebuild the project)*.
-* Set the `CustomerBindingSource.DisplayableProperties` property to **FirstName;LastName**.
-* Set the `CustomerLayoutControl.Dock` property to **Fill**.
 * Select the `CustomerLayoutControl` component on the design surface.
 * Click the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph.
   >If the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph is not visible, press **Esc** several times to navigate from the selected `LayoutGroup` to the `LayoutControl`.
-* Click the **Choose Data Source** combo box and select the `CustomersBindingSource` component.
+* Click the **Data Source Wizard** menu item to open the **Data Source Configuration Wizard** window.
+* Select the **DevExpress ORM Tool (XPO)** Technology.
+* Select the **Persistent Data Model** Data Source.\
+  ![](/Tutorials/images/WinForms.Classic/2.1.png)
+* Click the **Next** button.
+* Select the **Client-Side Data Processing** item.\
+  ![](/Tutorials/images/WinForms.Classic/2.2.png)
+* Click the **Next** button.
+* Select the **Customer** Object Type.
+* Select the **Binding via the XPBindingSource component** Binding Type.\
+  ![](/Tutorials/images/WinForms.Classic/2.3.png)
+* Click the **Finish** button.
+* The Wizard adds three components: `customerXPBindingSource`, 'unitOfWork1`, and `xpCollection1`. Delete the `unitOfWork1` and `xpCollection1` components.
+* Rebuild the project.
+* Set the `customerXPBindingSource.ObjectClassInfo` property to **XpoTutorial.Customer** *(select a value from the drop-down list and rebuild the project)*.
+* Set the `customerXPBindingSource.DisplayableProperties` property to **FirstName;LastName**.
+* Set the `CustomerLayoutControl.Dock` property to **Fill**.
+* Select the `CustomerLayoutControl` component on the design surface.
 * Click the **Retrieve Fields** menu item to open the **Select Binding Source** wizard.
 * Change the **Data Source Update Mode** property value to **OnPropertyChanged** and click the **Next** button.
 * The **Manage Data Bindings** screen displays a list of available properties. Choose the **First Name** and **Last Name** properties, click the **Finish** button, and save the changes.
@@ -48,8 +62,8 @@
     private void EditCustomerForm_Load(object sender, EventArgs e) {
         UnitOfWork = new UnitOfWork();
         if (CustomerID.HasValue)
-            CustomerBindingSource.DataSource = UnitOfWork.GetObjectByKey<Customer>(CustomerID.Value);
-        else CustomerBindingSource.DataSource = new Customer(UnitOfWork);
+            customerXPBindingSource.DataSource = UnitOfWork.GetObjectByKey<Customer>(CustomerID.Value);
+        else customerXPBindingSource.DataSource = new Customer(UnitOfWork);
     }
     ```
 * Open the `CustomersListForm` designer, select the `CustomersGridView` component in the **Properties** window, and double-click the `RowClick` event in the **Events** section to create the event handler.
@@ -98,7 +112,7 @@
     }
     private void Reload() {
         Session session = new Session();
-        CustomersBindingSource.DataSource = new XPCollection<Customer>(session);
+        customerXPBindingSource.DataSource = new XPCollection<Customer>(session);
     }
     ```
 * Use the Visual Studio **Refactor** tool to rename the `Form1_Load` event handler to `CustomersListForm_Load`. To do this, put the cursor before the method name and click the **Edit > Refactor > Rename** menu item or use **Ctrl+R,Ctrl+R**.   
@@ -147,7 +161,7 @@
   * Call the `ShowEditForm` method in the `btnNew_ItemClick` event handler and pass the `null` value as a parameter.
   * Open the `EditCustomerForm` code and add the following line to the `btnSave_Click` method after the `CommitChanges` method call:
     ```csharp
-    CustomerID = ((Customer)CustomerBindingSource.DataSource).Oid;
+    CustomerID = ((Customer)customerXPBindingSource.DataSource).Oid;
     ```
     >A new object does not have an identifier initially - XPO assigns a value to it from the auto-incremented key column when a new object is saved to the database. 
   * Run the application, click the New button, fill editors, and click the **Save** button.
@@ -161,7 +175,7 @@
     protected Session Session { get; private set; }
     private void Reload() {
         Session = new Session();
-        CustomersBindingSource.DataSource = new XPCollection<Customer>(Session);
+        customerXPBindingSource.DataSource = new XPCollection<Customer>(Session);
     }
     ```
     >Note: You cannot use the [Session.Delete](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.Delete(System.Object)) method with an object that belongs to a different [Session](https://docs.devexpress.com/XPO/2022/Feature-Center/Connecting-to-a-Data-Store/Session). 

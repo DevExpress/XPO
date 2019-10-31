@@ -35,16 +35,16 @@ Public Class EditCustomerForm
     Private Sub Reload()
         fUnitOfWork = New UnitOfWork()
         If CustomerID.HasValue Then
-            CustomersBindingSource.DataSource = UnitOfWork.GetObjectByKey(Of Customer)(CustomerID.Value)
+            customerXPBindingSource.DataSource = UnitOfWork.GetObjectByKey(Of Customer)(CustomerID.Value)
         Else
-            CustomersBindingSource.DataSource = New Customer(UnitOfWork)
+            customerXPBindingSource.DataSource = New Customer(UnitOfWork)
         End If
     End Sub
 
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
             UnitOfWork.CommitChanges()
-            fCustomerID = CType(CustomersBindingSource.DataSource, Customer).Oid
+            fCustomerID = CType(customerXPBindingSource.DataSource, Customer).Oid
             Close()
         Catch ex As LockingException
             XtraMessageBox.Show(Me, "The record was modified or deleted. Click Reload and try again.", "XPO Tutorial", MessageBoxButtons.OK, MessageBoxIcon.Stop)

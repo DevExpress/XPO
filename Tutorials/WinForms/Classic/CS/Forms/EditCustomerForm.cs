@@ -23,15 +23,15 @@ namespace WinFormsApplication.Forms {
         private void Reload() {
             UnitOfWork = new UnitOfWork();
             if(CustomerID.HasValue)
-                CustomerBindingSource.DataSource = UnitOfWork.GetObjectByKey<Customer>(CustomerID.Value);
+                customerXPBindingSource.DataSource = UnitOfWork.GetObjectByKey<Customer>(CustomerID.Value);
             else
-                CustomerBindingSource.DataSource = new Customer(UnitOfWork);
+                customerXPBindingSource.DataSource = new Customer(UnitOfWork);
         }
 
         private void BtnSave_Click(object sender, EventArgs e) {
             try {
                 UnitOfWork.CommitChanges();
-                CustomerID = ((Customer)CustomerBindingSource.DataSource).Oid;
+                CustomerID = ((Customer)customerXPBindingSource.DataSource).Oid;
                 Close();
             }
             catch(LockingException) {
