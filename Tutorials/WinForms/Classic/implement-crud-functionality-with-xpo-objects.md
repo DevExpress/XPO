@@ -25,7 +25,7 @@
 * Click the **Data Source Wizard** menu item to open the **Data Source Configuration Wizard** window.
 * Select the **DevExpress ORM Tool (XPO)** Technology.
 * Select the **Persistent Data Model** Data Source.\
-  ![](/Tutorials/images/WinForms.Classic/2.1.png)
+  ![](/Tutorials/images/WinForms.Classic/3.3.png)
 * Click the **Next** button.
 * Select the **Client-Side Data Processing** item.\
   ![](/Tutorials/images/WinForms.Classic/2.2.png)
