@@ -34,7 +34,7 @@
 * Select the **Binding via the XPBindingSource component** Binding Type.\
   ![](/Tutorials/images/WinForms.Classic/2.3.png)
 * Click the **Finish** button.
-* The Wizard adds three components: `customerXPBindingSource`, 'unitOfWork1`, and `xpCollection1`. Delete the `unitOfWork1` and `xpCollection1` components.
+* The Wizard adds three components: `customerXPBindingSource`, `unitOfWork1`, and `xpCollection1`. Delete the `unitOfWork1` and `xpCollection1` components.
 * Rebuild the project.
 * Set the `customerXPBindingSource.ObjectClassInfo` property to **XpoTutorial.Customer** *(select a value from the drop-down list and rebuild the project)*.
 * Set the `customerXPBindingSource.DisplayableProperties` property to **FirstName;LastName**.
