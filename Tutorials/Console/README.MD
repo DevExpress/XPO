@@ -1,0 +1,1 @@
+To create your first XPO-based Console application with .NET Core, refer to the [Getting Started](https://docs.devexpress.com/XPO/119377/getting-started/getting-started-with-net-core?p=netstandard) help topic.
