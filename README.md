@@ -18,7 +18,7 @@ Otherwise, download the [Unified Installers](https://www.devexpress.com/Products
 You can search free [online documentation](https://docs.devexpress.com/XPO/1998/express-persistent-objects), yet more [GitHub Code Examples](https://github.com/DevExpress-Examples?q=eXpress+Persistent+Objects) and a large [support knowledge base](https://www.devexpress.com/sc) as needed.
 
 ## Available Free of Charge without Technical Support
-If you do not require technical assistance from the DevExpress Support Team, you can use fully-functional XPO - ORM Library in your applications **free of charge**. Support is included with several paid subscriptions, including a dedicated [XPO - ORM Library Subscription](https://www.devexpress.com/buy/net/?utm_source=GitHub&utm_medium=ReadMe&utm_campaign=XPO&utm_content=Root) license.
+If you do not require technical assistance from the DevExpress Support Team, you can use fully-functional XPO - ORM Library in your applications **free of charge**. Support is included with several [paid subscriptions](https://www.devexpress.com/products/net/orm/?utm_source=GitHub&utm_medium=ReadMe&utm_campaign=XPO&utm_content=Root#Pricing) license.
 
 ## See Also
 * [How to: Connect to a Data Store](https://documentation.devexpress.com/CoreLibraries/2123/DevExpress-ORM-Tool/Concepts/How-to-Connect-to-a-Data-Store)<br>
