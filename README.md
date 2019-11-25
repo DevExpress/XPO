@@ -13,13 +13,12 @@ If you don't need XPO [design-time features](https://docs.devexpress.com/XPO/148
 
 Otherwise, download the [Unified Installers](https://www.devexpress.com/Products/Try/?utm_source=GitHub&utm_medium=ReadMe&utm_campaign=XPO&utm_content=Root) for .NET Framework and .NET Core 3.0 Desktop development.
 
-## Online Documentation, Knowledge Base & Yet More Samples
+## Online Documentation, Knowledge Base & More
 
-You can search free [online documentation](https://docs.devexpress.com/XPO/1998/express-persistent-objects), yet more [GitHub Code Examples](https://github.com/DevExpress-Examples?q=eXpress+Persistent+Objects) and a large [support knowledge base](https://www.devexpress.com/sc) as needed.
+You can search free [online documentation](https://docs.devexpress.com/XPO/), yet more [GitHub Code Examples](https://github.com/DevExpress-Examples?q=eXpress+Persistent+Objects) and a large [support knowledge base](https://www.devexpress.com/sc) as needed. To see the latest XPO news, refer to [the XPO Team blog](https://community.devexpress.com/blogs/xpo/default.aspx).
 
 ## Available Free of Charge without Technical Support
-If you do not require technical assistance from the DevExpress Support Team, you can use fully-functional XPO - ORM Library in your applications **free of charge**. Support is included with several [paid subscriptions](https://www.devexpress.com/products/net/orm/?utm_source=GitHub&utm_medium=ReadMe&utm_campaign=XPO&utm_content=Root#Pricing) license.
+If you do not require technical assistance from the DevExpress Support Team, you can use fully-functional XPO - ORM Library in your applications **free of charge**. Support is included with several [paid subscriptions](https://www.devexpress.com/products/net/orm/?utm_source=GitHub&utm_medium=ReadMe&utm_campaign=XPO&utm_content=Root#Pricing).
 
 ## See Also
-* [How to: Connect to a Data Store](https://documentation.devexpress.com/CoreLibraries/2123/DevExpress-ORM-Tool/Concepts/How-to-Connect-to-a-Data-Store)<br>
 * [User Authentication and Group Authorization API for .NET Apps Powered by the XPO ORM](https://github.com/DevExpress-Examples/XAF_how-to-use-the-integrated-mode-of-the-security-system-in-non-xaf-applications-e4908)
