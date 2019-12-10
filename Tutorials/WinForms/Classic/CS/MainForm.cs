@@ -10,6 +10,7 @@ namespace WinFormsApplication {
         public MainForm() {
             InitializeComponent();
             tabbedView.DocumentActivated += TabbedView_DocumentActivated;
+            tabbedView.DocumentClosed += TabbedView_DocumentClosed;
             tabbedView.QueryControl += TabbedView_QueryControl;
             customersAccordionControlElement.Tag = customersBarButtonItem.Tag = typeof(CustomersListForm).Name;
             ordersAccordionControlElement.Tag = ordersBarButtonItem.Tag = typeof(OrdersListForm).Name;
@@ -18,14 +19,22 @@ namespace WinFormsApplication {
 
         private void TabbedView_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e) {
             if(e.Document.ControlName == typeof(CustomersListForm).Name)
-                e.Control = new CustomersListForm();
+                e.Control = new CustomersListForm(documentManager);
             else if(e.Document.ControlName == typeof(OrdersListForm).Name)
-                e.Control = new OrdersListForm();
+                e.Control = new OrdersListForm(documentManager);
             else throw new ArgumentException($"Unknown control name {e.Document.ControlName}");
         }
 
         private void TabbedView_DocumentActivated(object sender, DocumentEventArgs e) {
             SetAccordionSelectedElement(e.Document.ControlName);
+            if(ribbonControl.MergedPages.Count > 0) {
+                ribbonControl.SelectedPage = ribbonControl.MergedPages[0];
+            }
+        }
+        private void TabbedView_DocumentClosed(object sender, DocumentEventArgs e) {
+            if(tabbedView.Documents.Count == 0) {
+                accordionControl.SelectedElement = null;
+            }
         }
         void accordionControl_SelectedElementChanged(object sender, SelectedElementChangedEventArgs e) {
             if(e.Element == null)

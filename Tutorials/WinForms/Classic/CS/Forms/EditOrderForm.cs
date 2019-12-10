@@ -6,7 +6,7 @@ using DevExpress.XtraEditors;
 using XpoTutorial;
 
 namespace WinFormsApplication.Forms {
-    public partial class EditOrderForm : XtraForm {
+    public partial class EditOrderForm : DevExpress.XtraBars.Ribbon.RibbonForm {
         public EditOrderForm() {
             InitializeComponent();
         }
@@ -28,7 +28,7 @@ namespace WinFormsApplication.Forms {
             CustomersBindingSource.DataSource = new XPCollection<Customer>(UnitOfWork);
         }
 
-        private void BtnSave_Click(object sender, EventArgs e) {
+        private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
             try {
                 UnitOfWork.CommitChanges();
                 OrderID = ((Order)OrderBindingSource.DataSource).Oid;
@@ -39,8 +39,12 @@ namespace WinFormsApplication.Forms {
             }
         }
 
-        private void BtnReload_Click(object sender, EventArgs e) {
+        private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
             Reload();
+        }
+
+        private void btnClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            Close();
         }
     }
 }

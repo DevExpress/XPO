@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomersListForm));
             this.CustomersBindingSource = new DevExpress.Xpo.XPBindingSource(this.components);
             this.CustomersGridControl = new DevExpress.XtraGrid.GridControl();
             this.CustomersGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -32,7 +33,7 @@
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnNew = new DevExpress.XtraBars.BarButtonItem();
             this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -93,14 +94,15 @@
             this.ribbonControl1.MaxItemId = 3;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
+            this.ribbonPageHome});
             this.ribbonControl1.Size = new System.Drawing.Size(800, 162);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
             // btnNew
             // 
-            this.btnNew.Caption = "New";
+            this.btnNew.Caption = "New\r\nCustomer";
             this.btnNew.Id = 1;
+            this.btnNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNew.ImageOptions.SvgImage")));
             this.btnNew.Name = "btnNew";
             this.btnNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnNew_ItemClick);
             // 
@@ -108,23 +110,24 @@
             // 
             this.btnDelete.Caption = "Delete";
             this.btnDelete.Id = 2;
+            this.btnDelete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDelete.ImageOptions.SvgImage")));
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnDelete_ItemClick);
             // 
-            // ribbonPage1
+            // ribbonPageHome
             // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1});
-            this.ribbonPage1.MergeOrder = 1;
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "Home";
+            this.ribbonPageHome.MergeOrder = 1;
+            this.ribbonPageHome.Name = "ribbonPageHome";
+            this.ribbonPageHome.Text = "Home";
             // 
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnNew);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDelete);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Edit";
+            this.ribbonPageGroup1.Text = "General";
             // 
             // ribbonStatusBar1
             // 
@@ -132,6 +135,7 @@
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(800, 26);
+            this.ribbonStatusBar1.Visible = false;
             // 
             // ribbonPage2
             // 
@@ -168,7 +172,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colOid;
         private DevExpress.XtraGrid.Columns.GridColumn colContactName;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageHome;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;

@@ -2,14 +2,17 @@
 using System.Windows.Forms;
 using DevExpress.Xpo;
 using DevExpress.XtraBars;
+using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraGrid.Views.Grid;
 using WinFormsApplication.Forms;
 using XpoTutorial;
 
 namespace WinFormsApplication {
     public partial class CustomersListForm : DevExpress.XtraBars.Ribbon.RibbonForm {
-        public CustomersListForm() {
+        readonly DocumentManager documentManager;
+        public CustomersListForm(DocumentManager documentManager) {
             InitializeComponent();
+            this.documentManager = documentManager;
         }
         protected Session Session { get; private set; }
         private void CustomersListForm_Load(object sender, EventArgs e) {
@@ -25,13 +28,14 @@ namespace WinFormsApplication {
         }
 
         private void ShowEditForm(int? customerID) {
-            using(EditCustomerForm form = new EditCustomerForm(customerID)) {
-                form.ShowDialog(this);
-                if (form.CustomerID.HasValue) {
+            var form = new EditCustomerForm(customerID);
+            var document = documentManager.View.AddDocument(form);
+            form.FormClosed += (s, e) => {
+                if(form.CustomerID.HasValue) {
                     Reload();
                     CustomersGridView.FocusedRowHandle = CustomersGridView.LocateByValue("Oid", form.CustomerID.Value);
                 }
-            }
+            };
         }
 
         private void Reload() {

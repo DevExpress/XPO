@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrdersListForm));
             this.OrdersGridControl = new DevExpress.XtraGrid.GridControl();
             this.OrdersInstantFeedbackView = new DevExpress.Xpo.XPInstantFeedbackView(this.components);
             this.OrdersGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -122,8 +123,9 @@
             // 
             // btnNew
             // 
-            this.btnNew.Caption = "New";
+            this.btnNew.Caption = "New\r\nOrder";
             this.btnNew.Id = 1;
+            this.btnNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNew.ImageOptions.SvgImage")));
             this.btnNew.Name = "btnNew";
             this.btnNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnNew_ItemClick);
             // 
@@ -131,6 +133,7 @@
             // 
             this.btnDelete.Caption = "Delete";
             this.btnDelete.Id = 2;
+            this.btnDelete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDelete.ImageOptions.SvgImage")));
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnDelete_ItemClick);
             // 
@@ -147,7 +150,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnNew);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDelete);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Edit";
+            this.ribbonPageGroup1.Text = "General";
             // 
             // ribbonStatusBar1
             // 
@@ -155,6 +158,7 @@
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(800, 26);
+            this.ribbonStatusBar1.Visible = false;
             // 
             // ribbonPage2
             // 

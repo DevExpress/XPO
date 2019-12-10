@@ -1,5 +1,6 @@
 ﻿using DevExpress.Xpo;
 using DevExpress.XtraBars;
+using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraGrid.Views.Grid;
 using WinFormsApplication.Forms;
@@ -7,8 +8,10 @@ using XpoTutorial;
 
 namespace WinFormsApplication {
     public partial class OrdersListForm : RibbonForm {
-        public OrdersListForm() {
+        readonly DocumentManager documentManager;
+        public OrdersListForm(DocumentManager documentManager) {
             InitializeComponent();
+            this.documentManager = documentManager;
         }
         private void OrdersGridView_RowClick(object sender, RowClickEventArgs e) {
             if(e.Clicks == 2) {
@@ -19,14 +22,15 @@ namespace WinFormsApplication {
         }
 
         private void ShowEditForm(int? orderID) {
-            using(EditOrderForm form = new EditOrderForm(orderID)) {
-                form.ShowDialog(this);
-                if (form.OrderID.HasValue) {
+            var form = new EditOrderForm(orderID);
+            var document = documentManager.View.AddDocument(form);
+            form.FormClosed += (s, e) => {
+                if(form.OrderID.HasValue) {
                     Reload();
                     OrdersGridView.FocusedRowHandle = OrdersGridView.LocateByValue("Oid", form.OrderID.Value,
                         rowHandle => OrdersGridView.FocusedRowHandle = (int)rowHandle);
                 }
-            }
+            };
         }
         private void Reload() {
             OrdersInstantFeedbackView.Refresh();
