@@ -8,10 +8,8 @@ using XpoTutorial;
 
 namespace WinFormsApplication {
     public partial class OrdersListForm : RibbonForm {
-        readonly DocumentManager documentManager;
-        public OrdersListForm(DocumentManager documentManager) {
+        public OrdersListForm() {
             InitializeComponent();
-            this.documentManager = documentManager;
         }
         private void OrdersGridView_RowClick(object sender, RowClickEventArgs e) {
             if(e.Clicks == 2) {
@@ -23,14 +21,23 @@ namespace WinFormsApplication {
 
         private void ShowEditForm(int? orderID) {
             var form = new EditOrderForm(orderID);
-            var document = documentManager.View.AddDocument(form);
             form.FormClosed += (s, e) => {
-                if(form.OrderID.HasValue) {
+                if (form.OrderID.HasValue) {
                     Reload();
                     OrdersGridView.FocusedRowHandle = OrdersGridView.LocateByValue("Oid", form.OrderID.Value,
                         rowHandle => OrdersGridView.FocusedRowHandle = (int)rowHandle);
                 }
             };
+            var documentManager = DocumentManager.FromControl(MdiParent);
+            if (documentManager != null) {
+                documentManager.View.AddDocument(form);
+            } else {
+                try {
+                    form.ShowDialog();
+                } finally {
+                    form.Dispose();
+                }
+            }
         }
         private void Reload() {
             OrdersInstantFeedbackView.Refresh();

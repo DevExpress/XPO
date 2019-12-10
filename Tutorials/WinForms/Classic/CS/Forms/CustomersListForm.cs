@@ -9,10 +9,8 @@ using XpoTutorial;
 
 namespace WinFormsApplication {
     public partial class CustomersListForm : DevExpress.XtraBars.Ribbon.RibbonForm {
-        readonly DocumentManager documentManager;
-        public CustomersListForm(DocumentManager documentManager) {
+        public CustomersListForm() {
             InitializeComponent();
-            this.documentManager = documentManager;
         }
         protected Session Session { get; private set; }
         private void CustomersListForm_Load(object sender, EventArgs e) {
@@ -29,13 +27,22 @@ namespace WinFormsApplication {
 
         private void ShowEditForm(int? customerID) {
             var form = new EditCustomerForm(customerID);
-            var document = documentManager.View.AddDocument(form);
             form.FormClosed += (s, e) => {
-                if(form.CustomerID.HasValue) {
+                if (form.CustomerID.HasValue) {
                     Reload();
                     CustomersGridView.FocusedRowHandle = CustomersGridView.LocateByValue("Oid", form.CustomerID.Value);
                 }
             };
+            var documentManager = DocumentManager.FromControl(MdiParent);
+            if (documentManager != null) {
+                documentManager.View.AddDocument(form);
+            } else {
+                try {
+                    form.ShowDialog();
+                } finally {
+                    form.Dispose();
+                }
+            }
         }
 
         private void Reload() {

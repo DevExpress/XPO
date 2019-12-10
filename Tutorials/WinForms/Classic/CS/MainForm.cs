@@ -19,9 +19,9 @@ namespace WinFormsApplication {
 
         private void TabbedView_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e) {
             if(e.Document.ControlName == typeof(CustomersListForm).Name)
-                e.Control = new CustomersListForm(documentManager);
+                e.Control = new CustomersListForm();
             else if(e.Document.ControlName == typeof(OrdersListForm).Name)
-                e.Control = new OrdersListForm(documentManager);
+                e.Control = new OrdersListForm();
             else throw new ArgumentException($"Unknown control name {e.Document.ControlName}");
         }
 
