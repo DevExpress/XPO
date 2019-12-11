@@ -35,12 +35,7 @@ Partial Public Class CustomersListForm
 
     Private Sub ShowEditForm(ByVal customerID? As Integer)
         Dim form = New EditCustomerForm(customerID)
-        AddHandler form.FormClosed, Sub(s, e)
-                                        If form.CustomerID.HasValue Then
-                                            Reload()
-                                            CustomersGridView.FocusedRowHandle = CustomersGridView.LocateByValue("Oid", form.CustomerID.Value)
-                                        End If
-                                    End Sub
+        AddHandler form.FormClosed, AddressOf EditFormClosed
         Dim documentManager = DevExpress.XtraBars.Docking2010.DocumentManager.FromControl(MdiParent)
         If documentManager IsNot Nothing Then
             documentManager.View.AddDocument(form)
@@ -50,6 +45,15 @@ Partial Public Class CustomersListForm
             Finally
                 form.Dispose()
             End Try
+        End If
+    End Sub
+
+    Private Sub EditFormClosed(sender As Object, e As FormClosedEventArgs)
+        Dim form As EditCustomerForm = CType(sender, EditCustomerForm)
+        RemoveHandler form.FormClosed, AddressOf EditFormClosed
+        If form.CustomerID.HasValue Then
+            Reload()
+            CustomersGridView.FocusedRowHandle = CustomersGridView.LocateByValue("Oid", form.CustomerID.Value)
         End If
     End Sub
 

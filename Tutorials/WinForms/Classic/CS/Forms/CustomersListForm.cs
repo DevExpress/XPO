@@ -27,12 +27,7 @@ namespace WinFormsApplication {
 
         private void ShowEditForm(int? customerID) {
             var form = new EditCustomerForm(customerID);
-            form.FormClosed += (s, e) => {
-                if (form.CustomerID.HasValue) {
-                    Reload();
-                    CustomersGridView.FocusedRowHandle = CustomersGridView.LocateByValue("Oid", form.CustomerID.Value);
-                }
-            };
+            form.FormClosed += EditFormClosed;
             var documentManager = DocumentManager.FromControl(MdiParent);
             if (documentManager != null) {
                 documentManager.View.AddDocument(form);
@@ -42,6 +37,15 @@ namespace WinFormsApplication {
                 } finally {
                     form.Dispose();
                 }
+            }
+        }
+
+        void EditFormClosed(object sender, EventArgs e) {
+            var form = (EditCustomerForm)sender;
+            form.FormClosed -= EditFormClosed;
+            if (form.CustomerID.HasValue) {
+                Reload();
+                CustomersGridView.FocusedRowHandle = CustomersGridView.LocateByValue("Oid", form.CustomerID.Value);
             }
         }
 
