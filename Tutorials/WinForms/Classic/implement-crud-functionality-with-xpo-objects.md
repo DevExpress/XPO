@@ -131,6 +131,15 @@
     }
     ```
 * Use the Visual Studio **Refactor** tool to rename the `Form1_Load` event handler to `CustomersListForm_Load`. To do this, put the cursor before the method name and click the **Edit > Refactor > Rename** menu item or use **Ctrl+R,Ctrl+R**.   
+* Add the `BarButtonItem` item to the **Edit** group and change its name to **btnClose**.
+* Set the `btnClose.Caption` property to **Close**.
+* Double click the `btnClose` button to add the `ItemClick` event handler (you can use the **Properties** window to add it).
+* Add this code to the `btnClose_ItemClick` event handler:
+    ```csharp
+    private void btnClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+        Close();
+    }
+    ```
 * Run the application, open the edit Form, change something, and click the **Save** button.
 ## Handle concurrent changes
 >You can skip this part if you use [InMemoryDataStore](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore) or an embedded database.
