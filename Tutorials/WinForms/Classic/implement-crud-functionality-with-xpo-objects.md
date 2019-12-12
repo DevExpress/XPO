@@ -57,27 +57,27 @@
     ``` csharp
     using DevExpress.XtraGrid.Views.Grid
     // ...
-		private void CustomersGridView_RowClick(object sender, RowClickEventArgs e) {
-			if(e.Clicks == 2) {
-				e.Handled = true;
-				int customerID = (int)CustomersGridView.GetRowCellValue(e.RowHandle, colOid);
-				ShowEditForm(customerID);
-			}
-		}
+    private void CustomersGridView_RowClick(object sender, RowClickEventArgs e) {
+        if(e.Clicks == 2) {
+            e.Handled = true;
+            int customerID = (int)CustomersGridView.GetRowCellValue(e.RowHandle, colOid);
+            ShowEditForm(customerID);
+        }
+    }
 
-		private void ShowEditForm(int? customerID) {
-			var form = new EditCustomerForm(customerID);
-			var documentManager = DocumentManager.FromControl(MdiParent);
-			if (documentManager != null) {
-				documentManager.View.AddDocument(form);
-			} else {
-				try {
-					form.ShowDialog();
-				} finally {
-					form.Dispose();
-				}
-			}
-		}
+    private void ShowEditForm(int? customerID) {
+        var form = new EditCustomerForm(customerID);
+        var documentManager = DocumentManager.FromControl(MdiParent);
+        if (documentManager != null) {
+            documentManager.View.AddDocument(form);
+        } else {
+            try {
+                form.ShowDialog();
+            } finally {
+                form.Dispose();
+            }
+        }
+    }
     ```
 * Press **F5** to run the application and double-click a `GridView` record.
 * Close both windows and open the `EditCustomerForm` designer.
@@ -101,34 +101,34 @@
         Reload();
     }
     
-		private void ShowEditForm(int? customerID) {
-			var form = new EditCustomerForm(customerID);
-			form.FormClosed += EditFormClosed;
-			var documentManager = DocumentManager.FromControl(MdiParent);
-			if (documentManager != null) {
-				documentManager.View.AddDocument(form);
-			} else {
-				try {
-					form.ShowDialog();
-				} finally {
-					form.Dispose();
-				}
-			}
-		}
+    private void ShowEditForm(int? customerID) {
+        var form = new EditCustomerForm(customerID);
+        form.FormClosed += EditFormClosed;
+        var documentManager = DocumentManager.FromControl(MdiParent);
+        if (documentManager != null) {
+            documentManager.View.AddDocument(form);
+        } else {
+            try {
+                form.ShowDialog();
+            } finally {
+                form.Dispose();
+            }
+        }
+    }
 
-		private void EditFormClosed(object sender, EventArgs e) {
-			var form = (EditCustomerForm)sender;
-			form.FormClosed -= EditFormClosed;
-			if (form.CustomerID.HasValue) {
-				Reload();
-				CustomersGridView.FocusedRowHandle = CustomersGridView.LocateByValue("Oid", form.CustomerID.Value);
-			}
-		}
+    private void EditFormClosed(object sender, EventArgs e) {
+        var form = (EditCustomerForm)sender;
+        form.FormClosed -= EditFormClosed;
+        if (form.CustomerID.HasValue) {
+            Reload();
+            CustomersGridView.FocusedRowHandle = CustomersGridView.LocateByValue("Oid", form.CustomerID.Value);
+        }
+    }
 
-		private void Reload() {
-			Session = new Session();
-			CustomersBindingSource.DataSource = new XPCollection<Customer>(Session);
-		}
+    private void Reload() {
+        Session = new Session();
+        CustomersBindingSource.DataSource = new XPCollection<Customer>(Session);
+    }
     ```
 * Use the Visual Studio **Refactor** tool to rename the `Form1_Load` event handler to `CustomersListForm_Load`. To do this, put the cursor before the method name and click the **Edit > Refactor > Rename** menu item or use **Ctrl+R,Ctrl+R**.   
 * Run the application, open the edit Form, change something, and click the **Save** button.
