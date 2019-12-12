@@ -11,7 +11,7 @@
 * Right-click the *Forms* folder in the **Solution Explorer** to open the context menu.
 * Click the **Add DevExpress Item > New Item** menu item to open the **DevExpress Template Gallery** window. 
 * Select the **WinForms** category.
-* Switch to the **WinForms Common > Form** page.
+* Switch to the **WinForms Common > Ribbon Form** page.
 * Set the **Item Name** property to **EditCustomerForm**. 
 * Click the **Add Item** button to open a new Form in a visual designer.
 *  Set the Form's `Text` property to **Edit Customer**.
@@ -57,49 +57,78 @@
     ``` csharp
     using DevExpress.XtraGrid.Views.Grid
     // ...
-    private void CustomersGridView_RowClick(object sender, RowClickEventArgs e) {
-        if (e.Clicks == 2) {
-            e.Handled = true;
-            int customerID = (int)CustomersGridView.GetRowCellValue(e.RowHandle, colOid);
-            using (EditCustomerForm form = new EditCustomerForm(customerID)) {
-                form.ShowDialog(this);
-            }
-        }
-    }
+		private void CustomersGridView_RowClick(object sender, RowClickEventArgs e) {
+			if(e.Clicks == 2) {
+				e.Handled = true;
+				int customerID = (int)CustomersGridView.GetRowCellValue(e.RowHandle, colOid);
+				ShowEditForm(customerID);
+			}
+		}
+
+		private void ShowEditForm(int? customerID) {
+			var form = new EditCustomerForm(customerID);
+			var documentManager = DocumentManager.FromControl(MdiParent);
+			if (documentManager != null) {
+				documentManager.View.AddDocument(form);
+			} else {
+				try {
+					form.ShowDialog();
+				} finally {
+					form.Dispose();
+				}
+			}
+		}
     ```
 * Press **F5** to run the application and double-click a `GridView` record.
 * Close both windows and open the `EditCustomerForm` designer.
-* Select `LayoutControl` and add `SimpleButton` from the Toolbox. Add `EmptySpaceItem` elements to adjust the button's position and size.
-* Rename the `simpleButton1` control to **btnSave** and set its `Text` property to **&Save** (the ampersand sign assigns a mnemonic command to the button).\
+  * Change the `ribbonPage1` text to **Home**.
+  * Change the `ribbonPageGroup1` text to **Edit**.
+  * Delete the `ribbonPageGroup2`.
+  * Add the `BarButtonItem` item to the **Edit** group and change its name to **btnSave**.
+  * Set the `btnSave.Caption` property to **Save**.\
   ![](/Tutorials/images/WinForms.Classic/3.1.png)
-* Double click the `btnSave` control to add the `Click` event handler (you can use the **Properties** window to add it).
-* Add this code to the `btnSave_Click` event handler:
+* Double click the `btnSave` button to add the `ItemClick` event handler (you can use the **Properties** window to add it).
+* Add this code to the `btnSave_ItemClick` event handler:
     ```csharp
-    private void btnSave_Click(object sender, EventArgs e) {
+    private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
         UnitOfWork.CommitChanges();
         Close();
     }
     ```
-* The [UnitOfwork.CommitChanges](https://docs.devexpress.com/XPO/DevExpress.Xpo.UnitOfWork.CommitChanges) method saves changes to the database. To refresh the CustomersList Form, change the code in the `CustomersGridView_RowClick` method as follows: 
+* The [UnitOfwork.CommitChanges](https://docs.devexpress.com/XPO/DevExpress.Xpo.UnitOfWork.CommitChanges) method saves changes to the database. To refresh the CustomersList Form, change the code in the `ShowEditForm` method as follows: 
     ```csharp
     private void Form1_Load(object sender, EventArgs e) {
         Reload();
     }
-    private void CustomersGridView_RowClick(object sender, RowClickEventArgs e) {
-        if (e.Clicks == 2) {
-            e.Handled = true;
-            int customerID = (int)CustomersGridView.GetRowCellValue(e.RowHandle, colOid);
-            using (EditCustomerForm form = new EditCustomerForm(customerID)) {
-                form.ShowDialog(this);
-                Reload();
-                CustomersGridView.FocusedRowHandle = CustomersGridView.LocateByValue("Oid", form.CustomerID.Value);
-            }
-        }
-    }
-    private void Reload() {
-        Session session = new Session();
-        CustomersBindingSource.DataSource = new XPCollection<Customer>(session);
-    }
+    
+		private void ShowEditForm(int? customerID) {
+			var form = new EditCustomerForm(customerID);
+			form.FormClosed += EditFormClosed;
+			var documentManager = DocumentManager.FromControl(MdiParent);
+			if (documentManager != null) {
+				documentManager.View.AddDocument(form);
+			} else {
+				try {
+					form.ShowDialog();
+				} finally {
+					form.Dispose();
+				}
+			}
+		}
+
+		private void EditFormClosed(object sender, EventArgs e) {
+			var form = (EditCustomerForm)sender;
+			form.FormClosed -= EditFormClosed;
+			if (form.CustomerID.HasValue) {
+				Reload();
+				CustomersGridView.FocusedRowHandle = CustomersGridView.LocateByValue("Oid", form.CustomerID.Value);
+			}
+		}
+
+		private void Reload() {
+			Session = new Session();
+			CustomersBindingSource.DataSource = new XPCollection<Customer>(Session);
+		}
     ```
 * Use the Visual Studio **Refactor** tool to rename the `Form1_Load` event handler to `CustomersListForm_Load`. To do this, put the cursor before the method name and click the **Edit > Refactor > Rename** menu item or use **Ctrl+R,Ctrl+R**.   
 * Run the application, open the edit Form, change something, and click the **Save** button.
@@ -111,18 +140,17 @@
 * Type something and save changes in each window. The first application saves changes successfully, but the second fails with the following error message: *"Cannot persist the object. It was modified or deleted (purged) by another application"*.
 ### Handle the exception and reload an object
 * Open the `EditCustomerForm` designer.
-* Select the [LayoutControl](https://docs.devexpress.com/WindowsForms/DevExpress.XtraLayout.LayoutControl) component and add the [SimpleButton](https://docs.devexpress.com/WindowsForms/DevExpress.XtraEditors.SimpleButton) control from the Toolbox.
-* Adjust buttons' positions and sizes.
-* Rename the `simpleButton1` control to **btnReload** and set the `Text` property to **&Reload**.\
+* Add the `BarButtonItem` item to the **Edit** group of the **Ribbon Control** and change its name to **btnReload**.
+* Set the `btnReload.Caption` property to **Reload**.\
   ![](/Tutorials/images/WinForms.Classic/3.2.png)
-* Double click the `btnReload` control to add the `Click` event handler (you can use the **Properties** window to add it).
+* Double click the `btnReload` button to add the `ItemClick` event handler (you can use the **Properties** window to add it).
 * Select all lines in the `EditCustomerForm_Load` method and click the **Edit > Refactor > Extract Method** menu item or use **Ctrl+R,Ctrl+M**.
-* Change the method name to **Reload** and call this method in the `btnReload_Click` event handler.
-* Modify the `btnSave_Click` method.
+* Change the method name to **Reload** and call this method in the `btnReload_ItemClick` event handler.
+* Modify the `btnSave_ItemClick` method.
     ```csharp
     using DevExpress.Xpo.DB.Exceptions;
     // ...
-    private void btnSave_Click(object sender, EventArgs e) {
+    private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
         try {
             UnitOfWork.CommitChanges();
             Close();
