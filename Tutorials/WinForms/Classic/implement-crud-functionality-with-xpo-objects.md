@@ -176,7 +176,7 @@
   * Change the `ribbonPageGroup1` text to **Edit**.
   * Delete the `ribbonPageGroup2`.
   * Add the `BarButtonItem` item to the **Edit** group and change its name to **btnNew**.
-  * Set the `btnNew.Caption` property to **New**.
+  * Set the `btnNew.Caption` property to **New Customer**.
   * Double-click the **New** button to create an event handler.
   * Select the `using` statement in the `CustomersGridView_RowClick` method and click the **Edit > Refactor > Extract Method** menu item (**Ctrl+R,Ctrl+M**).
   * Change the method name to **ShowEditForm**.
