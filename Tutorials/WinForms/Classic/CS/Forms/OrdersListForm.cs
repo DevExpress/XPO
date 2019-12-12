@@ -35,7 +35,7 @@ namespace WinFormsApplication {
             }
         }
 
-        public void EditFormClosed(object sender, EventArgs e) {
+        private void EditFormClosed(object sender, EventArgs e) {
             var form = (EditOrderForm)sender;
             form.FormClosed -= EditFormClosed;
             if (form.OrderID.HasValue) {
