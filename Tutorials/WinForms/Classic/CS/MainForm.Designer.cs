@@ -155,7 +155,7 @@
             this.dockPanel.Location = new System.Drawing.Point(0, 162);
             this.dockPanel.Name = "dockPanel";
             this.dockPanel.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dockPanel.Size = new System.Drawing.Size(171, 411);
+            this.dockPanel.Size = new System.Drawing.Size(200, 411);
             this.dockPanel.Text = "Navigation";
             // 
             // dockPanel_Container
@@ -163,7 +163,7 @@
             this.dockPanel_Container.Controls.Add(this.accordionControl);
             this.dockPanel_Container.Location = new System.Drawing.Point(3, 30);
             this.dockPanel_Container.Name = "dockPanel_Container";
-            this.dockPanel_Container.Size = new System.Drawing.Size(164, 378);
+            this.dockPanel_Container.Size = new System.Drawing.Size(193, 378);
             this.dockPanel_Container.TabIndex = 0;
             // 
             // accordionControl
@@ -174,7 +174,7 @@
             this.mainAccordionGroup});
             this.accordionControl.Location = new System.Drawing.Point(0, 0);
             this.accordionControl.Name = "accordionControl";
-            this.accordionControl.Size = new System.Drawing.Size(164, 378);
+            this.accordionControl.Size = new System.Drawing.Size(193, 378);
             this.accordionControl.TabIndex = 0;
             this.accordionControl.Text = "accordionControl";
             this.accordionControl.SelectedElementChanged += new DevExpress.XtraBars.Navigation.SelectedElementChangedEventHandler(this.accordionControl_SelectedElementChanged);
@@ -200,6 +200,10 @@
             this.ordersAccordionControlElement.Name = "ordersAccordionControlElement";
             this.ordersAccordionControlElement.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ordersAccordionControlElement.Text = "Orders";
+            // 
+            // tabbedView
+            // 
+            this.tabbedView.FloatingDocumentContainer = DevExpress.XtraBars.Docking2010.Views.FloatingDocumentContainer.DocumentsHost;
             // 
             // documentManager
             // 
