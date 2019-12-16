@@ -93,14 +93,14 @@
             this.ordersBarButtonItem.Caption = "Orders";
             this.ordersBarButtonItem.Id = 46;
             this.ordersBarButtonItem.Name = "ordersBarButtonItem";
-            this.ordersBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNavigation_ItemClick);
+            this.ordersBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ordersBarButtonItem_ItemClick);
             // 
             // customersBarButtonItem
             // 
             this.customersBarButtonItem.Caption = "Customers";
             this.customersBarButtonItem.Id = 47;
             this.customersBarButtonItem.Name = "customersBarButtonItem";
-            this.customersBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNavigation_ItemClick);
+            this.customersBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.customersBarButtonItem_ItemClick);
             // 
             // ribbonPageView
             // 
@@ -177,7 +177,6 @@
             this.accordionControl.Size = new System.Drawing.Size(193, 378);
             this.accordionControl.TabIndex = 0;
             this.accordionControl.Text = "accordionControl";
-            this.accordionControl.SelectedElementChanged += new DevExpress.XtraBars.Navigation.SelectedElementChangedEventHandler(this.accordionControl_SelectedElementChanged);
             // 
             // mainAccordionGroup
             // 
@@ -194,12 +193,14 @@
             this.customersAccordionControlElement.Name = "customersAccordionControlElement";
             this.customersAccordionControlElement.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.customersAccordionControlElement.Text = "Customers";
+            this.customersAccordionControlElement.Click += new System.EventHandler(this.customersAccordionControlElement_Click);
             // 
             // ordersAccordionControlElement
             // 
             this.ordersAccordionControlElement.Name = "ordersAccordionControlElement";
             this.ordersAccordionControlElement.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ordersAccordionControlElement.Text = "Orders";
+            this.ordersAccordionControlElement.Click += new System.EventHandler(this.ordersAccordionControlElement_Click);
             // 
             // tabbedView
             // 
