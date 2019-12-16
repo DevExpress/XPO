@@ -203,7 +203,7 @@
             // 
             // tabbedView
             // 
-            this.tabbedView.FloatingDocumentContainer = DevExpress.XtraBars.Docking2010.Views.FloatingDocumentContainer.DocumentsHost;
+            this.tabbedView.DocumentProperties.AllowFloat = false;
             // 
             // documentManager
             // 

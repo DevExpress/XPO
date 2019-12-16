@@ -4,16 +4,14 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraBars.Ribbon;
 using System.Linq;
-using DevExpress.XtraBars.Docking2010;
 
 namespace WinFormsApplication {
-    public partial class MainForm : RibbonForm, IDocumentsHostWindow {
+    public partial class MainForm : RibbonForm {
         public MainForm() {
             InitializeComponent();
             tabbedView.DocumentActivated += TabbedView_DocumentActivated;
             tabbedView.DocumentClosed += TabbedView_DocumentClosed;
             tabbedView.QueryControl += TabbedView_QueryControl;
-            tabbedView.CustomDocumentsHostWindow += TabbedView_CustomDocumentsHostWindow;
             customersAccordionControlElement.Tag = customersBarButtonItem.Tag = typeof(CustomersListForm).Name;
             ordersAccordionControlElement.Tag = ordersBarButtonItem.Tag = typeof(OrdersListForm).Name;
             SetAccordionSelectedElement((string)customersAccordionControlElement.Tag);
@@ -38,9 +36,6 @@ namespace WinFormsApplication {
                 accordionControl.SelectedElement = null;
             }
         }
-        private void TabbedView_CustomDocumentsHostWindow(object sender, CustomDocumentsHostWindowEventArgs e) {
-            e.Constructor = () => new MainForm();
-        }
         void accordionControl_SelectedElementChanged(object sender, SelectedElementChangedEventArgs e) {
             if(e.Element == null)
                 return;
@@ -56,12 +51,6 @@ namespace WinFormsApplication {
         void SetAccordionSelectedElement(string controlTypeName) {
             accordionControl.SelectedElement = accordionControl.GetElements()
                 .Single(e => (string)e.Tag == controlTypeName);
-        }
-        public bool DestroyOnRemovingChildren {
-            get { return true; }
-        }
-        public DocumentManager DocumentManager {
-            get { return documentManager; }
         }
     }
 }
