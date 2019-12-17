@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.skinRibbonGalleryBarItem = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.barSubItemNavigation = new DevExpress.XtraBars.BarSubItem();
@@ -83,6 +84,7 @@
             this.barSubItemNavigation.Caption = "Navigation";
             this.barSubItemNavigation.Id = 15;
             this.barSubItemNavigation.ImageOptions.ImageUri.Uri = "NavigationBar";
+            this.barSubItemNavigation.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItemNavigation.ImageOptions.SvgImage")));
             this.barSubItemNavigation.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.ordersBarButtonItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.customersBarButtonItem)});
