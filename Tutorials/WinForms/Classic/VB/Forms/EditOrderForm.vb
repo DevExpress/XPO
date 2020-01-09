@@ -1,58 +1,67 @@
-﻿Imports DevExpress.Xpo
+﻿Imports System
+Imports System.Windows.Forms
+Imports DevExpress.Xpo
 Imports DevExpress.Xpo.DB.Exceptions
 Imports DevExpress.XtraEditors
 Imports WinFormsApplication.XpoTutorial
 
-Public Class EditOrderForm
-    Public Sub New()
+Partial Public Class EditOrderForm
+		Inherits DevExpress.XtraBars.Ribbon.RibbonForm
 
-        ' This call is required by the designer.
-        InitializeComponent()
+		Public Sub New()
+			InitializeComponent()
+		End Sub
+		Public Sub New(ByVal orderId? As Integer)
+			Me.New()
+			Me.OrderID = orderId
+		End Sub
+		Private privateOrderID? As Integer
+		Public Property OrderID() As Integer?
+			Get
+				Return privateOrderID
+			End Get
+			Private Set(ByVal value? As Integer)
+				privateOrderID = value
+			End Set
+		End Property
+		Private privateUnitOfWork As UnitOfWork
+		Protected Property UnitOfWork() As UnitOfWork
+			Get
+				Return privateUnitOfWork
+			End Get
+			Private Set(ByVal value As UnitOfWork)
+				privateUnitOfWork = value
+			End Set
+		End Property
+		Private Sub EditCustomerForm_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
+			Reload()
+		End Sub
 
-        ' Add any initialization after the InitializeComponent() call.
+		Private Sub Reload()
+			UnitOfWork = New UnitOfWork()
+			If OrderID.HasValue Then
+				OrderBindingSource.DataSource = UnitOfWork.GetObjectByKey(Of Order)(OrderID.Value)
+			Else
+				OrderBindingSource.DataSource = New Order(UnitOfWork)
+			End If
+			CustomersBindingSource.DataSource = New XPCollection(Of Customer)(UnitOfWork)
+		End Sub
 
-    End Sub
-    Public Sub New(ByVal orderID As Nullable(Of Integer))
-        Me.New()
-        fOrderID = orderID
-    End Sub
-    Private fOrderID As Nullable(Of Integer)
-    Public ReadOnly Property OrderID() As Nullable(Of Integer)
-        Get
-            Return fOrderID
-        End Get
-    End Property
-    Private fUnitOfWork As UnitOfWork
-    Protected ReadOnly Property UnitOfWork() As UnitOfWork
-        Get
-            Return fUnitOfWork
-        End Get
-    End Property
-    Private Sub EditCustomerForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Reload()
-    End Sub
+		Private Sub btnSave_ItemClick(ByVal sender As Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnSave.ItemClick
+			Try
+				UnitOfWork.CommitChanges()
+				OrderID = DirectCast(OrderBindingSource.DataSource, Order).Oid
+				Close()
+			Catch e1 As LockingException
+				XtraMessageBox.Show(Me, "The record was modified or deleted. Please click the Reload button and try again.", "XPO Tutorial", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+			End Try
+		End Sub
 
-    Private Sub Reload()
-        fUnitOfWork = New UnitOfWork()
-        If OrderID.HasValue Then
-            OrdersBindingSource.DataSource = UnitOfWork.GetObjectByKey(Of Order)(OrderID.Value)
-        Else
-            OrdersBindingSource.DataSource = New Order(UnitOfWork)
-        End If
-        CustomersBindingSource.DataSource = New XPCollection(Of Customer)(UnitOfWork)
-    End Sub
+		Private Sub btnReload_ItemClick(ByVal sender As Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnReload.ItemClick
+			Reload()
+		End Sub
 
-    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        Try
-            UnitOfWork.CommitChanges()
-            fOrderID = CType(OrdersBindingSource.DataSource, Order).Oid
-            Close()
-        Catch ex As LockingException
-            XtraMessageBox.Show(Me, "The record was modified or deleted. Click Reload and try again.", "XPO Tutorial", MessageBoxButtons.OK, MessageBoxIcon.Stop)
-        End Try
-    End Sub
-
-    Private Sub BtnReload_Click(sender As Object, e As EventArgs) Handles btnReload.Click
-        Reload()
-    End Sub
-End Class
+		Private Sub btnClose_ItemClick(ByVal sender As Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnClose.ItemClick
+			Close()
+		End Sub
+	End Class

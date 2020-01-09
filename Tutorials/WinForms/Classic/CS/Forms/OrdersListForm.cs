@@ -1,5 +1,7 @@
-﻿using DevExpress.Xpo;
+﻿using System;
+using DevExpress.Xpo;
 using DevExpress.XtraBars;
+using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraGrid.Views.Grid;
 using WinFormsApplication.Forms;
@@ -19,15 +21,30 @@ namespace WinFormsApplication {
         }
 
         private void ShowEditForm(int? orderID) {
-            using(EditOrderForm form = new EditOrderForm(orderID)) {
-                form.ShowDialog(this);
-                if (form.OrderID.HasValue) {
-                    Reload();
-                    OrdersGridView.FocusedRowHandle = OrdersGridView.LocateByValue("Oid", form.OrderID.Value,
-                        rowHandle => OrdersGridView.FocusedRowHandle = (int)rowHandle);
+            var form = new EditOrderForm(orderID);
+            form.FormClosed += EditFormClosed;
+            var documentManager = DocumentManager.FromControl(MdiParent);
+            if (documentManager != null) {
+                documentManager.View.AddDocument(form);
+            } else {
+                try {
+                    form.ShowDialog();
+                } finally {
+                    form.Dispose();
                 }
             }
         }
+
+        private void EditFormClosed(object sender, EventArgs e) {
+            var form = (EditOrderForm)sender;
+            form.FormClosed -= EditFormClosed;
+            if (form.OrderID.HasValue) {
+                Reload();
+                OrdersGridView.FocusedRowHandle = OrdersGridView.LocateByValue("Oid", form.OrderID.Value,
+                    rowHandle => OrdersGridView.FocusedRowHandle = (int)rowHandle);
+            }
+        }
+        
         private void Reload() {
             OrdersInstantFeedbackView.Refresh();
         }

@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using DevExpress.Xpo;
 using DevExpress.XtraBars;
+using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraGrid.Views.Grid;
 using WinFormsApplication.Forms;
 using XpoTutorial;
@@ -25,12 +26,26 @@ namespace WinFormsApplication {
         }
 
         private void ShowEditForm(int? customerID) {
-            using(EditCustomerForm form = new EditCustomerForm(customerID)) {
-                form.ShowDialog(this);
-                if (form.CustomerID.HasValue) {
-                    Reload();
-                    CustomersGridView.FocusedRowHandle = CustomersGridView.LocateByValue("Oid", form.CustomerID.Value);
+            var form = new EditCustomerForm(customerID);
+            form.FormClosed += EditFormClosed;
+            var documentManager = DocumentManager.FromControl(MdiParent);
+            if (documentManager != null) {
+                documentManager.View.AddDocument(form);
+            } else {
+                try {
+                    form.ShowDialog();
+                } finally {
+                    form.Dispose();
                 }
+            }
+        }
+
+        private void EditFormClosed(object sender, EventArgs e) {
+            var form = (EditCustomerForm)sender;
+            form.FormClosed -= EditFormClosed;
+            if (form.CustomerID.HasValue) {
+                Reload();
+                CustomersGridView.FocusedRowHandle = CustomersGridView.LocateByValue("Oid", form.CustomerID.Value);
             }
         }
 

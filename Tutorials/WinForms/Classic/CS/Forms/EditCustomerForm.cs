@@ -2,17 +2,19 @@
 using System.Windows.Forms;
 using DevExpress.Xpo;
 using DevExpress.Xpo.DB.Exceptions;
+using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using XpoTutorial;
 
 namespace WinFormsApplication.Forms {
-    public partial class EditCustomerForm : XtraForm {
+    public partial class EditCustomerForm : DevExpress.XtraBars.Ribbon.RibbonForm {
         public EditCustomerForm() {
             InitializeComponent();
         }
         public EditCustomerForm(int? customerId) : this() {
             CustomerID = customerId;
         }
+
         public int? CustomerID { get; private set; }
 
         protected UnitOfWork UnitOfWork { get; private set; }
@@ -28,7 +30,7 @@ namespace WinFormsApplication.Forms {
                 CustomerBindingSource.DataSource = new Customer(UnitOfWork);
         }
 
-        private void BtnSave_Click(object sender, EventArgs e) {
+        private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
             try {
                 UnitOfWork.CommitChanges();
                 CustomerID = ((Customer)CustomerBindingSource.DataSource).Oid;
@@ -39,8 +41,12 @@ namespace WinFormsApplication.Forms {
             }
         }
 
-        private void BtnReload_Click(object sender, EventArgs e) {
+        private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
             Reload();
+        }
+
+        private void btnClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
+            Close();
         }
     }
 }
