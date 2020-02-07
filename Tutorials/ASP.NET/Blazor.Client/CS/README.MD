@@ -1,1 +1,1 @@
-Coming as soon as the [Blazor error MSB3073 (.Net Core SDK 3.0.100)	#12916](https://github.com/mono/mono/issues/12916) issue in Blazor/Mono is fixed.
+Please contact us using the https://www.devexpress.com/ask service and describe your use-case scenarios if you want examples of XPO + Blazor WebAssembly.
