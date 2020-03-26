@@ -1,9 +1,9 @@
 ## Prerequisites
 
-* [Visual Studio 2019 16.1 Preview 3 or later](https://visualstudio.com/preview) with the following workloads:
+* [Visual Studio 2019 16.4.5 or later](https://visualstudio.com/) with the following workloads:
   * **ASP.NET and web development**
   * **.NET Core cross-platform development**
-* [.NET Core SDK 3 Preview 5 or later](https://www.microsoft.com/net/download/all)
+* [.NET Core 3.1 SDK or later](https://www.microsoft.com/net/download/all)
 * [Blazor Templates and Extensions for Visual Studio 2019](https://docs.microsoft.com/en-us/aspnet/core/blazor/get-started?view=aspnetcore-3.0&tabs=visual-studio)
 * [DevExpress UI Components for Blazor (CTP)](https://www.devexpress.com/blazor/)
 * [Bootstrap 4.1](https://getbootstrap.com/docs/4.1/getting-started/download/) & [jQuery 3.4.1](https://jquery.com/download/) for Bootstrap's [modal dialog](https://getbootstrap.com/docs/4.1/components/modal/) (optional)
@@ -141,16 +141,17 @@ namespace BlazorServerSideApplication {
             services.AddRazorPages();
             services.AddServerSideBlazor();
             //Added lines begin.
-            //services.AddSingleton<WeatherForecastService>(); // Comment out.
-            services.AddScoped<CustomerService>(); // See step 6.
-            services.AddScoped<OrderService>(); // See step 6.
-            services.AddXpoDefaultUnitOfWork(true, options => options
-                    .UseConnectionString(Configuration.GetConnectionString("ImMemoryDataStore"))
-                    .UseThreadSafeDataLayer(true)
-                    .UseConnectionPool(false) // Remove this line if you use a database server like SQL Server, Oracle, PostgreSql etc.                    
-                    .UseAutoCreationOption(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema) // Remove this line if the database already exists
-                    .UseEntityTypes(typeof(Customer), typeof(Order)) // Pass all of your persistent object types to this method.
+            //services.AddSingleton<WeatherForecastService>();
+            services.AddScoped<CustomerService>();
+            services.AddScoped<OrderService>();
+            services.AddXpoDefaultDataLayer(ServiceLifetime.Singleton, dl => dl
+                .UseConnectionString(Configuration.GetConnectionString("ImMemoryDataStore"))
+                .UseThreadSafeDataLayer(true)
+                .UseConnectionPool(false) // Remove this line if you use a database server like SQL Server, Oracle, PostgreSql etc.
+                .UseAutoCreationOption(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema) // Remove this line if the database already exists
+                .UseEntityTypes(typeof(Customer), typeof(Order)) // Pass all of your persistent object types to this method.
             );
+            services.AddXpoDefaultUnitOfWork();
             //Added lines end.
         }
 //...
