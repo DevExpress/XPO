@@ -5,7 +5,6 @@ using XpoTutorial;
 using System.Linq;
 using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Xpo.DB.Exceptions;
-using WpfApplicationMvvm.Properties;
 
 namespace WpfApplicationMvvm.ViewModels {
     public class EditOrderViewModel :ViewModelBase {

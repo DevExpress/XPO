@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>WpfApplicationMvvm</RootNamespace>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Classic\CS\DataAccess\BaseObject.cs" Link="DataAccess\BaseObject.cs" />
+    <Compile Include="..\..\Classic\CS\DataAccess\ConnectionHelper.cs" Link="DataAccess\ConnectionHelper.cs" />
+    <Compile Include="..\..\Classic\CS\DataAccess\Customer.cs" Link="DataAccess\Customer.cs" />
+    <Compile Include="..\..\Classic\CS\DataAccess\DemoDataHelper.cs" Link="DataAccess\DemoDataHelper.cs" />
+    <Compile Include="..\..\Classic\CS\DataAccess\Order.cs" Link="DataAccess\Order.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\App.xaml.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\MainWindow.xaml.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\Services\InstantFeedbackService.cs" Link="Services\InstantFeedbackService.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\ViewModels\CustomerListViewModel.cs" Link="ViewModels\CustomerListViewModel.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\ViewModels\EditCustomerViewModel.cs" Link="ViewModels\EditCustomerViewModel.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\ViewModels\EditOrderViewModel.cs" Link="ViewModels\EditOrderViewModel.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\ViewModels\MainViewModel.cs" Link="ViewModels\MainViewModel.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\Views\CustomerListView.xaml.cs" Link="Views\CustomerListView.xaml.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\Views\EditCustomerView.xaml.cs" Link="Views\EditCustomerView.xaml.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\Views\EditOrderView.xaml.cs" Link="Views\EditOrderView.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DevExpress.WindowsDesktop.Wpf" Version="20.1.0-pre-*" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Themes.All" Version="20.1.2-pre-20094" />
+    <PackageReference Include="DevExpress.Xpo" Version="20.1.2-pre-20094" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataAccess\" />
+    <Folder Include="Services\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\DevExpress.MVVM\CS\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="..\..\DevExpress.MVVM\CS\App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="..\..\DevExpress.MVVM\CS\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="..\..\DevExpress.MVVM\CS\Views\CustomerListView.xaml" Link="Views\CustomerListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="..\..\DevExpress.MVVM\CS\Views\EditCustomerView.xaml" Link="Views\EditCustomerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="..\..\DevExpress.MVVM\CS\Views\EditOrderView.xaml" Link="Views\EditOrderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>    
+</Project>
