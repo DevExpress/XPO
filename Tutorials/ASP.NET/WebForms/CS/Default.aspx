@@ -1,6 +1,6 @@
 <%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.master" CodeBehind="Default.aspx.cs" Inherits="AspNetWebFormsApplication._Default" %>
 
-<%@ Register assembly="DevExpress.Xpo.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A" namespace="DevExpress.Xpo" tagprefix="cc1" %>
+<%@ Register assembly="DevExpress.Xpo.v20.1, Version=20.1.1.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A" namespace="DevExpress.Xpo" tagprefix="cc1" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="MainContent" runat="server">
 
