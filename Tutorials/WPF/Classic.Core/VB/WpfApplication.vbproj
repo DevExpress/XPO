@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace></RootNamespace>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="DevExpress.WindowsDesktop.Wpf" Version="20.1.0-pre-*" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Themes.All" Version="20.1.2-pre-20094" />
+    <PackageReference Include="DevExpress.Xpo" Version="20.1.2-pre-20094" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="..\..\Classic\VB\Application.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Compile Include="..\..\Classic\VB\DataAccess\BaseObject.vb" Link="DataAccess\BaseObject.vb" />
+    <Compile Include="..\..\Classic\VB\DataAccess\ConnectionHelper.vb" Link="DataAccess\ConnectionHelper.vb" />
+    <Compile Include="..\..\Classic\VB\DataAccess\Customer.vb" Link="DataAccess\Customer.vb" />
+    <Compile Include="..\..\Classic\VB\DataAccess\DemoDataHelper.vb" Link="DataAccess\DemoDataHelper.vb" />
+    <Compile Include="..\..\Classic\VB\DataAccess\Order.vb" Link="DataAccess\Order.vb" />
+    <Compile Include="..\..\Classic\VB\CollectionExtensionMethods.vb" />
+    <Compile Include="..\..\Classic\VB\OrderEditWindow.xaml.vb">
+      <DependentUpon>OrderEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\Classic\VB\CustomerEditWindow.xaml.vb">
+      <DependentUpon>CustomerEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\Classic\VB\Wrappers\OrderEditWrapper.vb" Link="Wrappers\OrderEditWrapper.vb" />
+    <Compile Include="..\..\Classic\VB\Wrappers\CustomerEditWrapper.vb" Link="Wrappers\CustomerEditWrapper.vb" />
+    <Compile Include="..\..\Classic\VB\Wrappers\CustomerListWrapper.vb" Link="Wrappers\CustomerListWrapper.vb" />
+    <Page Include="..\..\Classic\VB\OrderEditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\..\Classic\VB\CustomerEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="..\..\Classic\VB\CustomerListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="..\..\Classic\VB\Application.xaml.vb">
+      <DependentUpon>Application.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="..\..\Classic\VB\CustomerListWindow.xaml.vb">
+      <DependentUpon>CustomerListWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="..\..\Classic\VB\My Project\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Classic\VB\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataAccess\" />
+    <Folder Include="Wrappers\" />
+  </ItemGroup>
+</Project>
