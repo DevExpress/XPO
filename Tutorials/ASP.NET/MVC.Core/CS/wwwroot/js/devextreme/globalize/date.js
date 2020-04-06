@@ -1,5 +1,5 @@
 /**
- * Globalize v1.4.2
+ * Globalize v1.5.0
  *
  * http://github.com/jquery/globalize
  *
@@ -7,10 +7,10 @@
  * Released under the MIT license
  * http://jquery.org/license
  *
- * Date: 2019-03-07T13:47Z
+ * Date: 2020-03-25T12:19Z
  */
 /*!
- * Globalize v1.4.2 2019-03-07T13:47Z Released under the MIT license
+ * Globalize v1.5.0 2020-03-25T12:19Z Released under the MIT license
  * http://git.io/TrdQbw
  */
 (function( root, factory ) {
@@ -44,6 +44,8 @@ var createError = Globalize._createError,
 	looseMatching = Globalize._looseMatching,
 	numberNumberingSystemDigitsMap = Globalize._numberNumberingSystemDigitsMap,
 	numberSymbol = Globalize._numberSymbol,
+	partsJoin = Globalize._partsJoin,
+	partsPush = Globalize._partsPush,
 	regexpEscape = Globalize._regexpEscape,
 	removeLiteralQuotes = Globalize._removeLiteralQuotes,
 	runtimeBind = Globalize._runtimeBind,
@@ -930,9 +932,7 @@ var dateFormatProperties = function( pattern, cldr, timeZone ) {
 
 var dateFormatterFn = function( dateToPartsFormatter ) {
 	return function dateFormatter( value ) {
-		return dateToPartsFormatter( value ).map( function( part ) {
-			return part.value;
-		}).join( "" );
+		return partsJoin( dateToPartsFormatter( value ));
 	};
 };
 
@@ -2813,14 +2813,7 @@ var dateFormat = function( date, numberFormatters, properties ) {
 		dateField = dateFieldsMap[ chr ];
 		type = dateField ? dateField : "literal";
 
-		// Concat two consecutive literals
-		if ( type === "literal" && parts.length && parts[ parts.length - 1 ].type === "literal" ) {
-			parts[ parts.length - 1 ].value += value;
-			return;
-		}
-
-		parts.push( { type: type, value: value } );
-
+		partsPush( parts, type, value );
 	});
 
 	return parts;
@@ -3004,12 +2997,15 @@ Globalize.prototype.dateToPartsFormatter = function( options ) {
 		ianaListener = validateRequiredIana( timeZone );
 		cldr.on( "get", ianaListener );
 	}
-	pattern = dateExpandPattern( options, cldr );
-	validateOptionsSkeleton( pattern, options.skeleton );
-	properties = dateFormatProperties( pattern, cldr, timeZone );
-	cldr.off( "get", validateRequiredCldr );
-	if ( ianaListener ) {
-		cldr.off( "get", ianaListener );
+	try {
+		pattern = dateExpandPattern( options, cldr );
+		validateOptionsSkeleton( pattern, options.skeleton );
+		properties = dateFormatProperties( pattern, cldr, timeZone );
+	} finally {
+		cldr.off( "get", validateRequiredCldr );
+		if ( ianaListener ) {
+			cldr.off( "get", ianaListener );
+		}
 	}
 
 	// Create needed number formatters.
@@ -3057,19 +3053,21 @@ Globalize.prototype.dateParser = function( options ) {
 
 	args = [ options ];
 
-	cldr.on( "get", validateRequiredCldr );
-	if ( timeZone ) {
-		cldr.on( "get", validateRequiredIana( timeZone ) );
+	try {
+		cldr.on( "get", validateRequiredCldr );
+		if ( timeZone ) {
+			cldr.on( "get", validateRequiredIana( timeZone ) );
+		}
+		pattern = dateExpandPattern( options, cldr );
+		validateOptionsSkeleton( pattern, options.skeleton );
+		tokenizerProperties = dateTokenizerProperties( pattern, cldr, timeZone );
+		parseProperties = dateParseProperties( cldr, timeZone );
+	} finally {
+		cldr.off( "get", validateRequiredCldr );
+		if ( timeZone ) {
+			cldr.off( "get", validateRequiredIana( timeZone ) );
+		}
 	}
-	pattern = dateExpandPattern( options, cldr );
-	validateOptionsSkeleton( pattern, options.skeleton );
-	tokenizerProperties = dateTokenizerProperties( pattern, cldr, timeZone );
-	parseProperties = dateParseProperties( cldr, timeZone );
-	cldr.off( "get", validateRequiredCldr );
-	if ( timeZone ) {
-		cldr.off( "get", validateRequiredIana( timeZone ) );
-	}
-
 	numberParser = this.numberParser({ raw: "0" });
 
 	returnFn = dateParserFn( numberParser, parseProperties, tokenizerProperties );

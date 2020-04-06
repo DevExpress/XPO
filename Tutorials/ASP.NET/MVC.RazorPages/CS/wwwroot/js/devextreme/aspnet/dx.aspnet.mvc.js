@@ -1,27 +1,32 @@
 /*!
 * DevExtreme (dx.aspnet.mvc.js)
-* Version: 19.1.0 (build 19094-0309)
-* Build date: Thu Apr 04 2019
+* Version: 20.1.1 (build 20094-0343)
+* Build date: Fri Apr 03 2020
 *
-* Copyright (c) 2012 - 2019 Developer Express Inc. ALL RIGHTS RESERVED
+* Copyright (c) 2012 - 2020 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
 */
 ! function(factory) {
     if ("function" === typeof define && define.amd) {
         define(function(require, exports, module) {
-            module.exports = factory(require("jquery"), require("./ui/set_template_engine"), require("./ui/widget/ui.template_base").renderedCallbacks, require("./core/guid"), require("./ui/validation_engine"), require("./core/utils/iterator"), require("./core/utils/dom").extractTemplateMarkup, require("./core/utils/string").encodeHtml)
+            module.exports = factory(require("jquery"), require("./core/templates/template_engine_registry").setTemplateEngine, require("./core/templates/template_base").renderedCallbacks, require("./core/guid"), require("./ui/validation_engine"), require("./core/utils/iterator"), require("./core/utils/dom").extractTemplateMarkup, require("./core/utils/string").encodeHtml, require("./core/utils/ajax"), require("./core/utils/console"))
         })
     } else {
-        var ui = DevExpress.ui;
-        DevExpress.aspnet = factory(window.jQuery, ui && ui.setTemplateEngine, ui && ui.templateRendered, DevExpress.data.Guid, DevExpress.validationEngine, DevExpress.utils.iterator, DevExpress.utils.dom.extractTemplateMarkup, DevExpress.utils.string.encodeHtml)
+        DevExpress.aspnet = factory(window.jQuery, DevExpress.setTemplateEngine, DevExpress.templateRendered, DevExpress.data.Guid, DevExpress.validationEngine, DevExpress.utils.iterator, DevExpress.utils.dom.extractTemplateMarkup, DevExpress.utils.string.encodeHtml, DevExpress.utils.ajax, DevExpress.utils.console)
     }
-}(function($, setTemplateEngine, templateRendered, Guid, validationEngine, iteratorUtils, extractTemplateMarkup, encodeHtml) {
+}(function($, setTemplateEngine, templateRendered, Guid, validationEngine, iteratorUtils, extractTemplateMarkup, encodeHtml, ajax, console) {
     var templateCompiler = createTemplateCompiler();
+    var pendingCreateComponentRoutines = [];
+    var enableAlternativeTemplateTags = true;
+    var warnBug17028 = false;
 
     function createTemplateCompiler() {
-        var OPEN_TAG = "<%",CLOSE_TAG="%>",
+        var OPEN_TAG = "<%",
+            CLOSE_TAG = "%>",
             ENCODE_QUALIFIER = "-",
             INTERPOLATE_QUALIFIER = "=";
+        var EXTENDED_OPEN_TAG = /[<[]%/g,
+            EXTENDED_CLOSE_TAG = /%[>\]]/g;
 
         function acceptText(bag, text) {
             if (text) {
@@ -43,10 +48,16 @@
         }
         return function(text) {
             var bag = ["var _ = [];", "with(obj||{}) {"],
-                chunks = text.split(OPEN_TAG);
+                chunks = text.split(enableAlternativeTemplateTags ? EXTENDED_OPEN_TAG : OPEN_TAG);
+            if (warnBug17028 && chunks.length > 1) {
+                if (text.indexOf(OPEN_TAG) > -1) {
+                    console.logger.warn("Please use an alternative template syntax: https://community.devexpress.com/blogs/aspnet/archive/2020/01/29/asp-net-core-new-syntax-to-fix-razor-issue.aspx");
+                    warnBug17028 = false
+                }
+            }
             acceptText(bag, chunks.shift());
             for (var i = 0; i < chunks.length; i++) {
-                var tmp = chunks[i].split(CLOSE_TAG);
+                var tmp = chunks[i].split(enableAlternativeTemplateTags ? EXTENDED_CLOSE_TAG : CLOSE_TAG);
                 if (2 !== tmp.length) {
                     throw "Template syntax error"
                 }
@@ -64,7 +75,12 @@
                 return templateCompiler(extractTemplateMarkup(element))
             },
             render: function(template, data) {
-                return template(data, encodeHtml)
+                var html = template(data, encodeHtml);
+                var dxMvcExtensionsObj = window.MVCx;
+                if (dxMvcExtensionsObj && !dxMvcExtensionsObj.isDXScriptInitializedOnLoad) {
+                    html = html.replace(/(<script[^>]+)id="dxss_.+?"/g, "$1")
+                }
+                return html
             }
         }
     }
@@ -96,16 +112,21 @@
     }
 
     function createComponent(name, options, id, validatorOptions) {
-        var render = function(_, container) {
-            var selector = "#" + id.replace(/[^\w-]/g, "\\$&"),
-                $component = $(selector, container)[name](options);
+        var selector = "#" + String(id).replace(/[^\w-]/g, "\\$&");
+        pendingCreateComponentRoutines.push(function() {
+            var $component = $(selector)[name](options);
             if ($.isPlainObject(validatorOptions)) {
                 $component.dxValidator(validatorOptions)
             }
-            templateRendered.remove(render)
-        };
-        templateRendered.add(render)
+        })
     }
+    templateRendered.add(function() {
+        var snapshot = pendingCreateComponentRoutines.slice();
+        pendingCreateComponentRoutines = [];
+        snapshot.forEach(function(func) {
+            func()
+        })
+    });
     return {
         createComponent: createComponent,
         renderComponent: function(name, options, id, validatorOptions) {
@@ -128,6 +149,12 @@
                 setTemplateEngine(createTemplateEngine())
             }
         },
+        enableAlternativeTemplateTags: function(value) {
+            enableAlternativeTemplateTags = value
+        },
+        warnBug17028: function() {
+            warnBug17028 = true
+        },
         createValidationSummaryItems: function(validationGroup, editorNames) {
             var groupConfig, items, summary = getValidationSummary(validationGroup);
             if (summary) {
@@ -137,6 +164,32 @@
                     items.length && summary.option("items", items)
                 }
             }
+        },
+        sendValidationRequest: function(propertyName, propertyValue, url, method) {
+            var d = $.Deferred();
+            var data = {};
+            data[propertyName] = propertyValue;
+            ajax.sendRequest({
+                url: url,
+                dataType: "json",
+                method: method || "GET",
+                data: data
+            }).then(function(response) {
+                if ("string" === typeof response) {
+                    d.resolve({
+                        isValid: false,
+                        message: response
+                    })
+                } else {
+                    d.resolve(response)
+                }
+            }, function(xhr) {
+                d.reject({
+                    isValid: false,
+                    message: xhr.responseText
+                })
+            });
+            return d.promise()
         }
     }
 });

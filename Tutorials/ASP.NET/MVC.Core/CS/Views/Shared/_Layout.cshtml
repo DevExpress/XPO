@@ -11,36 +11,16 @@
     <title>AspNetCoreMvcApplication</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
-    <link href="~/css/devextreme/bootstrap.css" rel="stylesheet" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link href="~/css/devextreme/dx.common.css" rel="stylesheet" />
-    <link href="~/css/devextreme/dx.light.css" rel="stylesheet" />
+    @* Uncomment to use the HtmlEditor control *@
+    @* <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.min.js"></script> *@
 
-    <script src="~/js/devextreme/jquery.js"></script>
-    <script src="~/js/devextreme/bootstrap.js"></script>
-
-    <script src="~/js/devextreme/cldr.js"></script>
-    <script src="~/js/devextreme/cldr/event.js"></script>
-    <script src="~/js/devextreme/cldr/supplemental.js"></script>
-    <script src="~/js/devextreme/cldr/unresolved.js"></script>
-
-    <script src="~/js/devextreme/globalize.js"></script>
-    <script src="~/js/devextreme/globalize/message.js"></script>
-    <script src="~/js/devextreme/globalize/number.js"></script>
-    <script src="~/js/devextreme/globalize/currency.js"></script>
-    <script src="~/js/devextreme/globalize/date.js"></script>
-
-    @* JSZip for client side export *@
-    @*<script src="~/js/devextreme/jszip.js"></script>*@
-    
-    <script src="~/js/devextreme/dx.all.js"></script>
-    <script src="~/js/devextreme/vectormap-data/world.js"></script>
-    <script src="~/js/devextreme/aspnet/dx.aspnet.data.js"></script>
-    <script src="~/js/devextreme/aspnet/dx.aspnet.mvc.js"></script>
+    <link rel="stylesheet" href="~/css/vendor.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Site.css" />
+    <script src="~/js/vendor.js" asp-append-version="true"></script>
 
 </head>
 
-<body>
+<body style="padding-top: 5rem;">
 
     <nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-md">
         <a class="navbar-brand" href="/">AspNetCoreMvcApplication</a>
