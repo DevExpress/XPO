@@ -67,9 +67,9 @@ namespace WinFormsApplication.ViewModels {
                 MessageBoxService.ShowMessage("The object was modified by another user. Please reload data.", "XPO Tutorial", MessageButton.OK, MessageIcon.Stop);
                 return;
             }
-            var parent = this.GetParentViewModel<CustomerListViewModel>();
+            var parent = this.GetParentViewModel<OrderListViewModel>();
             if(parent != null)
-                parent.Reload();
+                parent.Reload(Order.Oid);
             ((IDocumentContent)this).DocumentOwner.Close(this);
         }
         public async void Reload() {

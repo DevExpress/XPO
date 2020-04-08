@@ -8,6 +8,13 @@ using XpoTutorial;
 
 namespace WinFormsApplication.ViewModels {
     public class OrderListViewModel {
+        public OrderListViewModel() {
+            Orders = new XPInstantFeedbackView(typeof(Order), new ServerViewProperty[] {
+                    new ServerViewProperty("Oid","Oid"),
+                    new ServerViewProperty("OrderDate", SortDirection.Ascending, new OperandProperty("OrderDate")),
+                    new ServerViewProperty("ProductName", "ProductName")
+                }, null);
+        }
         public virtual IListSource Orders {
             get;
             protected set;
@@ -16,14 +23,9 @@ namespace WinFormsApplication.ViewModels {
             get { return this.GetService<IInstantFeedbackService>(); }
         }
         void ReloadCore() {
-            Orders = Orders ?? new XPInstantFeedbackView(typeof(Order), new ServerViewProperty[] {
-                    new ServerViewProperty("Oid","Oid"),
-                    new ServerViewProperty("OrderDate", SortDirection.Ascending, new OperandProperty("OrderDate")),
-                    new ServerViewProperty("ProductName", "ProductName")
-                }, null);
             ((XPInstantFeedbackView)Orders).Refresh();
         }
-        public void Reload() {
+        public void Reload(int? recordToFocus = null) {
             if(InstantFeedbackService == null)
                 ReloadCore();
             else {

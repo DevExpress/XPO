@@ -1,4 +1,5 @@
 ﻿using System;
+using DevExpress.Data;
 using DevExpress.XtraGrid.Views.Grid;
 
 namespace WinFormsApplication.Services {
@@ -22,7 +23,8 @@ namespace WinFormsApplication.Services {
             return gridView.GetFocusedRowCellValue(keyFieldName);
         }
         void IInstantFeedbackService.SetFocusedRowByKey(object focusedObjectKey) {
-            gridView.FocusedRowHandle = gridView.DataController.FindRowByValue(keyFieldName, focusedObjectKey);
+            gridView.FocusedRowHandle = gridView.DataController.FindRowByValue(keyFieldName, focusedObjectKey,
+                new OperationCompleted(t => gridView.FocusedRowHandle = (int)t));
         }
     }
 }

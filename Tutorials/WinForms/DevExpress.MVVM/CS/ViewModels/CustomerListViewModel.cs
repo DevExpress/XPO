@@ -8,6 +8,12 @@ using XpoTutorial;
 
 namespace WinFormsApplication.ViewModels {
     public class CustomerListViewModel {
+        public CustomerListViewModel() {
+            Customers = new XPInstantFeedbackView(typeof(Customer), new ServerViewProperty[] {
+                    new ServerViewProperty("Oid","Oid"),
+                    new ServerViewProperty("ContactName", SortDirection.Ascending, new OperandProperty("ContactName"))
+                }, null);
+        }
         public virtual IListSource Customers {
             get;
             protected set;
@@ -16,17 +22,13 @@ namespace WinFormsApplication.ViewModels {
             get { return this.GetService<IInstantFeedbackService>(); }
         }
         void ReloadCore() {
-            Customers = Customers ?? new XPInstantFeedbackView(typeof(Customer), new ServerViewProperty[] {
-                    new ServerViewProperty("Oid","Oid"),
-                    new ServerViewProperty("ContactName", SortDirection.Ascending, new OperandProperty("ContactName"))
-                }, null);
             ((XPInstantFeedbackView)Customers).Refresh();
         }
-        public void Reload() {
+        public void Reload(int? recordToFocus = null) {
             if(InstantFeedbackService == null)
                 ReloadCore();
             else {
-                object focusedObjectKey = InstantFeedbackService.GetFocusedRowKey();
+                object focusedObjectKey = recordToFocus.HasValue ? recordToFocus.Value :  InstantFeedbackService.GetFocusedRowKey();
                 ReloadCore();
                 InstantFeedbackService.SetFocusedRowByKey(focusedObjectKey);
             }

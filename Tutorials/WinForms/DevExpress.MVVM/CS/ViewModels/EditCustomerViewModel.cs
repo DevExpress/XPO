@@ -56,7 +56,7 @@ namespace WinFormsApplication.ViewModels {
             }
             var parent = this.GetParentViewModel<CustomerListViewModel>();
             if(parent != null)
-                parent.Reload();
+                parent.Reload(Customer.Oid);
             ((IDocumentContent)this).DocumentOwner.Close(this);
         }
         public async void Reload() {

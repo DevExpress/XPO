@@ -16,8 +16,6 @@ namespace WinFormsApplication.Views {
             mvvmContext1.RegisterService(new InstantFeedbackService(CustomersGridView));
             //
             var fluentApi = mvvmContext1.OfType<CustomerListViewModel>();
-            fluentApi.WithEvent(this, nameof(Load))
-                .EventToCommand(x => x.Reload());
             fluentApi.SetBinding(CustomersGridControl, bs => bs.DataSource, x => x.Customers);
             fluentApi.WithEvent<RowClickEventArgs>(CustomersGridView, nameof(CustomersGridView.RowClick))
                 .EventToCommand(x => x.Edit(),
