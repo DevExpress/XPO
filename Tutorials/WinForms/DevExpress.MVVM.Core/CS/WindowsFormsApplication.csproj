@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Forms\**" />
+    <EmbeddedResource Remove="Forms\**" />
+    <None Remove="Forms\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Classic\CS\DataAccess\ConnectionHelper.cs" Link="DataAccess\ConnectionHelper.cs" />
+    <Compile Include="..\..\Classic\CS\DataAccess\Customer.cs" Link="DataAccess\Customer.cs" />
+    <Compile Include="..\..\Classic\CS\DataAccess\DemoDataHelper.cs" Link="DataAccess\DemoDataHelper.cs" />
+    <Compile Include="..\..\Classic\CS\DataAccess\Order.cs" Link="DataAccess\Order.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\MainView.cs" Link="MainView.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\MainView.Designer.cs" Link="MainView.Designer.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\Program.cs" Link="Program.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\Services\InstantFeedbackService.cs" Link="Services\InstantFeedbackService.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\ViewModels\CustomerListViewModel.cs" Link="ViewModels\CustomerListViewModel.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\ViewModels\EditCustomerViewModel.cs" Link="ViewModels\EditCustomerViewModel.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\ViewModels\EditOrderViewModel.cs" Link="ViewModels\EditOrderViewModel.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\ViewModels\MainViewModel.cs" Link="ViewModels\MainViewModel.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\ViewModels\OrderListViewModel.cs" Link="ViewModels\OrderListViewModel.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\Views\CustomersListView.cs" Link="Views\CustomersListView.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\Views\CustomersListView.Designer.cs" Link="Views\CustomersListView.Designer.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\Views\EditCustomerView.cs" Link="Views\EditCustomerView.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\Views\EditCustomerView.Designer.cs" Link="Views\EditCustomerView.Designer.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\Views\EditOrderView.cs" Link="Views\EditOrderView.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\Views\EditOrderView.Designer.cs" Link="Views\EditOrderView.Designer.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\Views\OrdersListView.cs" Link="Views\OrdersListView.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\Views\OrdersListView.Designer.cs" Link="Views\OrdersListView.Designer.cs" />
+    <Compile Include="..\..\DevExpress.MVVM\CS\Views\ViewID.cs" Link="Views\ViewID.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\DevExpress.MVVM\CS\MainView.resx" Link="MainView.resx" />
+    <EmbeddedResource Include="..\..\DevExpress.MVVM\CS\Views\CustomersListView.resx" Link="Views\CustomersListView.resx" />
+    <EmbeddedResource Include="..\..\DevExpress.MVVM\CS\Views\EditCustomerView.resx" Link="Views\EditCustomerView.resx" />
+    <EmbeddedResource Include="..\..\DevExpress.MVVM\CS\Views\EditOrderView.resx" Link="Views\EditOrderView.resx" />
+    <EmbeddedResource Include="..\..\DevExpress.MVVM\CS\Views\OrdersListView.resx" Link="Views\OrdersListView.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExpress.WindowsDesktop.Core" Version="20.1.2-beta" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Win" Version="20.1.2-ctp" />
+    <PackageReference Include="DevExpress.Xpo" Version="20.1.2-beta" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataAccess\" />
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\DevExpress.MVVM\CS\App.config" Link="App.config" />
+  </ItemGroup>
+
+</Project>

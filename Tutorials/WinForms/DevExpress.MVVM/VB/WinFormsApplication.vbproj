@@ -4,15 +4,20 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C2D7B1F3-BD8C-48C2-B57A-522D27993290}</ProjectGuid>
+    <ProjectGuid>{39C1034E-EE76-4DA7-A073-B4DC503788F5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WinFormsApplication</RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <AssemblyName>WinFormsApplication</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -20,19 +25,31 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v20.1">
       <SpecificVersion>False</SpecificVersion>
@@ -86,87 +103,88 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\Classic\CS\DataAccess\ConnectionHelper.cs">
-      <Link>DataAccess\ConnectionHelper.cs</Link>
+    <Compile Include="..\..\Classic\VB\DataAccess\ConnectionHelper.vb">
+      <Link>DataAccess\ConnectionHelper.vb</Link>
     </Compile>
-    <Compile Include="..\..\Classic\CS\DataAccess\Customer.cs">
-      <Link>DataAccess\Customer.cs</Link>
+    <Compile Include="..\..\Classic\VB\DataAccess\Customer.vb">
+      <Link>DataAccess\Customer.vb</Link>
     </Compile>
-    <Compile Include="..\..\Classic\CS\DataAccess\DemoDataHelper.cs">
-      <Link>DataAccess\DemoDataHelper.cs</Link>
+    <Compile Include="..\..\Classic\VB\DataAccess\DemoDataHelper.vb">
+      <Link>DataAccess\DemoDataHelper.vb</Link>
     </Compile>
-    <Compile Include="..\..\Classic\CS\DataAccess\Order.cs">
-      <Link>DataAccess\Order.cs</Link>
+    <Compile Include="..\..\Classic\VB\DataAccess\Order.vb">
+      <Link>DataAccess\Order.vb</Link>
     </Compile>
-    <Compile Include="Services\InstantFeedbackService.cs" />
-    <Compile Include="ViewModels\CustomerListViewModel.cs" />
-    <Compile Include="ViewModels\EditCustomerViewModel.cs" />
-    <Compile Include="ViewModels\EditOrderViewModel.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\OrderListViewModel.cs" />
-    <Compile Include="Views\EditOrderView.cs">
+    <Compile Include="Services\InstantFeedbackService.vb" />
+    <Compile Include="ViewModels\CustomerListViewModel.vb" />
+    <Compile Include="ViewModels\EditCustomerViewModel.vb" />
+    <Compile Include="ViewModels\EditOrderViewModel.vb" />
+    <Compile Include="ViewModels\MainViewModel.vb" />
+    <Compile Include="ViewModels\OrderListViewModel.vb" />
+    <Compile Include="Views\EditOrderView.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\EditOrderView.Designer.cs">
-      <DependentUpon>EditOrderView.cs</DependentUpon>
+    <Compile Include="Views\EditOrderView.Designer.vb">
+      <DependentUpon>EditOrderView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\OrdersListView.cs">
+    <Compile Include="Views\OrdersListView.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\OrdersListView.Designer.cs">
-      <DependentUpon>OrdersListView.cs</DependentUpon>
+    <Compile Include="Views\OrdersListView.Designer.vb">
+      <DependentUpon>OrdersListView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewID.cs" />
-    <Compile Include="Views\CustomersListView.cs">
+    <Compile Include="Views\ViewID.vb" />
+    <Compile Include="Views\CustomersListView.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CustomersListView.Designer.cs">
-      <DependentUpon>CustomersListView.cs</DependentUpon>
+    <Compile Include="Views\CustomersListView.Designer.vb">
+      <DependentUpon>CustomersListView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\EditCustomerView.cs">
+    <Compile Include="Views\EditCustomerView.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\EditCustomerView.Designer.cs">
-      <DependentUpon>EditCustomerView.cs</DependentUpon>
+    <Compile Include="Views\EditCustomerView.Designer.vb">
+      <DependentUpon>EditCustomerView.vb</DependentUpon>
     </Compile>
-    <Compile Include="MainView.cs">
+    <Compile Include="MainView.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainView.Designer.cs">
-      <DependentUpon>MainView.cs</DependentUpon>
+    <Compile Include="MainView.Designer.vb">
+      <DependentUpon>MainView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Program.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
     <EmbeddedResource Include="MainView.resx">
-      <DependentUpon>MainView.cs</DependentUpon>
+      <DependentUpon>MainView.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Views\CustomersListView.resx">
-      <DependentUpon>CustomersListView.cs</DependentUpon>
+      <DependentUpon>CustomersListView.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EditCustomerView.resx">
-      <DependentUpon>EditCustomerView.cs</DependentUpon>
+      <DependentUpon>EditCustomerView.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EditOrderView.resx">
-      <DependentUpon>EditOrderView.cs</DependentUpon>
+      <DependentUpon>EditOrderView.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\OrdersListView.resx">
-      <DependentUpon>OrdersListView.cs</DependentUpon>
+      <DependentUpon>OrdersListView.vb</DependentUpon>
     </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
+    <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <Compile Include="Properties\Settings.Designer.cs">
+    <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -176,5 +194,5 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
