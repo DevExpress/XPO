@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.Xpo" Version="20.1.2-pre-20064" />
+    <PackageReference Include="DevExpress.Xpo" Version="20.1.2-beta" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="2.2.4" />
     <PackageReference Include="Xamarin.Forms" Version="4.2.0.815419" />
   </ItemGroup>

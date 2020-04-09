@@ -8,9 +8,9 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.WindowsDesktop.Wpf" Version="20.1.0-pre-*" />
-    <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Themes.All" Version="20.1.2-pre-20094" />
-    <PackageReference Include="DevExpress.Xpo" Version="20.1.2-pre-20094" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Wpf" Version="20.1.2-beta" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Themes.All" Version="20.1.2-beta" />
+    <PackageReference Include="DevExpress.Xpo" Version="20.1.2-beta" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\Classic\CS\App.xaml.cs" />

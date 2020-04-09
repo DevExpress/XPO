@@ -33,9 +33,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.WindowsDesktop.Core" Version="20.1.2-pre-20094" />
-    <PackageReference Include="DevExpress.WindowsDesktop.Win" Version="20.1.1-ctp-20094" />
-    <PackageReference Include="DevExpress.Xpo" Version="20.1.2-pre-20094" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Core" Version="20.1.2-beta" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Win" Version="20.1.2-ctp" />
+    <PackageReference Include="DevExpress.Xpo" Version="20.1.2-beta" />
   </ItemGroup>
 
   <ItemGroup>
