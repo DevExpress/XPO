@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.12.1" />
-    <PackageReference Include="DevExpress.Xpo" Version="20.1.2-pre-20094" />
+    <PackageReference Include="DevExpress.Xpo" Version="20.1.2-beta" />
     <PackageReference Include="EntityFramework" Version="6.4.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
