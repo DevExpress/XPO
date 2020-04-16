@@ -9,6 +9,6 @@ jobs:
         steps:
         - name: Format message
           id: format
-          uses: uriahas/issue-action@v1.1.2
+          uses: uriahas/issue-action@v1.1.3
         - name: Send message
           run: "curl --silent --show-error --fail -X POST ${{secrets.ISSUE_WATCHER_ADDRESS}} -H 'Content-Type: application/json' -d '${{ steps.format.outputs.json }}''"
