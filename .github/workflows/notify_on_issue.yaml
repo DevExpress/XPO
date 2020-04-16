@@ -11,4 +11,4 @@ jobs:
           id: format
           uses: uriahas/issue-action@v1
         - name: Send message
-          run: curl --silent --show-error --fail -X POST ${{secrets.ISSUE_WATCHER_ADDRESS}} -H "Content-Type: application/json" -d "{{ steps.format.outputs.json }}"
+          run: curl --silent --show-error --fail -X POST ${{secrets.ISSUE_WATCHER_ADDRESS}} -H "Content-Type: application/json" -d "${{ steps.format.outputs.json }}"
