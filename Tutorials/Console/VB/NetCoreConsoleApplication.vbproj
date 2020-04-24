@@ -19,7 +19,7 @@
     <Import Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Xpo" Version="20.1.2-beta" />
+    <PackageReference Include="DevExpress.Xpo" Version="20.1.3" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="2.0.0" />
   </ItemGroup>
 
