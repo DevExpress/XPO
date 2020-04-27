@@ -146,25 +146,27 @@ Here is the modified code:
 ``` csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
-    if (env.IsDevelopment())
-    {
-        app.UseBrowserLink();
+    if(env.IsDevelopment()) {
         app.UseDeveloperExceptionPage();
     }
-    else
-    {
-        app.UseExceptionHandler("/Home/Error");
+    else {
+        app.UseExceptionHandler("/Error");
     }
 
     app.UseStaticFiles();
 
-    app.UseMvc(routes =>
-    {
-        routes.MapRoute(
-            name: "default",
-            template: "{controller=Home}/{action=Index}/{id?}");
+    app.UseRouting();
+
+    app.UseAuthorization();
+
+    app.UseEndpoints(endpoints => {
+        endpoints.MapControllers();
+        endpoints.MapRazorPages();
     });
-    app.UseXpoDemoData(); // Added line.
+
+    //Added lines begin.
+    app.UseXpoDemoData();
+    //Added lines end.
 }
 ```
 
