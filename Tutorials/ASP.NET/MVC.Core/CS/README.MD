@@ -1,6 +1,6 @@
 ## Prerequisites
 
-* [Visual Studio 2017 or 2019](https://visualstudio.microsoft.com/vs/) with the following workloads:
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) with the following workloads:
   * **ASP.NET and web development**
   * **.NET Core cross-platform development**
 * [.NET Core SDK 3.1 or later](https://www.microsoft.com/net/download/all)
