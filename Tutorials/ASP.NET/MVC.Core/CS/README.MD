@@ -112,7 +112,7 @@ public void ConfigureServices(IServiceCollection services)
 {
     // Add framework services.
     services
-        .AddMvc()
+        .AddControllersWithViews()
         .AddDxSampleModelJsonOptions() // Added line.
         .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null); // Added line.
     // Added lines begin.
