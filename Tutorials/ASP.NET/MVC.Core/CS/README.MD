@@ -22,6 +22,12 @@
    <img width="800" src="/Tutorials/images/MVC.Core/1.2.png">
 </p>
 
+* Select **ASP.NET Core 3.1** and **MVC Views** and click Create.
+
+<p align="center">
+   <img width="540" src="/Tutorials/images/MVC.Core/1.2.1.png">
+</p>
+
 * In **Solution Explorer**, remove unnecessary files from the created project:
   * *Controllers\OrdersController.cs*
   * *Models\Order.cs*
@@ -107,7 +113,8 @@ public void ConfigureServices(IServiceCollection services)
     // Add framework services.
     services
         .AddMvc()
-        .AddDxSampleModelJsonOptions(); // Added line.
+        .AddDxSampleModelJsonOptions() // Added line.
+        .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null); // Added line.
     // Added lines begin.
     services
         .AddXpoDefaultUnitOfWork(true, options => options
