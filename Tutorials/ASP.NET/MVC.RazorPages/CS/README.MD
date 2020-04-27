@@ -1,6 +1,6 @@
 ## Prerequisites
 
-* [Visual Studio 2017 or 2019](https://visualstudio.microsoft.com/vs/) with the following workloads:
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) with the following workloads:
   * **ASP.NET and web development**
   * **.NET Core cross-platform development**
 * [.NET Core SDK 3.1 or later](https://www.microsoft.com/net/download/all)
@@ -20,6 +20,12 @@
 
 <p align="center">
    <img width="800" src="/Tutorials/images/MVC.RazorPages/1.2.png">
+</p>
+
+* Select **ASP.NET Core 3.1** and **Razor Pages** and click Create.
+
+<p align="center">
+   <img width="540" src="/Tutorials/images/MVC.RazorPages/1.2.1.png">
 </p>
 
 * In **Solution Explorer**, remove unnecessary files from the created project:
@@ -120,8 +126,8 @@ public void ConfigureServices(IServiceCollection services)
 {
     // Add framework services.
     services
-        .AddMvc()
-        .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+        .AddRazorPages()
+        .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);  // Added line.
     // Added lines begin.
     services
         .AddXpoDefaultUnitOfWork(true, options => options
