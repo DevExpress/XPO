@@ -1,16 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <linker>
   <assembly fullname="DevExpress.Xpo.v20.1">
-      <type fullname="DevExpress.Xpo.DB.Helpers.MsSqlReflectionHelper*" />
-      <type fullname="DevExpress.Xpo.DB.Helpers.SqlDependencyReflectionHelper*" />
-      <type fullname="DevExpress.Xpo.DB.Helpers.DbTypeMapper*" />
-      <type fullname="DevExpress.Xpo.DB.Helpers.PersistentInterfaceTypedHelper*" />
-      <type fullname="DevExpress.Xpo.DB.Helpers.XPCollectionCompareHelper*" />
-      <type fullname="DevExpress.Xpo.DB.Helpers.OleDbReflectionHelper*" />
-      <type fullname="DevExpress.Xpo.DB.Helpers.ReflectionGetValuesHelper*" />
-      <type fullname="DevExpress.Xpo.DB.Helpers.XPVistaDB*" />
+      <type fullname="DevExpress.Xpo.DB.Helpers*" />
   </assembly>
   <assembly fullname="DevExpress.Data.v20.1">
-      <type fullname="DevExpress.Xpo.DB.Helpers.ReflectConnectionHelper*" />
+      <type fullname="DevExpress.Xpo.DB.Helpers*" />
   </assembly>
 </linker>
