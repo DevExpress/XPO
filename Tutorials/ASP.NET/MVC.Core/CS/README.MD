@@ -1,16 +1,16 @@
 ## Prerequisites
 
-* [Visual Studio 2017 or 2019](https://visualstudio.microsoft.com/vs/) with the following workloads:
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) with the following workloads:
   * **ASP.NET and web development**
   * **.NET Core cross-platform development**
-* [.NET Core SDK 2.2 or later](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 3.1 or later](https://www.microsoft.com/net/download/all)
 * [Unified Installer for .NET and HTML5 Developers](https://www.devexpress.com/Products/Try/)
   * We recommend that you select all the DevExpress products when you run the installation. It will register local NuGet package sources, item and project templates required for these tutorials. You can uninstall unnecessary components later.
 
 ## Step 1: Create an ASP.NET Core web app with the DevExtreme template
 
 * From the Visual Studio **File** menu, select **New > Project**.
-* Search for the **DevExtreme 19.1 ASP.NET Core Application (.NET Core)** template.
+* Search for the **DevExtreme 20.1 ASP.NET Core Application (.NET Core)** template.
 
 <p align="center">
   <img width="800" src="/Tutorials/images/MVC.Core/1.1.png">
@@ -20,6 +20,12 @@
 
 <p align="center">
    <img width="800" src="/Tutorials/images/MVC.Core/1.2.png">
+</p>
+
+* Select **ASP.NET Core 3.1** and **MVC Views** and click Create.
+
+<p align="center">
+   <img width="540" src="/Tutorials/images/MVC.Core/1.2.1.png">
 </p>
 
 * In **Solution Explorer**, remove unnecessary files from the created project:
@@ -33,23 +39,23 @@
 
 * For more information, see the following:
   * [Overview of ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-3.0)
-  * [DevExtreme-based ASP.NET Core controls | Getting Started](https://docs.devexpress.com/AspNetCore/400572/concepts/devextreme-based-controls/getting-started?v=19.1)
+  * [DevExtreme-based ASP.NET Core controls | Getting Started](https://docs.devexpress.com/AspNetCore/400572/concepts/devextreme-based-controls/getting-started?v=20.1)
   
 ## Step 2: Add the DevExpress XPO ORM package with NuGet
 
 You can install required packages using one of the following approaches:
 * Package Manager Console
   * From the Visual Studio **Tools** menu, select **NuGet Package Manager > Package Manager Console**.
-  * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 19.1 Local** and run the following command: 
+  * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 20.1 Local** and run the following command: 
      ```console
-    Install-Package DevExpress.Xpo -Version 19.1
+    Install-Package DevExpress.Xpo -Version 20.1
     ```
 OR
 
 * NuGet Package Manager
   * In **Solution Explorer**, right-click the project name and select **Manage NuGet Packages**. <p align="center"><img width="400" src="/Tutorials/images/MVC.Core/2.1.png"></p>
-  * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 19.1 Local** on the right.
-  * In the left top corner under **Browse**, search for the `DevExpress.Xpo` package and select its latest version, 19.1, on the right.
+  * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 20.1 Local** on the right.
+  * In the left top corner under **Browse**, search for the `DevExpress.Xpo` package and select its latest version, 20.1, on the right.
   * Click **Install** on the right and accept all the licenses in the **License Acceptance** dialogs. 
    
 <p align="center">
@@ -106,8 +112,9 @@ public void ConfigureServices(IServiceCollection services)
 {
     // Add framework services.
     services
-        .AddMvc()
-        .AddDxSampleModelJsonOptions(); // Added line.
+        .AddControllersWithViews()
+        .AddDxSampleModelJsonOptions() // Added line.
+        .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null); // Added line.
     // Added lines begin.
     services
         .AddXpoDefaultUnitOfWork(true, options => options
@@ -126,25 +133,30 @@ Here is the modified code:
 ``` csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
-    if (env.IsDevelopment())
-    {
-        app.UseBrowserLink();
-        app.UseDeveloperExceptionPage();
-    }
-    else
-    {
-        app.UseExceptionHandler("/Home/Error");
-    }
+     if (env.IsDevelopment())
+     {
+         app.UseDeveloperExceptionPage();
+     }
+     else
+     {
+         app.UseExceptionHandler("/Home/Error");
+     }
 
-    app.UseStaticFiles();
+     app.UseStaticFiles();
 
-    app.UseMvc(routes =>
-    {
-        routes.MapRoute(
-            name: "default",
-            template: "{controller=Home}/{action=Index}/{id?}");
-    });
-    app.UseXpoDemoData(); // Added line.
+     app.UseRouting();
+
+     app.UseAuthorization();
+
+     app.UseEndpoints(endpoints => {
+         endpoints.MapControllerRoute(
+             name: "default",
+             pattern: "{controller=Home}/{action=Index}/{id?}");
+     });
+
+     //Added lines begin.
+     app.UseXpoDemoData();
+     //Added lines end.
 }
 ```
 
@@ -185,14 +197,14 @@ Here is the modified code:
   * The following asynchronous XPO methods are used to implement CRUD operations in these controller methods: [Session.GetObjectByKeyAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.GetObjectByKeyAsync.overloads), [Session.Delete](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.Delete.overloads), [UnitOfWork.CommitChangesAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.UnitOfWork.CommitChangesAsync.overloads).
 
 * Replace the contents of *Views/Home/Index.cshtml* with the code copied from [the corresponding code file](https://github.com/DevExpress/XPO/blob/master/Tutorials/ASP.NET/MVC.Core/CS/Views/Home/Index.cshtml). It declares the Index view to display and edit the Customers list. 
-  * [Razor syntax](https://www.w3schools.com/asp/razor_intro.asp) is used to configure [DevExtreme-based ASP.NET Core controls](https://docs.devexpress.com/AspNetCore/400571/concepts/devextreme-based-controls?v=19.1). 
-  * The `DataSource` method is used to [bind data](https://docs.devexpress.com/AspNetCore/400575/concepts/devextreme-based-controls/data-binding?v=19.1) from the aforementioned Controller methods to the [DataGrid](https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Overview/) control.
+  * [Razor syntax](https://www.w3schools.com/asp/razor_intro.asp) is used to configure [DevExtreme-based ASP.NET Core controls](https://docs.devexpress.com/AspNetCore/400571/concepts/devextreme-based-controls?v=20.1). 
+  * The `DataSource` method is used to [bind data](https://docs.devexpress.com/AspNetCore/400575/concepts/devextreme-based-controls/data-binding?v=20.1) from the aforementioned Controller methods to the [DataGrid](https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Overview/) control.
   * The [Popup](https://js.devexpress.com/Demos/Widgetsgallery/Demo/Popup/Overview/jQuery/Light/) control is used to view and edit data in detail forms.
 
 * For more information, see the following:
   * [Handle requests with controllers in ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/actions?view=aspnetcore-3.0)
   * [Views in ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/overview?view=aspnetcore-3.0)
-  * [DevExtreme-based ASP.NET Core controls | Getting Started](https://docs.devexpress.com/AspNetCore/400572/concepts/devextreme-based-controls/getting-started?v=19.1)
+  * [DevExtreme-based ASP.NET Core controls | Getting Started](https://docs.devexpress.com/AspNetCore/400572/concepts/devextreme-based-controls/getting-started?v=20.1)
   * [FAQ: XPO Async/Await Method Support](https://www.devexpress.com/Support/Center/Question/Details/T683644/faq-xpo-async-await-method-support)
   * [Unit of Work](https://docs.devexpress.com/XPO/2138/feature-center/connecting-to-a-data-store/unit-of-work)
 

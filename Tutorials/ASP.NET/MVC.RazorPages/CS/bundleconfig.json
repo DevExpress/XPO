@@ -1,0 +1,62 @@
+[
+    {
+        "outputFileName": "wwwroot/css/vendor.css",
+        "inputFiles": [
+            // Uncomment to use the Gantt control
+            //"wwwroot/css/devextreme/dx-gantt.css",
+
+            // Uncomment to use the Diagram control
+            //"wwwroot/css/devextreme/dx-diagram.css",
+
+            "wwwroot/css/devextreme/bootstrap.css",
+
+            "wwwroot/css/devextreme/dx.common.css",
+
+            // Predefined themes: https://js.devexpress.com/DevExtreme/Guide/Themes_and_Styles/Predefined_Themes/
+            "wwwroot/css/devextreme/dx.light.css"
+        ],
+        "minify": {
+            "enabled": false
+        }
+    },
+    {
+        "outputFileName": "wwwroot/js/vendor.js",
+        "inputFiles": [
+            // Uncomment to use the Gantt control
+            //"wwwroot/js/devextreme/dx-gantt.js",
+
+            // Uncomment to use the Diagram control
+            //"wwwroot/js/devextreme/dx-diagram.js",
+
+            "wwwroot/js/devextreme/jquery.js",
+            "wwwroot/js/devextreme/bootstrap.js",
+
+            // Uncomment to use Globalize for localization
+            // Docs: https://docs.devexpress.com/AspNetCore/400577#globalize
+            //"wwwroot/js/devextreme/cldr.js",
+            //"wwwroot/js/devextreme/cldr/event.js",
+            //"wwwroot/js/devextreme/cldr/supplemental.js",
+            //"wwwroot/js/devextreme/cldr/unresolved.js",
+            //"wwwroot/js/devextreme/globalize.js",
+            //"wwwroot/js/devextreme/globalize/message.js",
+            //"wwwroot/js/devextreme/globalize/number.js",
+            //"wwwroot/js/devextreme/globalize/currency.js",
+            //"wwwroot/js/devextreme/globalize/date.js",
+
+            // Uncomment to enable client-side export
+            //"wwwroot/js/devextreme/jszip.js",
+
+            "wwwroot/js/devextreme/dx.all.js",
+
+            // Uncomment to provide geo-data for the VectorMap control
+            // Docs: https://js.devexpress.com/DevExtreme/Guide/Widgets/VectorMap/Providing_Data/#Data_for_Areas
+            //"wwwroot/js/devextreme/vectormap-data/world.js",
+
+            "wwwroot/js/devextreme/aspnet/dx.aspnet.mvc.js",
+            "wwwroot/js/devextreme/aspnet/dx.aspnet.data.js"
+        ],
+        "minify": {
+            "enabled": false
+        }
+    }
+]

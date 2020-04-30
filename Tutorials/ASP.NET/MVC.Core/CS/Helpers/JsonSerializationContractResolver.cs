@@ -42,7 +42,7 @@ namespace Microsoft.Extensions.DependencyInjection {
 
     public static class SampleJsonMvcBuilderExtensions {
         public static IMvcBuilder AddDxSampleModelJsonOptions(this IMvcBuilder builder, Action<SampleJsonSerializationContractResolver> setupAction = null) {
-            return builder.AddJsonOptions(opt => {
+            return builder.AddNewtonsoftJson(opt => {
                 var resolver = new SampleJsonSerializationContractResolver();
                 opt.SerializerSettings.ContractResolver = resolver;
                 opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;

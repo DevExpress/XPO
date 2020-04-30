@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Classic\CS\DataAccess\ConnectionHelper.cs" Link="DataAccess\ConnectionHelper.cs" />
+    <Compile Include="..\..\Classic\CS\DataAccess\Customer.cs" Link="DataAccess\Customer.cs" />
+    <Compile Include="..\..\Classic\CS\DataAccess\DemoDataHelper.cs" Link="DataAccess\DemoDataHelper.cs" />
+    <Compile Include="..\..\Classic\CS\DataAccess\Order.cs" Link="DataAccess\Order.cs" />
+    <Compile Include="..\..\Classic\CS\Forms\CustomersListForm.cs" Link="Forms\CustomersListForm.cs" />
+    <Compile Include="..\..\Classic\CS\Forms\CustomersListForm.Designer.cs" Link="Forms\CustomersListForm.Designer.cs" />
+    <Compile Include="..\..\Classic\CS\Forms\EditCustomerForm.cs" Link="Forms\EditCustomerForm.cs" />
+    <Compile Include="..\..\Classic\CS\Forms\EditCustomerForm.Designer.cs" Link="Forms\EditCustomerForm.Designer.cs" />
+    <Compile Include="..\..\Classic\CS\Forms\EditOrderForm.cs" Link="Forms\EditOrderForm.cs" />
+    <Compile Include="..\..\Classic\CS\Forms\EditOrderForm.Designer.cs" Link="Forms\EditOrderForm.Designer.cs" />
+    <Compile Include="..\..\Classic\CS\Forms\OrdersListForm.cs" Link="Forms\OrdersListForm.cs" />
+    <Compile Include="..\..\Classic\CS\Forms\OrdersListForm.Designer.cs" Link="Forms\OrdersListForm.Designer.cs" />
+    <Compile Include="..\..\Classic\CS\MainForm.cs" Link="MainForm.cs" />
+    <Compile Include="..\..\Classic\CS\MainForm.Designer.cs" Link="MainForm.Designer.cs" />
+    <Compile Include="..\..\Classic\CS\Program.cs" Link="Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\Classic\CS\Forms\CustomersListForm.resx" Link="Forms\CustomersListForm.resx" />
+    <EmbeddedResource Include="..\..\Classic\CS\Forms\EditCustomerForm.resx" Link="Forms\EditCustomerForm.resx" />
+    <EmbeddedResource Include="..\..\Classic\CS\Forms\EditOrderForm.resx" Link="Forms\EditOrderForm.resx" />
+    <EmbeddedResource Include="..\..\Classic\CS\Forms\OrdersListForm.resx" Link="Forms\OrdersListForm.resx" />
+    <EmbeddedResource Include="..\..\Classic\CS\MainForm.resx" Link="MainForm.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExpress.WindowsDesktop.Core" Version="20.1.3" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Win" Version="20.1.3" />
+    <PackageReference Include="DevExpress.Xpo" Version="20.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataAccess\" />
+    <Folder Include="Forms\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\Classic\CS\App.config" Link="App.config" />
+  </ItemGroup>
+
+</Project>

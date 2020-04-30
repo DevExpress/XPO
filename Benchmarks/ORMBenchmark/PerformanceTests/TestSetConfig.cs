@@ -17,7 +17,7 @@ namespace ORMBenchmark.PerformanceTests {
         public static int[] RowCounts = new int[] { 10, 50, 100, 250, 500, 1000, 2500, 5000 };
 
         public TestSetConfig() {
-            var job = Job.Default.With(CoreRuntime.Core30)
+            var job = Job.Default.WithRuntime(CoreRuntime.Core31)
                     .WithLaunchCount(1)
                     .WithWarmupCount(1)
                     .WithMinInvokeCount(1)
@@ -25,13 +25,13 @@ namespace ORMBenchmark.PerformanceTests {
                     .WithMaxRelativeError(0.1)
                     .WithUnrollFactor(1);
             job.Run.RunStrategy = BenchmarkDotNet.Engines.RunStrategy.Throughput;
-            Add(job);
+            AddJob(job);
             Orderer = new TestSetOrderProvider();
-            Add(new JsonExporter("", true, true));
-            Add(JitOptimizationsValidator.DontFailOnError);
-            Add(DefaultConfig.Instance.GetLoggers().ToArray());
-            Add(DefaultConfig.Instance.GetExporters().ToArray());
-            Add(DefaultConfig.Instance.GetColumnProviders().ToArray());
+            AddExporter(new JsonExporter("", true, true));
+            AddValidator(JitOptimizationsValidator.DontFailOnError);
+            AddLogger(DefaultConfig.Instance.GetLoggers().ToArray());
+            AddExporter(DefaultConfig.Instance.GetExporters().ToArray());
+            AddColumnProvider(DefaultConfig.Instance.GetColumnProviders().ToArray());
         }
 
         private class TestSetOrderProvider : IOrderer {
