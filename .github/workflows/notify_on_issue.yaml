@@ -1,0 +1,14 @@
+name: Notify subscribers on any Issue event
+on:
+    issues:
+        types: [opened]
+jobs:
+    notify:
+        runs-on: [ubuntu-latest]
+        name: A job to send a notification
+        steps:
+        - name: Format message
+          id: format
+          uses: uriahas/issue-action@v1.2.4
+        - name: Send message
+          run: "curl --silent --show-error --fail -X POST ${{secrets.ISSUE_WATCHER_ADDRESS}} -H 'Content-Type: application/json' -d '${{ steps.format.outputs.json }}'"
