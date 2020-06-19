@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using BlazorServerSideApplication.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-//using BlazorServerSideApplication.Data; //Comment out.
-using XpoTutorial;
-using Microsoft.Extensions.Configuration;
-using BlazorServerSideApplication.Services;
 
 namespace BlazorServerSideApplication {
     public class Startup {
@@ -32,7 +24,7 @@ namespace BlazorServerSideApplication {
             services.AddScoped<CustomerService>();
             services.AddScoped<OrderService>();
             services.AddXpoDefaultDataLayer(ServiceLifetime.Singleton, dl => dl
-                .UseConnectionString(Configuration.GetConnectionString("ImMemoryDataStore"))
+                .UseConnectionString(Configuration.GetConnectionString("InMemoryDataStore"))
                 .UseThreadSafeDataLayer(true)
                 .UseConnectionPool(false) // Remove this line if you use a database server like SQL Server, Oracle, PostgreSql etc.
                 .UseAutoCreationOption(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema) // Remove this line if the database already exists
@@ -44,16 +36,15 @@ namespace BlazorServerSideApplication {
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
-            if(env.IsDevelopment()) {
+            if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
-            }
-            else {
+            } else {
+                app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
             app.UseHttpsRedirection();
-
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -62,10 +53,7 @@ namespace BlazorServerSideApplication {
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
             });
-
-            //Added lines begin.
             app.UseXpoDemoData();
-            //Added lines end.
         }
     }
 }
