@@ -28,7 +28,7 @@ This app uses the [Server-side hosting model](https://docs.microsoft.com/en-us/a
 2. Search for the **Blazor App** template.
 
     <p align="center">
-    TODO <img width="800" src="/Tutorials/images/Blazor.ServerSide/1.1.png">
+      <img width="800" src="/Tutorials/images/Blazor.ServerSide/1.1.png">
     </p>
 
 3. Click **Next**, set the project name to **BlazorServerSideApplication** and click **Create**.
@@ -144,12 +144,11 @@ For more information, see the following:
 
 * In *Startup.cs*, modify the `Startup.ConfigureServices` method to configure Dependency Injection services for JSON serialization, database connection and CRUD operations using XPO.
 
-Here is the modified code:
+  Here is the modified code:
 
   ```csharp
   //...
   //using BlazorServerSideApplication.Data; //Comment out.
-  using XpoTutorial;
   using Microsoft.Extensions.Configuration;
   using BlazorServerSideApplication.Services;
 

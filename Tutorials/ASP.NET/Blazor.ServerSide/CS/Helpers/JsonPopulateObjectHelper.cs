@@ -29,15 +29,15 @@ namespace BlazorServerSideApplication {
         }
 
         static void PopulateObject(JObject jobject, Session session, XPClassInfo classInfo, object obj) {
-            foreach (XPMemberInfo mi in classInfo.Members) {
-                if (!jobject.ContainsKey(mi.Name)) {
+            foreach(XPMemberInfo mi in classInfo.Members) {
+                if(!jobject.ContainsKey(mi.Name)) {
                     continue;
                 }
-                if (mi.ReferenceType != null && !mi.IsCollection) {
+                if(mi.ReferenceType != null && !mi.IsCollection) {
                     PopulateReferenceProperty(jobject, obj, mi, session);
-                } else if (mi.IsCollection) {
+                } else if(mi.IsCollection) {
                     throw new NotImplementedException();
-                } else if (!mi.IsAliased && !mi.IsReadOnly) {
+                } else if(!mi.IsAliased && !mi.IsReadOnly) {
                     PopulateProperty(jobject, obj, mi);
                 }
             }
@@ -46,8 +46,8 @@ namespace BlazorServerSideApplication {
         static void PopulateProperty(JObject jobject, object obj, XPMemberInfo memberInfo) {
             JValue jvalue = (JValue)jobject[memberInfo.Name];
             object value = jvalue.Value;
-            if (value != null) {
-                if (value.GetType() != memberInfo.StorageType) {
+            if(value != null) {
+                if(value.GetType() != memberInfo.StorageType) {
                     value = Convert.ChangeType(value, memberInfo.StorageType, CultureInfo.InvariantCulture);
                 }
             }
@@ -57,21 +57,21 @@ namespace BlazorServerSideApplication {
         static void PopulateReferenceProperty(JObject jobject, object obj, XPMemberInfo memberInfo, Session session) {
             JObject refJObject = null;
             XPMemberInfo keyMemberInfo = memberInfo.ReferenceType.KeyProperty;
-            if (jobject[memberInfo.Name] is JValue referenceShort) {
+            if(jobject[memberInfo.Name] is JValue referenceShort) {
                 dynamic nestedJObject = new JObject();
                 nestedJObject[keyMemberInfo.Name] = referenceShort;
                 refJObject = nestedJObject;
-            } else if (jobject[memberInfo.Name] is JObject referenceLong) {
+            } else if(jobject[memberInfo.Name] is JObject referenceLong) {
                 refJObject = referenceLong;
-            } else if (refJObject == null) {
+            } else if(refJObject == null) {
                 throw new ArgumentException("Unknown JSON format for reference properties! Short and long formats are supported: '{{ReferenceName: KeyValue}}' or {{ReferenceName: {{KeyName: KeyValue}}}}.", "jobject");
             }
             object refObject = memberInfo.GetValue(obj);
-            if (refJObject != null) {
+            if(refJObject != null) {
                 JToken keyToken = refJObject[memberInfo.ReferenceType.KeyProperty.Name];
                 object keyValue = ((JValue)keyToken).Value;
-                if (keyValue != null) {
-                    if (keyValue.GetType() != keyMemberInfo.MemberType) {
+                if(keyValue != null) {
+                    if(keyValue.GetType() != keyMemberInfo.MemberType) {
                         keyValue = Convert.ChangeType(keyValue, keyMemberInfo.MemberType, CultureInfo.InvariantCulture);
                     }
                     refObject = session.GetObjectByKey(memberInfo.ReferenceType, keyValue);
@@ -79,7 +79,7 @@ namespace BlazorServerSideApplication {
             } else {
                 refObject = null;
             }
-            if (refObject != null) {
+            if(refObject != null) {
                 PopulateObject(refJObject, session, memberInfo.ReferenceType, refObject);
             }
             memberInfo.SetValue(obj, refObject);
