@@ -1,9 +1,9 @@
 ## Overview
 
-This tutorial demonstrates how to create a server-side Blazor application that uses the XPO ORM to access a data storage. For demonstration purposes, this tutorial uses the [in-memory data source](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore). In this tutorial, the data source stores the data in the JSON format.
+This tutorial demonstrates how to create a server-side Blazor application that uses the DevExpress ORM Library (XPO) to access and manage data. In this tutorial, we store data [in memory](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore) in the JSON format.
 
 <p align="center">
-  <img width="800" src="/Tutorials/images/Blazor.ServerSide/7.1.png">
+  <img width="562" src="/Tutorials/images/Blazor.ServerSide/7.1.png">
 </p>
 <p align="center">
   <img width="800" src="/Tutorials/images/Blazor.ServerSide/7.2.png">
@@ -16,13 +16,13 @@ This tutorial demonstrates how to create a server-side Blazor application that u
   * **.NET Core cross-platform development**
 * [.NET Core 3.1 SDK or later](https://www.microsoft.com/net/download/all)
 * [Newtonsoft.Json library](https://www.newtonsoft.com/json)
-* [DevExpress UI Components for Blazor (CTP)](https://www.devexpress.com/blazor/)
+* [DevExpress UI Components for Blazor](https://www.devexpress.com/blazor/)
 * [Bootstrap 4.1](https://getbootstrap.com/docs/4.1/getting-started/download/) & [jQuery](https://jquery.com/download/) for Bootstrap's [modal dialog](https://getbootstrap.com/docs/4.1/components/modal/)
 
 
 This app uses the [Server-side hosting model](https://docs.microsoft.com/en-us/aspnet/core/blazor/hosting-models?view=aspnetcore-3.0#server-side).
 
-## Step 1: Create a Blazor (server-side) web app
+## Step 1: Create a Blazor (Server-Side) Web App
 
 1. Open Visual Studio, create a new project.
 2. Search for the **Blazor App** template.
@@ -31,7 +31,8 @@ This app uses the [Server-side hosting model](https://docs.microsoft.com/en-us/a
       <img width="800" src="/Tutorials/images/Blazor.ServerSide/1.1.png">
     </p>
 
-3. Click **Next**, set the project name to **BlazorServerSideApplication** and click **Create**.
+    Click **Next** to proceed.
+3. Set the project name to **BlazorServerSideApplication** and click **Create**.
 
     <p align="center">
       <img width="800" src="/Tutorials/images/Blazor.ServerSide/1.2.png">
@@ -43,7 +44,8 @@ This app uses the [Server-side hosting model](https://docs.microsoft.com/en-us/a
       <img width="800" src="/Tutorials/images/Blazor.ServerSide/1.3.png">
     </p>
 
-5. In **Solution Explorer**, remove the unnecessary **Data** folder and the following files from the **Pages** folder:
+5. In the **Solution Explorer**, remove the unnecessary **Data** folder and the following files from the **Pages** folder:
+
     * *Pages\Counter.razor*
     * *Models\FetchData.razor*
 
@@ -70,28 +72,30 @@ For more information, see the following:
 * [Introduction to Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-3.0)
 * [DevExpress UI for Blazor Demos](https://github.com/DevExpress/Blazor)
 
-## Step 2: Add the DevExpress XPO ORM and Newtonsoft.Json packages with NuGet
+## Step 2: Add the Newtonsoft.Json and DevExpress XPO Packages
 
-### Add the Newtonsoft.Json package
+### Add the Newtonsoft.Json Package
 
-The application in this tutorial uses an in-memory data source for demonstration purposes. In this tutorial, the data source stores the data in the JSON format. To serialize and deserialize data, here we use the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) package. Run the following command in Package Manager Console to install the package: 
+The this tutorial, we store data in memory in the JSON format. To serialize and deserialize data, here we use the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) package. Run the following command in Package Manager Console to install the package: 
 
 ```console
 Install-Package Newtonsoft.Json -Version 12.0.3
 ```
 
-### Add the XPO ORM package
+### Add the XPO Package
 
 Use any of the following approaches to install the XPO package:
-* Package Manager Console
+
+**Package Manager Console**
+
   * From the Visual Studio **Tools** menu, select **NuGet Package Manager > Package Manager Console**.
   * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 20.1 Local** and run the following command: 
      ```console
     Install-Package DevExpress.Xpo -Version 20.1
     ```
-OR
 
-* NuGet Package Manager
+**NuGet Package Manager**
+
   * In **Solution Explorer**, right-click the project name and select **Manage NuGet Packages**. <p align="center"><img width="400" src="/Tutorials/images/Blazor.ServerSide/2.1.png"></p>
   * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 20.1 Local** on the right.
   * In the left top corner under **Browse**, search for the `DevExpress.Xpo` package and select its latest version, 20.1, on the right.
@@ -105,9 +109,9 @@ For more information, see the following:
   * https://www.nuget.org/
   * https://nuget.devexpress.com/
 
-## Step 3: Create ORM data model and seed initial data
+## Step 3: Create ORM Data Model and Seed Initial Data
 
-1. In **Solution Explorer**, create the **DataAccess** folder and add the *Customer.cs*, *Order.cs* and *DemoDataHelper.cs* code files. 
+1. In the **Solution Explorer**, create the **DataAccess** folder and add the *Customer.cs*, *Order.cs* and *DemoDataHelper.cs* code files. 
 
 <p align="center">
   <img width="600" src="/Tutorials/images/Blazor.ServerSide/3.1.png">
@@ -125,7 +129,7 @@ For more information, see the following:
   * [Object Relational Mapping](https://docs.devexpress.com/XPO/2017/feature-center/object-relational-mapping)
   * [Persisting Objects](https://docs.devexpress.com/XPO/2025/feature-center/data-exchange-and-manipulation/persisting-objects)
 
-## Step 4: Create helpers for JSON serialization and more
+## Step 4: Create Helpers for JSON Serialization
 
 1. In **Solution Explorer**, create the **Helpers** folder and add the *ApplicationBuilderExtensions.cs* and *JsonPopulateObjectHelper.cs* code files.
 2. Replace their contents with the code copied from [the corresponding files under this folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/ASP.NET/Blazor.ServerSide/CS/Helpers). These files contain the following classes:
@@ -133,16 +137,16 @@ For more information, see the following:
     * `ApplicationBuilderExtensions`: declares the `UseXpoDemoData` extension method. It calls `DemoDataHelper` at the application startup in the next steps.
 
 <p align="center">
-  <img width="400" src="/Tutorials/images/Blazor.ServerSide/4.png">
+  <img src="/Tutorials/images/Blazor.ServerSide/4.png">
 </p>
 
 For more information, see the following:
   * [Serialization using ContractResolver](https://www.newtonsoft.com/json/help/html/ContractResolver.htm)
   * [XPClassInfo](https://docs.devexpress.com/XPO/DevExpress.Xpo.Metadata.XPClassInfo) | [XPMemberInfo](https://docs.devexpress.com/XPO/DevExpress.Xpo.Metadata.XPMemberInfo)
 
-## Step 5: Configure database connection and plug in ORM data model
+## Step 5: Configure Database Connection and Plug in the ORM Data Model
 
-1. In *Startup.cs*, modify the `Startup.ConfigureServices` method to configure Dependency Injection services for JSON serialization, database connection, and CRUD operations using XPO.
+1. In *Startup.cs*, modify the `Startup.ConfigureServices` method to configure Dependency Injection services for JSON serialization, database connection, and CRUD operations with XPO.
 
     Here is the modified code:
 
@@ -212,7 +216,7 @@ For more information, see the following:
     }
     ```
 
-3. In *appsettings.json*, add the connection string for an in-memory or any other [supported data store](https://docs.devexpress.com/XPO/2114/fundamentals/database-systems-supported-by-xpo).
+3. In *appsettings.json*, add the connection string for an in-memory or any other [supported database system](https://docs.devexpress.com/XPO/2114/fundamentals/database-systems-supported-by-xpo).
 
     Here is the modified code:
 
@@ -240,7 +244,7 @@ For more information, see the following:
   * [ASP.NET Core Dependency Injection in XPO](https://www.devexpress.com/Support/Center/Question/Details/T637597/asp-net-core-dependency-injection-in-xpo)
 
 
-## Step 6: Manipulate data in services and bind it to Blazor components
+## Step 6: Manipulate Data in Services. Bind to Blazor Components to Data
 
 1. In **Solution Explorer**, create the **Services** folder and add the *CustomerService.cs* and *OrderService.cs* code files.
 2. Replace their contents with the code copied from [the corresponding files under this folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/ASP.NET/Blazor.ServerSide/CS/Services). They contain the _CustomerService_ and _OrderService_ classes with the `Get`, `Add`, `Update`, and `Delete` API methods that represent [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations with the `Customer` and `Order` persistent classes.
@@ -253,7 +257,7 @@ For more information, see the following:
 
 3. In the **wwwroot** folder, create the **lib** sub-folder. This is to store client-side libraries for DevExpress Blazor and other frameworks during development.
     * Download the *bootstrap.min.js* and *jquery-3.5.1.slim.min.js* JavaScript files from [Bootstrap 4.1](https://getbootstrap.com/docs/4.1/getting-started/download/) and [jQuery](https://jquery.com/download/) respectively. 
-    * Open the [Getting Started - Configure a Blazor Application](https://docs.devexpress.com/Blazor/401057/getting-started/configure-a-blazor-application) tutorial, and follow steps **2-4** to add DevExpress Blazor into the project.
+    * Open the [Getting Started - Configure a Blazor Application](https://docs.devexpress.com/Blazor/401057/getting-started/configure-a-blazor-application) tutorial, and follow steps **2-4** to add DevExpress UI components for Blazor into the project.
     * Place the Bootstrap and jQuery client-side libraries inside the **wwwroot/lib** sub-folder as follows: <p align="center"><img src="/Tutorials/images/Blazor.ServerSide/6.1.png"></p>
     * In *Pages/_Host.cshtml*, register DevExpress, Bootstrap and jQuery client-libraries using the **script** and **link** elements:
 
@@ -288,18 +292,18 @@ For more information, see the following:
   * [Unit of Work](https://docs.devexpress.com/XPO/2138/feature-center/connecting-to-a-data-store/unit-of-work)
 
 
-## Step 7: Run and test the app
+## Step 7: Run and Test the App
 
 1. Build and run the application with **F5**. The web browser should show the _Customers_ list. You can create, edit or delete customers.
-2. You can also view and edit their related orders in a separate form.
+2. You can also view and edit customer related orders in a separate form.
 <p align="center">
-  <img width="800" src="/Tutorials/images/Blazor.ServerSide/7.1.png">
+  <img width="562" src="/Tutorials/images/Blazor.ServerSide/7.1.png">
 </p>
 <p align="center">
   <img width="800" src="/Tutorials/images/Blazor.ServerSide/7.2.png">
 </p>
 
-## Known issues
+## Known Issues
 
 * The *Edit Orders* may display 'XXX  Wrong YYY data value type: ZZZ' instead of the OrderDate, Freight and other editors different from text boxes.
 * The *System.ArgumentOutOfRangeException: 'Index was out of range. Must be non-negative and less than the size of the collection.'* error may occur at DevExtreme.AspNet.Data when deleting data under certain circumstances.
