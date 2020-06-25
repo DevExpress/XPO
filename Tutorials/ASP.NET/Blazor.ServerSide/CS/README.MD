@@ -255,7 +255,7 @@ For more information, see the following topics:
     * The `Add` and `Update` methods use the JsonPopulateObjectHelper class added in step 4 to populate persistent object properties with the request data. 
     * The following asynchronous XPO methods are used to implement CRUD operations in these controller methods: [Session.GetObjectByKeyAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.GetObjectByKeyAsync.overloads), [Session.Delete](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.Delete.overloads), [UnitOfWork.CommitChangesAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.UnitOfWork.CommitChangesAsync.overloads).
 
-3. In the **wwwroot** folder, create the **lib** sub-folder. This is to store client-side libraries for DevExpress Blazor and other frameworks during development.
+3. In the **wwwroot** folder, create the **lib** sub-folder. The **lib** folder stores client-side libraries for DevExpress Blazor and other frameworks during development.
     * Download the *bootstrap.min.js* and *jquery-3.5.1.slim.min.js* JavaScript files from [Bootstrap 4.1](https://getbootstrap.com/docs/4.1/getting-started/download/) and [jQuery](https://jquery.com/download/) respectively. 
     * Open the [Getting Started - Configure a Blazor Application](https://docs.devexpress.com/Blazor/401057/getting-started/configure-a-blazor-application) tutorial, and follow steps **2-4** to add DevExpress UI components for Blazor into the project.
     * Place the Bootstrap and jQuery client-side libraries inside the **wwwroot/lib** sub-folder as follows: <p align="center"><img src="/Tutorials/images/Blazor.ServerSide/6.1.png"></p>
