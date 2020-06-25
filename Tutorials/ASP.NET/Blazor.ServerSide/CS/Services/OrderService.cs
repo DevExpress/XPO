@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using XpoTutorial;
 
 namespace BlazorServerSideApplication.Services {
     public class OrderService : BaseService {
@@ -21,7 +20,7 @@ namespace BlazorServerSideApplication.Services {
         }
         public async Task<Order> Add(Dictionary<string, object> values, int customerOid) {
             string json = JsonConvert.SerializeObject(values);
-            using(UnitOfWork uow = CreateModificationUnitOfWork()) {
+            using (UnitOfWork uow = CreateModificationUnitOfWork()) {
                 var customer = await uow.GetObjectByKeyAsync<Customer>(customerOid);
                 var newOrder = JsonPopulateObjectHelper.PopulateObject<Order>(json, uow);
                 newOrder.Customer = customer;
@@ -31,7 +30,7 @@ namespace BlazorServerSideApplication.Services {
         }
         public async Task<Order> Update(int oid, Dictionary<string, object> values) {
             string json = JsonConvert.SerializeObject(values);
-            using(UnitOfWork uow = CreateModificationUnitOfWork()) {
+            using (UnitOfWork uow = CreateModificationUnitOfWork()) {
                 var order = await uow.GetObjectByKeyAsync<Order>(oid);
                 JsonPopulateObjectHelper.PopulateObject(json, uow, order);
                 await uow.CommitChangesAsync();
@@ -39,7 +38,7 @@ namespace BlazorServerSideApplication.Services {
             return await readUnitOfWork.GetObjectByKeyAsync<Order>(oid, true);
         }
         public async Task Delete(int oid) {
-            using(UnitOfWork uow = CreateModificationUnitOfWork()) {
+            using (UnitOfWork uow = CreateModificationUnitOfWork()) {
                 var order = await uow.GetObjectByKeyAsync<Order>(oid);
                 order.Delete();
                 await uow.CommitChangesAsync();
