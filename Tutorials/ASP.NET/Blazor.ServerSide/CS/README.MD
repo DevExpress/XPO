@@ -257,7 +257,7 @@ For more information, see the following topics:
 
 3. In the **wwwroot** folder, create the **lib** sub-folder. The **lib** folder stores client-side libraries for DevExpress Blazor and other frameworks during development.
     * Download the *bootstrap.min.js* and *jquery-3.5.1.slim.min.js* JavaScript files from [Bootstrap 4.1](https://getbootstrap.com/docs/4.1/getting-started/download/) and [jQuery](https://jquery.com/download/), respectively. 
-    * Open the [Getting Started - Configure a Blazor Application](https://docs.devexpress.com/Blazor/401057/getting-started/configure-a-blazor-application) tutorial, and follow steps **2-4** to add DevExpress UI components for Blazor into the project.
+    * Open the following help topic, and follow steps **2-4** to add DevExpress UI components for Blazor to the project: [Getting Started - Configure a Blazor Application](https://docs.devexpress.com/Blazor/401057/getting-started/configure-a-blazor-application).
     * Place the Bootstrap and jQuery client-side libraries inside the **wwwroot/lib** sub-folder as follows: <p align="center"><img src="/Tutorials/images/Blazor.ServerSide/6.1.png"></p>
     * In *Pages/_Host.cshtml*, register DevExpress, Bootstrap and jQuery client-libraries using the **script** and **link** elements:
 
