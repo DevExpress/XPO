@@ -294,7 +294,7 @@ For more information, see the following:
 
 ## Step 7: Run and Test the App
 
-1. Build and run the application with **F5**. The web browser should show the _Customers_ list. You can create, edit or delete customers.
+1. Press **F5** to build and run the application. The web browser should show the _Customers_ list. You can create, edit or delete customers.
 2. You can also view and edit customer related orders in a separate form.
 <p align="center">
   <img width="562" src="/Tutorials/images/Blazor.ServerSide/7.1.png">
