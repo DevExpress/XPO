@@ -148,7 +148,7 @@ For more information, see the following:
 
 1. In *Startup.cs*, modify the `Startup.ConfigureServices` method to configure Dependency Injection services for JSON serialization, database connection, and CRUD operations with XPO.
 
-    Here is the modified code:
+    The modified code is as follows:
 
     ```csharp
     //...
