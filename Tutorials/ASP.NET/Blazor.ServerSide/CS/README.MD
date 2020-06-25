@@ -249,7 +249,7 @@ For more information, see the following topics:
 1. In **Solution Explorer**, create the **Services** folder and add the *CustomerService.cs* and *OrderService.cs* code files.
 2. Replace their contents with the code copied from [the corresponding files under this folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/ASP.NET/Blazor.ServerSide/CS/Services). They contain the _CustomerService_ and _OrderService_ classes with the `Get`, `Add`, `Update`, and `Delete` API methods that represent [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations with the `Customer` and `Order` persistent classes.
 
-    * These services are registered using the `services.AddScoped<CustomerService>();` and `services.AddScoped<OrderService>();` calls in step 5.
+    * These services are registered by the `services.AddScoped<CustomerService>();` and `services.AddScoped<OrderService>();` calls in step 5.
     * The `Get` and GetCustomerOrders methods return the [IQueryable](https://docs.microsoft.com/en-us/dotnet/api/system.linq.iqueryable?view=netcore-3.0) source to load data from the database using [LINQ to XPO](https://docs.devexpress.com/XPO/4060/feature-center/querying-a-data-store/linq-to-xpo).
     * With IQueryable and DevExtreme.AspNet.Data, DxDataGrid can use the advanced features of [DevExtreme Data Layer](https://js.devexpress.com/Documentation/Guide/Data_Layer/Data_Layer/).
     * The `Add` and `Update` methods use the JsonPopulateObjectHelper class added in step 4 to populate persistent object properties with the request data. 
