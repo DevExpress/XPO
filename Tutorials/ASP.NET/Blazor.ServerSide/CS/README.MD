@@ -218,7 +218,7 @@ For more information, see the following:
 
 3. In *appsettings.json*, add the connection string for an in-memory or other [supported database system](https://docs.devexpress.com/XPO/2114/fundamentals/database-systems-supported-by-xpo).
 
-    Here is the modified code:
+    The modified code is as follows:
 
     ``` json
     {
