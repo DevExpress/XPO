@@ -244,7 +244,7 @@ For more information, see the following topics:
   * [ASP.NET Core Dependency Injection in XPO](https://www.devexpress.com/Support/Center/Question/Details/T637597/asp-net-core-dependency-injection-in-xpo)
 
 
-## Step 6: Manipulate Data in Services. Bind to Blazor Components to Data
+## Step 6: Manipulate Data in Services and Bind Blazor Components to Data
 
 1. In **Solution Explorer**, create the **Services** folder and add the *CustomerService.cs* and *OrderService.cs* code files.
 2. Replace their contents with the code copied from [the corresponding files under this folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/ASP.NET/Blazor.ServerSide/CS/Services). They contain the _CustomerService_ and _OrderService_ classes with the `Get`, `Add`, `Update`, and `Delete` API methods that represent [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations with the `Customer` and `Order` persistent classes.
