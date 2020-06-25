@@ -24,7 +24,7 @@ This app uses the [Server-side hosting model](https://docs.microsoft.com/en-us/a
 
 ## Step 1: Create a Blazor (Server-Side) Web App
 
-1. Open Visual Studio, create a new project.
+1. Open Visual Studio and create a new project.
 2. Search for the **Blazor App** template.
 
     <p align="center">
