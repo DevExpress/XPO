@@ -280,7 +280,7 @@ For more information, see the following topics:
 
     * [Razor syntax](https://www.w3schools.com/asp/razor_intro.asp) is used to configure DxDataGrid and other UI components.
     * [Templates](https://demos.devexpress.com/blazor/GridTemplate) are used to provide custom appearance and behavior for grid columns.
-    * The `Data`, `RowUpdating`, `RowInserting` and `RowRemoving` grid parameters are used to bind grid to the Customer and Order services.
+    * The `Data`, `RowUpdating`, `RowInserting` and `RowRemoving` grid parameters are used to bind the grid to the Customer and Order services.
     * The `OnClickCustomerOrders` method is raised when the `Orders` button link is clicked. It updates the `SelectedCustomer` parameter and filters orders accordingly.
     * The Bootstrap's [modal dialog](https://getbootstrap.com/docs/4.1/components/modal/) is used to view and edit order data.
  
