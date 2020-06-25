@@ -188,7 +188,7 @@ For more information, see the following:
 
 2. In *Startup.cs*, modify the `Startup.Configure` method and add the `app.UseXpoDemoData();` call to create sample data discussed in steps 3 and 4.
 
-    Here is the modified code:
+    The modified code is as follows:
     ```csharp
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
         if(env.IsDevelopment()) {
