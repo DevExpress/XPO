@@ -175,7 +175,7 @@ For more information, see the following:
                 services.AddXpoDefaultDataLayer(ServiceLifetime.Singleton, dl => dl
                     .UseConnectionString(Configuration.GetConnectionString("InMemoryDataStore"))
                     .UseThreadSafeDataLayer(true)
-                    .UseConnectionPool(false) // Remove this line if you use a database server like SQL Server, Oracle, PostgreSql etc.
+                    .UseConnectionPool(false) // Remove this line if you use a database server like SQL Server, Oracle, PostgreSql, etc.
                     .UseAutoCreationOption(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema) // Remove this line if the database already exists
                     .UseEntityTypes(typeof(Customer), typeof(Order)) // Pass all your persistent object types to this method.
                 );
