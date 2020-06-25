@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AspNetCoreMvcApplication.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using XpoTutorial;
 
 namespace AspNetCoreMvcApplication {
-    public class Startup
-    {
-        public Startup(IConfiguration configuration)
-        {
+    public class Startup {
+        public Startup(IConfiguration configuration) {
             Configuration = configuration;
         }
 
@@ -21,32 +15,31 @@ namespace AspNetCoreMvcApplication {
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
+            // Add framework services.
             services
                 .AddControllersWithViews()
-                .AddDxSampleModelJsonOptions()
-                .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
+                .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null)
+            // Added lines begin.
+                .AddDxSampleModelJsonOptions();
+
             services
                 .AddXpoDefaultUnitOfWork(true, options => options
-                    .UseConnectionString(Configuration.GetConnectionString("ImMemoryDataStore"))
+                    .UseConnectionString(Configuration.GetConnectionString("InMemoryDataStore"))
                     .UseThreadSafeDataLayer(true)
-                    .UseConnectionPool(false) // Remove this line if you use a database server like SQL Server, Oracle, PostgreSql etc.                    
+                    .UseConnectionPool(false) // Remove this line if you use a database server like SQL Server, Oracle, PostgreSql, etc.                    
                     .UseAutoCreationOption(DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema) // Remove this line if the database already exists
                     .UseEntityTypes(typeof(Customer), typeof(Order)) // Pass all of your persistent object types to this method.
                 );
+            // Added lines end.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+            if(env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
-            }
-            else
-            {
+            } else {
                 app.UseExceptionHandler("/Home/Error");
             }
-
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -58,7 +51,6 @@ namespace AspNetCoreMvcApplication {
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-
             //Added lines begin.
             app.UseXpoDemoData();
             //Added lines end.

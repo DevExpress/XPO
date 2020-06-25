@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Globalization;
 
-namespace XpoTutorial {
+namespace AspNetCoreMvcApplication {
     public static class JsonPopulateObjectHelper {
         public static void PopulateObject(string json, Session session, PersistentBase obj) {
             PopulateObject(json, session, obj.ClassInfo, obj);
@@ -35,11 +35,9 @@ namespace XpoTutorial {
                 }
                 if(mi.ReferenceType != null && !mi.IsCollection) {
                     PopulateReferenceProperty(jobject, obj, mi, session);
-                }
-                else if(mi.IsCollection) {
+                } else if(mi.IsCollection) {
                     throw new NotImplementedException();
-                }
-                else if(!mi.IsAliased && !mi.IsReadOnly) {
+                } else if(!mi.IsAliased && !mi.IsReadOnly) {
                     PopulateProperty(jobject, obj, mi);
                 }
             }
@@ -63,11 +61,9 @@ namespace XpoTutorial {
                 dynamic nestedJObject = new JObject();
                 nestedJObject[keyMemberInfo.Name] = referenceShort;
                 refJObject = nestedJObject;
-            }
-            else if(jobject[memberInfo.Name] is JObject referenceLong) {
+            } else if(jobject[memberInfo.Name] is JObject referenceLong) {
                 refJObject = referenceLong;
-            }
-            else if(refJObject == null) {
+            } else if(refJObject == null) {
                 throw new ArgumentException("Unknown JSON format for reference properties! Short and long formats are supported: '{{ReferenceName: KeyValue}}' or {{ReferenceName: {{KeyName: KeyValue}}}}.", "jobject");
             }
             object refObject = memberInfo.GetValue(obj);
@@ -80,8 +76,7 @@ namespace XpoTutorial {
                     }
                     refObject = session.GetObjectByKey(memberInfo.ReferenceType, keyValue);
                 }
-            }
-            else {
+            } else {
                 refObject = null;
             }
             if(refObject != null) {

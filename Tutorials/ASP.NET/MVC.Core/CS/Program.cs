@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,8 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace AspNetCoreMvcApplication
-{
+namespace AspNetCoreMvcApplication {
     public class Program {
         public static void Main(string[] args) {
             CreateHostBuilder(args).Build().Run();
