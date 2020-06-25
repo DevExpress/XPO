@@ -76,7 +76,7 @@ For more information, see the following:
 
 ### Add the Newtonsoft.Json Package
 
-The this tutorial, we store data in memory in the JSON format. To serialize and deserialize data, here we use the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) package. Run the following command in Package Manager Console to install the package: 
+In this tutorial, we store data in memory in the JSON format. To serialize and deserialize data, we use the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) package. Run the following command in the Package Manager Console to install the package: 
 
 ```console
 Install-Package Newtonsoft.Json -Version 12.0.3
