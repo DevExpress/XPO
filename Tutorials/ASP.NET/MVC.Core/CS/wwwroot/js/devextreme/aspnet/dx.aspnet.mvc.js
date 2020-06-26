@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.aspnet.mvc.js)
-* Version: 20.1.1 (build 20094-0343)
-* Build date: Fri Apr 03 2020
+* Version: 20.1.4
+* Build date: Tue Jun 02 2020
 *
 * Copyright (c) 2012 - 2020 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -114,18 +114,27 @@
     function createComponent(name, options, id, validatorOptions) {
         var selector = "#" + String(id).replace(/[^\w-]/g, "\\$&");
         pendingCreateComponentRoutines.push(function() {
-            var $component = $(selector)[name](options);
-            if ($.isPlainObject(validatorOptions)) {
-                $component.dxValidator(validatorOptions)
+            var $element = $(selector);
+            if ($element.length) {
+                var $component = $(selector)[name](options);
+                if ($.isPlainObject(validatorOptions)) {
+                    $component.dxValidator(validatorOptions)
+                }
+                return true
             }
+            return false
         })
     }
     templateRendered.add(function() {
         var snapshot = pendingCreateComponentRoutines.slice();
+        var leftover = [];
         pendingCreateComponentRoutines = [];
         snapshot.forEach(function(func) {
-            func()
-        })
+            if (!func()) {
+                leftover.push(func)
+            }
+        });
+        pendingCreateComponentRoutines = pendingCreateComponentRoutines.concat(leftover)
     });
     return {
         createComponent: createComponent,

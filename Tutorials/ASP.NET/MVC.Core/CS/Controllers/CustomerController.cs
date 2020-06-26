@@ -1,9 +1,9 @@
-using DevExtreme.AspNet.Data;
+﻿using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using DevExpress.Xpo;
 using System.Threading.Tasks;
-using XpoTutorial;
+using AspNetCoreMvcApplication.DataAccess;
 
 namespace AspNetCoreMvcApplication.Controllers {
 

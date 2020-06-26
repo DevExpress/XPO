@@ -1,8 +1,9 @@
-﻿using DevExpress.Xpo;
+﻿using AspNetCoreMvcApplication.DataAccess;
+using DevExpress.Xpo;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace XpoTutorial {
+namespace AspNetCoreMvcApplication {
     public static class ApplicationBuilderExtensions {
         public static IApplicationBuilder UseXpoDemoData(this IApplicationBuilder app) {
             using(var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope()) {
