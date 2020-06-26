@@ -1,6 +1,6 @@
 ## Overview
 
-This tutorial demonstrates how to create an ASP.NET Core MVC application that uses the DevExpress ORM Library (XPO) to access and manage data. In this tutorial, we store data [in memory](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore) in the JSON format.
+This tutorial demonstrates how to create an ASP.NET Core MVC application that uses the DevExpress ORM Library (XPO) to access and manage data. In this tutorial, we store data in the [in-memory source](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore) and use the JSON format to save and load data to/from the data source.
 
 <p align="center">
   <img src="/Tutorials/images/MVC.Core/7.1.png">
