@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.fr.js)
-* Version: 20.1.1 (build 20094-0343)
-* Build date: Fri Apr 03 2020
+* Version: 20.1.4
+* Build date: Tue Jun 02 2020
 *
 * Copyright (c) 2012 - 2020 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -295,6 +295,7 @@
             "dxFileManager-errorMaxFileSizeExceeded": "Taille du fichier d\xe9passe la limite maximum permise.",
             "dxFileManager-errorInvalidSymbols": "Ce nom contient des caract\xe8res invalides.",
             "dxFileManager-errorDefault": "Erreur non sp\xe9cifi\xe9.",
+            "dxFileManager-errorDirectoryOpenFailed": "TODO",
             "dxFileManager-commandCreate": "Nouveau r\xe9pertoire",
             "dxFileManager-commandRename": "Renommer",
             "dxFileManager-commandMove": "D\xe9placer",
@@ -305,7 +306,7 @@
             "dxFileManager-commandRefresh": "Rafra\xeechir",
             "dxFileManager-commandThumbnails": "Mode vignette",
             "dxFileManager-commandDetails": "Mode d\xe9tails",
-            "dxFileManager-commandClear": "Vider s\xe9lection",
+            "dxFileManager-commandClearSelection": "Vider s\xe9lection",
             "dxFileManager-dialogDirectoryChooserTitle": "S\xe9lectionner r\xe9pertoire de destination",
             "dxFileManager-dialogDirectoryChooserButtonText": "S\xe9lectionner",
             "dxFileManager-dialogRenameItemTitle": "Renommer",
@@ -515,7 +516,16 @@
             "dxGantt-dialogConstraintViolationMessage": "TODO",
             "dxGantt-dialogCancelOperationMessage": "TODO",
             "dxGantt-dialogDeleteDependencyMessage": "TODO",
-            "dxGantt-dialogMoveTaskAndKeepDependencyMessage": "TODO"
+            "dxGantt-dialogMoveTaskAndKeepDependencyMessage": "TODO",
+            "dxGantt-undo": "TODO",
+            "dxGantt-redo": "TODO",
+            "dxGantt-expandAll": "TODO",
+            "dxGantt-collapseAll": "TODO",
+            "dxGantt-addNewTask": "TODO",
+            "dxGantt-deleteSelectedTask": "TODO",
+            "dxGantt-zoomIn": "TODO",
+            "dxGantt-zoomOut": "TODO",
+            "dxGantt-fullScreen": "TODO"
         }
     })
 });

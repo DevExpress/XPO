@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.el.js)
-* Version: 20.1.1 (build 20094-0343)
-* Build date: Fri Apr 03 2020
+* Version: 20.1.4
+* Build date: Tue Jun 02 2020
 *
 * Copyright (c) 2012 - 2020 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -295,6 +295,7 @@
             "dxFileManager-errorMaxFileSizeExceeded": "TODO",
             "dxFileManager-errorInvalidSymbols": "TODO",
             "dxFileManager-errorDefault": "TODO",
+            "dxFileManager-errorDirectoryOpenFailed": "TODO",
             "dxDiagram-categoryGeneral": "TODO",
             "dxDiagram-categoryFlowchart": "TODO",
             "dxDiagram-categoryOrgChart": "TODO",
@@ -450,7 +451,16 @@
             "dxGantt-dialogConstraintViolationMessage": "TODO",
             "dxGantt-dialogCancelOperationMessage": "TODO",
             "dxGantt-dialogDeleteDependencyMessage": "TODO",
-            "dxGantt-dialogMoveTaskAndKeepDependencyMessage": "TODO"
+            "dxGantt-dialogMoveTaskAndKeepDependencyMessage": "TODO",
+            "dxGantt-undo": "TODO",
+            "dxGantt-redo": "TODO",
+            "dxGantt-expandAll": "TODO",
+            "dxGantt-collapseAll": "TODO",
+            "dxGantt-addNewTask": "TODO",
+            "dxGantt-deleteSelectedTask": "TODO",
+            "dxGantt-zoomIn": "TODO",
+            "dxGantt-zoomOut": "TODO",
+            "dxGantt-fullScreen": "TODO"
         }
     })
 });

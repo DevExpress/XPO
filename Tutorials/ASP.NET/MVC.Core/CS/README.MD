@@ -91,18 +91,18 @@ For more information, see the following:
     
     <p align="center"><img width="400" src="/Tutorials/images/MVC.Core/3.2.png"></p>
 
-2. Replace their contents with the code copied from the [corresponding files under this shared folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/ASP.NET/MVC.Core/CS/DataAccess). These files contain the following classes:
+2. Replace their contents with the code copied from the [corresponding files under this folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/ASP.NET/MVC.Core/CS/DataAccess). These files contain the following classes:
     * `Customer` and `Order` implement the persistent data model that maps to the corresponding tables in the database.
     * `DemoDataHelper`: implements the `Seed` method to create and save initial data in the database. This method is called at the application startup (see the next steps).
 
 For more information, see the following:
 
-  * [Object Relational Mapping](https://docs.devexpress.com/XPO/2017/feature-center/object-relational-mapping)
-  * [Persisting Objects](https://docs.devexpress.com/XPO/2025/feature-center/data-exchange-and-manipulation/persisting-objects)
+* [Object Relational Mapping](https://docs.devexpress.com/XPO/2017/feature-center/object-relational-mapping)
+* [Persisting Objects](https://docs.devexpress.com/XPO/2025/feature-center/data-exchange-and-manipulation/persisting-objects)
 
 ## Step 4: Create Helpers for JSON Serialization
 
-1. In **Solution Explorer**, create the **Helpers** folder and add the *ApplicationBuilderExtensions.cs*, *JsonPopulateObjectHelper.cs* and *JsonSerializationContractResolver.cs* code files.
+1. In the **Solution Explorer**, create the **Helpers** folder and add the *ApplicationBuilderExtensions.cs*, *JsonPopulateObjectHelper.cs* and *JsonSerializationContractResolver.cs* code files.
 2. Replace their contents with the code copied from [the corresponding files under this folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/ASP.NET/MVC.Core/CS/Helpers). These files contain the following classes:
     * `JsonPopulateObjectHelper` and `SampleJsonSerializationContractResolver`: implement persistent type JSON serialization and deserialization. Make sure that all your persistent types (`Customer` and `Order` in this example) are passed to the `GetDataStoreSchema` method in the `SampleJsonSerializationContractResolver` constructor.
     * `ApplicationBuilderExtensions` and `SampleJsonMvcBuilderExtensions`: declare the extension methods `UseXpoDemoData` and `AddDxSampleModelJsonOptions` respectively. They call `DemoDataHelper` and `SampleJsonSerializationContractResolver` respectively at the application startup in the next steps.

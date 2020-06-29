@@ -1,7 +1,7 @@
 /**
 * DevExtreme (dx.common.css)
-* Version: 20.1.1 (build 20094-0343)
-* Build date: Fri Apr 03 2020
+* Version: 20.1.4
+* Build date: Tue Jun 02 2020
 *
 * Copyright (c) 2012 - 2020 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -1586,6 +1586,9 @@
 .dx-texteditor-input:-webkit-autofill + .dx-placeholder {
   display: none;
 }
+.dx-texteditor-input:-moz-ui-invalid {
+  box-shadow: none;
+}
 .dx-show-clear-button {
   position: relative;
 }
@@ -2339,6 +2342,13 @@
 .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button .dx-button-content {
   text-align: left;
 }
+.dx-rtl .dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button .dx-button-content,
+.dx-rtl.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-button .dx-button-content {
+  text-align: right;
+}
+.dx-toolbar-menu-section .dx-toolbar-hidden-button .dx-toolbar-item-auto-hide {
+  padding: 0;
+}
 .dx-toolbar-text-auto-hide .dx-button .dx-button-text {
   display: none;
 }
@@ -2347,6 +2357,31 @@
 }
 .dx-toolbar-item-invisible {
   display: none;
+}
+.dx-toolbar-hidden-button-group.dx-state-hover {
+  background-color: transparent;
+}
+.dx-toolbar-hidden-button-group .dx-list-item-content,
+.dx-toolbar-hidden-button-group .dx-list-item-content .dx-toolbar-item-auto-hide {
+  padding: 0;
+}
+.dx-toolbar-hidden-button-group .dx-buttongroup {
+  width: 100%;
+}
+.dx-toolbar-hidden-button-group .dx-buttongroup .dx-buttongroup-wrapper {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.dx-toolbar-hidden-button-group .dx-buttongroup .dx-buttongroup-wrapper .dx-buttongroup-item {
+  border: none;
+  text-align: left;
+}
+.dx-rtl .dx-toolbar-hidden-button-group .dx-buttongroup .dx-buttongroup-wrapper .dx-buttongroup-item,
+.dx-rtl.dx-toolbar-hidden-button-group .dx-buttongroup .dx-buttongroup-wrapper .dx-buttongroup-item {
+  text-align: right;
 }
 .dx-tileview div.dx-scrollable-container {
   overflow-y: hidden;
@@ -3201,6 +3236,14 @@
 }
 .dx-rtl .dx-dropdownbutton-action.dx-buttongroup-last-item.dx-button .dx-button-content {
   padding-left: 0;
+  padding-right: 10px;
+}
+.dx-dropdownbutton:not(.dx-dropdownbutton-has-arrow) .dx-button-has-icon:not(.dx-button-has-text) .dx-button-content {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.dx-dropdownbutton:not(.dx-dropdownbutton-has-arrow) .dx-button-has-text.dx-button .dx-button-content {
+  padding-left: 10px;
   padding-right: 10px;
 }
 .dx-dropdownbutton-action:not(.dx-buttongroup-last-item).dx-button {
@@ -4370,13 +4413,13 @@
 .dx-datagrid-rowsview .dx-selection.dx-row:hover > tr > td .dx-link {
   color: inherit;
 }
-.dx-datagrid-rowsview .dx-datagrid-table .dx-freespace-row,
-.dx-datagrid-rowsview .dx-datagrid-table .dx-virtual-row {
+.dx-datagrid-rowsview .dx-datagrid-table .dx-row.dx-freespace-row,
+.dx-datagrid-rowsview .dx-datagrid-table .dx-row.dx-virtual-row {
   border-top: 0;
   border-bottom: 0;
 }
-.dx-datagrid-rowsview .dx-datagrid-table .dx-freespace-row > td,
-.dx-datagrid-rowsview .dx-datagrid-table .dx-virtual-row > td {
+.dx-datagrid-rowsview .dx-datagrid-table .dx-row.dx-freespace-row > td,
+.dx-datagrid-rowsview .dx-datagrid-table .dx-row.dx-virtual-row > td {
   padding-top: 0;
   padding-bottom: 0;
 }
@@ -4809,6 +4852,9 @@
 .dx-pivotgrid .dx-word-wrap .dx-pivotgrid-expanded > span,
 .dx-pivotgrid .dx-word-wrap .dx-pivotgrid-sorted > span {
   white-space: normal;
+}
+.dx-pivotgrid .dx-word-wrap .dx-pivotgrid-collapsed > span,
+.dx-pivotgrid .dx-word-wrap .dx-pivotgrid-expanded > span {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -5542,13 +5588,13 @@ input.dx-hidden {
 .dx-treelist-rowsview .dx-selection.dx-row:hover > tr > td .dx-link {
   color: inherit;
 }
-.dx-treelist-rowsview .dx-treelist-table .dx-freespace-row,
-.dx-treelist-rowsview .dx-treelist-table .dx-virtual-row {
+.dx-treelist-rowsview .dx-treelist-table .dx-row.dx-freespace-row,
+.dx-treelist-rowsview .dx-treelist-table .dx-row.dx-virtual-row {
   border-top: 0;
   border-bottom: 0;
 }
-.dx-treelist-rowsview .dx-treelist-table .dx-freespace-row > td,
-.dx-treelist-rowsview .dx-treelist-table .dx-virtual-row > td {
+.dx-treelist-rowsview .dx-treelist-table .dx-row.dx-freespace-row > td,
+.dx-treelist-rowsview .dx-treelist-table .dx-row.dx-virtual-row > td {
   padding-top: 0;
   padding-bottom: 0;
 }
@@ -6484,10 +6530,6 @@ input.dx-hidden {
 }
 .dx-scheduler .dx-empty-message {
   line-height: normal;
-}
-.dx-scheduler .dx-scheduler-work-space-month > .dx-scrollable-native .dx-scrollable-content {
-  min-height: 100%;
-  height: 100%;
 }
 .dx-scheduler-all-day-panel td {
   padding: 0;
@@ -7460,7 +7502,8 @@ input.dx-hidden {
   -ms-flex-direction: column;
   flex-direction: column;
 }
-.dx-filemanager .dx-filemanager-notification-drawer {
+.dx-filemanager .dx-filemanager-notification-drawer,
+.dx-filemanager .dx-filemanager-notification-drawer-panel {
   height: 100%;
 }
 .dx-filemanager .dx-filemanager-notification-popup > .dx-overlay-content {
@@ -7602,6 +7645,9 @@ input.dx-hidden {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   overflow: hidden;
+}
+.dx-filemanager .dx-filemanager-container .dx-filemanager-adaptivity-drawer-panel {
+  height: 100%;
 }
 .dx-filemanager .dx-filemanager-container .dx-filemanager-dirs-panel {
   padding: 5px 10px;
@@ -8056,6 +8102,8 @@ input.dx-hidden {
   position: absolute;
   z-index: 1001;
   width: 100%;
+  -webkit-transition: opacity .4s;
+  transition: opacity .4s;
 }
 .dx-diagram-floating-toolbar-container.dx-diagram-properties-panel-toolbar-container {
   background: 0 0;
@@ -8173,6 +8221,10 @@ input.dx-hidden {
   width: 64px;
   height: 64px;
 }
+.dx-diagram-touch-context-toolbox .dx-popover-wrapper,
+.dx-diagram-touchbar-overlay {
+  z-index: 1!important;
+}
 .dx-diagram-touchbar.dx-context-menu .dx-menu-items-container {
   display: block;
   height: 100%;
@@ -8220,6 +8272,7 @@ input.dx-hidden {
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
+  width: 100%;
 }
 .dx-gantt .dx-gantt-main-wrapper {
   display: -webkit-box;
@@ -8263,6 +8316,7 @@ input.dx-hidden {
   -ms-user-select: none;
   user-select: none;
   width: 100%;
+  min-width: 1px;
 }
 .dx-gantt .dx-gantt-view .dx-gantt-tac-hb {
   margin-top: -1px;
