@@ -69,7 +69,7 @@ Install-Package Microsoft.Data.Sqlite
 
 ## Step 3: Create ORM Data Model and Seed Initial Data
 
-1. The project already contains the _Item_ class (the _"/Models/Item.cs"_ file). Change its code as follows:
+1. Change the project's _Item_ class (the _"/Models/Item.cs"_ file) as follows:
 
     ```cs
     using DevExpress.Xpo;
