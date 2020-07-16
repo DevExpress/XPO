@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<linker>
-  <assembly fullname="DevExpress.Xpo.v20.1">
-      <type fullname="DevExpress.Xpo.DB.Helpers*" />
-  </assembly>
-  <assembly fullname="DevExpress.Data.v20.1">
-      <type fullname="DevExpress.Xpo.DB.Helpers*" />
-  </assembly>
-</linker>
