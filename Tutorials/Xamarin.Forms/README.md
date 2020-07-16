@@ -49,7 +49,7 @@ For more information, see the following:
 
 ## Step 2: Add the NuGet Packages
 
-The application you build in this tutorial requires installing the following NuGet Packages:
+The application you build in this tutorial requires the following NuGet Packages:
 
 - DevExpress.Xpo
 - Microsoft.Data.Sqlite
