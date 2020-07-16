@@ -1,6 +1,6 @@
 ## Overview
 
-This tutorial demonstrates how to create a Xamarin mobile application for iOS and Android. The application uses the DevExpress ORM Library (XPO) to access and manage data and stores data in an SQLite database. 
+This tutorial demonstrates how to create a Xamarin mobile application for iOS and Android. The application uses the [DevExpress ORM Library (XPO)](https://www.devexpress.com/products/net/orm/) to access and manage data and stores data in an SQLite database. 
 
 <p align="center">
   <img width="540" src="/Tutorials/images/Xamarin.Forms/8.1.png">
@@ -103,9 +103,9 @@ For more information, see the following:
 * [Persisting Objects](https://docs.devexpress.com/XPO/2025/feature-center/data-exchange-and-manipulation/persisting-objects)
 
 
-## Step 4: Implement Methods for CRUD Operations and Connect App to SQLite
+## Step 4: Implement CRUD Operations and Connect App to SQLite
 
-1. In the **Solution Explorer**, select the **Services** folder and add the *XpoDataStore.cs* code file. Replace its content with the code copied from the [corresponding file](https://github.com/DevExpress/XPO/tree/master/Tutorials/Xamarin.Forms/XamarinFormsDemo/Services/XpoDataStore.cs).
+1. In the **Solution Explorer**, select the **Services** folder and add the *XpoDataStore.cs* code file. Replace the code with the code from the [corresponding file](https://github.com/DevExpress/XPO/tree/master/Tutorials/Xamarin.Forms/XamarinFormsDemo/Services/XpoDataStore.cs).
 
     The `XpoDataStore` class implements the `IDataStore` interface declared in the *IDataStore.cs* file.
 
@@ -115,7 +115,7 @@ For more information, see the following:
 
 2. Open the *App.xaml.cs* file and replace its content with the code copied from the [corresponding file](https://github.com/DevExpress/XPO/tree/master/Tutorials/Xamarin.Forms/XamarinFormsDemo/App.xaml.cs).
 
-    The `App()` constructor's code performs the following tasks:
+    The `App()` constructor's does the following:
 
     - specifies the path to the local application data where the SQLite data file must be stored
     - initializes XPO using the `XpoInit` method implemented in step 3
