@@ -90,7 +90,7 @@ Install-Package Microsoft.Data.Sqlite
 
 2. In the **Solution Explorer**, create the **Core** folder and add the *XpoHelper.cs* code file. 
 
-    Replace its content with the code copied from the [corresponding file](https://github.com/DevExpress/XPO/tree/master/Tutorials/Xamarin.Forms/XamarinFormsDemo/Core/XpoHelper.cs). This file contains the `XpoHelper` class.
+    Replace its content with the code copied from the [file](https://github.com/DevExpress/XPO/tree/master/Tutorials/Xamarin.Forms/XamarinFormsDemo/Core/XpoHelper.cs) that contains the `XpoHelper` class.
     
     The `XpoHelper` class creates and saves initial data in the database. 
 
