@@ -54,7 +54,7 @@ The application you build in this tutorial requires the following NuGet Packages
 - DevExpress.Xpo
 - Microsoft.Data.Sqlite
 
-From the Visual Studio **Tools** menu, select **NuGet Package Manager > Package Manager Console**.
+From Visual Studio's **Tools** menu, select **NuGet Package Manager > Package Manager Console**.
 
 Make sure **Package source** is set to **All** or **nuget.org** and run the following commands: 
 
