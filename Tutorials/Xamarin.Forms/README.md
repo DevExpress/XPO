@@ -32,7 +32,7 @@ This tutorial demonstrates how to create a Xamarin mobile application for iOS an
 
     ![](/Tutorials/images/Xamarin.Forms/1.3.png)
 
-5. In the **Solution Explorer**, remove unnecessary files:
+5. In the **Solution Explorer**, remove the unnecessary files:
 
     * *Models\HomeMenuItem.cs*
     * *Services\MockDataStore.cs*
