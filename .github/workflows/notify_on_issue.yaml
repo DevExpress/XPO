@@ -1,7 +1,7 @@
 name: Notify subscribers on any Issue event
 on:
     issues:
-        types: [opened]
+        types: [opened, reopened]
 jobs:
     notify:
         runs-on: [ubuntu-latest]
