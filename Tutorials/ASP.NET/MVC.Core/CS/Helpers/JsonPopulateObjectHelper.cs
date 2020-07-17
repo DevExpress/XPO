@@ -76,6 +76,8 @@ namespace AspNetCoreMvcApplication {
                     }
                     refObject = session.GetObjectByKey(memberInfo.ReferenceType, keyValue);
                 }
+                else
+                    refObject = null;
             } else {
                 refObject = null;
             }
