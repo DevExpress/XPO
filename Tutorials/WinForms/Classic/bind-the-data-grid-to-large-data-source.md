@@ -20,7 +20,7 @@
   >If the [smart-tag](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/performing-common-tasks-using-smart-tags-on-wf-controls) glyph is not visible, press **Esc** several times to navigate from the selected `LayoutGroup` to the `LayoutControl`.
 * Click the **Retrieve Fields** item to open the **Select Binding Source** wizard.
 * Click the **Next** button to open the **Manage Data Bindings** screen.
-* Assign editors to each property as shown in the screenshot:
+* Assign **Editor Type** to each property as shown in the screenshot:
   ![](/Tutorials/images/WinForms.Classic/4.2.png)
 * Click the **Finish** button, delete the **First Name** and **Last Name** layout items, reorder the rest layout items to create a layout similar to the `EditCustomerForm`, and save the changes.\
   ![](/Tutorials/images/WinForms.Classic/4.1.png)

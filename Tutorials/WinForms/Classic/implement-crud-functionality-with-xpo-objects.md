@@ -15,8 +15,6 @@
 * Set the **Item Name** property to **EditCustomerForm**. 
 * Click the **Add Item** button to open a new Form in a visual designer.
 *  Set the Form's `Text` property to **Edit Customer**.
-* Move the *Form1.cs* file to the *Forms* folder and rename it to *CustomersListForm.cs*. 
-  >Visual Studio should ask whether to change the class name. If not, open the code editor and use the **Rename** menu command (**Ctrl+R, Ctrl+R**) to change the class name. Change the base class to `XtraForm`, open the designer, and set the `Text` property to **Customers**.
 * Add the `XPBindingSource` and `DataLayoutControl` components from the Toolbox and change their names to **CustomerBindingSource** and **CustomerLayoutControl**.
 * Rebuild the project.
 * Set the `CustomerBindingSource.ObjectClassInfo` property to **XpoTutorial.Customer** *(select a value from the drop-down list and rebuild the project)*.
@@ -52,6 +50,8 @@
         else CustomerBindingSource.DataSource = new Customer(UnitOfWork);
     }
     ```
+* Move the *Form1.cs* file to the *Forms* folder and rename it to *CustomersListForm.cs*. 
+  >Visual Studio should ask whether to change the class name. If not, open the code editor and use the **Rename** menu command (**Ctrl+R, Ctrl+R**) to change the class name to `CustomersListForm`. Change the base class to `XtraForm`, open the designer, and set the `Text` property to **Customers**.
 * Open the `CustomersListForm` designer, select the `CustomersGridView` component in the **Properties** window, and double-click the `RowClick` event in the **Events** section to create the event handler.
 * Add this code to the event handler:
     ``` csharp
@@ -97,6 +97,8 @@
     ```
 * The [UnitOfwork.CommitChanges](https://docs.devexpress.com/XPO/DevExpress.Xpo.UnitOfWork.CommitChanges) method saves changes to the database. To refresh the CustomersList Form, change the code in the `ShowEditForm` method as follows: 
     ```csharp
+    using DevExpress.XtraBars.Docking2010;
+    // ...
     private void Form1_Load(object sender, EventArgs e) {
         Reload();
     }
@@ -126,7 +128,7 @@
     }
 
     private void Reload() {
-        Session = new Session();
+        Session session = new Session();
         CustomersBindingSource.DataSource = new XPCollection<Customer>(Session);
     }
     ```
@@ -178,9 +180,6 @@
   * Add the `BarButtonItem` item to the **Edit** group and change its name to **btnNew**.
   * Set the `btnNew.Caption` property to **New Customer**.
   * Double-click the **New** button to create an event handler.
-  * Select the `using` statement in the `CustomersGridView_RowClick` method and click the **Edit > Refactor > Extract Method** menu item (**Ctrl+R,Ctrl+M**).
-  * Change the method name to **ShowEditForm**.
-  * Change the `customerID` parameter type to `int?`.
   * Call the `ShowEditForm` method in the `btnNew_ItemClick` event handler and pass the `null` value as a parameter.
   * Open the `EditCustomerForm` code and add the following line to the `btnSave_Click` method after the `CommitChanges` method call:
     ```csharp
@@ -197,7 +196,7 @@
     ```csharp
     protected Session Session { get; private set; }
     private void Reload() {
-        Session = new Session();
+        Session session = new Session();
         CustomersBindingSource.DataSource = new XPCollection<Customer>(Session);
     }
     ```
