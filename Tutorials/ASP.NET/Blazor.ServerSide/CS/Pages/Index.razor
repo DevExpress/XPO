@@ -18,7 +18,7 @@
                 RowInserting=@( (values) => OnRowInserting(values, typeof(Customer)) )>
 
         <DxDataGridCommandColumn Width="100px"></DxDataGridCommandColumn>
-        <DxDataGridColumn Width="100px" Field=@nameof(Customer.Oid) Visible="true" EditorVisible="DefaultBoolean.False"></DxDataGridColumn>
+        <DxDataGridColumn Width="100px" Field=@nameof(Customer.Oid) Visible="true" EditorVisible="false"></DxDataGridColumn>
         <DxDataGridColumn Field=@nameof(Customer.FirstName)></DxDataGridColumn>
         <DxDataGridColumn Field=@nameof(Customer.LastName)></DxDataGridColumn>
         <DxDataGridCommandColumn Width="50px">
@@ -47,7 +47,7 @@
                                     RowUpdating=@( (updatingDataItem, values) => OnRowUpdating(updatingDataItem, values))
                                     RowInserting=@( (values) => OnRowInserting(values, typeof(Order)))>
                             <DxDataGridCommandColumn Width="100px"></DxDataGridCommandColumn>
-                            <DxDataGridColumn Field="@nameof(Order.Oid)" Visible="true" EditorVisible="DefaultBoolean.False">
+                            <DxDataGridColumn Field="@nameof(Order.Oid)" Visible="true" EditorVisible="false">
                             </DxDataGridColumn>
                             <DxDataGridDateEditColumn Field=@nameof(Order.OrderDate)></DxDataGridDateEditColumn>
                             <DxDataGridColumn Field=@nameof(Order.ProductName)></DxDataGridColumn>
