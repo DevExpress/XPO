@@ -15,7 +15,6 @@ This tutorial demonstrates how to create a server-side Blazor application that u
   * **ASP.NET and web development**
   * **.NET Core cross-platform development**
 * [.NET Core 3.1 SDK or later](https://www.microsoft.com/net/download/all)
-* [Newtonsoft.Json library](https://www.newtonsoft.com/json)
 * [DevExpress UI Components for Blazor](https://www.devexpress.com/blazor/)
 * [Bootstrap 4.1](https://getbootstrap.com/docs/4.1/getting-started/download/) & [jQuery](https://jquery.com/download/) for Bootstrap's [modal dialog](https://getbootstrap.com/docs/4.1/components/modal/)
 
@@ -72,17 +71,8 @@ For more information, see the following:
 * [Introduction to Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-3.0)
 * [DevExpress UI for Blazor Demos](https://github.com/DevExpress/Blazor)
 
-## Step 2: Add the Newtonsoft.Json and DevExpress XPO Packages
+## Step 2: Add DevExpress XPO Package
 
-### Add the Newtonsoft.Json Package
-
-In this tutorial, we store data in memory in the JSON format. To serialize and deserialize data, we use the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) package. Run the following command in the Package Manager Console to install the package: 
-
-```console
-Install-Package Newtonsoft.Json -Version 12.0.3
-```
-
-### Add the XPO Package
 
 Use any of the following approaches to install the XPO package:
 
@@ -129,8 +119,7 @@ For more information, see the following:
   * [Object Relational Mapping](https://docs.devexpress.com/XPO/2017/feature-center/object-relational-mapping)
   * [Persisting Objects](https://docs.devexpress.com/XPO/2025/feature-center/data-exchange-and-manipulation/persisting-objects)
 
-## Step 4: Create Helpers for JSON Serialization
-
+## Step 4: THIS STEP IS NO LONGER RELEVANT, NEEDS TO BE REPLACED
 1. In **Solution Explorer**, create the **Helpers** folder and add the *ApplicationBuilderExtensions.cs* and *JsonPopulateObjectHelper.cs* code files.
 2. Replace their contents with the code copied from [the corresponding files under this folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/ASP.NET/Blazor.ServerSide/CS/Helpers). These files contain the following classes:
     * `JsonPopulateObjectHelper`: implements persistent type JSON serialization and deserialization.
