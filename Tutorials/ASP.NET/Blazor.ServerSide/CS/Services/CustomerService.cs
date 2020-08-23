@@ -24,12 +24,11 @@ namespace BlazorServerSideApplication.Services {
             var query = (IQueryable<Customer>)readUnitOfWork.Query<Customer>();
             return Task.FromResult(query);
         }
-        public async Task<Customer> Add(Dictionary<string, object> values) {
+        public async Task Add(Dictionary<string, object> values) {
             using(UnitOfWork uow = CreateModificationUnitOfWork()) {
                 Customer newCustomer = new Customer(uow);
                 PopulateObjectHelper.PopulateObject(uow, newCustomer, values);
                 await uow.CommitChangesAsync();
-                return await readUnitOfWork.GetObjectByKeyAsync<Customer>(newCustomer.Oid, true);
             }
         }
         public async Task Update(int oid, Dictionary<string, object> values) {
@@ -38,7 +37,6 @@ namespace BlazorServerSideApplication.Services {
                 PopulateObjectHelper.PopulateObject(uow, customer, values);
                 await uow.CommitChangesAsync();
             }
-            //return await readUnitOfWork.GetObjectByKeyAsync<Customer>(oid, true);
         }
         public async Task Delete(int oid) {
             using(UnitOfWork uow = CreateModificationUnitOfWork()) {
