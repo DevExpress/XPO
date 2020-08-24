@@ -8,9 +8,9 @@ namespace BlazorServerSideApplication.Services {
     public abstract class BaseService {
         readonly IDataLayer dataLayer;
         protected readonly UnitOfWork readUnitOfWork;
-        public BaseService(IDataLayer dataLayer, UnitOfWork modificationUnitOfWork) {
+        public BaseService(IDataLayer dataLayer, UnitOfWork readUnitOfWork) {
             this.dataLayer = dataLayer;
-            readUnitOfWork = modificationUnitOfWork;
+            this.readUnitOfWork = readUnitOfWork;
         }
         protected UnitOfWork CreateModificationUnitOfWork() {
             return new UnitOfWork(dataLayer);
