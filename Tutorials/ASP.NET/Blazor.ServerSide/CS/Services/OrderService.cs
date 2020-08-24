@@ -1,9 +1,6 @@
 ﻿using DevExpress.Xpo;
-using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BlazorServerSideApplication.Services {
@@ -18,27 +15,24 @@ namespace BlazorServerSideApplication.Services {
             var query = readUnitOfWork.Query<Order>().Where(order => order.Customer.Oid == customerOid);
             return Task.FromResult(query);
         }
-        public async Task<Order> Add(Dictionary<string, object> values, int customerOid) {
-            string json = JsonConvert.SerializeObject(values);
-            using (UnitOfWork uow = CreateModificationUnitOfWork()) {
+        public async Task Add(Dictionary<string, object> values, int customerOid) {
+            using(UnitOfWork uow = CreateModificationUnitOfWork()) {
                 var customer = await uow.GetObjectByKeyAsync<Customer>(customerOid);
-                var newOrder = JsonPopulateObjectHelper.PopulateObject<Order>(json, uow);
+                Order newOrder = new Order(uow);
                 newOrder.Customer = customer;
+                PopulateObjectHelper.PopulateObject(uow, newOrder, values);
                 await uow.CommitChangesAsync();
-                return await readUnitOfWork.GetObjectByKeyAsync<Order>(newOrder.Oid, true);
             }
         }
-        public async Task<Order> Update(int oid, Dictionary<string, object> values) {
-            string json = JsonConvert.SerializeObject(values);
-            using (UnitOfWork uow = CreateModificationUnitOfWork()) {
-                var order = await uow.GetObjectByKeyAsync<Order>(oid);
-                JsonPopulateObjectHelper.PopulateObject(json, uow, order);
+        public async Task Update(int oid, Dictionary<string, object> values) {
+            using(UnitOfWork uow = CreateModificationUnitOfWork()) {
+                Order order = uow.GetObjectByKey<Order>(oid);
+                PopulateObjectHelper.PopulateObject(uow, order, values);
                 await uow.CommitChangesAsync();
             }
-            return await readUnitOfWork.GetObjectByKeyAsync<Order>(oid, true);
         }
         public async Task Delete(int oid) {
-            using (UnitOfWork uow = CreateModificationUnitOfWork()) {
+            using(UnitOfWork uow = CreateModificationUnitOfWork()) {
                 var order = await uow.GetObjectByKeyAsync<Order>(oid);
                 order.Delete();
                 await uow.CommitChangesAsync();
