@@ -129,11 +129,11 @@ For more information, see the following:
   * [Object Relational Mapping](https://docs.devexpress.com/XPO/2017/feature-center/object-relational-mapping)
   * [Persisting Objects](https://docs.devexpress.com/XPO/2025/feature-center/data-exchange-and-manipulation/persisting-objects)
 
-## Step 4: Create Helpers for JSON Serialization
+## Step 4: Create Helper classes
 
-1. In **Solution Explorer**, create the **Helpers** folder and add the *ApplicationBuilderExtensions.cs* and *JsonPopulateObjectHelper.cs* code files.
+1. In **Solution Explorer**, create the **Helpers** folder and add the *ApplicationBuilderExtensions.cs* and *PopulateObjectHelper.cs* code files.
 2. Replace their contents with the code copied from [the corresponding files under this folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/ASP.NET/Blazor.ServerSide/CS/Helpers). These files contain the following classes:
-    * `PopulateObjectHelper`: applies differences to persistent objects.
+    * `PopulateObjectHelper`: applies changes to persistent objects.
     * `ApplicationBuilderExtensions`: declares the `UseXpoDemoData` extension method. It calls `DemoDataHelper` at the application startup in the next steps.
 
 <p align="center">
