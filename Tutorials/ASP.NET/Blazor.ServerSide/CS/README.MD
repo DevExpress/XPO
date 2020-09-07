@@ -129,11 +129,11 @@ For more information, see the following:
   * [Object Relational Mapping](https://docs.devexpress.com/XPO/2017/feature-center/object-relational-mapping)
   * [Persisting Objects](https://docs.devexpress.com/XPO/2025/feature-center/data-exchange-and-manipulation/persisting-objects)
 
-## Step 4: Create Helpers for JSON Serialization
+## Step 4: Create Helper classes
 
-1. In **Solution Explorer**, create the **Helpers** folder and add the *ApplicationBuilderExtensions.cs* and *JsonPopulateObjectHelper.cs* code files.
+1. In **Solution Explorer**, create the **Helpers** folder and add the *ApplicationBuilderExtensions.cs* and *PopulateObjectHelper.cs* code files.
 2. Replace their contents with the code copied from [the corresponding files under this folder](https://github.com/DevExpress/XPO/tree/master/Tutorials/ASP.NET/Blazor.ServerSide/CS/Helpers). These files contain the following classes:
-    * `JsonPopulateObjectHelper`: implements persistent type JSON serialization and deserialization.
+    * `PopulateObjectHelper`: applies changes to persistent objects.
     * `ApplicationBuilderExtensions`: declares the `UseXpoDemoData` extension method. It calls `DemoDataHelper` at the application startup in the next steps.
 
 <p align="center">
@@ -141,12 +141,11 @@ For more information, see the following:
 </p>
 
 For more information, see the following:
-  * [Serialization using ContractResolver](https://www.newtonsoft.com/json/help/html/ContractResolver.htm)
   * [XPClassInfo](https://docs.devexpress.com/XPO/DevExpress.Xpo.Metadata.XPClassInfo) | [XPMemberInfo](https://docs.devexpress.com/XPO/DevExpress.Xpo.Metadata.XPMemberInfo)
 
 ## Step 5: Configure Database Connection and Plug in the ORM Data Model
 
-1. In *Startup.cs*, modify the `Startup.ConfigureServices` method to configure Dependency Injection services for JSON serialization, database connection, and CRUD operations with XPO.
+1. In *Startup.cs*, modify the `Startup.ConfigureServices` method to configure Dependency [Injection services](https://supportcenter.devexpress.com/ticket/details/t637597), database connection, and CRUD operations with XPO.
 
     The modified code is as follows:
 
@@ -252,7 +251,7 @@ For more information, see the following topics:
     * These services are registered by the `services.AddScoped<CustomerService>();` and `services.AddScoped<OrderService>();` calls in step 5.
     * The `Get` and `GetCustomerOrders` methods return the [IQueryable](https://docs.microsoft.com/en-us/dotnet/api/system.linq.iqueryable?view=netcore-3.0) source to load data from the database using [LINQ to XPO](https://docs.devexpress.com/XPO/4060/feature-center/querying-a-data-store/linq-to-xpo).
     * With IQueryable and DevExtreme.AspNet.Data, DxDataGrid can use the advanced features of the [DevExtreme Data Layer](https://js.devexpress.com/Documentation/Guide/Data_Layer/Data_Layer/).
-    * The `Add` and `Update` methods use the `JsonPopulateObjectHelper` class added in step 4 to populate persistent object properties with the request data. 
+    * The `Add` and `Update` methods use the `PopulateObjectHelper` class added in step 4 to populate persistent object properties with the request data. 
     * The following asynchronous XPO methods are used to implement CRUD operations in these controller methods: [Session.GetObjectByKeyAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.GetObjectByKeyAsync.overloads), [Session.Delete](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.Delete.overloads), [UnitOfWork.CommitChangesAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.UnitOfWork.CommitChangesAsync.overloads).
 
 3. In the **wwwroot** folder, create the **lib** sub-folder. The **lib** folder stores client-side libraries for DevExpress Blazor and other frameworks during development.
