@@ -1,14 +1,17 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="true" MasterPageFile="~/Site.master" CodeBehind="Default.aspx.vb" Inherits="AspNetWebFormsApplication._Default" %>
 
-<%@ Register assembly="DevExpress.Xpo.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A" namespace="DevExpress.Xpo" tagprefix="cc1" %>
+<%@ Register assembly="DevExpress.Xpo.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A" namespace="DevExpress.Xpo" tagprefix="cc1" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="MainContent" runat="server">
 
     <h1>Customers</h1>
 
-    <dx:ASPxButton ID="btnNewCustomer" runat="server" Text="Add New Customer" OnClick="btnNewCustomer_Click" />
+    <dx:ASPxButton ID="btnNewCustomer" runat="server" Text="Add New Customer" AutoPostBack="false">
+        <ClientSideEvents Click="function(s, e) { customerGrid.AddNewRow(); }" />
+    </dx:ASPxButton>
 
     <dx:ASPxGridView ID="CustomerGrid" runat="server" KeyFieldName="Oid" AutoGenerateColumns="False" DataSourceID="CustomerDataSource" 
+        ClientInstanceName="customerGrid"
         SettingsBehavior-ConfirmDelete="true"
         SettingsEditing-Mode="PopupEditForm"
         SettingsPopup-EditForm-HorizontalAlign="WindowCenter"
@@ -30,20 +33,23 @@
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataColumn EditFormSettings-Visible="False">
                 <DataItemTemplate>
-                    <dx:ASPxButton runat="server" Text="Orders" OnClick="btnEditOrders_Click"></dx:ASPxButton>
+                    <dx:ASPxButton runat="server" Text="Orders" OnInit="btnEditOrders_Init" AutoPostBack="false"></dx:ASPxButton>
                 </DataItemTemplate>
             </dx:GridViewDataColumn>
         </Columns>
     </dx:ASPxGridView>
 
-    <asp:HiddenField ID="CustomerIdHiddenField" runat="server" Value="-1" />
+    <asp:HiddenField ID="CustomerIdHiddenField" ClientIDMode="Static" runat="server" Value="-1" />
 
     <dx:ASPxPopupControl ID="OrderPopup" runat="server" PopupHorizontalOffset="16" PopupVerticalOffset="16" Width="800" AllowDragging="true" 
-        CloseAction="CloseButton" HeaderText="Orders" Modal="true">
+        CloseAction="CloseButton" HeaderText="Orders" Modal="true" ClientInstanceName="orderPopup">
         <ContentCollection>
             <dx:PopupControlContentControl>
-                <dx:ASPxButton ID="btnNewOrder" runat="server" Text="Add New Order" OnClick="btnNewOrder_Click" />
+                <dx:ASPxButton ID="btnNewOrder" runat="server" Text="Add New Order" AutoPostBack="false">
+                    <ClientSideEvents Click="function(s, e) { orderGrid.AddNewRow(); }" />
+                </dx:ASPxButton>
                 <dx:ASPxGridView ID="OrderGrid" runat="server" KeyFieldName="Oid" DataSourceID="OrderDataSource" AutoGenerateColumns="false"
+                    ClientInstanceName="orderGrid"
                     OnBeforePerformDataSelect="OrderGrid_BeforePerformDataSelect"
                     SettingsBehavior-ConfirmDelete="true"
                     SettingsEditing-Mode="PopupEditForm"
