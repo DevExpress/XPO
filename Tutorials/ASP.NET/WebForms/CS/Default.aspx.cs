@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using DevExpress.Web;
 using DevExpress.Xpo;
 
@@ -17,21 +17,6 @@ namespace AspNetWebFormsApplication {
             xpoSession.Dispose();
         }
 
-        protected void btnEditOrders_Click(object sender, EventArgs e) {
-            var customerId = ((GridViewDataItemTemplateContainer)(sender as ASPxButton).Parent).KeyValue;
-            CustomerIdHiddenField.Value = customerId.ToString();
-            OrderPopup.ShowOnPageLoad = true;
-            OrderGrid.DataBind();
-        }
-
-        protected void btnNewCustomer_Click(object sender, EventArgs e) {
-            CustomerGrid.AddNewRow();
-        }
-
-        protected void btnNewOrder_Click(object sender, EventArgs e) {
-            OrderGrid.AddNewRow();
-        }
-
         protected void CustomerGrid_InitNewRow(object sender, DevExpress.Web.Data.ASPxDataInitNewRowEventArgs e) {
             e.NewValues["Oid"] = 0;
         }
@@ -43,6 +28,15 @@ namespace AspNetWebFormsApplication {
 
         protected void OrderGrid_BeforePerformDataSelect(object sender, EventArgs e) {
             Session["OrderListCustomerOid"] = CustomerIdHiddenField.Value;
+        }
+
+        protected void btnEditOrders_Init(object sender, EventArgs e) {
+            var button = sender as ASPxButton;
+            var customerId = ((GridViewDataItemTemplateContainer)(button).Parent).KeyValue;
+            button.ClientSideEvents.Click = $"function(s, e) {{ " +
+                $"document.getElementById('CustomerIdHiddenField').value = '{customerId}'; " +
+                $"orderPopup.Show();" +
+                $"orderGrid.Refresh();}}";
         }
     }
 }
