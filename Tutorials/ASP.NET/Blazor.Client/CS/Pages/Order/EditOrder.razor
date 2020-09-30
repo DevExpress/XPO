@@ -1,0 +1,74 @@
+﻿@page "/orders/create"
+@page "/orders/{ID:int}/edit"
+
+@inject UnitOfWork UnitOfWork;
+@inject NavigationManager NavigationManager
+
+@if(order == null) {
+    <h1>Loading...</h1>
+} else {
+    <h1>@Header</h1>
+    <EditForm Model="@order" OnValidSubmit="@Save" Context="EditFormContext">
+        <DxFormLayout>
+            <DxFormLayoutItem Caption="Product Name:">
+                <Template>
+                    <DxTextBox @bind-Text="@order.ProductName" />
+                </Template>
+            </DxFormLayoutItem>
+            <DxFormLayoutItem Caption="Order Date:">
+                <Template>
+                    <DxDateEdit @bind-Date="@order.OrderDate" />
+                </Template>
+            </DxFormLayoutItem>
+            <DxFormLayoutItem Caption="Freight:">
+                <Template>
+                    <DxSpinEdit @bind-Value="@order.Freight" />
+                </Template>
+            </DxFormLayoutItem>
+            <DxFormLayoutItem Caption="Customer:">
+                <Template>
+                    <DxComboBox Data="@customers" TextFieldName="@nameof(Customer.ContactName)" @bind-Value="@order.Customer" />
+                </Template>
+            </DxFormLayoutItem>
+            <DxFormLayoutItem ColSpanMd="12">
+                <Template>
+                    <DxButton SubmitFormOnClick="true" Text="Submit" />
+                </Template>
+            </DxFormLayoutItem>
+        </DxFormLayout>
+    </EditForm>
+}
+@if(!string.IsNullOrWhiteSpace(errorMessage)) {
+    <div class="alert-danger">@errorMessage</div>
+}
+
+@code {
+    [Parameter]
+    public int? ID { get; set; }
+    Order order;
+    IList<Customer> customers;
+    string errorMessage;
+    string Header {
+        get {
+            if(order == null || string.IsNullOrWhiteSpace(order.ProductName))
+                return "---";
+            else
+                return order.ProductName;
+        }
+    }
+    protected async override Task OnInitializedAsync() {
+        customers = await UnitOfWork.Query<Customer>().ToListAsync();
+        if(ID.HasValue)
+            order = await UnitOfWork.GetObjectByKeyAsync<Order>(ID.Value);
+        else
+            order = new Order(UnitOfWork);
+    }
+    async Task Save() {
+        try {
+            await UnitOfWork.CommitChangesAsync();
+            NavigationManager.NavigateTo("/orders");
+        } catch(Exception ex) {
+            errorMessage = ex.Message;
+        }
+    }
+}
