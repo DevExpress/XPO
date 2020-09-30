@@ -1,0 +1,57 @@
+﻿@page "/orders"
+
+@inject UnitOfWork UnitOfWork;
+@inject NavigationManager NavigationManager
+
+<h1>Orders</h1>
+<DxDataGrid Data="@orders">
+    <DxDataGridColumn EditorVisible="false">
+        <DisplayTemplate>
+            @{
+                Order order = (Order)context;
+                <DxButton RenderStyle="ButtonRenderStyle.Link" Text="Edit" Click="@(() => Edit(order))" />
+                <DxButton RenderStyle="ButtonRenderStyle.Link" Text="Delete" Click="@(() => Delete(order))" />
+            }
+        </DisplayTemplate>
+    </DxDataGridColumn>
+    <DxDataGridColumn Field="ProductName" Caption="Product Name" />
+    <DxDataGridDateEditColumn Field="OrderDate" Caption="Order Date" />
+    <DxDataGridSpinEditColumn Field="Freight" Caption="Freight" />
+    <DxDataGridColumn Field="Customer.ContactName" Caption="Customer" />
+</DxDataGrid>
+<DxButton RenderStyle="ButtonRenderStyle.Link" Text="New" Click="@(() => Edit(null))" />
+
+@if(operationInProgress) {
+    <div class="alert-info">Wait...</div>
+}
+@if(!string.IsNullOrWhiteSpace(errorMessage)) {
+    <div class="alert-danger">@errorMessage</div>
+}
+
+@code {
+    IQueryable<Order> orders;
+    bool operationInProgress;
+    string errorMessage;
+
+    protected override void OnInitialized() {
+        orders = UnitOfWork.Query<Order>();
+    }
+    async Task Delete(Order order) {
+        operationInProgress = true;
+        try {
+            UnitOfWork.Delete(order);
+            await UnitOfWork.CommitChangesAsync();
+        } catch(Exception ex) {
+            errorMessage = ex.Message;
+        } finally {
+            operationInProgress = false;
+            orders = UnitOfWork.Query<Order>();
+        }
+    }
+    void Edit(Order order) {
+        if(order == null)
+            NavigationManager.NavigateTo("/orders/create");
+        else
+            NavigationManager.NavigateTo($"/orders/{order.Oid}/edit");
+    }
+}
