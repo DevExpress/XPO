@@ -18,21 +18,6 @@ Namespace AspNetWebFormsApplication
 			xpoSession.Dispose()
 		End Sub
 
-		Protected Sub btnEditOrders_Click(ByVal sender As Object, ByVal e As EventArgs)
-			Dim customerId = CType((TryCast(sender, ASPxButton)).Parent, GridViewDataItemTemplateContainer).KeyValue
-			CustomerIdHiddenField.Value = customerId.ToString()
-			OrderPopup.ShowOnPageLoad = True
-			OrderGrid.DataBind()
-		End Sub
-
-		Protected Sub btnNewCustomer_Click(ByVal sender As Object, ByVal e As EventArgs)
-			CustomerGrid.AddNewRow()
-		End Sub
-
-		Protected Sub btnNewOrder_Click(ByVal sender As Object, ByVal e As EventArgs)
-			OrderGrid.AddNewRow()
-		End Sub
-
 		Protected Sub CustomerGrid_InitNewRow(ByVal sender As Object, ByVal e As DevExpress.Web.Data.ASPxDataInitNewRowEventArgs)
 			e.NewValues("Oid") = 0
 		End Sub
@@ -44,6 +29,15 @@ Namespace AspNetWebFormsApplication
 
 		Protected Sub OrderGrid_BeforePerformDataSelect(ByVal sender As Object, ByVal e As EventArgs)
 			Session("OrderListCustomerOid") = CustomerIdHiddenField.Value
+		End Sub
+
+		Protected Sub btnEditOrders_Init(sender As Object, e As EventArgs)
+			Dim button = TryCast(sender, ASPxButton)
+			Dim customerId = CType(button.Parent, GridViewDataItemTemplateContainer).KeyValue
+			button.ClientSideEvents.Click = $"function(s, e) {{ " +
+				$"document.getElementById('CustomerIdHiddenField').value = '{customerId}'; " +
+				$"orderPopup.Show();" +
+				$"orderGrid.Refresh();}}"
 		End Sub
 	End Class
 End Namespace
