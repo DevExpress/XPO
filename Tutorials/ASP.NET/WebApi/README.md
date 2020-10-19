@@ -1,6 +1,6 @@
 ## Overview
 
-This tutorial demonstrates how to create an ASP.NET Core Web API service that supports supports the [WebApiDataStoreClient](http://docs.devexpress.com/XPO/DevExpress.Xpo.DB.WebApiDataStoreClient) provider. For additional information about WebApiDataStoreClient, refer to the following help topic: [Transfer Data via REST API](http://docs.devexpress.com/XPO/402182/connect-to-a-data-store/transfer-data-via-rest-api).
+This tutorial demonstrates how to create an ASP.NET Core Web API service that supports the [WebApiDataStoreClient](http://docs.devexpress.com/XPO/DevExpress.Xpo.DB.WebApiDataStoreClient) provider. For additional information about WebApiDataStoreClient, refer to the following help topic: [Transfer Data via REST API](http://docs.devexpress.com/XPO/402182/connect-to-a-data-store/transfer-data-via-rest-api).
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ For more information, see the following:
     {
         ...
         "ConnectionStrings": {
-            "YourConnectionStringName": "data source=192.168.1.37,1344;initial catalog=DxSample;user id=sa;password=dx"
+            "YourConnectionStringName": "data source=(localdb)\mssqllocaldb;initial catalog=DxSample;user id=sa;password=dx"
         } 
     }
     ```
@@ -69,7 +69,7 @@ For more information, see the following:
     ```cs
     services.AddMvc().AddXmlSerializerFormatters();
     ```
-3. Add the CORS policy to allow access from a different origin. The policy name ("XPO" in this example) is up to you. XPO does not use CORS policies in any way. You can add multiple origins. For each origin, allow the POST method and the "Content-Type" header.
+3. Add the CORS policy to allow access from a different origin. You can add multiple origins. For each origin, enable the POST method and the "Content-Type" header.
     ```cs
     services.AddCors(options =>
         options.AddPolicy("XPO", builder =>
@@ -114,3 +114,6 @@ For more information, see the following:
     }
     ```
 You can find the complete code in the following file: [XpoController.cs](https://github.com/DevExpress/XPO/blob/master/Tutorials/ASP.NET/WebApi/CS/Controllers/XpoController.cs).
+
+See also:
+[How to Implement OData v4 Service with XPO (.NET Core 3.1)](https://github.com/DevExpress-Examples/XPO_how-to-implement-odata4-service-with-xpo-netcore)   
