@@ -39,7 +39,7 @@ Use any of the following approaches to install the XPO package:
 
 * In the **Solution Explorer**, right-click the project name and select **Manage NuGet Packages**.
 * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 20.1 Local** on the right.
-* In the left top corner under **Browse**, search for the `DevExpress.Xpo` package and select its latest version on the right.
+* In the left top corner under **Browse**, search for the `DevExpress.Xpo` package and select the latest version on the right.
 * Click **Install** on the right and accept all the licenses in the **License Acceptance** dialogs.    
 
 For more information, see the following:
@@ -69,7 +69,7 @@ For more information, see the following:
     ```cs
     services.AddMvc().AddXmlSerializerFormatters();
     ```
-3. Add the CORS policy to allow access from a different origin. You can add multiple origins. For each origin, enable the POST method and the "Content-Type" header.
+3. Add the CORS policy to allow access from a different origin. You can add multiple origins. For each origin, enable the POST method and "Content-Type" header.
     ```cs
     services.AddCors(options =>
         options.AddPolicy("XPO", builder =>

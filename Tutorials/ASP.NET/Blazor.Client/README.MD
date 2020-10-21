@@ -23,7 +23,7 @@ This app uses the [WebAssembly hosting model](https://docs.microsoft.com/en-us/a
 
 1. Open Visual Studio and create a new project.
 2. Find and select the **Blazor App** template. Click **Next** to proceed.
-3. Set the project name and click **Create**.
+3. Specify the project name and click **Create**.
 4. Select **.NET 5.0** and **Blazor WebAssembly App** and click **Create**.
 
 ## Step 2: Add the XPO Package
@@ -32,7 +32,7 @@ Use any of the following approaches to install the XPO package:
 
 **Package Manager Console**
 
-  * From the Visual Studio **Tools** menu, select **NuGet Package Manager > Package Manager Console**.
+  * From Visual Studio's **Tools** menu, select **NuGet Package Manager > Package Manager Console**.
   * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 20.2 Local** and run the following command: 
      ```console
     Install-Package DevExpress.Xpo -Version 20.2
@@ -40,9 +40,9 @@ Use any of the following approaches to install the XPO package:
 
 **NuGet Package Manager**
 
-  * In **Solution Explorer**, right-click the project name and select **Manage NuGet Packages**.
+  * In the **Solution Explorer**, right-click the project name and select **Manage NuGet Packages**.
   * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 20.2 Local** on the right.
-  * In the top left corner under **Browse**, search for the `DevExpress.Xpo` package and select the latest version, v20.2, on the right.
+  * In the top left corner under **Browse**, search for the `DevExpress.Xpo` package and select the latest version (v20.2) on the right.
   * Click **Install** and accept all licenses in the **License Acceptance** dialogs. 
 
 For more information, see the following:
@@ -64,7 +64,7 @@ For more information, see the following:
 ## Step 5: Configure Database Connection
 
 1. If you created an ASP.NET Core hosted application, configure the database connection and add controllers in the service project as described here: [How to create an ASP.NET Core Web API Data Store service](/Tutorials/ASP.NET/WebApi/). Otherwise, add [WebApiApplication](/Tutorials/ASP.NET/WebApi/CS) project to your solution and modify the connection settings in the Startup.cs file.
-2. In the client app, open the Program.cs file, and add the following code to the Main method:
+2. In the client app, open the Program.cs file and add the following code to the Main method:
     ```csharp
     builder.Services.AddXpoDefaultUnitOfWork(true, options =>
       options.UseConnectionString(WebApiDataStoreClient.GetConnectionString("https://localhost:44307/xpo/"))
@@ -84,6 +84,6 @@ For more information, see the following:
 4. Use the [UnitOfWork.GetObjectByKeyAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.GetObjectByKeyAsync.overloads) method to retrieve a single object.
 5. Use the [UnitOfWork.CommitChangesAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.UnitOfWork.CommitChangesAsync.overloads) method to save changes.
 
-For implementation details, see files in the following folder: [Blazor.Client/Pages](/Tutorials/ASP.NET/Blazor.Client/CS/Pages).
+For information about implementation, refer to the files in the following folder: [Blazor.Client/Pages](/Tutorials/ASP.NET/Blazor.Client/CS/Pages).
 
 PS: In this example, we used [DevExpress UI components for Blazor](https://demos.devexpress.com/blazor/). Refer to the following help topic to learn how to install the DevExpress.Blazor package: [Get Started > Create an Application](https://docs.devexpress.com/Blazor/401057/getting-started/create-an-application).
