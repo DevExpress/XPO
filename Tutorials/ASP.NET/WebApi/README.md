@@ -1,6 +1,6 @@
 ## Overview
 
-This tutorial demonstrates how to create an ASP.NET Core Web API service that supports the [WebApiDataStoreClient](http://docs.devexpress.com/XPO/DevExpress.Xpo.DB.WebApiDataStoreClient) provider. For additional information about WebApiDataStoreClient, refer to the following help topic: [Transfer Data via REST API](http://docs.devexpress.com/XPO/402182/connect-to-a-data-store/transfer-data-via-rest-api).
+This tutorial explains how to create an ASP.NET Core Web API service that supports the [WebApiDataStoreClient](http://docs.devexpress.com/XPO/DevExpress.Xpo.DB.WebApiDataStoreClient) provider. For additional information about WebApiDataStoreClient, refer to the following help topic: [Transfer Data via REST API](http://docs.devexpress.com/XPO/402182/connect-to-a-data-store/transfer-data-via-rest-api).
 
 ## Prerequisites
 
@@ -13,13 +13,13 @@ This tutorial demonstrates how to create an ASP.NET Core Web API service that su
 
 1. Open Visual Studio and create a new project.
 
-2. Search for the **ASP.NET Core Web Application** template. Click **Next** to proceed.
+2. Search for the **ASP.NET Core Web Application** template, select it, and click **Next** to proceed.
 
 3. Set the project name and click **Create**.
 
 4. Select **ASP.NET Core 5.0** and **API** and click Create.
 
-For more information, see the following:
+See also:
 
   * [Create web APIs with ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/web-api)
   
@@ -42,7 +42,7 @@ Use any of the following approaches to install the XPO package:
 * In the left top corner under **Browse**, search for the `DevExpress.Xpo` package and select the latest version on the right.
 * Click **Install** on the right and accept all the licenses in the **License Acceptance** dialogs.    
 
-For more information, see the following:
+See also:
 
   * https://www.nuget.org/
   * https://nuget.devexpress.com/
@@ -80,7 +80,7 @@ For more information, see the following:
 
 ## Step 4: Add a Web API controller
 
-1. In the **Solution Explorer**, select the **Controllers** folder and create the *XpoController.cs* file (the file and class names are up to you).
+1. In the **Solution Explorer**, select the **Controllers** folder and create the *XpoController.cs* file.
 2. Declare the XpoController class inherited from [Microsoft.AspNetCore.Mvc.ControllerBase](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase).
 3. Add the [ApiController](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) and [Route](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.routeattribute) attributes to the XpoController class.
     ```cs

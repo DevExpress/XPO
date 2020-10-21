@@ -1,6 +1,6 @@
 ## Overview
 
-This tutorial demonstrates how to create a client-side Blazor application that uses the DevExpress ORM Library (XPO) to access and manage data. In this tutorial, we use an [intermediate Web API service](../../WebApi) to communicate with the database.
+This tutorial explains how to create a client-side Blazor application that uses the DevExpress ORM Library (XPO) to access and manage data. In this tutorial, we use an [intermediate Web API service](../../WebApi) to communicate with the database.
 
 <p align="center">
   <img width="562" src="/Tutorials/images/Blazor.ClientSide/1.1.png">
@@ -45,18 +45,18 @@ Use any of the following approaches to install the XPO package:
   * In the top left corner under **Browse**, search for the `DevExpress.Xpo` package and select the latest version (v20.2) on the right.
   * Click **Install** and accept all licenses in the **License Acceptance** dialogs. 
 
-For more information, see the following:
+See also:
 
   * https://www.nuget.org/
   * https://nuget.devexpress.com/
 
 ## Step 3: Create ORM Data Model
 
-Refer to the following help topic to learn how to accomplish this task: [Create a Data Model](https://docs.devexpress.com/XPO/401951/create-a-data-model).
+If you want to let XPO create a new database for you, follow instructions in this help topic: [Create a Data Model](https://docs.devexpress.com/XPO/401951/create-a-data-model).
 
-If you want to connect ORM Data Model to an existing database, use the [Data Model Wizard](https://docs.devexpress.com/XPO/14810/design-time-features/data-model-wizard) to generate XPO classes.
+If you want to connect your application to an existing database, use the [Data Model Wizard](https://docs.devexpress.com/XPO/14810/design-time-features/data-model-wizard) to generate XPO classes.
 
-For more information, see the following:
+See also:
 
   * [Object Relational Mapping](https://docs.devexpress.com/XPO/2017/feature-center/object-relational-mapping)
   * [Persisting Objects](https://docs.devexpress.com/XPO/2025/feature-center/data-exchange-and-manipulation/persisting-objects)
@@ -73,7 +73,7 @@ For more information, see the following:
       .UseEntityTypes(typeof(Customer), typeof(Order)));
     ```
 
-For more information, see the following:
+See also:
 [ASP.NET Core Dependency Injection in XPO](https://supportcenter.devexpress.com/ticket/details/t637597)
 
 ## Step 6: Add views and implement data access methods
@@ -86,4 +86,4 @@ For more information, see the following:
 
 For information about implementation, refer to the files in the following folder: [Blazor.Client/Pages](/Tutorials/ASP.NET/Blazor.Client/CS/Pages).
 
-PS: In this example, we used [DevExpress UI components for Blazor](https://demos.devexpress.com/blazor/). Refer to the following help topic to learn how to install the DevExpress.Blazor package: [Get Started > Create an Application](https://docs.devexpress.com/Blazor/401057/getting-started/create-an-application).
+In this example, we used [DevExpress UI components for Blazor](https://demos.devexpress.com/blazor/). Refer to the following help topic for additional information: [Get Started > Create an Application](https://docs.devexpress.com/Blazor/401057/getting-started/create-an-application).
