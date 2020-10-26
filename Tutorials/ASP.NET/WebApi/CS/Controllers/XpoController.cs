@@ -15,7 +15,7 @@ namespace WebApiApplication.Controllers {
         }
         [HttpGet]
         public string Hello() {
-            return "Use WebApiDataStoreClient to connect to this service.";
+            return "Use WebApiDataStoreClient to connect to this service. See also: https://docs.devexpress.com/XPO/402182/connect-to-a-data-store/transfer-data-via-rest-api";
         }
         [HttpPost]
         [EnableCors("XPO")]

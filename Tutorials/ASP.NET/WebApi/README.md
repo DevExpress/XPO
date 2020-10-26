@@ -116,4 +116,5 @@ See also:
 You can find the complete code in the following file: [XpoController.cs](https://github.com/DevExpress/XPO/blob/master/Tutorials/ASP.NET/WebApi/CS/Controllers/XpoController.cs).
 
 See also:
+[Transfer Data via REST API](https://docs.devexpress.com/XPO/402182/connect-to-a-data-store/transfer-data-via-rest-api)
 [How to Implement OData v4 Service with XPO (.NET Core 3.1)](https://github.com/DevExpress-Examples/XPO_how-to-implement-odata4-service-with-xpo-netcore)   
