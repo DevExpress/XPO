@@ -13,7 +13,7 @@ This tutorial explains how to create an ASP.NET Core Web API service that suppor
 
 1. Open Visual Studio and create a new project.
 
-2. Search for the **ASP.NET Core Web Application** template, select it, and click **Next** to proceed.
+2. Select the **ASP.NET Core Web Application** template and click **Next**.
 
 3. Set the project name and click **Create**.
 

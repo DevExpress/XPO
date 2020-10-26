@@ -52,7 +52,7 @@ See also:
 
 ## Step 3: Create ORM Data Model
 
-If you want to let XPO create a new database for you, follow instructions in this help topic: [Create a Data Model](https://docs.devexpress.com/XPO/401951/create-a-data-model).
+If you want to let XPO create a new database for you, refer to the following help for instructions how to accomplish this task: [Create a Data Model](https://docs.devexpress.com/XPO/401951/create-a-data-model).
 
 If you want to connect your application to an existing database, use the [Data Model Wizard](https://docs.devexpress.com/XPO/14810/design-time-features/data-model-wizard) to generate XPO classes.
 
