@@ -5,12 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v20.2">
-      <HintPath>D:\GitLab\Core\Bin\NETCore\DevExpress.Data.v20.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Xpo.v20.2">
-      <HintPath>D:\GitLab\Core\Bin\NETCore\DevExpress.Xpo.v20.2.dll</HintPath>
-    </Reference>
+    <PackageReference Include="DevExpress.Xpo" Version="20.2.3" />
   </ItemGroup>
 
 
