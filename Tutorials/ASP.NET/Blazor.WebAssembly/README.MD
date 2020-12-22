@@ -1,6 +1,6 @@
 ## Overview
 
-This tutorial explains how to create a client-side Blazor application that uses the DevExpress ORM Library (XPO) to access and manage data. In this tutorial, we use an [intermediate Web API service](../../WebApi/README.md) to communicate with the database.
+This tutorial explains how to create a client-side Blazor application that uses the DevExpress ORM Library (XPO) to access and manage data. In this tutorial, we use an [intermediate Web API service](../WebApi/README.md) to communicate with the database.
 
 <p align="center">
   <img width="562" src="/Tutorials/images/Blazor.ClientSide/1.1.png">
