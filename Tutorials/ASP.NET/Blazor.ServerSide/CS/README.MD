@@ -230,7 +230,7 @@ For more information, see the following:
         }
       },
       "ConnectionStrings": {
-        "ImMemoryDataStore": "XpoProvider=InMemoryDataStore;"
+        "InMemoryDataStore": "XpoProvider=InMemoryDataStore;"
       }
     }
     ```
