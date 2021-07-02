@@ -9,6 +9,6 @@ jobs:
         steps:
         - name: Format message
           id: format
-          uses: DevExpress/issue-action@1.2.5
+          uses: DevExpress/issue-action@1.2.6
         - name: Send message
           run: "curl --silent --show-error --fail -X POST ${{secrets.ISSUE_WATCHER_ADDRESS}} -H 'Content-Type: application/json' -d '${{ steps.format.outputs.json }}'"
