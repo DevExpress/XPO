@@ -1,8 +1,8 @@
 ﻿@page "/orders/create"
 @page "/orders/{ID:int}/edit"
 
-@inject UnitOfWork UnitOfWork;
 @inject NavigationManager NavigationManager
+@inherits OwningComponentBase<UnitOfWork>
 
 @if(order == null) {
     <h1>Loading...</h1>
@@ -57,15 +57,15 @@
         }
     }
     protected async override Task OnInitializedAsync() {
-        customers = await UnitOfWork.Query<Customer>().ToListAsync();
+        customers = await Service.Query<Customer>().ToListAsync();
         if(ID.HasValue)
-            order = await UnitOfWork.GetObjectByKeyAsync<Order>(ID.Value);
+            order = await Service.GetObjectByKeyAsync<Order>(ID.Value);
         else
-            order = new Order(UnitOfWork);
+            order = new Order(Service);
     }
     async Task Save() {
         try {
-            await UnitOfWork.CommitChangesAsync();
+            await Service.CommitChangesAsync();
             NavigationManager.NavigateTo("/orders");
         } catch(Exception ex) {
             errorMessage = ex.Message;

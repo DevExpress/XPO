@@ -1,7 +1,7 @@
 ﻿@page "/orders"
 
-@inject UnitOfWork UnitOfWork;
 @inject NavigationManager NavigationManager
+@inherits OwningComponentBase<UnitOfWork>
 
 <h1>Orders</h1>
 <DxDataGrid Data="@orders">
@@ -34,18 +34,18 @@
     string errorMessage;
 
     protected override void OnInitialized() {
-        orders = UnitOfWork.Query<Order>();
+        orders = Service.Query<Order>();
     }
     async Task Delete(Order order) {
         operationInProgress = true;
         try {
-            UnitOfWork.Delete(order);
-            await UnitOfWork.CommitChangesAsync();
+            Service.Delete(order);
+            await Service.CommitChangesAsync();
         } catch(Exception ex) {
             errorMessage = ex.Message;
         } finally {
             operationInProgress = false;
-            orders = UnitOfWork.Query<Order>();
+            orders = Service.Query<Order>();
         }
     }
     void Edit(Order order) {
