@@ -84,6 +84,6 @@ See also:
 4. Use the [UnitOfWork.GetObjectByKeyAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.Session.GetObjectByKeyAsync.overloads) method to retrieve a single object.
 5. Use the [UnitOfWork.CommitChangesAsync](https://docs.devexpress.com/XPO/DevExpress.Xpo.UnitOfWork.CommitChangesAsync.overloads) method to save changes.
 
-For information about implementation, refer to the files in the following folder: [Blazor.Client/Pages](/Tutorials/ASP.NET/Blazor.Client/CS/Pages).
+For information about implementation, refer to the files in the following folder: [Blazor.WebAssembly/CS/Pages](/Tutorials/ASP.NET/Blazor.WebAssembly/CS/Pages).
 
 In this example, we used [DevExpress UI components for Blazor](https://demos.devexpress.com/blazor/). Refer to the following help topic for additional information: [Get Started > Create an Application](https://docs.devexpress.com/Blazor/401057/getting-started/create-an-application).
