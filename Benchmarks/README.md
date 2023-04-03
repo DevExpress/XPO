@@ -1,4 +1,10 @@
-# .NET Core ORM Benchmark
+# .NET Core ORM Benchmark - OBSOLETE
+
+>**NOTE: This performance benchmark is for older XPO and EF Core versions and is no longer maintained.
+Please refer to
+[this web page that describes performance benchmarks for XPO v23.1 and EF Core 6-7 and their newer versions](https://github.com/DevExpress-Examples/XAF_Security_E4908/tree/23.1.1+/Benchmarks).**
+
+-------
 
 This project is a [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet)-based benchmark. We used it to test the performance of the following Object-Relational Mapping (ORM) libraries for .NET Core 3.1.3 and higher:<br/>
  - [Entity Framework 6.3.0](https://docs.microsoft.com/en-us/ef/ef6/) (EF 6);<br/>
