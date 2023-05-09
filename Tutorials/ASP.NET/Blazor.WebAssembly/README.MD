@@ -1,15 +1,15 @@
-This Blazor WebAssembly sample with XPO is obsolete. Instead, we published a new step-by-step tutorial and runnable sample on GitHub:
-[How to Create a Web API Service Backend for a Blazor WebAssembly Application with DevExpress Blazor Components](https://www.devexpress.com/go/XAF_Security_NonXAF_Blazor_WebAssembly.aspx). The backend uses EF Core for data access and is powered by the free [DevExpress Web API Service](https://www.devexpress.com/products/net/application_framework/security-web-api-service.xml) for CRUD and authorization.
+**This Blazor WebAssembly sample with XPO is obsolete. Instead, we published a new step-by-step tutorial and runnable sample on GitHub:
+[How to Create a Web API Service Backend for a Blazor WebAssembly Application with DevExpress Blazor Components](https://www.devexpress.com/go/XAF_Security_NonXAF_Blazor_WebAssembly.aspx). The backend uses EF Core for data access and is powered by the free [DevExpress Web API Service](https://www.devexpress.com/products/net/application_framework/security-web-api-service.xml) for CRUD and authorization.**
 
-The application works with blog post data. It authenticates a user with cookies, determines his or her permissions, and selectively enables the following data operations:
+**The application works with blog post data. It authenticates a user with cookies, determines his or her permissions, and selectively enables the following data operations:**
 
-* Lists existing Post records
-* Displays a photo of a Post author
-* Creates new Post records
-* Archives a Post record
-* Displays a report based on Post records
+* **Lists existing Post records**
+* **Displays a photo of a Post author**
+* **Creates new Post records**
+* **Archives a Post record**
+* **Displays a report based on Post records**
 
-To bind data from OData/Web API to the [DxGrid](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxGrid) component, our example implements a [GridCustomDataSource](https://docs.devexpress.com/Blazor/DevExpress.Blazor.GridCustomDataSource) descendant powered by [Simple.OData.Client](https://www.nuget.org/packages/Simple.OData.Client/) (MIT). We used this open source library instead of the standard [Microsoft OData client library](https://learn.microsoft.com/en-us/odata/client/using-blazor-wasm-with-odata-client) because the latter had a known issue ([https://github.com/OData/odata.net/issues/1970](https://github.com/OData/odata.net/issues/1970)), which prevented normal operation in Blazor WebAssembly at the time of testing.
+**To bind data from OData/Web API to the [DxGrid](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxGrid) component, our example implements a [GridCustomDataSource](https://docs.devexpress.com/Blazor/DevExpress.Blazor.GridCustomDataSource) descendant powered by [Simple.OData.Client](https://www.nuget.org/packages/Simple.OData.Client/) (MIT). We used this open source library instead of the standard [Microsoft OData client library](https://learn.microsoft.com/en-us/odata/client/using-blazor-wasm-with-odata-client) because the latter had a known issue ([https://github.com/OData/odata.net/issues/1970](https://github.com/OData/odata.net/issues/1970)), which prevented normal operation in Blazor WebAssembly at the time of testing.**
 
 ------------------------------
 
