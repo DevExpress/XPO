@@ -27,5 +27,14 @@ namespace BlazorServerSideApplication {
             get { return fCustomer; }
             set { SetPropertyValue(nameof(Customer), ref fCustomer, value); }
         }
+        [PersistentAlias("Iif(Customer Is Null, 0, Customer.Oid)")]
+        public int CustomerId {
+            get {
+                return Convert.ToInt32(EvaluateAlias(nameof(CustomerId)));
+            }
+            set {
+                Customer = value > 0 ? Session.GetObjectByKey<Customer>(value) : null;
+            }
+        }
     }
 }

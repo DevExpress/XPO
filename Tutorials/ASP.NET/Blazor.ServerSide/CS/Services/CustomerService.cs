@@ -1,7 +1,10 @@
-﻿using DevExpress.Xpo;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
+using DevExpress.Data.ODataLinq.Helpers;
+using DevExpress.Xpo;
 
 namespace BlazorServerSideApplication.Services {
 
@@ -23,6 +26,9 @@ namespace BlazorServerSideApplication.Services {
         public Task<IQueryable<Customer>> Get() {
             var query = (IQueryable<Customer>)readUnitOfWork.Query<Customer>();
             return Task.FromResult(query);
+        }
+        public Customer CreateObject() {
+           return new Customer(CreateModificationUnitOfWork());
         }
         public async Task Add(Dictionary<string, object> values) {
             using(UnitOfWork uow = CreateModificationUnitOfWork()) {
