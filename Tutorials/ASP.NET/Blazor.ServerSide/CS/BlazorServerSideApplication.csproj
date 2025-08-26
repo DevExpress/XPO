@@ -7,7 +7,6 @@
   <ItemGroup>
     <PackageReference Include="DevExpress.Blazor" Version="25.1.4" />
     <PackageReference Include="DevExpress.Xpo" Version="25.1.4" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
 </Project>
