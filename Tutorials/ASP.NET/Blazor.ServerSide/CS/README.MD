@@ -3,10 +3,10 @@
 This tutorial demonstrates how to create a server-side Blazor application that uses the DevExpress ORM Library (XPO) to access and manage data. In this tutorial, we store data [in memory](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore) in the JSON format.
 
 <p align="center">
-  <img width="562" src="/Tutorials/images/Blazor.ServerSide/View1.png">
+  <img width="562" src="/Tutorials/images/Blazor.ServerSide/View1.jpg">
 </p>
 <p align="center">
-  <img width="800" src="/Tutorials/images/Blazor.ServerSide/View2.png">
+  <img width="800" src="/Tutorials/images/Blazor.ServerSide/View2.jpg">
 </p>
 
 ## Prerequisites
@@ -288,10 +288,10 @@ For more information, see the following:
 1. Press **F5** to build and run the application. The web browser should show the _Customers_ list. You can create, edit or delete customers.
 2. You can also view and edit customer related orders in a separate form.
 <p align="center">
-  <img width="562" src="/Tutorials/images/Blazor.ServerSide/View1.png">
+  <img width="562" src="/Tutorials/images/Blazor.ServerSide/View1.jpg">
 </p>
 <p align="center">
-  <img width="800" src="/Tutorials/images/Blazor.ServerSide/View2.png">
+  <img width="800" src="/Tutorials/images/Blazor.ServerSide/View2.jpg">
 </p>
 
 ## Known Issues
