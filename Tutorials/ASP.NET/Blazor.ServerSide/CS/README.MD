@@ -1,6 +1,6 @@
 ## Overview
 
-This tutorial demonstrates how to create a server-side Blazor application that uses the DevExpress ORM Library (XPO) to access and manage data. In this tutorial, we store data [in memory](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore) in the JSON format.
+This tutorial demonstrates how to create a server-side Blazor application that uses the DevExpress ORM Library (XPO) to access and manage data. In this tutorial, we store data [in memory](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore).
 
 <p align="center">
   <img width="562" src="/Tutorials/images/Blazor.ServerSide/View1.jpg">
@@ -15,7 +15,6 @@ This tutorial demonstrates how to create a server-side Blazor application that u
   * **ASP.NET and web development**
   * **.NET Core cross-platform development**
 * [.NET 8 SDK or later](https://www.microsoft.com/net/download/all)
-* [Newtonsoft.Json library](https://www.newtonsoft.com/json)
 * [DevExpress UI Components for Blazor](https://www.devexpress.com/blazor/)
 * [Bootstrap 4.1](https://getbootstrap.com/docs/4.1/getting-started/download/) & [jQuery](https://jquery.com/download/) for Bootstrap's [modal dialog](https://getbootstrap.com/docs/4.1/components/modal/)
 
