@@ -3,18 +3,18 @@
 This tutorial demonstrates how to create a server-side Blazor application that uses the DevExpress ORM Library (XPO) to access and manage data. In this tutorial, we store data [in memory](https://docs.devexpress.com/XPO/DevExpress.Xpo.DB.InMemoryDataStore) in the JSON format.
 
 <p align="center">
-  <img width="562" src="/Tutorials/images/Blazor.ServerSide/7.1.png">
+  <img width="562" src="/Tutorials/images/Blazor.ServerSide/View1.png">
 </p>
 <p align="center">
-  <img width="800" src="/Tutorials/images/Blazor.ServerSide/7.2.png">
+  <img width="800" src="/Tutorials/images/Blazor.ServerSide/View2.png">
 </p>
 
 ## Prerequisites
 
-* [Visual Studio 2019 16.4.5 or later](https://visualstudio.com/) with the following workloads:
+*[Visual Studio 2022 v17.0+](https://visualstudio.microsoft.com/vs/) with the following workloads:
   * **ASP.NET and web development**
   * **.NET Core cross-platform development**
-* [.NET Core 3.1 SDK or later](https://www.microsoft.com/net/download/all)
+* [.NET 8 SDK or later](https://www.microsoft.com/net/download/all)
 * [Newtonsoft.Json library](https://www.newtonsoft.com/json)
 * [DevExpress UI Components for Blazor](https://www.devexpress.com/blazor/)
 * [Bootstrap 4.1](https://getbootstrap.com/docs/4.1/getting-started/download/) & [jQuery](https://jquery.com/download/) for Bootstrap's [modal dialog](https://getbootstrap.com/docs/4.1/components/modal/)
@@ -72,15 +72,7 @@ For more information, see the following:
 * [Introduction to Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-3.0)
 * [DevExpress UI for Blazor Demos](https://github.com/DevExpress/Blazor)
 
-## Step 2: Add the Newtonsoft.Json and DevExpress XPO Packages
-
-### Add the Newtonsoft.Json Package
-
-In this tutorial, we store data in memory in the JSON format. To serialize and deserialize data, we use the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) package. Run the following command in the Package Manager Console to install the package: 
-
-```console
-Install-Package Newtonsoft.Json -Version 12.0.3
-```
+## Step 2: DevExpress XPO Packages
 
 ### Add the XPO Package
 
@@ -89,9 +81,9 @@ Use any of the following approaches to install the XPO package:
 **Package Manager Console**
 
   * From the Visual Studio **Tools** menu, select **NuGet Package Manager > Package Manager Console**.
-  * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 20.1 Local** and run the following command: 
+  * Make sure **Package source** is set to **All**, **nuget.org** or **DevExpress 25.1 Local** and run the following command: 
      ```console
-    Install-Package DevExpress.Xpo -Version 20.1
+    Install-Package DevExpress.Xpo -Version 25.1.4
     ```
 
 **NuGet Package Manager**
@@ -296,10 +288,10 @@ For more information, see the following:
 1. Press **F5** to build and run the application. The web browser should show the _Customers_ list. You can create, edit or delete customers.
 2. You can also view and edit customer related orders in a separate form.
 <p align="center">
-  <img width="562" src="/Tutorials/images/Blazor.ServerSide/7.1.png">
+  <img width="562" src="/Tutorials/images/Blazor.ServerSide/View1.png">
 </p>
 <p align="center">
-  <img width="800" src="/Tutorials/images/Blazor.ServerSide/7.2.png">
+  <img width="800" src="/Tutorials/images/Blazor.ServerSide/View2.png">
 </p>
 
 ## Known Issues
