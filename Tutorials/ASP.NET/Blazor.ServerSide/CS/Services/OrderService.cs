@@ -11,11 +11,7 @@ namespace BlazorServerSideApplication.Services {
             var query = (IQueryable<Order>)readUnitOfWork.Query<Order>();
             return Task.FromResult(query);
         }
-        public Order CreateObject(Session session) {
-            return new Order(session);
-        }
         public Task<IQueryable<Order>> GetCustomerOrders(int customerOid) {
-            readUnitOfWork.ReloadChangedObjects();
             var query = readUnitOfWork.Query<Order>().Where(order => order.Customer.Oid == customerOid);
             return Task.FromResult(query);
         }

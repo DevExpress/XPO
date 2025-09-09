@@ -1,47 +1,34 @@
 ﻿@page "/"
 @using BlazorServerSideApplication
 @using BlazorServerSideApplication.Services
-@using DevExpress.Xpo;
+
 @inject CustomerService CustomerService
 @inject OrderService OrderService
 
 <h1>Customers</h1>
 
-@if (customers == null)
-{
+@if(customers == null) {
     <p><em>Loading...</em></p>
-}
-else
-{
+} else {
 
-    <DxGrid @ref="customerGrid" Data="@customers"
-            KeyFieldName="Oid"
-            PageSize="10"
-            ShowFilterRow="true"
-            CustomizeEditModel="Grid_CustomizeEditModel_Customer"
-            EditMode="GridEditMode.EditRow"
-            EditModelSaving="Grid_EditModelSaving_Customer" DataItemDeleting="Grid_DataItemDeleting_Customer">
-        <Columns>
-            <DxGridCommandColumn Width="100px"></DxGridCommandColumn>
-            <DxGridDataColumn Width="100px"
-                              FieldName="@nameof(Customer.Oid)"
-                              Visible="true" DataRowEditorVisible="false">
-            </DxGridDataColumn>
-            <DxGridDataColumn FieldName="@nameof(Customer.FirstName)"></DxGridDataColumn>
-            <DxGridDataColumn FieldName="@nameof(Customer.LastName)"></DxGridDataColumn>
+    <DxDataGrid Data=@customers KeyFieldName="Oid"
+                AllowDataRowSelection=false PageSize="10" ShowFilterRow=true
+                RowRemoving=@( (dataItem) => this.OnRowRemoving(dataItem) )
+                RowUpdating=@( (updatingDataItem, values) => OnRowUpdating(updatingDataItem, values) )
+                RowInserting=@( (values) => OnRowInserting(values, typeof(Customer)) )>
 
-            <DxGridCommandColumn Width="100px">
-                <CellDisplayTemplate>
-                    <button class="btn btn-link dxbs-button"
-                            onclick="@(() => LoadOrdersAsync((Customer)context.DataItem))"
-                            data-toggle="modal"
-                            data-target="#exampleModal">
-                        Orders
-                    </button>
-                </CellDisplayTemplate>
-            </DxGridCommandColumn>
-        </Columns>
-    </DxGrid>
+        <DxDataGridCommandColumn Width="100px"></DxDataGridCommandColumn>
+        <DxDataGridColumn Width="100px" Field=@nameof(Customer.Oid) Visible="true" EditorVisible="false"></DxDataGridColumn>
+        <DxDataGridColumn Field=@nameof(Customer.FirstName)></DxDataGridColumn>
+        <DxDataGridColumn Field=@nameof(Customer.LastName)></DxDataGridColumn>
+        <DxDataGridCommandColumn Width="50px">
+            <CellTemplate>
+                <button class="btn btn-link dxbs-button" @onclick="@( ()=>OnClickCustomerOrders((Customer)context) )" data-toggle="modal" data-target="#exampleModal">Orders</button>
+            </CellTemplate>
+            <HeaderCellTemplate></HeaderCellTemplate>
+            <HeaderFilterCellTemplate></HeaderFilterCellTemplate>
+        </DxDataGridCommandColumn>
+    </DxDataGrid>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -53,46 +40,23 @@ else
                     </button>
                 </div>
                 <div class="modal-body">
-                    @if (selectedCustomerOrders != null && SelectedCustomer != null)
-                    {
-                        <DxGrid @ref="orderGrid" Data=selectedCustomerOrders
-                                KeyFieldName="Oid"
-                                PageSize="5"
-                                ShowFilterRow="false"
-                                CustomizeEditModel="Grid_CustomizeEditModel_Order"
-                                EditMode="GridEditMode.EditRow"
-                                EditModelSaving="Grid_EditModelSaving_Order" DataItemDeleting="Grid_DataItemDeleting_Order">
-                            <Columns>
-                                <DxGridCommandColumn Width="100px"></DxGridCommandColumn>
-
-                                <DxGridDataColumn FieldName="@nameof(Order.Oid)"
-                                                  Visible="true"
-                                                  DataRowEditorVisible="false">
-                                </DxGridDataColumn>
-
-                                <DxGridDataColumn FieldName="@nameof(Order.OrderDate)"
-                                                  DisplayFormat="d">
-                                </DxGridDataColumn>
-
-                                <DxGridDataColumn FieldName="@nameof(Order.ProductName)">
-                                </DxGridDataColumn>
-
-                                <DxGridDataColumn FieldName="@nameof(Order.Freight)"
-                                                  DisplayFormat="n2">
-                                </DxGridDataColumn>
-
-                                <DxGridDataColumn FieldName="@nameof(Order.CustomerId)"
-                                                  Caption="Customer" >
-                                    <EditSettings>
-                                        <DxComboBoxSettings Data="@customers"
-                                                            TextFieldName="ContactName"
-                                                            ValueFieldName="Oid"
-                                                            >
-                                        </DxComboBoxSettings>
-                                    </EditSettings>
-                                </DxGridDataColumn>
-                            </Columns>
-                        </DxGrid>
+                    @if(selectedCustomerOrders != null && SelectedCustomer != null) {
+                        <DxDataGrid Data=@selectedCustomerOrders KeyFieldName="Oid"
+                                    AllowDataRowSelection=false PageSize=5 ShowFilterRow=false
+                                    RowRemoving=@( (dataItem) => this.OnRowRemoving(dataItem) )
+                                    RowUpdating=@( (updatingDataItem, values) => OnRowUpdating(updatingDataItem, values))
+                                    RowInserting=@( (values) => OnRowInserting(values, typeof(Order)))>
+                            <DxDataGridCommandColumn Width="100px"></DxDataGridCommandColumn>
+                            <DxDataGridColumn Field="@nameof(Order.Oid)" Visible="true" EditorVisible="false">
+                            </DxDataGridColumn>
+                            <DxDataGridDateEditColumn Field=@nameof(Order.OrderDate)></DxDataGridDateEditColumn>
+                            <DxDataGridColumn Field=@nameof(Order.ProductName)></DxDataGridColumn>
+                            <DxDataGridSpinEditColumn Field=@nameof(Order.Freight)></DxDataGridSpinEditColumn>
+                            <DxDataGridComboBoxColumn Field=@(nameof(Customer)+"!")
+                                                      Data=@customers TextFieldName="ContactName"
+                                                      Caption=@nameof(Customer)>
+                            </DxDataGridComboBoxColumn>
+                        </DxDataGrid>
                     }
                 </div>
                 <div class="modal-footer">
@@ -105,104 +69,53 @@ else
 
 
 @code {
-    DxGrid customerGrid;
-    DxGrid orderGrid;
     private IQueryable<Customer> customers;
     private IQueryable<Order> selectedCustomerOrders;
 
     private Customer SelectedCustomer { get; set; }
 
-    protected override async Task OnInitializedAsync()
-    {
-        await LoadCustomerAsync();
-    }
-    private async Task LoadCustomerAsync() {
+    protected override async Task OnInitializedAsync() {
         customers = await CustomerService.Get();
-        customers = customers.OrderByDescending(item => item.Oid);
     }
-    async Task LoadOrdersAsync(Customer item) {
-        SelectedCustomer = item;
+    async void OnRowInserting(Dictionary<string, object> values, Type type) {
+        if(type == typeof(Customer)) {
 
-        selectedCustomerOrders = await OrderService.GetCustomerOrders(item.Oid);
-        selectedCustomerOrders = selectedCustomerOrders.OrderByDescending(o => o.Oid);
-
+            await CustomerService.Add(values);
+        } else if(type == typeof(Order)) {
+            await OrderService.Add(values, SelectedCustomer.Oid);
+        }
         StateHasChanged();
     }
-    void Grid_CustomizeEditModel_Customer(GridCustomizeEditModelEventArgs e) {
-        var dataItem = (Customer)e.DataItem;
-        var customer = CustomerService.CreateObject();
-        e.EditModel = customer;
-        if (dataItem != null) {
-            customer.Oid = dataItem.Oid;
-            customer.FirstName = dataItem.FirstName;
-            customer.LastName = dataItem.LastName;
+    async void OnRowUpdating(object item, Dictionary<string, object> values) {
+        Customer customer = item as Customer;
+        if(customer != null) {
+            await CustomerService.Update(customer.Oid, values);
+        } else {
+            Order order = item as Order;
+            if(order != null) {
+                await OrderService.Update(order.Oid, values);
+            }
         }
+        StateHasChanged();
     }
-    void Grid_CustomizeEditModel_Order(GridCustomizeEditModelEventArgs e) {
-        var dataItem = (Order)e.DataItem;
-        var order = OrderService.CreateObject(SelectedCustomer.Session);
-        e.EditModel = order;
-        if (dataItem != null) {
-            order.Oid = dataItem.Oid;
-            order.OrderDate = dataItem.OrderDate;
-            order.ProductName = dataItem.ProductName;
-            order.Freight = dataItem.Freight;
-            order.Customer = dataItem.Customer;
+    async void OnRowRemoving(object item) {
+        Customer customer = item as Customer;
+        if(customer != null) {
+            await CustomerService.Delete(customer.Oid);
+        } else {
+            Order order = item as Order;
+            if(order != null) {
+                await OrderService.Delete(order.Oid);
+            }
         }
-        else {
-            order.Customer =  SelectedCustomer;
-        }
+        StateHasChanged();
     }
-    async void Grid_EditModelSaving_Customer(GridEditModelSavingEventArgs e) {
-        Customer customer = null;
-        customer = (Customer)e.EditModel;
-        var customerChanges = GetCustomerChanges(customer);
-        if (e.IsNew) {
-            await CustomerService.Add(customerChanges);
-        }
-        else {
-            await CustomerService.Update(customer.Oid, customerChanges);
-        }
-        await LoadCustomerAsync();
+    async void OnClickCustomerOrders(Customer item) {
+        SelectedCustomer = item;
+        selectedCustomerOrders = await OrderService.GetCustomerOrders(item.Oid);
+        StateHasChanged();
     }
-    async void Grid_EditModelSaving_Order(GridEditModelSavingEventArgs e)
-    {
-        Order order = null;
-        order = (Order)e.EditModel;
-        var orderChanges = GetOrderChanges(order);
-        if (e.IsNew){
-            await OrderService.Add(orderChanges, SelectedCustomer.Oid);
-        }
-        else {
-            await OrderService.Update(order.Oid, orderChanges);
-        }
-        await LoadOrdersAsync(SelectedCustomer);
-    }
-
-    async void Grid_DataItemDeleting_Customer(GridDataItemDeletingEventArgs e)
-    {
-        await CustomerService.Delete(((Customer)e.DataItem).Oid);
-        await LoadCustomerAsync();
-    }
-    async void Grid_DataItemDeleting_Order(GridDataItemDeletingEventArgs e) {
-        await OrderService.Delete(((Order)e.DataItem).Oid);
-        await LoadOrdersAsync(SelectedCustomer);
-    }
-
-    private Dictionary<string, object> GetCustomerChanges(Customer obj) {
-        var propertiesMapping = new Dictionary<string, object> {
-            { nameof(Customer.FirstName), obj.FirstName },
-            { nameof(Customer.LastName), obj.LastName },
-        };
-        return propertiesMapping;
-    }
-    private Dictionary<string, object> GetOrderChanges(Order obj) {
-        var propertiesMapping = new Dictionary<string, object> {
-            { nameof(Order.OrderDate), obj.OrderDate },
-            { nameof(Order.ProductName), obj.ProductName },
-            { nameof(Order.Freight), obj.Freight },
-            { nameof(Order.CustomerId), obj.CustomerId }
-        };
-        return propertiesMapping;
+    void OnSelectedItemChanged(Customer customerReference, CellEditContext context) {
+        context.OnChanged(customerReference != null ? (object)customerReference.Oid : null);
     }
 }
