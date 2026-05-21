@@ -98,7 +98,6 @@ Use any of the following approaches to install the XPO package:
 For more information, see the following:
 
   * https://www.nuget.org/
-  * https://nuget.devexpress.com/
 
 ## Step 3: Create ORM Data Model and Seed Initial Data
 
