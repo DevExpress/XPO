@@ -45,7 +45,6 @@ Use any of the following approaches to install the XPO package:
 See also:
 
   * https://www.nuget.org/
-  * https://nuget.devexpress.com/
 
 ## Step 3: Register DevExpress.Xpo.DB.WebApiDataStoreService
 
